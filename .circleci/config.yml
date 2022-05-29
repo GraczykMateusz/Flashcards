@@ -4,9 +4,6 @@ workflows:
   astral-prod:
     jobs:
       - build-and-deploy-frontend:
-          site: astral
-          context: astral-prod
-          environment: prod
           filters:
             tags:
               only: /^v.*/
@@ -15,20 +12,14 @@ workflows:
 
 jobs:
   build-and-deploy-frontend:
-    parameters:
-      site:
-        type: string
-      environment:
-        type: string
-        default: test
     docker:
       - image: cimg/node:14.18.0
     steps:
       - checkout
       - restore_cache:
           keys:
-            - <<parameters.site>>-<<parameters.environment>>-{{ checksum "package.json" }}
-            - <<parameters.site>>-<<parameters.environment>>-
+            - astral-{{ checksum "package.json" }}
+            - astral-
       - run:
           name: install dependencies
           command: npm install
@@ -37,17 +28,17 @@ jobs:
           command: npm install --save-dev firebase-tools
       - run:
           name: build module
-          command: npm run-script build-<<parameters.environment>>
+          command: npm run-script build
 
       - save_cache:
           paths:
             - ~/node_modules
-          key: <<parameters.site>>-<<parameters.environment>>-{{ checksum "package.json" }}
+          key: astral-{{ checksum "package.json" }}
 
       - run:
           name: Deploy to hosting
           command: |
             echo ${CI_SA_KEY} > /tmp/key.json
-            ./node_modules/.bin/firebase deploy -P <<parameters.environment>> --only hosting:<<parameters.site>> --project ${GCP_PROJECT_ID}
+            ./node_modules/.bin/firebase deploy -P --only hosting:astral --project ${GCP_PROJECT_ID}
           environment:
             GOOGLE_APPLICATION_CREDENTIALS: /tmp/key.json
