@@ -7,6 +7,8 @@ workflows:
           filters:
             tags:
               only: /^v.*/
+            branches:
+              ignore: /.*/
 
 jobs:
   build-and-deploy-frontend:
@@ -36,5 +38,3 @@ jobs:
       - run:
           name: Deploy to hosting
           command: ./node_modules/.bin/firebase deploy --token "$FIREBASE_TOKEN"
-          environment:
-            GOOGLE_APPLICATION_CREDENTIALS: /tmp/key.json
