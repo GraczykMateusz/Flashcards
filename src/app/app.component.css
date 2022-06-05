@@ -1,0 +1,56 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+h1, h2 {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+h3 {
+  display: inline-flex;
+  text-align: center;
+  color: #652ecb;
+  letter-spacing: 2px;
+  margin-top: auto;
+}
+
+.title {
+  margin-top: 1%;
+  font-size: 6em;
+  -webkit-text-stroke: 1px #fff8f8;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 0;
+}
+
+.subtitle {
+  margin-top: 0;
+  margin-bottom: 1.5%;
+  font-size: 2.2em;
+  color: #1c13c5;
+  font-weight: 600;
+  letter-spacing: 5px;
+}
+
+img {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  /*filter: blur(0);*/
+  /*transition: 1s filter linear;*/
+  /*-webkit-transition: 1s -webkit-filter linear;*/
+  /*-moz-transition: 1s -moz-filter linear;*/
+  /*-ms-transition: 1s -ms-filter linear;*/
+  /*-o-transition: 1s -o-filter linear;*/
+}
+
+img:hover {
+  cursor: pointer;
+  /*filter: blur(0.18em);*/
+}

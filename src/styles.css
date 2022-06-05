@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  width: 100vw;
+  height: 100vh;
+  max-width: 100%;
+  margin: 0;
+
+  font-family: 'Common Pixel', sans-serif;
+
+  background: -webkit-linear-gradient(to right, #030303, #000357);
+  background: -moz-linear-gradient(to right, #030303, #000357);
+  background: -o-linear-gradient(to right, #030303, #000357);
+  background: linear-gradient(to right, #030303, #000357);
+}
