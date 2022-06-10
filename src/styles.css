@@ -4,7 +4,10 @@ body {
   max-width: 100%;
   margin: 0;
 
-  font-family: 'Press Start 2P', cursive;
+  font-family: 'Orbitron', sans-serif;
+  --purple-color: #652ecb;
+  --blue-color: #1c13c5;
+  --white-color: #fff8f8;
 
   background: -webkit-linear-gradient(to right, #030303, #000357);
   background: -moz-linear-gradient(to right, #030303, #000357);
