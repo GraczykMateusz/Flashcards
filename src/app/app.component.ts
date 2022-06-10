@@ -9,4 +9,10 @@ export class AppComponent {
 
   year = '2022';
   build = '0.0';
+
+  isFiltered = false;
+
+  changeFiltered() {
+    this.isFiltered = !this.isFiltered;
+  }
 }

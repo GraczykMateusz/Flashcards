@@ -6,8 +6,6 @@ body {
   --blue-color: #1c13c5;
   --white-color: #fff8f8;
 
-  background: -webkit-linear-gradient(to right, #030303, #000357);
-  background: -moz-linear-gradient(to right, #030303, #000357);
-  background: -o-linear-gradient(to right, #030303, #000357);
-  background: linear-gradient(to right, #030303, #000357);
+  --bg-from-color: #030303;
+  --bg-to-color: #000357;
 }

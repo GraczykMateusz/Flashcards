@@ -1,9 +1,16 @@
+.background {
+  height:100vh;
+  background: -webkit-linear-gradient(to right, var(--bg-from-color), var(--bg-to-color));
+  background: -moz-linear-gradient(to right, var(--bg-from-color), var(--bg-to-color));
+  background: -o-linear-gradient(to right, var(--bg-from-color), var(--bg-to-color));
+  background: linear-gradient(to right, var(--bg-from-color), var(--bg-to-color));
+}
+
 .footer {
   display: flex;
   justify-content: space-between;
   gap: 20px;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin: 0 20px 0 20px;
 }
 
 h1, h2 {
@@ -11,16 +18,13 @@ h1, h2 {
 }
 
 h3 {
-  display: inline-flex;
-  text-align: center;
   color: var(--purple-color);
   letter-spacing: 2px;
-  margin-top: auto;
 }
 
 .title {
   width: 100%;
-  margin-top: 1%;
+  margin-top: 0;
   font-size: 5em;
   text-shadow: var(--purple-color) 7px 7px;
   color: var(--white-color);
@@ -48,9 +52,9 @@ img {
   /*-moz-transition: 1s -moz-filter linear;*/
   /*-ms-transition: 1s -ms-filter linear;*/
   /*-o-transition: 1s -o-filter linear;*/
+  transition: 1s ease;
 }
 
 img:hover {
   cursor: pointer;
-  /*filter: blur(0.18em);*/
 }
