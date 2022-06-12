@@ -1,5 +1,5 @@
 .background {
-  height:100vh;
+  height: 100vh;
   background: -webkit-linear-gradient(to right, var(--bg-from-color), var(--bg-to-color));
   background: -moz-linear-gradient(to right, var(--bg-from-color), var(--bg-to-color));
   background: -o-linear-gradient(to right, var(--bg-from-color), var(--bg-to-color));
@@ -11,51 +11,4 @@
   -moz-transition: var(--blur-seconds) -moz-filter ease;
   -ms-transition: var(--blur-seconds) -ms-filter ease;
   -o-transition: var(--blur-seconds) -o-filter ease;
-}
-
-.footer {
-  display: flex;
-  justify-content: space-between;
-  /*align-self: end;*/
-  gap: 20px;
-  margin: 0 20px 0 20px;
-}
-
-h1, h2 {
-  text-align: center;
-}
-
-h3 {
-  color: var(--purple-color);
-  letter-spacing: 2px;
-}
-
-.title {
-  width: 100%;
-  margin-top: 0;
-  font-size: 5em;
-  text-shadow: var(--purple-color) 7px 7px;
-  color: var(--white-color);
-  font-weight: 700;
-  letter-spacing: 0.4em;
-  margin-bottom: 0;
-}
-
-.subtitle {
-  margin-top: 0;
-  margin-bottom: 1.5%;
-  font-size: 1.5em;
-  color: var(--blue-color);
-  font-weight: 600;
-  letter-spacing: 0.8em;
-}
-
-img {
-  width: 100%;
-  height: 690px;
-  object-fit: cover;
-}
-
-img:hover {
-  cursor: pointer;
 }

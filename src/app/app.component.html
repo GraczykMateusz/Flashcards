@@ -1,10 +1,4 @@
 <div class="background" [ngStyle]="{'filter': isBlurred ? 'blur(4em)' : 'blur(0)'}">
-  <h1 class="title">PR0JEKT ASTRAL</h1>
-  <h2 class="subtitle">*NAUKA ANGIELSKIEGO I PROGRAMOWANIA*</h2>
-  <img src="../assets/img/test.png" (click)="blur()"/>
-  <div class="footer">
-    <h3>© {{year}}</h3>
-    <h3>ASTRAL - STWORZONY PRZEZ MATEUSZ GRACZYK & ŁUKASZ MICHALAK</h3>
-    <h3>V. {{build}}</h3>
-  </div>
+  <app-dashboard (blurEvent)="blur($event)"></app-dashboard>
+  <app-footer></app-footer>
 </div>

@@ -1,0 +1,14 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  gap: 20px;
+  margin: 0 20px 0 20px;
+  font-size: calc(7px + 0.4vw);
+}
+
+h3 {
+  color: var(--purple-color);
+  letter-spacing: 2px;
+}

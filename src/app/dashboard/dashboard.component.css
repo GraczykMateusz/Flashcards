@@ -1,0 +1,40 @@
+h1, h2 {
+  text-align: center;
+}
+
+.title {
+  align-items: center;
+  width: 100%;
+  margin-top: 0;
+  font-size: calc(28px + 3.3vw);
+  text-shadow: var(--purple-color) 0.47vw 0.47vw;
+  color: var(--white-color);
+  font-weight: 700;
+  letter-spacing: 0.4em;
+  margin-bottom: 0;
+}
+
+.subtitle {
+  margin-top: 0;
+  margin-bottom: 1.5%;
+  font-size: calc(14px + 0.35vw);
+  color: var(--blue-color);
+  font-weight: 600;
+  letter-spacing: 0.8em;
+}
+
+img {
+  width: 100%;
+  height: 67%;
+  object-fit: cover;
+}
+
+img:hover {
+  cursor: pointer;
+}
+
+@media (max-width: 1200px) {
+  .star {
+    display: none;
+  }
+}
