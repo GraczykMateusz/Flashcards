@@ -3,8 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import {FlexModule} from "@angular/flex-layout";
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { FooterComponent } from './footer/footer.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
