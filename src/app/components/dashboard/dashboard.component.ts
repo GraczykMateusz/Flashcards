@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnDestroy, Output, Renderer2} from '@angular/core';
+import {Component, EventEmitter, OnDestroy, OnInit, Output, Renderer2} from '@angular/core';
 import {Router} from "@angular/router";
 
 @Component({
@@ -10,13 +10,14 @@ export class DashboardComponent implements OnDestroy {
 
   @Output() blurEvent = new EventEmitter<boolean>();
   isBlurred = false;
+  audioPath = '../../../assets/audio/the-real-north-intro.mp3';
 
   constructor(private renderer: Renderer2,
               private router: Router) {
   }
 
   ngOnDestroy(): void {
-    this.renderer.removeStyle(document.body, 'blur');
+    this.renderer.removeStyle(document.body, 'filter');
   }
 
   async blur(): Promise<void> {
@@ -28,5 +29,12 @@ export class DashboardComponent implements OnDestroy {
     await new Promise(f => setTimeout(f, 3000));
 
     this.router.navigate(['/flashcards']);
+  }
+
+  playAudio(): void {
+    const audio = new Audio();
+    audio.src = this.audioPath;
+    audio.load();
+    audio.play();
   }
 }
