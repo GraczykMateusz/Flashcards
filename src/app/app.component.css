@@ -12,3 +12,9 @@
   -ms-transition: var(--blur-seconds) -ms-filter ease;
   -o-transition: var(--blur-seconds) -o-filter ease;
 }
+
+.column {
+  display: flex;
+  flex-direction: column;
+
+}

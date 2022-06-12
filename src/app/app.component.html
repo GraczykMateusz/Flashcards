@@ -1,4 +1,4 @@
-<div class="background" [ngStyle]="{'filter': isBlurred ? 'blur(4em)' : 'blur(0)'}">
-  <app-dashboard (blurEvent)="blur($event)"></app-dashboard>
-  <app-footer></app-footer>
+<div class="background column" [ngStyle]="{'filter': isBlurred ? 'blur(4em)' : 'blur(0)'}">
+  <app-dashboard fxFlex="92" (blurEvent)="blur($event)"></app-dashboard>
+  <app-footer fxflex="3"></app-footer>
 </div>
