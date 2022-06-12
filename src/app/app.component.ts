@@ -7,9 +7,4 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
 
-  isBlurred = false;
-
-  blur(isBlurred: boolean): void {
-    this.isBlurred = isBlurred;
-  }
 }

@@ -102,5 +102,8 @@
       }
     }
   },
-  "defaultProject": "astral"
+  "defaultProject": "astral",
+  "cli": {
+    "analytics": false
+  }
 }

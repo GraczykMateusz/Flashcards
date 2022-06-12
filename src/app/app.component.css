@@ -4,17 +4,9 @@
   background: -moz-linear-gradient(to right, var(--bg-from-color), var(--bg-to-color));
   background: -o-linear-gradient(to right, var(--bg-from-color), var(--bg-to-color));
   background: linear-gradient(to right, var(--bg-from-color), var(--bg-to-color));
-
-  --blur-seconds: 2s;
-  transition: var(--blur-seconds) filter ease;
-  -webkit-transition: var(--blur-seconds) -webkit-filter ease;
-  -moz-transition: var(--blur-seconds) -moz-filter ease;
-  -ms-transition: var(--blur-seconds) -ms-filter ease;
-  -o-transition: var(--blur-seconds) -o-filter ease;
 }
 
 .column {
   display: flex;
   flex-direction: column;
-
 }
