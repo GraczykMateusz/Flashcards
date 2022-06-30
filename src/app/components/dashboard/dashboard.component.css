@@ -8,7 +8,6 @@ h1, h2 {
   margin-top: 0;
   font-size: calc(28px + 3.3vw);
   text-shadow: var(--purple-color) 0.47vw 0.47vw;
-  color: var(--white-color);
   font-weight: 700;
   letter-spacing: 0.4em;
   margin-bottom: 0;

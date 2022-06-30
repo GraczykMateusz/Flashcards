@@ -1,13 +1,16 @@
+html, body {
+  height: 100%;
+}
+
 body {
   min-width: 320px;
-  min-height: 100vh;
   margin: 0;
   background-color: black;
+  color: snow;
 
   font-family: 'Orbitron', sans-serif;
   --purple-color: #652ecb;
   --blue-color: #1c13c5;
-  --white-color: #fff8f8;
 
   --bg-from-color: #030303;
   --bg-to-color: #000357;

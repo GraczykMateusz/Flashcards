@@ -7,6 +7,9 @@ import {DashboardComponent} from './components/dashboard/dashboard.component';
 import {FooterComponent} from './components/footer/footer.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FlashcardsComponent } from './components/flashcards/flashcards.component';
+import {MatCardModule} from "@angular/material/card";
+import {MatButtonModule} from "@angular/material/button";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -17,8 +20,11 @@ import { FlashcardsComponent } from './components/flashcards/flashcards.componen
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FlexModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatCardModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

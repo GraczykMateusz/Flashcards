@@ -1,1 +1,19 @@
-<p>flashcards works!</p>
+<div fxLayout="column" style=" min-height: 80%; align-self: center;" fxLayoutAlign="center center">
+  <div class="flip-card" (click)="flipCard()">
+    <div class="flip-card-inner" [ngClass]="rotateClass">
+      <div class="flip-card-front">
+        <mat-card>
+          <mat-card-title>Ratusz</mat-card-title>
+          <mat-card-subtitle>Start</mat-card-subtitle>
+        </mat-card>
+      </div>
+      <div class="flip-card-back">
+        <mat-card>
+          <mat-card-title>Town hall</mat-card-title>
+          <mat-card-subtitle>Start</mat-card-subtitle>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+<!--  <button mat-button>Następny</button>-->
+</div>
