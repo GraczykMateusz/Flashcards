@@ -1,19 +1,18 @@
-<div fxLayout="column" style=" min-height: 80%; align-self: center;" fxLayoutAlign="center center">
-  <div class="flip-card" (click)="flipCard()">
-    <div class="flip-card-inner" [ngClass]="rotateClass">
-      <div class="flip-card-front">
-        <mat-card>
-          <mat-card-title>Ratusz</mat-card-title>
-          <mat-card-subtitle>Start</mat-card-subtitle>
-        </mat-card>
-      </div>
-      <div class="flip-card-back">
-        <mat-card>
-          <mat-card-title>Town hall</mat-card-title>
-          <mat-card-subtitle>Start</mat-card-subtitle>
-        </mat-card>
+<div fxLayout="column" style=" min-height: 100%;" fxLayoutAlign="center center">
+    <div class="flip-card width" (click)="flipCard()">
+      <div class="flip-card-inner" [ngClass]="rotateClass">
+        <div class="flip-card-front">
+          <mat-card>
+            <mat-card-title>Ratusz</mat-card-title>
+          </mat-card>
+        </div>
+        <div class="flip-card-back">
+          <mat-card>
+            <mat-card-title>Town hall</mat-card-title>
+            <mat-card-subtitle>Start</mat-card-subtitle>
+          </mat-card>
+        </div>
       </div>
     </div>
-  </div>
-<!--  <button mat-button>Następny</button>-->
+    <button mat-button color="primary" class="width">Następny</button>
 </div>
