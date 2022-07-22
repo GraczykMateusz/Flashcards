@@ -1,15 +1,16 @@
 .footer {
   display: flex;
   justify-content: space-between;
-  text-align: center;
   align-items: center;
+  text-align: center;
   gap: 20px;
-  height: 60px;
   margin: 0 20px 0 20px;
-  font-size: calc(7px + 0.4vw);
+  height: 64px;
 }
 
-h3 {
-  color: var(--purple-color);
+.footer h3 {
+  margin: 0;
+  font-size: clamp(12px, 1.35vw, 22px);
+  color:  #652ecb;
   letter-spacing: 2px;
 }

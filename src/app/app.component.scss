@@ -1,0 +1,24 @@
+@use "../styles/variables";
+
+.background {
+  $bg-from-color: #030303;
+  $bg-to-color: #000357;
+  background: -webkit-linear-gradient(to right, $bg-from-color, $bg-to-color);
+  background: -moz-linear-gradient(to right, $bg-from-color, $bg-to-color);
+  background: -o-linear-gradient(to right, $bg-from-color, $bg-to-color);
+  background: linear-gradient(to right, $bg-from-color, $bg-to-color);
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  min-height: variables.$body-page-height;
+}
+
+.router {
+  //min-height: variables.$body-page-height;
+}
+//
+///*app-footer {*/
+///*  margin-top: 60px;*/
+///*}*/

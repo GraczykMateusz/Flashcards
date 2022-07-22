@@ -4,7 +4,7 @@ import {Router} from "@angular/router";
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnDestroy {
 
@@ -28,7 +28,7 @@ export class DashboardComponent implements OnDestroy {
 
     await new Promise(f => setTimeout(f, 3000));
 
-    this.router.navigate(['/flashcards']);
+    this.router.navigate(['/flashcards']).then();
   }
 
   playAudio(): void {

@@ -1,0 +1,13 @@
+$body-page-margin: 0;
+$body-page-height: 100vh;
+$body-font-family:'Orbitron', sans-serif;
+$body-font-color: #fffafa;
+$body-background-color: #000000;
+
+body {
+  margin: $body-page-margin;
+  height: $body-page-height;
+  background-color: $body-background-color;
+  color: $body-font-color;
+  font-family: $body-font-family;
+}
