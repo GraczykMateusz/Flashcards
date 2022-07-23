@@ -10,12 +10,21 @@ $category-margin-bottom: 60px;
   align-items: center;
   flex-direction: row;
   height: variables.$dashboard-title-height;
-  margin-top: $title-sm-margin-top;
+
+  padding-top: $title-sm-margin-top;
+  padding-bottom: 20px;
   margin-bottom: $title-sm-margin-bottom;
+
   column-gap: 33px;
   font-size: calc(20px + 3.5vw);
   text-shadow: #652ecb 6px 6px;
   letter-spacing: 0.4em;
+
+  $bg-color: #100f0f;
+  background-color: $bg-color;
+  -webkit-box-shadow: 0 20px 24px 0 $bg-color;
+  -moz-box-shadow: 0 20px 24px 0 $bg-color;
+  box-shadow: 0 20px 24px 0 $bg-color;
 }
 
 .title-lt-md {
