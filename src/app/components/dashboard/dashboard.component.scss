@@ -1,8 +1,8 @@
 @use "src/styles/variables";
 
-$title-sm-margin-bottom: 50px;
+$title-sm-margin-bottom: 90px;
 $title-sm-margin-top: 10px;
-$category-margin-bottom: 60px;
+$category-margin-bottom: 90px;
 
 .title-md {
   display: flex;
@@ -50,6 +50,7 @@ $category-margin-bottom: 60px;
     #{variables.$body-min-height}
     - #{variables.$dashboard-title-height}
     - #{variables.$footer-height}
+    - #{variables.$footer-margin-top}
     - #{$title-sm-margin-bottom}
     - #{$category-margin-bottom}
     - #{$title-sm-margin-top}
