@@ -1,12 +1,18 @@
-<!--<div class="title" [ngStyle.xl]="{'flex-direction':'row'}">-->
-<!--  <span>PR0JEKT</span>-->
-<!--  <span>ASTRAL</span>-->
-<!--</div>-->
-<!--<div class="category" [ngStyle.lt-md]="{'flex-direction':'column'}">-->
-<!--  <mat-card>-->
-<!--    <mat-card-title>Czasy</mat-card-title>-->
-<!--  </mat-card>-->
-<!--  <mat-card>-->
-<!--    <mat-card-title>Fiszki</mat-card-title>-->
-<!--  </mat-card>-->
-<!--</div>-->
+<div [ngClass.lt-md]="'title-lt-md'"
+     [ngClass.md]="'title-md'"
+     [ngClass.gt-md]="'title-gt-md'">
+  <span>PR0JEKT</span>
+  <span>ASTRAL</span>
+</div>
+<div class="category-container">
+  <div [ngClass.lt-sm]="'category-lt-sm'"
+       [ngClass.sm]="'category-sm'"
+       [ngClass.gt-sm]="'category-gt-sm'">
+    <mat-card>
+      <mat-card-title>Czasy</mat-card-title>
+    </mat-card>
+    <mat-card>
+      <mat-card-title>Fiszki</mat-card-title>
+    </mat-card>
+  </div>
+</div>

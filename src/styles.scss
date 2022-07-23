@@ -1,13 +1,10 @@
-$body-page-margin: 0;
-$body-page-height: 100vh;
-$body-font-family:'Orbitron', sans-serif;
-$body-font-color: #fffafa;
-$body-background-color: #000000;
+@use "src/styles/variables";
 
 body {
-  margin: $body-page-margin;
-  height: $body-page-height;
-  background-color: $body-background-color;
-  color: $body-font-color;
-  font-family: $body-font-family;
+  margin: variables.$body-margin;
+  min-height: variables.$body-min-height;
+  min-width: variables.$body-min-width;
+  background-color: variables.$body-background-color;
+  color: variables.$body-font-color;
+  font-family: variables.$body-font-family;
 }

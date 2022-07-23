@@ -1,4 +1,4 @@
-@use "../styles/variables";
+@use "src/styles/variables.scss";
 
 .background {
   $bg-from-color: #030303;
@@ -12,13 +12,11 @@
 .flex-column {
   display: flex;
   flex-direction: column;
-  min-height: variables.$body-page-height;
+  min-height: variables.$body-min-height;
 }
 
 .router {
-  //min-height: variables.$body-page-height;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(#{variables.$body-min-height} - #{variables.$footer-height});
 }
-//
-///*app-footer {*/
-///*  margin-top: 60px;*/
-///*}*/
