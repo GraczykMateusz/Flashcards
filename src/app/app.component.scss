@@ -2,10 +2,10 @@
 
 .background {
   $bg-from-color: #030303;
-  $bg-to-color: #000357;
-  background: linear-gradient(-45deg, #030303, #000357, #042848, #31047e);
+  $bg-to-color: #17089f;
+  background: linear-gradient(-45deg, $bg-from-color, $bg-to-color, $bg-from-color, $bg-to-color, $bg-from-color, $bg-to-color);
   background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
+  animation: gradient 45s ease infinite;
 }
 
 .flex-column {
