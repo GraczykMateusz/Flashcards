@@ -1,30 +1,28 @@
 @use "src/styles/variables";
 
-$title-sm-margin-bottom: 90px;
+$title-sm-padding-bottom: 20px;
 $title-sm-margin-top: 10px;
-$category-margin-bottom: 90px;
 
 .title-md {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  height: variables.$dashboard-title-height;
+  min-height: variables.$dashboard-title-height;
 
   padding-top: $title-sm-margin-top;
-  padding-bottom: 20px;
-  margin-bottom: $title-sm-margin-bottom;
+  padding-bottom: $title-sm-padding-bottom;
 
   column-gap: 33px;
   font-size: calc(20px + 3.5vw);
-  text-shadow: #652ecb 6px 6px;
+  text-shadow: variables.$purple-color 6px 6px;
   letter-spacing: 0.4em;
 
   $bg-color: #100f0f;
   background-color: $bg-color;
-  -webkit-box-shadow: 0 20px 24px 0 $bg-color;
-  -moz-box-shadow: 0 20px 24px 0 $bg-color;
-  box-shadow: 0 20px 24px 0 $bg-color;
+  -webkit-box-shadow: 0 20px 40px 25px $bg-color;
+  -moz-box-shadow: 0 20px 40px 25px $bg-color;
+  box-shadow: 0 20px 40px 25px $bg-color;
 }
 
 .title-lt-md {
@@ -43,16 +41,13 @@ $category-margin-bottom: 90px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 30px;
-  min-height: 250px;
   width: 100%;
-  height: calc(
+  min-height: calc(
     #{variables.$body-min-height}
     - #{variables.$dashboard-title-height}
     - #{variables.$footer-height}
     - #{variables.$footer-margin-top}
-    - #{$title-sm-margin-bottom}
-    - #{$category-margin-bottom}
+    - #{$title-sm-padding-bottom}
     - #{$title-sm-margin-top}
   );
 
@@ -68,10 +63,10 @@ $category-margin-bottom: 90px;
         cursor: pointer;
         transform: scale(1.05);
       }
-      border: #652ecb 2px solid;
+      border: variables.$purple-color 2px solid;
       display: flex;
       width: min(calc(50px + 20vw), 290px);
-      height: min(calc(20vw), 200px);
+      min-height: min(calc(20vw), 200px);
       color: variables.$body-font-color;
 
       $bg-from-color: rgb(1, 1, 49);
