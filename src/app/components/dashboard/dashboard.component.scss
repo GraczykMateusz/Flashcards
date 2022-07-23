@@ -54,13 +54,28 @@ $category-margin-bottom: 60px;
     column-gap: 20%;
 
     mat-card {
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.05);
+      }
+      border: #652ecb 2px solid;
       display: flex;
       width: min(calc(50px + 20vw), 290px);
       height: min(calc(20vw), 200px);
-      background: -webkit-linear-gradient(to right, #652ecb, #2193b0);
-      background: -moz-linear-gradient(to right, #652ecb, #2193b0);
-      background: -o-linear-gradient(to right, #652ecb, #2193b0);
-      background: linear-gradient(to right, #652ecb, #2193b0);
+      color: variables.$body-font-color;
+
+      $bg-from-color: rgb(1, 1, 49);
+      $bg-to-color: #040644;
+      background: -webkit-linear-gradient(to right, $bg-from-color, $bg-to-color);
+      background: -moz-linear-gradient(to right, $bg-from-color, $bg-to-color);
+      background: -o-linear-gradient(to right, $bg-from-color, $bg-to-color);
+      background: linear-gradient(to right, $bg-from-color, $bg-to-color);
+
+      $transform-delay: 0.4s;
+      -webkit-transition: transform $transform-delay, color $transform-delay;
+      -moz-transition: transform $transform-delay, color $transform-delay;
+      -o-transition: transform $transform-delay, color $transform-delay;
+      transition: transform $transform-delay, color $transform-delay;
     }
 
     mat-card-title {

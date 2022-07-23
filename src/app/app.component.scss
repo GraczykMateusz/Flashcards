@@ -3,10 +3,9 @@
 .background {
   $bg-from-color: #030303;
   $bg-to-color: #000357;
-  background: -webkit-linear-gradient(to right, $bg-from-color, $bg-to-color);
-  background: -moz-linear-gradient(to right, $bg-from-color, $bg-to-color);
-  background: -o-linear-gradient(to right, $bg-from-color, $bg-to-color);
-  background: linear-gradient(to right, $bg-from-color, $bg-to-color);
+  background: linear-gradient(-45deg, #030303, #000357, #042848, #31047e);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
 }
 
 .flex-column {
@@ -19,4 +18,16 @@
   display: flex;
   flex-direction: column;
   min-height: calc(#{variables.$body-min-height} - #{variables.$footer-height});
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
 }
