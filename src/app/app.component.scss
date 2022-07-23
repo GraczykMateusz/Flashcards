@@ -17,7 +17,7 @@
 .router {
   display: flex;
   flex-direction: column;
-  min-height: calc(#{variables.$body-min-height} - #{variables.$footer-height} - #{variables.$footer-margin-top});
+  min-height: calc(#{variables.$body-min-height} - #{variables.$footer-height});
 }
 
 @keyframes gradient {
