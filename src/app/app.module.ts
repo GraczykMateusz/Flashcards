@@ -10,7 +10,7 @@ import {FlashcardsComponent} from './components/flashcards/flashcards.component'
 import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {FlashcardCreatorComponent} from './components/flashcard-creator/flashcard-creator.component';
+import {FlashcardCreatorComponent} from './components/flashcards/flashcard-creator/flashcard-creator.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 
