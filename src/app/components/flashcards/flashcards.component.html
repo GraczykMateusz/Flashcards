@@ -1,4 +1,5 @@
-<div fxLayout="column" style=" min-height: 100%;" fxLayoutAlign="center center">
+<div class="flashcards-container">
+
   <div class="flip-card width" (click)="flipCard()">
     <div class="flip-card-inner" [ngClass]="rotateClass">
       <div class="flip-card-front">
@@ -14,5 +15,5 @@
     </div>
   </div>
   <button mat-button color="primary" class="width" (click)="loadNextFlashcard()">Następny</button>
-  <button mat-button color="primary" class="width" (click)="getFlashcardCreatorLink()">Stwórz</button>
+  <!--  <button mat-button color="primary" class="width" (click)="getFlashcardCreatorLink()">Stwórz</button>-->
 </div>
