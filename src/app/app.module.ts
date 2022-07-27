@@ -13,6 +13,9 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {FlashcardCreatorComponent} from './components/flashcards/flashcard-creator/flashcard-creator.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
+import {FaIconLibrary, FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import {faPlus} from '@fortawesome/free-solid-svg-icons';
+import {FlashcardsMenuComponent} from './components/flashcards/flashcards-menu/flashcards-menu.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,8 @@ import {MatInputModule} from "@angular/material/input";
     DashboardComponent,
     FooterComponent,
     FlashcardsComponent,
-    FlashcardCreatorComponent
+    FlashcardCreatorComponent,
+    FlashcardsMenuComponent
   ],
   imports: [
     BrowserModule,
@@ -31,10 +35,16 @@ import {MatInputModule} from "@angular/material/input";
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
+  constructor(library: FaIconLibrary) {
+    library.addIcons(
+      faPlus
+    );
+  }
 }

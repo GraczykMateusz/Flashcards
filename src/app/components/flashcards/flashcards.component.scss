@@ -1,11 +1,17 @@
 @use "src/styles/variables";
 
+$app-flashcards-menu-min-height: 54px;
+
+app-flashcards-menu {
+  height: $app-flashcards-menu-min-height;
+}
+
 .flashcards-container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  min-height: calc(#{variables.$body-min-height} - #{variables.$footer-height});
+  min-height: calc(#{variables.$body-min-height} - #{variables.$footer-height} - #{$app-flashcards-menu-min-height});
 
   .mat-button {
     margin-top: 18px;
