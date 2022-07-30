@@ -11,8 +11,11 @@ $flashcards-container-padding-top: 100px;
   min-height: calc(#{variables.$body-min-height} - #{variables.$footer-height} - #{$flashcards-container-padding-top});
 
   .flip-card {
-    height: 200px;
-    width: 200px;
+    min-height: 250px;
+    min-width: 250px;
+    height: 40vmin;
+    width: 40vmin;
+
     cursor: pointer;
     background-color: transparent;
 
@@ -39,7 +42,8 @@ $flashcards-container-padding-top: 100px;
     margin-top: 25px;
     letter-spacing: 1px;
     height: 60px;
-    width: 200px;
+    min-width: 250px;
+    width: 40vmin;
     font-size: 25px;
     background-color: rgba(3, 3, 3, 0.17);
     border: variables.$purple-color 2px solid;
@@ -72,6 +76,32 @@ mat-card {
   height: 100%;
   width: 100%;
   word-break: break-all;
+}
+
+.flip-card-back mat-card-title {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  width: 100%;
+  word-break: break-all;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.flip-card-back mat-card-content {
+  //display: flex;
+  //justify-content: center;
+  //align-items: start;
+  width: 100%;
+  height: 85%;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 9;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .flip-card-back {
