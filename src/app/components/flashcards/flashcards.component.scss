@@ -1,17 +1,12 @@
 @use "src/styles/variables";
 
-$app-flashcards-menu-min-height: 54px;
-
-app-flashcards-menu {
-  height: $app-flashcards-menu-min-height;
-}
-
 .flashcards-container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  min-height: calc(#{variables.$body-min-height} - #{variables.$footer-height} - #{$app-flashcards-menu-min-height});
+  min-height: calc(#{variables.$body-min-height} - #{variables.$footer-height});
+  margin-top: 64px;
 
   .mat-button {
     margin-top: 18px;
@@ -25,15 +20,11 @@ app-flashcards-menu {
   }
 }
 
-.width {
-  width: 85%;
-  max-width: 450px;
-}
-
 .flip-card {
+  height: 200px;
+  width: 200px;
   cursor: pointer;
   background-color: transparent;
-  height: 300px;
 }
 
 mat-card {
