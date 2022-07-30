@@ -47,15 +47,22 @@
   </div>
 
   <div [ngClass]="isMenuOpen ? 'dropdown-content-fade-in' : 'dropdown-content-fade-out'">
-    <div class="user-style-mobile">Witaj: Mateusz</div>
+    <div class="user-style-mobile">Zalogowany: Mateusz</div>
+    <div class="category-mobile">FISZKI</div>
     <button class="dropdown-links-mobile" (click)="closeDropDown()">Dodaj</button>
     <button class="dropdown-links-mobile" (click)="closeDropDown()">Edytuj</button>
     <button class="dropdown-links-mobile" (click)="closeDropDown()">Usuń</button>
 
+    <div class="category-mobile">Zegar</div>
     <button class="dropdown-links-mobile" (click)="closeDropDown()">Aktywuj</button>
     <button class="dropdown-links-mobile" (click)="closeDropDown()">Zatrzymaj</button>
 
-    <button class="dropdown-links-mobile" (click)="closeDropDown()">Wyloguj się</button>
+    <button class="dropdown-links-mobile logout-button" (click)="closeDropDown()">
+      Wyloguj się
+      <mat-icon>
+        power_settings_new
+      </mat-icon>
+    </button>
   </div>
 
 </div>

@@ -95,18 +95,40 @@ $bg-color: #100f0f;
 }
 
 .dropdown-links-mobile {
+  font-family: variables.$body-font-family;
   background: transparent;
-  font-size: 17px;
-  line-height: 50px;
+  font-size: 20px;
+  min-height: 45px;
   text-transform: uppercase;
   border: none;
   text-decoration: none;
   cursor: pointer;
-  padding-bottom: 1%;
+  color: snow;
 }
 
 .dropdown-links-mobile:hover {
-  background-color: rgba(3, 3, 3, 0.17);
+  background: rgb(52, 51, 51);
+}
+
+.category-mobile {
+  font-size: 22px;
+  color: snow;
+  text-align: center;
+  margin-bottom: 15px;
+  margin-top: 10px;
+  border-top: snow 1px solid;
+  border-bottom: snow 1px solid;
+  padding: 5px;
+}
+
+.logout-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 10px;
+  margin-top: 20px;
+  border-top: snow 1px solid;
+  border-bottom: snow 1px solid;
 }
 
 %dropdown-content {
@@ -114,8 +136,8 @@ $bg-color: #100f0f;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  background: rgb(255, 255, 255);
-  padding-top: 32px;
+  background: #000000;
+  padding-top: 15px;
 }
 
 .dropdown-content-fade-in {
@@ -149,10 +171,10 @@ $bg-color: #100f0f;
 }
 
 .user-style-mobile {
-  font-size: 20px;
-  color: #828282;
+  font-size: 23px;
+  color: snow;
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 5px;
 }
 
 //hamburger general
