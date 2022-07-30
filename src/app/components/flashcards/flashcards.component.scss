@@ -1,6 +1,6 @@
 @use "src/styles/variables";
 
-$flashcards-container-padding-top: 96px;
+$flashcards-container-padding-top: 100px;
 
 .flashcards-container {
   display: flex;
@@ -36,14 +36,14 @@ $flashcards-container-padding-top: 96px;
   }
 
   .mat-button {
-    margin-top: 18px;
+    margin-top: 25px;
     letter-spacing: 1px;
     height: 60px;
     width: 200px;
     font-size: 25px;
     background-color: rgba(3, 3, 3, 0.17);
     border: variables.$purple-color 2px solid;
-    color: rgba(255, 250, 250, 0.85);
+    color: #f5f1f1;
   }
 }
 
@@ -52,18 +52,17 @@ mat-card {
   border-radius: 1em;
 }
 
-.flip-card-front mat-card {
-  background: -webkit-linear-gradient(to right, #652ecb, #2193b0);
-  background: -moz-linear-gradient(to right, #652ecb, #2193b0);
-  background: -o-linear-gradient(to right, #652ecb, #2193b0);
-  background: linear-gradient(to right, #652ecb, #2193b0);
-}
-
+.flip-card-front mat-card,
 .flip-card-back mat-card {
-  background: -webkit-linear-gradient(to right, #2174b0, #842ecb);
-  background: -moz-linear-gradient(to right, #2174b0, #842ecb);
-  background: -o-linear-gradient(to right, #2174b0, #842ecb);
-  background: linear-gradient(to right, #2174b0, #842ecb);
+  $bg-from-color: rgb(1, 1, 49);
+  $bg-to-color: #040644;
+  background: -webkit-linear-gradient(to right, $bg-from-color, $bg-to-color);
+  background: -moz-linear-gradient(to right, $bg-from-color, $bg-to-color);
+  background: -o-linear-gradient(to right, $bg-from-color, $bg-to-color);
+  background: linear-gradient(to right, $bg-from-color, $bg-to-color);
+
+  border: variables.$purple-color 2px solid;
+  color: variables.$body-font-color;
 }
 
 .flip-card-front mat-card-title {
@@ -71,7 +70,8 @@ mat-card {
   justify-content: center;
   align-items: center;
   height: 100%;
-  font-size: 330%; //55px
+  width: 100%;
+  word-break: break-all;
 }
 
 .flip-card-back {
