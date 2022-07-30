@@ -17,7 +17,7 @@
   justify-content: center;
   align-items: end;
   flex-direction: column;
-  min-width: 170px;
+  min-width: 200px;
 
   .sign-in-user {
     font-size: 13px;
@@ -106,7 +106,7 @@ $bg-color: #100f0f;
 }
 
 .dropdown-links-mobile:hover {
-  background-color: #c8e6ff;
+  background-color: rgba(3, 3, 3, 0.17);
 }
 
 %dropdown-content {

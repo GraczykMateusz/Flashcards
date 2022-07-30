@@ -40,7 +40,7 @@
           Mateusz
         </div>
       </div>
-      <mat-icon ngClass.lt-md="hide-element">
+      <mat-icon>
         power_settings_new
       </mat-icon>
     </div>
@@ -48,9 +48,14 @@
 
   <div [ngClass]="isMenuOpen ? 'dropdown-content-fade-in' : 'dropdown-content-fade-out'">
     <div class="user-style-mobile">Witaj: Mateusz</div>
-    <button class="dropdown-links-mobile" (click)="closeDropDown()">Aktywny test</button>
-    <button class="dropdown-links-mobile" (click)="closeDropDown()">Certyfikat</button>
-    <button class="dropdown-links-mobile" (click)="closeDropDown()">Wykonane testy</button>
+    <button class="dropdown-links-mobile" (click)="closeDropDown()">Dodaj</button>
+    <button class="dropdown-links-mobile" (click)="closeDropDown()">Edytuj</button>
+    <button class="dropdown-links-mobile" (click)="closeDropDown()">Usuń</button>
+
+    <button class="dropdown-links-mobile" (click)="closeDropDown()">Aktywuj</button>
+    <button class="dropdown-links-mobile" (click)="closeDropDown()">Zatrzymaj</button>
+
+    <button class="dropdown-links-mobile" (click)="closeDropDown()">Wyloguj się</button>
   </div>
 
 </div>

@@ -1,7 +1,7 @@
 <app-flashcards-menu></app-flashcards-menu>
 <div class="flashcards-container">
   <div class="flip-card" (click)="flipCard()">
-    <div class="flip-card-inner" [ngClass]="rotateClass">
+    <div class="flip-card-inner" [ngClass]="isRotated ? 'flip-back' : 'flip'">
       <div class="flip-card-front">
         <mat-card>
           <mat-card-title>Ratusz</mat-card-title>

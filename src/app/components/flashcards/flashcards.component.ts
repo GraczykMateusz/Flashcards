@@ -8,26 +8,16 @@ import {Router} from "@angular/router";
 })
 export class FlashcardsComponent {
 
-  isRotated = false;
-  rotateClass: string = '';
+  isRotated = true;
 
   constructor(private router: Router) {
   }
 
   flipCard() {
-    if (this.isRotated) {
-      this.rotateClass = 'flip-back';
-    } else {
-      this.rotateClass = 'flip';
-    }
     this.isRotated = !this.isRotated;
   }
 
   loadNextFlashcard() {
-
-  }
-
-  createFlashcard() {
 
   }
 
