@@ -47,6 +47,10 @@
     align-items: center;
     flex-direction: row;
     column-gap: 15px;
+
+    fa-icon {
+      color: #dad7d7;
+    }
   }
 
   .mat-button {
