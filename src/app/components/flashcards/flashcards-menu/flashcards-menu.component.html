@@ -1,1 +1,43 @@
-<p>flashcards-menu works!</p>
+<div class="header">
+  <div class="navbar-items-container">
+    <span class="title">PROJEKT ASTRAL</span>
+
+    <div ngClass.lt-md="hide-element" ngClass.md="hide-element" class="desktop-action-buttons">
+      <button mat-button color="primary" class="width">Dodaj fiszke</button>
+      <button mat-button color="primary" class="width">Edytuj fiszke</button>
+      <button mat-button color="primary" class="width">Usuń fiszke</button>
+      <button mat-button color="primary" class="width">Aktywuj stoper</button>
+      <button mat-button color="primary" class="width">Zatrzymaj stoper</button>
+    </div>
+
+    <div ngClass.gt-md="hide-element">
+      <input type="checkbox" id="checkbox2" class="checkbox2 visually-hidden"
+             [checked]="isMenuOpen" (change)="toggleMenu()">
+      <label for="checkbox2">
+        <div class="hamburger hamburger2">
+          <span class="bar bar1"></span>
+          <span class="bar bar2"></span>
+          <span class="bar bar3"></span>
+          <span class="bar bar4"></span>
+        </div>
+      </label>
+    </div>
+
+    <div class="sign-in-user-container" ngClass.lt-md="hide-element" ngClass.md="hide-element">
+      <div class="sign-in-user">
+        Zalogowany:
+      </div>
+      <div class="sign-in-user-name">
+        Mateusz
+      </div>
+    </div>
+  </div>
+
+  <div [ngClass]="isMenuOpen ? 'dropdown-content-fade-in' : 'dropdown-content-fade-out'">
+    <div class="user-style-mobile">Witaj: Mateusz</div>
+    <button class="dropdown-links-mobile" (click)="closeDropDown()">Aktywny test</button>
+    <button class="dropdown-links-mobile" (click)="closeDropDown()">Certyfikat</button>
+    <button class="dropdown-links-mobile" (click)="closeDropDown()">Wykonane testy</button>
+  </div>
+
+</div>

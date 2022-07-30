@@ -14,8 +14,15 @@ import {FlashcardCreatorComponent} from './components/flashcards/flashcard-creat
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {FaIconLibrary, FontAwesomeModule} from '@fortawesome/angular-fontawesome';
-import {faPlus} from '@fortawesome/free-solid-svg-icons';
 import {FlashcardsMenuComponent} from './components/flashcards/flashcards-menu/flashcards-menu.component';
+import {
+  faBars,
+  faCircleCheck,
+  faCircleMinus, faCirclePause,
+  faCirclePlus,
+  faCircleXmark,
+  faClock
+} from '@fortawesome/free-solid-svg-icons';
 
 @NgModule({
   declarations: [
@@ -44,7 +51,13 @@ import {FlashcardsMenuComponent} from './components/flashcards/flashcards-menu/f
 export class AppModule {
   constructor(library: FaIconLibrary) {
     library.addIcons(
-      faPlus
+      faCirclePlus,
+      faCircleMinus,
+      faCircleXmark,
+      faCircleCheck,
+      faBars,
+      faClock,
+      faCirclePause
     );
   }
 }

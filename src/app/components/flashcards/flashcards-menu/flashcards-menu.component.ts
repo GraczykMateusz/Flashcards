@@ -1,15 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-flashcards-menu',
   templateUrl: './flashcards-menu.component.html',
   styleUrls: ['./flashcards-menu.component.scss']
 })
-export class FlashcardsMenuComponent implements OnInit {
+export class FlashcardsMenuComponent {
 
-  constructor() { }
+  isMenuOpen = false;
 
-  ngOnInit(): void {
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
   }
 
+  closeDropDown(): void {
+    this.isMenuOpen = false;
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(): void {
+    if (window.innerWidth >= 600) {
+      this.closeDropDown();
+    }
+  }
 }

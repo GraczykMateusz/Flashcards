@@ -7,4 +7,5 @@ body {
   background-color: variables.$body-background-color;
   color: variables.$body-font-color;
   font-family: variables.$body-font-family;
+  overflow-x: hidden;
 }
