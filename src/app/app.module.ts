@@ -17,6 +17,9 @@ import {FaIconLibrary, FontAwesomeModule} from '@fortawesome/angular-fontawesome
 import {FlashcardsMenuComponent} from './components/flashcards/flashcards-menu/flashcards-menu.component';
 import {MatIconModule} from '@angular/material/icon';
 import {faHourglassHalf, faPenToSquare} from '@fortawesome/free-regular-svg-icons';
+import {environment} from '../environments/environment';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -28,6 +31,8 @@ import {faHourglassHalf, faPenToSquare} from '@fortawesome/free-regular-svg-icon
     FlashcardsMenuComponent
   ],
   imports: [
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore()),
     BrowserModule,
     BrowserAnimationsModule,
     FlexModule,

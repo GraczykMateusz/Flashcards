@@ -5,9 +5,10 @@ import {DashboardComponent} from "./components/dashboard/dashboard.component";
 import {FlashcardCreatorComponent} from "./components/flashcards/flashcard-creator/flashcard-creator.component";
 
 const routes: Routes = [
-  {path: '', component: DashboardComponent},
-  {path: 'flashcards', component: FlashcardsComponent},
-  {path: 'flashcards/creator', component: FlashcardCreatorComponent}
+  {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
+  {path: 'dashboard', component: DashboardComponent, pathMatch: 'full'},
+  {path: 'flashcards/creator', component: FlashcardCreatorComponent, pathMatch: 'full'},
+  {path: 'flashcards', component: FlashcardsComponent, pathMatch: 'full'}
 ];
 
 @NgModule({

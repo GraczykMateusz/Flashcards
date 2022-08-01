@@ -1,15 +1,15 @@
 <div class="header">
   <div class="navbar-items-container">
-    <div class="title">
+    <div class="title" routerLink="/dashboard">
       PROJEKT ASTRAL
     </div>
 
     <div ngClass.lt-md="hide-element" ngClass.md="hide-element" class="desktop-action-buttons">
       <div class="flashcard-action">
         <fa-icon [icon]="['far', 'pen-to-square']" size="2x"></fa-icon>
-        <button mat-button color="primary">Dodaj</button>
-        <button mat-button color="primary">Edytuj</button>
-        <button mat-button color="primary">Usuń</button>
+        <button mat-button color="primary" routerLink="/flashcards/creator">Dodaj</button>
+        <button mat-button color="primary" routerLink="/flashcards/editor">Edytuj</button>
+        <button mat-button color="primary" routerLink="/flashcards/remover">Usuń</button>
       </div>
       <div class="stopwatch-action">
         <fa-icon [icon]="['far', 'hourglass-half']" size="2x"></fa-icon>
@@ -49,9 +49,9 @@
   <div [ngClass]="isMenuOpen ? 'dropdown-content-fade-in' : 'dropdown-content-fade-out'">
     <div class="user-style-mobile">Zalogowany: Mateusz</div>
     <div class="category-mobile">FISZKI</div>
-    <button class="dropdown-links-mobile" (click)="closeDropDown()">Dodaj</button>
-    <button class="dropdown-links-mobile" (click)="closeDropDown()">Edytuj</button>
-    <button class="dropdown-links-mobile" (click)="closeDropDown()">Usuń</button>
+    <button class="dropdown-links-mobile" (click)="closeDropDown()" routerLink="/flashcards/creator">Dodaj</button>
+    <button class="dropdown-links-mobile" (click)="closeDropDown()" routerLink="flashcards/editor">Edytuj</button>
+    <button class="dropdown-links-mobile" (click)="closeDropDown()" routerLink="flashcards/remover">Usuń</button>
 
     <div class="category-mobile">Zegar</div>
     <button class="dropdown-links-mobile" (click)="closeDropDown()">Aktywuj</button>

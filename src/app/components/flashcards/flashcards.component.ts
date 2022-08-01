@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
-import {Router} from "@angular/router";
+import {FlashcardsService} from '../../services/flashcards/flashcards.service';
+import {Flashcard} from '../../services/flashcards/model/flashcard';
 
 @Component({
   selector: 'app-flashcards',
@@ -10,7 +11,7 @@ export class FlashcardsComponent {
 
   isRotated = true;
 
-  constructor(private router: Router) {
+  constructor(private f: FlashcardsService) {
   }
 
   flipCard() {
@@ -19,9 +20,5 @@ export class FlashcardsComponent {
 
   loadNextFlashcard() {
 
-  }
-
-  getFlashcardCreatorLink() {
-    this.router.navigate(['/flashcards/creator']).then();
   }
 }

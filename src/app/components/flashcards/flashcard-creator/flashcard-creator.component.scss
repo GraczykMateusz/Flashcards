@@ -1,8 +1,130 @@
-//mat-button {
-//
-//}
-//
-//mat-form-field {
-//  /*background-color: snow;*/
-//  box-shadow: 0 0 1em gold;
-//}
+@use "src/styles/variables";
+
+
+
+.mat-raised-button {
+  margin-top: 20px;
+  width: 50%;
+}
+
+.configurator {
+  display: flex;
+  justify-content: center;
+  font-size: 23px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+.error {
+  color: #f00;
+  height: 10px;
+  margin-top: 5px;
+}
+
+.selected-quiz {
+  margin-top: 30px;
+  font-size: 1.5rem;
+}
+
+.margin-top {
+  margin-top: 5px;
+}
+
+.drag-area {
+  font-size: 1.5rem;
+  border: 3px solid #bbb;
+  padding: 4rem;
+  background-color: transparent;
+  color: #bbb;
+}
+
+.drop-area {
+  font-size: 1.5rem;
+  border: 3px dashed #bbb;
+  padding: 4rem;
+  background-color: #eff;
+  color: #aaa;
+}
+
+
+
+
+
+$flashcards-container-padding-top: 100px;
+
+.flashcards-creator-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: $flashcards-container-padding-top;
+  min-height: calc(#{variables.$body-min-height} - #{variables.$footer-height} - #{$flashcards-container-padding-top});
+}
+
+$primary: #11998e;
+$secondary: #38ef7d;
+$white: #fff;
+$gray: #9b9b9b;
+.form__group {
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
+  width: 50%;
+}
+
+.form__field {
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid $gray;
+  outline: 0;
+  font-size: 1.3rem;
+  color: $white;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+
+  &::placeholder {
+    color: transparent;
+  }
+
+  &:placeholder-shown ~ .form__label {
+    font-size: 1.3rem;
+    cursor: text;
+    top: 20px;
+  }
+}
+
+.form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: $gray;
+}
+
+.form__field:focus {
+  ~ .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: $primary;
+    font-weight:700;
+  }
+  padding-bottom: 6px;
+  font-weight: 700;
+  border-width: 3px;
+  border-image: linear-gradient(to right, $primary,$secondary);
+  border-image-slice: 1;
+}
+/* reset input */
+.form__field{
+  &:required,&:invalid { box-shadow:none; }
+}

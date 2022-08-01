@@ -1,11 +1,52 @@
-<!--<div fxLayout="column" style=" min-height: 100%;" fxLayoutAlign="center center">-->
-<!--  <mat-form-field appearance="fill">-->
-<!--    <mat-label>Input</mat-label>-->
-<!--    <input matInput>-->
-<!--  </mat-form-field>-->
-<!--  <div fxLayout="row" fxLayoutGap="20px">-->
-<!--    <button mat-button color="primary" class="width" (click)="cancel()">Anuluj</button>-->
-<!--    <button mat-button color="primary" class="width" (click)="cancel()">Wyczyść</button>-->
-<!--    <button mat-button color="primary" class="width" (click)="save()">Zapisz</button>-->
-<!--  </div>-->
-<!--</div>-->
+<app-flashcards-menu></app-flashcards-menu>
+<div class="flashcards-creator-container">
+
+  <div class="form__group field">
+    <input type="text" class="form__field" placeholder="Słówko" name="name" id='name' required/>
+    <label for="name" class="form__label">Słówko</label>
+  </div>
+
+  <div class="form__group field">
+    <input type="text" class="form__field" placeholder="Tłumaczenie" name="name2" id='name2' required/>
+    <label for="name2" class="form__label">Tłumaczenie</label>
+  </div>
+
+  <div class="form__group field">
+    <input type="text" class="form__field" placeholder="Przykład" name="name3" id='name3' required/>
+    <label for="name3" class="form__label">Przykład</label>
+  </div>
+
+
+  <div class="margin-top">
+    <div *ngIf="!loadedFile" draggable="true" ngClass="{{dragAreaClass}}">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          Przeciągnij plik lub
+          <a href="javascript:void(0)" (click)="file.click()">
+            kliknij, aby wybrać
+          </a>
+          <input type="file"
+                 #file
+                 [multiple]="false"
+                 (change)="onFileChange($event)"
+                 style="display:none"/>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="loadedFile" class="selected-quiz margin-top">
+      <div style="display: flex; width: 100%; margin-top: 30px; text-align: center;">
+        {{loadedFile.name}}
+      </div>
+    </div>
+    <div class="error margin-top">
+      <span *ngIf="isError">Quizy należy importować pojedyńczo</span>
+    </div>
+  </div>
+
+
+  <div fxLayout="row" fxLayoutGap="20px">
+    <button mat-button color="primary" class="width" (click)="cancel()">Anuluj</button>
+    <button mat-button color="primary" class="width" (click)="cancel()">Wyczyść</button>
+    <button mat-button color="primary" class="width" (click)="save()">Zapisz</button>
+  </div>
+</div>
