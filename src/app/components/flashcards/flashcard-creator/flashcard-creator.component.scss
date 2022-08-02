@@ -37,7 +37,7 @@
 .drag-area {
   font-size: 1.5rem;
   border: 3px solid #bbb;
-  padding: 4rem;
+  padding: 10px;
   background-color: transparent;
   color: #bbb;
 }
@@ -45,7 +45,7 @@
 .drop-area {
   font-size: 1.5rem;
   border: 3px dashed #bbb;
-  padding: 4rem;
+  padding: 10px;
   background-color: #eff;
   color: #aaa;
 }
@@ -72,8 +72,9 @@ $gray: #9b9b9b;
 .form__group {
   position: relative;
   padding: 15px 0 0;
-  margin-top: 10px;
-  width: 50%;
+  margin-bottom: 10px;
+  width: 75%;
+  max-width: 550px;
 }
 
 .form__field {

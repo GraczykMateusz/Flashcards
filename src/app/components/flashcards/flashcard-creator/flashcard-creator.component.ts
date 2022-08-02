@@ -13,14 +13,27 @@ export class FlashcardCreatorComponent {
   isError: boolean = false;
   dragAreaClass: string = "drag-area";
   loadedFile: any;
+  z: any;
 
   constructor(private flashcardsService: FlashcardsService) {
   }
 
-  addFlashcard() {
-    // const imageBase64 = Buffer.from(this.loadedFile).toString('base64');
-    const flashcard = new Flashcard('x', 'y', 'z', 'imageBase64');
-    this.flashcardsService.add(flashcard);
+  async addFlashcard() {
+    // const flashcard = new Flashcard('x', 'y', 'z', btoa(this.loadedFile));
+    // this.flashcardsService.add(flashcard);
+
+    var reader = new FileReader();
+    reader.readAsDataURL(this.loadedFile);
+
+    const base64 = new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(this.loadedFile);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = error => reject(error);
+    });
+
+    const zz = await base64;
+    this.z = '<img src="' + zz + '"/>';
   }
 
   onFileChange(event: any) {
@@ -69,11 +82,14 @@ export class FlashcardCreatorComponent {
 
   reset() {
     this.isError = false;
-    this.loadedFile = '';
   }
 
 
   save() {
+
+  }
+
+  cancel() {
 
   }
 }
