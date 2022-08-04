@@ -1,23 +1,36 @@
 <app-flashcards-menu></app-flashcards-menu>
+
 <div class="flashcards-creator-container">
+  <form [formGroup]="flashcardFormGroup">
+    <div class="form-group">
+      <input [formControlName]="'content'"
+             type="text"
+             id='content'
+             class="form-field"
+             placeholder="Słówko"/>
+      <label for="content" class="form-label">Słówko</label>
+    </div>
 
-  <div class="form__group field">
-    <input type="text" class="form__field" placeholder="Słówko" name="name" id='name' required/>
-    <label for="name" class="form__label">Słówko</label>
-  </div>
+    <div class="form-group">
+      <input [formControlName]="'translation'"
+             type="text"
+             id='translation'
+             class="form-field"
+             placeholder="Tłumaczenie"/>
+      <label for="translation" class="form-label">Tłumaczenie</label>
+    </div>
 
-  <div class="form__group field">
-    <input type="text" class="form__field" placeholder="Tłumaczenie" name="name2" id='name2' required/>
-    <label for="name2" class="form__label">Tłumaczenie</label>
-  </div>
+    <div class="form-group">
+      <input [formControlName]="'example'"
+             type="text"
+             id='example'
+             class="form-field"
+             placeholder="Przykład"/>
+      <label for="example" class="form-label">Przykład</label>
+    </div>
+  </form>
 
-  <div class="form__group field">
-    <input type="text" class="form__field" placeholder="Przykład" name="name3" id='name3' required/>
-    <label for="name3" class="form__label">Przykład</label>
-  </div>
-
-
-  <div class="form__group">
+  <div class="form-group">
     <div *ngIf="!loadedFile" draggable="true" ngClass="{{dragAreaClass}}" style="max-height: 100px">
       <div class="row">
         <div class="col-md-12 text-center" style="font-size: 15px; text-align: center">
@@ -40,24 +53,6 @@
 
     <div [innerHTML]="z"></div>
 
-    <!--    <div *ngIf="!loadedFile" draggable="true" ngClass="{{dragAreaClass}}" style="max-height: 100px">-->
-<!--      <div class="row">-->
-<!--        <div class="col-md-12 text-center" style="font-size: 15px; text-align: center">-->
-<!--          <div style="display: inline-block; padding-right: 5px">Przeciągnij plik lub</div>-->
-<!--          <div style="display: inline-block">-->
-<!--            <a href="javascript:void(0)" (click)="file.click()">-->
-<!--              kliknij, aby wybrać-->
-<!--            </a>-->
-<!--          </div>-->
-<!--          <input type="file"-->
-<!--                 #file-->
-<!--                 [multiple]="false"-->
-<!--                 (change)="onFileChange($event)"-->
-<!--                 style="display:none"/>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-
     <div *ngIf="loadedFile" class="selected-quiz margin-top">
       <div style="display: flex; width: 100%; font-size: min(5vmin, 20px); word-break: break-word;">
         {{loadedFile.name}}
@@ -69,9 +64,9 @@
   </div>
 
 
-  <div fxLayout="row" fxLayoutGap="20px">
-    <button mat-button color="primary" class="width" (click)="cancel()">Anuluj</button>
-    <button mat-button color="primary" class="width" (click)="cancel()">Wyczyść</button>
-    <button mat-button color="primary" class="width" (click)="save()">Zapisz</button>
+  <div class="action-buttons">
+    <button mat-button class="red-border" routerLink="/flashcards">Anuluj</button>
+    <button mat-button class="blue-border" (click)="reset()">Wyczyść</button>
+    <button mat-button class="green-border" (click)="save()">Zapisz</button>
   </div>
 </div>

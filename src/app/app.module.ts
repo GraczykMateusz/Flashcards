@@ -20,6 +20,7 @@ import {faHourglassHalf, faPenToSquare} from '@fortawesome/free-regular-svg-icon
 import {environment} from '../environments/environment';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,21 +31,22 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
     FlashcardCreatorComponent,
     FlashcardsMenuComponent
   ],
-  imports: [
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideFirestore(() => getFirestore()),
-    BrowserModule,
-    BrowserAnimationsModule,
-    FlexModule,
-    AppRoutingModule,
-    MatCardModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    FlexLayoutModule,
-    FontAwesomeModule,
-    MatIconModule
-  ],
+    imports: [
+        provideFirebaseApp(() => initializeApp(environment.firebase)),
+        provideFirestore(() => getFirestore()),
+        BrowserModule,
+        BrowserAnimationsModule,
+        FlexModule,
+        AppRoutingModule,
+        MatCardModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatInputModule,
+        FlexLayoutModule,
+        FontAwesomeModule,
+        MatIconModule,
+        ReactiveFormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

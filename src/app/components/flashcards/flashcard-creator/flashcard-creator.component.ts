@@ -1,7 +1,7 @@
 import {Component, HostListener} from '@angular/core';
-import {Router} from "@angular/router";
 import {Flashcard} from '../../../services/flashcards/model/flashcard';
 import {FlashcardsService} from '../../../services/flashcards/flashcards.service';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-flashcard-creator',
@@ -9,6 +9,13 @@ import {FlashcardsService} from '../../../services/flashcards/flashcards.service
   styleUrls: ['./flashcard-creator.component.scss']
 })
 export class FlashcardCreatorComponent {
+
+  flashcardFormGroup = new FormGroup({
+    content: new FormControl(null, [Validators.required, Validators.maxLength(10)]),
+    translation: new FormControl(null, [Validators.required, Validators.maxLength(15)]),
+    example: new FormControl(null),
+    imageBase64: new FormControl(null)
+  });
 
   isError: boolean = false;
   dragAreaClass: string = "drag-area";
@@ -74,22 +81,24 @@ export class FlashcardCreatorComponent {
   saveFiles(files: FileList) {
     if (files.length > 1) {
       this.isError = true;
-    }
-    else {
+    } else {
       this.loadedFile = files.item(0);
     }
   }
 
   reset() {
-    this.isError = false;
+    this.flashcardFormGroup.reset();
   }
 
 
   save() {
+    const content = this.flashcardFormGroup.controls.content.value!;
+    const translation = this.flashcardFormGroup.controls.translation.value!;
+    const example = this.flashcardFormGroup.controls.example.value!;
+    const imageBase64 = this.flashcardFormGroup.controls.imageBase64.value!;
 
-  }
-
-  cancel() {
-
+    const flashcard = new Flashcard(content, translation, example, imageBase64);
+    console.log(flashcard)
+    // this.flashcardsService.add(flashcard);
   }
 }

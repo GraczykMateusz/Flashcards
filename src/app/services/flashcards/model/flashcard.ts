@@ -2,7 +2,7 @@ export class Flashcard {
   constructor(
     public content: string,
     public translation: string,
-    public usage: string,
+    public example: string,
     public imageBase64: string
   ) {
   }
