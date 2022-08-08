@@ -66,18 +66,21 @@ $gray: #9b9b9b;
     transition: 0.2s;
     font-size: 1rem;
     color: $primary;
-    font-weight:700;
+    font-weight: 700;
   }
+
   padding-bottom: 6px;
   font-weight: 700;
   border-width: 3px;
-  border-image: linear-gradient(to right, $primary,$secondary);
+  border-image: linear-gradient(to right, $primary, $secondary);
   border-image-slice: 1;
 }
 
 /* reset input */
-.form-field{
-  &:required,&:invalid { box-shadow:none; }
+.form-field {
+  &:required, &:invalid {
+    box-shadow: none;
+  }
 }
 
 .invalid-form-field-border {
@@ -120,7 +123,6 @@ $gray: #9b9b9b;
 }
 
 
-
 .error {
   color: #f00;
   height: 10px;
@@ -152,6 +154,10 @@ $gray: #9b9b9b;
   color: #aaa;
 }
 
-.asd {
-  background: #38ef7d;
+.xs-save-button {
+  width: 100% !important;
+  min-width: 80px;
+  max-width: 360px !important;
+  padding-left: 0;
+  padding-right: 0;
 }

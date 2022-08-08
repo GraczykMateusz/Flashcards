@@ -88,8 +88,9 @@
       <span ngStyle.lt-sm="display: none">Wyczyść</span>
     </button>
     <button mat-button class="green-border"
-            ngStyle.xs="width: 100%; min-width: 80px; max-width: 360px; padding-left: 0; padding-right: 0"
-            [ngStyle]="{'opacity': isInvalid() ? '0.5' : '1'}"
+            ngClass.xs="xs-save-button"
+            [ngStyle.xs]="{'opacity': isInvalid() ? '0.5' : '1'}"
+            [ngStyle.gt-xs]="{'opacity': isInvalid() ? '0.5' : '1'}"
             [disabled]="isInvalid()"
             (click)="save()">
       Zapisz
