@@ -25,6 +25,8 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import {faArrowLeft, faBan} from "@fortawesome/free-solid-svg-icons";
 import { FlashcardsTimerComponent } from './components/flashcards/flashcards-timer/flashcards-timer.component';
+import { FlashcardEditorComponent } from './components/flashcards/flashcard-editor/flashcard-editor.component';
+import { FlashcardRemoverComponent } from './components/flashcards/flashcard-remover/flashcard-remover.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { FlashcardsTimerComponent } from './components/flashcards/flashcards-tim
     FlashcardsMenuComponent,
     LoginComponent,
     RegisterComponent,
-    FlashcardsTimerComponent
+    FlashcardsTimerComponent,
+    FlashcardEditorComponent,
+    FlashcardRemoverComponent
   ],
     imports: [
         provideFirebaseApp(() => initializeApp(environment.firebase)),
