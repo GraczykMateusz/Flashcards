@@ -7,6 +7,7 @@ import {Component, HostListener} from '@angular/core';
 })
 export class FlashcardsMenuComponent {
 
+  readonly usernameMaxLength = 11;
   isMenuOpen = false;
   isPausedTimer = false;
   isActivatedTimer = false;
