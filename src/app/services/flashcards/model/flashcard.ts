@@ -3,7 +3,7 @@ export class Flashcard {
     public content: string,
     public translation: string,
     public example: string,
-    public imageBase64: string
+    public image: string
   ) {
   }
 

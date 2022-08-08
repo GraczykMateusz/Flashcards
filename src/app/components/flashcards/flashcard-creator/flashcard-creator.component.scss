@@ -80,8 +80,12 @@ $gray: #9b9b9b;
   &:required,&:invalid { box-shadow:none; }
 }
 
-.invalid {
-  color: #991111;
+.invalid-form-field-border {
+  border-bottom: 2px solid #b60606;
+}
+
+.invalid-label-color {
+  color: #b60606;
 }
 
 /* cancel / reset / save buttons */
@@ -93,6 +97,7 @@ $gray: #9b9b9b;
   gap: 20px;
 
   .mat-button {
+    font-family: inherit;
     letter-spacing: 1px;
     font-size: 15px;
     width: 30%;
@@ -109,7 +114,7 @@ $gray: #9b9b9b;
     border: #8f0101 2px solid;
   }
 
-  .blue-border {
+  .cyan-border {
     border: #03c0c5 2px solid;
   }
 }

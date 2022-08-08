@@ -7,8 +7,14 @@
              type="text"
              id='content'
              class="form-field"
+             [ngClass]="isInvalidFormField(flashcardFormGroup.controls.content) ? 'invalid-form-field-border' : ''"
              placeholder="Słówko"/>
-      <label for="content" class="form-label">Słówko</label>
+      <label
+        for="content"
+        class="form-label"
+        [ngClass]="isInvalidFormField(flashcardFormGroup.controls.content) ? 'invalid-label-color' : ''">
+        Słówko *
+      </label>
     </div>
 
     <div class="form-group">
@@ -16,8 +22,14 @@
              type="text"
              id='translation'
              class="form-field"
+             [ngClass]="isInvalidFormField(flashcardFormGroup.controls.translation) ? 'invalid-form-field-border' : ''"
              placeholder="Tłumaczenie"/>
-      <label for="translation" class="form-label">Tłumaczenie</label>
+      <label
+        for="translation"
+        class="form-label"
+        [ngClass]="isInvalidFormField(flashcardFormGroup.controls.translation) ? 'invalid-label-color' : ''">
+        Tłumaczenie *
+      </label>
     </div>
 
     <div class="form-group">
@@ -25,16 +37,21 @@
              type="text"
              id='example'
              class="form-field"
+             [ngClass]="isInvalidFormField(flashcardFormGroup.controls.example) ? 'invalid-form-field-border' : ''"
              placeholder="Przykład"/>
-      <label for="example" class="form-label">Przykład</label>
+      <label for="example"
+             class="form-label"
+             [ngClass]="isInvalidFormField(flashcardFormGroup.controls.example) ? 'invalid-label-color' : ''">
+        Przykład
+      </label>
     </div>
   </form>
 
   <div class="form-group">
-    <div *ngIf="!loadedFile" draggable="true" ngClass="{{dragAreaClass}}">
+    <div *ngIf="!loadedFile" ngClass="{{dragAreaClass}}">
       <div class="row">
         <div style="font-size: 15px; text-align: center">
-          <div style="display: inline-block; padding-right: 5px">Przeciągnij plik lub</div>
+          <div style="display: inline-block; padding-right: 5px">Przeciągnij obrazek lub</div>
           <div style="display: inline-block">
             <a href="javascript:void(0)"
                (click)="file.click()">
@@ -61,17 +78,20 @@
     </div>
   </div>
 
-
   <div class="action-buttons" ngStyle.xs="gap: 10px;">
     <button mat-button class="red-border" ngStyle.xs="width: 40px;" routerLink="/flashcards">
       <mat-icon ngStyle.gt-xs="display: none">arrow_back</mat-icon>
       <span ngStyle.lt-sm="display: none">Anuluj</span>
     </button>
-    <button mat-button class="blue-border" ngStyle.xs="width: 40px;" (click)="reset()">
+    <button mat-button class="cyan-border" ngStyle.xs="width: 40px;" (click)="reset()">
       <mat-icon ngStyle.gt-xs="display: none;">close</mat-icon>
       <span ngStyle.lt-sm="display: none">Wyczyść</span>
     </button>
-    <button mat-button class="green-border" ngStyle.xs="width: 100%; max-width: 360px; padding-left: 0; padding-right: 0" (click)="save()">
+    <button mat-button class="green-border"
+            ngStyle.xs="width: 100%; min-width: 80px; max-width: 360px; padding-left: 0; padding-right: 0"
+            [ngStyle]="{'opacity': isInvalid() ? '0.5' : '1'}"
+            [disabled]="isInvalid()"
+            (click)="save()">
       Zapisz
     </button>
   </div>
