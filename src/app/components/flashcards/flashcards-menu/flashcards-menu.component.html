@@ -44,7 +44,8 @@
           Zalogowany:
         </div>
         <div class="sign-in-user-name">
-          {{username}}
+          <ng-container *ngIf="username.length > 11">{{username.substring(0, 11) | uppercase}}...</ng-container>
+          <ng-container *ngIf="username.length <= 11">{{username | uppercase}}</ng-container>
         </div>
       </div>
       <mat-icon>
