@@ -21,6 +21,9 @@ import {environment} from '../environments/environment';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import {ReactiveFormsModule} from '@angular/forms';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import {faArrowLeft, faBan} from "@fortawesome/free-solid-svg-icons";
 
 @NgModule({
   declarations: [
@@ -29,7 +32,9 @@ import {ReactiveFormsModule} from '@angular/forms';
     FooterComponent,
     FlashcardsComponent,
     FlashcardCreatorComponent,
-    FlashcardsMenuComponent
+    FlashcardsMenuComponent,
+    LoginComponent,
+    RegisterComponent
   ],
     imports: [
         provideFirebaseApp(() => initializeApp(environment.firebase)),
@@ -54,7 +59,9 @@ export class AppModule {
   constructor(library: FaIconLibrary) {
     library.addIcons(
       faHourglassHalf,
-      faPenToSquare
+      faPenToSquare,
+      faBan,
+      faArrowLeft
     );
   }
 }

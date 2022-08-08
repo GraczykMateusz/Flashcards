@@ -17,9 +17,9 @@ export class FlashcardCreatorComponent {
     imageBase64: new FormControl(null)
   });
 
-  isError: boolean = false;
-  dragAreaClass: string = "drag-area";
-  loadedFile: any;
+  isError = false;
+  dragAreaClass = 'drag-area';
+  loadedFile: any = null;
   z: any;
 
   constructor(private flashcardsService: FlashcardsService) {
@@ -48,27 +48,32 @@ export class FlashcardCreatorComponent {
     this.saveFiles(files);
   }
 
-  @HostListener("dragover", ["$event"]) onDragOver(event: any) {
+  @HostListener("dragover", ["$event"])
+  onDragOver(event: any) {
     this.dragAreaClass = "drop-area";
     event.preventDefault();
   }
 
-  @HostListener("dragenter", ["$event"]) onDragEnter(event: any) {
+  @HostListener("dragenter", ["$event"])
+  onDragEnter(event: any) {
     this.dragAreaClass = "drop-area";
     event.preventDefault();
   }
 
-  @HostListener("dragend", ["$event"]) onDragEnd(event: any) {
+  @HostListener("dragend", ["$event"])
+  onDragEnd(event: any) {
     this.dragAreaClass = "drag-area";
     event.preventDefault();
   }
 
-  @HostListener("dragleave", ["$event"]) onDragLeave(event: any) {
+  @HostListener("dragleave", ["$event"])
+  onDragLeave(event: any) {
     this.dragAreaClass = "drag-area";
     event.preventDefault();
   }
 
-  @HostListener("drop", ["$event"]) onDrop(event: any) {
+  @HostListener("drop", ["$event"])
+  onDrop(event: any) {
     this.dragAreaClass = "drag-area";
     event.preventDefault();
     event.stopPropagation();
@@ -87,6 +92,7 @@ export class FlashcardCreatorComponent {
   }
 
   reset() {
+    this.loadedFile = null;
     this.flashcardFormGroup.reset();
   }
 

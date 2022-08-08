@@ -1,7 +1,7 @@
 <app-flashcards-menu></app-flashcards-menu>
 
 <div class="flashcards-creator-container">
-  <form [formGroup]="flashcardFormGroup">
+  <form class="form-group" [formGroup]="flashcardFormGroup">
     <div class="form-group">
       <input [formControlName]="'content'"
              type="text"
@@ -31,27 +31,25 @@
   </form>
 
   <div class="form-group">
-    <div *ngIf="!loadedFile" draggable="true" ngClass="{{dragAreaClass}}" style="max-height: 100px">
+    <div *ngIf="!loadedFile" draggable="true" ngClass="{{dragAreaClass}}">
       <div class="row">
-        <div class="col-md-12 text-center" style="font-size: 15px; text-align: center">
+        <div style="font-size: 15px; text-align: center">
           <div style="display: inline-block; padding-right: 5px">Przeciągnij plik lub</div>
           <div style="display: inline-block">
-            <a href="javascript:void(0)" (click)="file.click()">
+            <a href="javascript:void(0)"
+               (click)="file.click()">
               kliknij, aby wybrać
             </a>
           </div>
           <input type="file"
                  #file
+                 accept=".png"
                  [multiple]="false"
                  (change)="onFileChange($event)"
                  style="display:none"/>
         </div>
       </div>
     </div>
-
-    <button mat-button (click)="addFlashcard()">test</button>
-
-    <div [innerHTML]="z"></div>
 
     <div *ngIf="loadedFile" class="selected-quiz margin-top">
       <div style="display: flex; width: 100%; font-size: min(5vmin, 20px); word-break: break-word;">
@@ -64,9 +62,17 @@
   </div>
 
 
-  <div class="action-buttons">
-    <button mat-button class="red-border" routerLink="/flashcards">Anuluj</button>
-    <button mat-button class="blue-border" (click)="reset()">Wyczyść</button>
-    <button mat-button class="green-border" (click)="save()">Zapisz</button>
+  <div class="action-buttons" ngStyle.xs="gap: 10px;">
+    <button mat-button class="red-border" ngStyle.xs="width: 40px;" routerLink="/flashcards">
+      <mat-icon ngStyle.gt-xs="display: none">arrow_back</mat-icon>
+      <span ngStyle.lt-sm="display: none">Anuluj</span>
+    </button>
+    <button mat-button class="blue-border" ngStyle.xs="width: 40px;" (click)="reset()">
+      <mat-icon ngStyle.gt-xs="display: none;">close</mat-icon>
+      <span ngStyle.lt-sm="display: none">Wyczyść</span>
+    </button>
+    <button mat-button class="green-border" ngStyle.xs="width: 100%; max-width: 360px; padding-left: 0; padding-right: 0" (click)="save()">
+      Zapisz
+    </button>
   </div>
 </div>
