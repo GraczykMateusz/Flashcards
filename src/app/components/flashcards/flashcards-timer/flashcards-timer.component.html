@@ -1,0 +1,5 @@
+<div class="timer" *ngIf="isActivated">
+  <div [ngStyle]="{'color': counter.min == 0 && counter.sec <= 30 ? 'green' : ''}">
+    {{counter.min}} : <span *ngIf="counter.sec < 10">0</span>{{counter.sec}}
+  </div>
+</div>

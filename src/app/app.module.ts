@@ -24,6 +24,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import {faArrowLeft, faBan} from "@fortawesome/free-solid-svg-icons";
+import { FlashcardsTimerComponent } from './components/flashcards/flashcards-timer/flashcards-timer.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {faArrowLeft, faBan} from "@fortawesome/free-solid-svg-icons";
     FlashcardCreatorComponent,
     FlashcardsMenuComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    FlashcardsTimerComponent
   ],
     imports: [
         provideFirebaseApp(() => initializeApp(environment.firebase)),

@@ -1,4 +1,9 @@
+<app-flashcards-timer [isActivated]="isActivatedTimer"
+                      [counter]="counter"
+                      [isPaused]="isPausedTimer"></app-flashcards-timer>
+
 <div class="header">
+
   <div class="navbar-items-container">
     <div class="title" routerLink="/dashboard">
       PROJEKT ASTRAL
@@ -13,8 +18,10 @@
       </div>
       <div class="stopwatch-action">
         <fa-icon [icon]="['far', 'hourglass-half']" size="2x"></fa-icon>
-        <button mat-button color="primary">Aktywuj</button>
-        <button mat-button color="primary">Zatrzymaj</button>
+        <button mat-button color="primary" (click)="startTimer();" *ngIf="canStartTimer()">Aktywuj</button>
+        <button mat-button color="primary" (click)="resumeTimer();" *ngIf="canResumeTimer()">Wznów</button>
+        <button mat-button color="primary" (click)="pauseTimer();" *ngIf="canPauseTimer()">Zatrzymaj</button>
+        <button mat-button color="primary" (click)="closeTimer();">Zakończ</button>
       </div>
     </div>
 
@@ -37,7 +44,7 @@
           Zalogowany:
         </div>
         <div class="sign-in-user-name">
-          Mateusz
+          {{username}}
         </div>
       </div>
       <mat-icon>
@@ -56,6 +63,7 @@
     <div class="category-mobile">Zegar</div>
     <button class="dropdown-links-mobile" (click)="closeDropDown()">Aktywuj</button>
     <button class="dropdown-links-mobile" (click)="closeDropDown()">Zatrzymaj</button>
+    <button class="dropdown-links-mobile" (click)="closeDropDown()">Zakończ</button>
 
     <button class="dropdown-links-mobile logout-button" (click)="closeDropDown()">
       Wyloguj się

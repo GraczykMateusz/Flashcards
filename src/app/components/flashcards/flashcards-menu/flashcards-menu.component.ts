@@ -8,8 +8,12 @@ import {Component, HostListener} from '@angular/core';
 export class FlashcardsMenuComponent {
 
   isMenuOpen = false;
+  isPausedTimer = false;
+  isActivatedTimer = false;
+  counter!: { min: number, sec: number };
+  username = 'Mateusz';
 
-  toggleMenu() {
+  toggleMenu(): void {
     this.isMenuOpen = !this.isMenuOpen;
   }
 
@@ -22,5 +26,36 @@ export class FlashcardsMenuComponent {
     if (window.innerWidth >= 600) {
       this.closeDropDown();
     }
+  }
+
+  pauseTimer(): void {
+    this.isPausedTimer = true;
+  }
+
+  closeTimer(): void {
+    this.isActivatedTimer = false;
+    this.isPausedTimer = false;
+  }
+
+  resumeTimer(): void {
+    this.isPausedTimer = false;
+  }
+
+  startTimer(): void {
+    this.isActivatedTimer = true;
+    this.isPausedTimer = false;
+    this.counter = {min: 10, sec: 10};
+  }
+
+  canStartTimer(): boolean {
+    return !this.isPausedTimer && !this.isActivatedTimer;
+  }
+
+  canResumeTimer(): boolean {
+    return this.isPausedTimer && this.isActivatedTimer;
+  }
+
+  canPauseTimer(): boolean {
+    return !this.isPausedTimer && this.isActivatedTimer;
   }
 }
