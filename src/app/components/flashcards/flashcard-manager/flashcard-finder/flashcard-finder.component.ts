@@ -1,17 +1,18 @@
 import {Component, HostListener} from '@angular/core';
-import {Flashcard} from '../../../services/flashcards/model/flashcard';
-import {FlashcardsService} from '../../../services/flashcards/flashcards.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {FlashcardsService} from '../../../../services/flashcards/flashcards.service';
 import {
   FlashcardImageUploaderService
-} from "../../../services/flashcards/flashcard-creator/flashcard-image-uploader.service";
+} from '../../../../services/flashcards/flashcard-creator/flashcard-image-uploader.service';
+import {Flashcard} from '../../../../services/flashcards/model/flashcard';
 
 @Component({
-  selector: 'app-flashcard-creator',
-  templateUrl: './flashcard-creator.component.html',
-  styleUrls: ['./flashcard-creator.component.scss']
+  selector: 'app-flashcard-finder',
+  templateUrl: './flashcard-finder.component.html',
+  styleUrls: ['./flashcard-finder.component.scss']
 })
-export class FlashcardCreatorComponent {
+export class FlashcardFinderComponent {
+
 
   flashcardFormGroup = new FormGroup({
     content: new FormControl('', [Validators.required, Validators.maxLength(10)]),
@@ -110,4 +111,6 @@ export class FlashcardCreatorComponent {
 
     return isisInvalidContent || isisInvalidTranslation || isisInvalidExample;
   }
+
+
 }

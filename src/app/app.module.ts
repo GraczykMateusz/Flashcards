@@ -10,7 +10,7 @@ import {FlashcardsComponent} from './components/flashcards/flashcards.component'
 import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {FlashcardCreatorComponent} from './components/flashcards/flashcard-creator/flashcard-creator.component';
+import {FlashcardCreatorComponent} from './components/flashcards/flashcard-manager/flashcard-creator/flashcard-creator.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {FaIconLibrary, FontAwesomeModule} from '@fortawesome/angular-fontawesome';
@@ -25,8 +25,9 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import {faArrowLeft, faBan} from "@fortawesome/free-solid-svg-icons";
 import { FlashcardsTimerComponent } from './components/flashcards/flashcards-timer/flashcards-timer.component';
-import { FlashcardEditorComponent } from './components/flashcards/flashcard-editor/flashcard-editor.component';
-import { FlashcardRemoverComponent } from './components/flashcards/flashcard-remover/flashcard-remover.component';
+import { FlashcardEditorComponent } from './components/flashcards/flashcard-manager/flashcard-editor/flashcard-editor.component';
+import { FlashcardRemoverComponent } from './components/flashcards/flashcard-manager/flashcard-remover/flashcard-remover.component';
+import { FlashcardFinderComponent } from './components/flashcards/flashcard-manager/flashcard-finder/flashcard-finder.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { FlashcardRemoverComponent } from './components/flashcards/flashcard-rem
     RegisterComponent,
     FlashcardsTimerComponent,
     FlashcardEditorComponent,
-    FlashcardRemoverComponent
+    FlashcardRemoverComponent,
+    FlashcardFinderComponent
   ],
     imports: [
         provideFirebaseApp(() => initializeApp(environment.firebase)),

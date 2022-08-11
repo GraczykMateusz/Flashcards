@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
 import {FlashcardsService} from '../../services/flashcards/flashcards.service';
-import {Flashcard} from '../../services/flashcards/model/flashcard';
 
 @Component({
   selector: 'app-flashcards',

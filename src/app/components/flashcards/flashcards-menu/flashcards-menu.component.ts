@@ -1,11 +1,12 @@
-import {Component, HostListener} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-flashcards-menu',
   templateUrl: './flashcards-menu.component.html',
   styleUrls: ['./flashcards-menu.component.scss']
 })
-export class FlashcardsMenuComponent {
+export class FlashcardsMenuComponent implements OnInit {
 
   readonly usernameMaxLength = 11;
   isMenuOpen = false;
@@ -13,6 +14,14 @@ export class FlashcardsMenuComponent {
   isActivatedTimer = false;
   counter!: { min: number, sec: number };
   username = 'Mateusz';
+  activeTab: string | undefined;
+
+  constructor(private route: ActivatedRoute) {
+  }
+
+  ngOnInit() {
+    this.activeTab = this.route.snapshot.url[1]?.path;
+  }
 
   toggleMenu(): void {
     this.isMenuOpen = !this.isMenuOpen;

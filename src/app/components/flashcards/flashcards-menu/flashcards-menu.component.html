@@ -12,9 +12,9 @@
     <div ngClass.lt-md="hide-element" ngClass.md="hide-element" class="desktop-action-buttons">
       <div class="flashcard-action">
         <fa-icon [icon]="['far', 'pen-to-square']" size="2x"></fa-icon>
-        <button mat-button color="primary" routerLink="/flashcards/creator">Dodaj</button>
-        <button mat-button color="primary" routerLink="/flashcards/editor">Edytuj</button>
-        <button mat-button color="primary" routerLink="/flashcards/remover">Usuń</button>
+        <button mat-button color="primary" [ngStyle]="activeTab === 'creator' ? {'background-color' : 'rgba(101,46,203,0.3)'} : {}" routerLink="/flashcards/creator">Dodaj</button>
+        <button mat-button color="primary" [ngStyle]="activeTab === 'editor' ? {'background-color' : 'rgba(101,46,203,0.3)'} : {}" routerLink="/flashcards/editor">Edytuj</button>
+        <button mat-button color="primary" [ngStyle]="activeTab === 'remover' ? {'background-color' : 'rgba(101,46,203,0.3)'} : {}" routerLink="/flashcards/remover">Usuń</button>
       </div>
       <div class="stopwatch-action">
         <fa-icon [icon]="['far', 'hourglass-half']" size="2x"></fa-icon>
