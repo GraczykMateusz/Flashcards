@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {AuthService} from '../../../services/auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -10,6 +11,9 @@ export class LoginComponent {
 
   isEmailError = false;
   isPasswordError = false;
+
+  constructor(private authService: AuthService) {
+  }
 
   userGroup = new FormGroup({
     email: new FormControl('', [Validators.required]),
@@ -24,7 +28,6 @@ export class LoginComponent {
     if (this.userGroup.controls.email.value?.length === 0 && this.userGroup.controls.password.value?.length === 0) {
       this.isEmailError = true;
       this.isPasswordError = true;
-      console.log('weszlo')
       return;
     }
     if (this.userGroup.controls.email.value?.length === 0) {
@@ -37,5 +40,13 @@ export class LoginComponent {
     }
     this.isEmailError = false;
     this.isPasswordError = false;
+
+    const email = this.userGroup.controls.email.value!;
+    const password = this.userGroup.controls.password.value!;
+    this.login2(email, password);
+  }
+
+  async login2(email: string, password: string) {
+    await this.authService.signIn(email, password)
   }
 }

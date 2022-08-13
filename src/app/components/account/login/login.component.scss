@@ -1,9 +1,5 @@
-@use "src/styles/variables";
+@use "src/styles/utils/variables";
 
-$flashcards-container-padding-top: 100px;
-$primary: #11998e;
-$secondary: #38ef7d;
-$white: #fff;
 $gray: #dcd9d9;
 
 .login-container {
@@ -61,7 +57,8 @@ $gray: #dcd9d9;
   justify-content: center;
   align-items: center;
   font-family: "Segoe UI Semibold", sans-serif;
-  font-size: 18px;
+  font-size: 15px;
+  min-width: 221px;
   color: $gray;
 
   .register {
@@ -76,12 +73,12 @@ $gray: #dcd9d9;
   font-family: variables.$body-font-family;
   width: 100%;
   margin-top: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   letter-spacing: 1px;
   font-size: 15px;
   background-color: rgba(3, 3, 3, 0.17);
   color: rgba(255, 250, 250, 0.85);
-  border: rgba(3, 94, 197, 0.95) 2px solid;
+  border: rgba(3, 197, 71, 0.95) 2px solid;
 }
 
 /* input */
@@ -101,7 +98,7 @@ $gray: #dcd9d9;
   border-bottom: 2px solid $gray;
   outline: 0;
   font-size: 1.3rem;
-  color: $white;
+  color: $gray;
   padding: 7px 0;
   background: transparent;
   transition: border-color 0.2s;
@@ -150,16 +147,4 @@ $gray: #dcd9d9;
   &:required, &:invalid {
     box-shadow: none;
   }
-}
-
-mat-error {
-  font-size: 12px;
-}
-
-.invalid-form-field-border {
-  border-bottom: 2px solid #b60606;
-}
-
-.invalid-label-color {
-  color: #b60606;
 }
