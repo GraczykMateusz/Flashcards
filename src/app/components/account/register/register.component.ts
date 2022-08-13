@@ -1,5 +1,6 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -8,14 +9,18 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 })
 export class RegisterComponent {
 
-  isEmailError = false;
-  isPasswordError = false;
-  isReplayPasswordError = false;
+  captchaStatus!: Subscription;
 
-  userGroup = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [Validators.required]),
-    replayPassword: new FormControl('', [Validators.required])
+  isEmailInvalid = false;
+  isPasswordInvalid = false;
+  isReplayPasswordInvalid = false;
+  isCaptchaInvalid = false;
+
+  userForm = new FormGroup({
+    email: new FormControl('', [Validators.required, Validators.pattern(/[\S]/), Validators.email]),
+    password: new FormControl('', [Validators.required, Validators.pattern(/[\S]/), Validators.min(6)]),
+    replayPassword: new FormControl('', [Validators.required, Validators.pattern(/[\S]/), Validators.min(6)]),
+    captcha: new FormControl(false)
   });
 
   isInvalidFormField(formControl: FormControl<string | null>) {
@@ -23,20 +28,32 @@ export class RegisterComponent {
   }
 
   async register() {
-    if (this.userGroup.controls.email.value?.length === 0 ||
-      this.userGroup.controls.password.value?.length === 0 ||
-      this.userGroup.controls.replayPassword.value?.length === 0) {
-      this.isEmailError = this.userGroup.controls.email.value?.length === 0;
-      this.isPasswordError = this.userGroup.controls.password.value?.length === 0;
-      this.isReplayPasswordError = this.userGroup.controls.replayPassword.value?.length === 0;
+    this.isEmailInvalid = this.userForm.controls.email.value?.length === 0;
+    this.isPasswordInvalid = this.userForm.controls.password.value?.length === 0;
+    this.isReplayPasswordInvalid = this.userForm.controls.replayPassword.value?.length === 0;
+
+    if (this.isEmailInvalid || this.isPasswordInvalid || this.isReplayPasswordInvalid) {
+      console.log('this.isEmailInvalid=' + this.isEmailInvalid)
+      console.log('this.isPasswordInvalid=' + this.isPasswordInvalid)
+      console.log('this.isReplayPasswordInvalid=' + this.isReplayPasswordInvalid)
       return;
     }
-    this.isEmailError = false;
-    this.isPasswordError = false;
-    this.isReplayPasswordError = false;
 
-    const email = this.userGroup.controls.email.value!;
-    const password = this.userGroup.controls.password.value!;
+
+    const email = this.userForm.controls.email.value!;
+    const password = this.userForm.controls.password.value!;
     // await this.authService.signUp(email, password)
+  }
+
+  private reset() {
+    this.userForm.reset();
+    this.isEmailInvalid = false;
+    this.isPasswordInvalid = false;
+    this.isReplayPasswordInvalid = false;
+    this.isCaptchaInvalid = false;
+  }
+
+  setCaptchaStatus(status: boolean) {
+    this.userForm.controls.captcha.setValue(status);
   }
 }

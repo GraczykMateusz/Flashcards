@@ -1,5 +1,7 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {NgxCaptchaService} from '@binssoft/ngx-captcha';
+import {Component, OnDestroy, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
+import {NgxCaptchaComponent, NgxCaptchaService} from '@binssoft/ngx-captcha';
+import {Subscription} from 'rxjs';
+import {CAPTCHA_CONFIG} from './config/captcha-config';
 
 @Component({
   selector: 'app-captcha',
@@ -7,32 +9,26 @@ import {NgxCaptchaService} from '@binssoft/ngx-captcha';
   styleUrls: ['./captcha.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class CaptchaComponent implements OnInit {
+export class CaptchaComponent implements OnInit, OnDestroy {
 
-  captchaStatus: any = null;
-  captchaConfig: any = {
-    length: 6,
-    back: {
-      stroke: "#000000",
-      solid: "#dcdcdc"
-    },
-    font: {
-      color: "#000000",
-      size: "40px"
-    }
-  };
+  readonly captchaConfig = CAPTCHA_CONFIG;
+  private captchaStatus!: Subscription;
 
   constructor(private captchaService: NgxCaptchaService) {
   }
 
   ngOnInit() {
-    this.captchaService.captchStatus.subscribe((status) => {
-      this.captchaStatus = status;
-      if (status == false) {
-        alert("Opps!\nCaptcha mismatch");
-      } else if (status == true) {
-        alert("Success!\nYou are right");
-      }
-    });
+    this.captchaStatus = this.captchaService.captchStatus
+      .subscribe(status => {
+        if (status == false) {
+          alert("Opps!\nCaptcha mismatch");
+        } else if (status == true) {
+          alert("Success!\nYou are right");
+        }
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.captchaStatus.unsubscribe();
   }
 }

@@ -4,21 +4,23 @@
       <fa-icon [icon]="['fas', 'arrow-left']" class="back-icon" routerLink="/login"></fa-icon>
       <span class="register-title">Rejestracja</span>
     </mat-card-title>
-    <form class="form-group" [formGroup]="userGroup">
+
+    <form class="form-group" [formGroup]="userForm">
       <div class="form-group">
         <input [formControlName]="'email'"
                type="text"
                id='email'
                autocomplete="off"
                class="form-field"
-               placeholder="EMAIL"/>
+               placeholder="EMAIL"
+               (click)="isEmailInvalid=false"/>
         <label for="email"
                class="form-label">
           EMAIL
         </label>
-        <div style="min-height: 16px; font-size: 12px; color: red">
-          <span *ngIf="isInvalidFormField(userGroup.controls.email)">
-            Email jest niepoprawny
+        <div class="error">
+          <span *ngIf="isEmailInvalid">
+            Niepoprawne dane
           </span>
         </div>
       </div>
@@ -29,41 +31,48 @@
                autocomplete="off"
                id='password'
                class="form-field"
-               placeholder="HASŁO"/>
+               placeholder="HASŁO"
+               (click)="isPasswordInvalid=false"/>
         <label for="password"
                class="form-label">
           HASŁO
         </label>
-        <div style="min-height: 16px; font-size: 12px; color: red">
-          <span *ngIf="isInvalidFormField(userGroup.controls.password)">
-            Hasło jest niepoprawne
+        <div class="error">
+          <span *ngIf="isPasswordInvalid">
+            Niepoprawne dane
           </span>
         </div>
       </div>
 
       <div class="form-group">
-        <input [formControlName]="'password'"
+        <input [formControlName]="'replayPassword'"
                type="text"
                autocomplete="off"
                id='replyPassword'
                class="form-field"
-               placeholder="POWTÓRZ HASŁO"/>
+               placeholder="POWTÓRZ HASŁO"
+               (click)="isReplayPasswordInvalid=false"/>
         <label for="replyPassword"
                class="form-label">
           POWTÓRZ HASŁO
         </label>
-        <div style="min-height: 16px; font-size: 12px; color: red">
-          <span *ngIf="isInvalidFormField(userGroup.controls.replayPassword)">
-            Hasło jest niepoprawne
+        <div class="error">
+          <span *ngIf="isReplayPasswordInvalid">
+            Niepoprawne dane
           </span>
         </div>
       </div>
+
+      <app-captcha></app-captcha>
+      <div class="error">
+          <span *ngIf="isEmailInvalid">
+            Niepoprawne dane
+          </span>
+      </div>
     </form>
 
-    <app-captcha></app-captcha>
-
     <button mat-button class="login-button" (click)="register()">
-      Zarejestruj
+      Sprawdź
     </button>
   </mat-card>
 </div>
