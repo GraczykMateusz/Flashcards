@@ -39,7 +39,7 @@ $gray: #dcd9d9;
 
     width: 70%;
     max-width: 370px;
-    height: 330px;
+    height: 470px;
 
     mat-card-title {
       display: flex;
@@ -130,6 +130,10 @@ $gray: #dcd9d9;
     cursor: text;
     top: 20px;
   }
+}
+
+input {
+  color: red;
 }
 
 .form-label {

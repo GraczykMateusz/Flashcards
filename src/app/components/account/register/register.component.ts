@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {AuthService} from '../../../services/auth/auth.service';
+import {Component} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
@@ -12,9 +11,6 @@ export class RegisterComponent {
   isEmailError = false;
   isPasswordError = false;
   isReplayPasswordError = false;
-
-  constructor(private authService: AuthService) {
-  }
 
   userGroup = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),

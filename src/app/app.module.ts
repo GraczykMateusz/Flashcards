@@ -43,6 +43,8 @@ import {AngularFireDatabaseModule} from '@angular/fire/compat/database';
 import { VerifyComponent } from './components/account/verify/verify.component';
 import {HashLocationStrategy, LocationStrategy} from '@angular/common';
 import {REGION} from '@angular/fire/compat/functions';
+import {NgxCaptchaModule} from '@binssoft/ngx-captcha';
+import { CaptchaComponent } from './components/common/captcha/captcha.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +60,8 @@ import {REGION} from '@angular/fire/compat/functions';
     FlashcardEditorComponent,
     FlashcardRemoverComponent,
     FlashcardFinderComponent,
-    VerifyComponent
+    VerifyComponent,
+    CaptchaComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
@@ -76,7 +79,8 @@ import {REGION} from '@angular/fire/compat/functions';
     FlexLayoutModule,
     FontAwesomeModule,
     MatIconModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxCaptchaModule
   ],
   providers: [
     {provide: LocationStrategy, useClass: HashLocationStrategy},
