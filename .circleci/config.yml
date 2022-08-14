@@ -3,12 +3,12 @@ version: 2.1
 workflows:
   astral-prod:
     jobs:
-      - build-and-deploy-frontend:
-          filters:
-            tags:
-              only: /^v.*/
-            branches:
-              ignore: /.*/
+      - build-and-deploy-frontend
+#          filters:
+#            tags:
+#              only: /^v.*/
+#            branches:
+#              ignore: /.*/
 
 jobs:
   build-and-deploy-frontend:
