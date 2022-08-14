@@ -36,12 +36,12 @@ export class RegisterComponent {
     this.isPasswordInvalid = this.userForm.controls.password.value?.length === 0;
     this.isReplayPasswordInvalid = this.userForm.controls.replayPassword.value?.length === 0;
 
-    if (this.isEmailInvalid || this.isPasswordInvalid || this.isReplayPasswordInvalid) {
-      console.log('this.isEmailInvalid=' + this.isEmailInvalid)
-      console.log('this.isPasswordInvalid=' + this.isPasswordInvalid)
-      console.log('this.isReplayPasswordInvalid=' + this.isReplayPasswordInvalid)
-      return;
-    }
+    // if (this.isEmailInvalid || this.isPasswordInvalid || this.isReplayPasswordInvalid) {
+    //   console.log('this.isEmailInvalid=' + this.isEmailInvalid)
+    //   console.log('this.isPasswordInvalid=' + this.isPasswordInvalid)
+    //   console.log('this.isReplayPasswordInvalid=' + this.isReplayPasswordInvalid)
+    //   return;
+    // }
 
 
     const email = this.userForm.controls.email.value!;
