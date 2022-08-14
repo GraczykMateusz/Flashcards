@@ -54,6 +54,7 @@ export class RegisterComponent {
   }
 
   setCaptchaStatus(status: boolean) {
+    console.log(status)
     this.userForm.controls.captcha.setValue(status);
   }
 }

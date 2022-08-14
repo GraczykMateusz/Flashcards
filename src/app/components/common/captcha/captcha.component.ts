@@ -1,5 +1,5 @@
-import {Component, OnDestroy, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
-import {NgxCaptchaComponent, NgxCaptchaService} from '@binssoft/ngx-captcha';
+import {Component, EventEmitter, OnDestroy, OnInit, Output, ViewEncapsulation} from '@angular/core';
+import {NgxCaptchaService} from '@binssoft/ngx-captcha';
 import {Subscription} from 'rxjs';
 import {CAPTCHA_CONFIG} from './config/captcha-config';
 
@@ -12,6 +12,7 @@ import {CAPTCHA_CONFIG} from './config/captcha-config';
 export class CaptchaComponent implements OnInit, OnDestroy {
 
   readonly captchaConfig = CAPTCHA_CONFIG;
+  @Output() captchaStatusEmitter = new EventEmitter<any>();
   private captchaStatus!: Subscription;
 
   constructor(private captchaService: NgxCaptchaService) {
@@ -20,11 +21,8 @@ export class CaptchaComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.captchaStatus = this.captchaService.captchStatus
       .subscribe(status => {
-        if (status == false) {
-          alert("Opps!\nCaptcha mismatch");
-        } else if (status == true) {
-          alert("Success!\nYou are right");
-        }
+        if (status == null) return;
+        this.captchaStatusEmitter.next(status);
       });
   }
 

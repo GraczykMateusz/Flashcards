@@ -63,16 +63,11 @@
         </div>
       </div>
 
-      <app-captcha></app-captcha>
-      <div class="error">
-          <span *ngIf="isEmailInvalid">
-            Niepoprawne dane
-          </span>
-      </div>
+      <app-captcha (captchaStatusEmitter)="setCaptchaStatus($event)"></app-captcha>
     </form>
 
     <button mat-button class="login-button" (click)="register()">
-      Sprawdź
+      Zarejestruj
     </button>
   </mat-card>
 </div>
