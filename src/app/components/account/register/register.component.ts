@@ -24,7 +24,7 @@ export class RegisterComponent {
   constructor(private authService: AuthService) {
   }
 
-  async register() {
+  async register(): Promise<void> {
     this.isEmailInvalid = this.userForm.controls.email.invalid;
     this.isPasswordInvalid = this.passwordValidator();
     this.isReplayPasswordInvalid = this.passwordValidator();
@@ -40,7 +40,7 @@ export class RegisterComponent {
     await this.authService.signUp(email, password)
   }
 
-  setCaptchaStatus(status: boolean) {
+  setCaptchaStatus(status: boolean): void {
     this.userForm.controls.captcha.setValue(status);
   }
 
@@ -51,7 +51,7 @@ export class RegisterComponent {
     return this.userForm.controls.password.value !== this.userForm.controls.replayPassword.value;
   }
 
-  reset() {
+  reset(): void {
     this.userForm.reset();
     this.isEmailInvalid = false;
     this.isPasswordInvalid = false;
