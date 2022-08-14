@@ -20,8 +20,6 @@ import {FlashcardsMenuComponent} from './components/flashcards/flashcards-menu/f
 import {MatIconModule} from '@angular/material/icon';
 import {faHourglassHalf, faPenToSquare} from '@fortawesome/free-regular-svg-icons';
 import {environment} from '../environments/environment';
-import {initializeApp, provideFirebaseApp} from '@angular/fire/app';
-import {getFirestore, provideFirestore} from '@angular/fire/firestore';
 import {ReactiveFormsModule} from '@angular/forms';
 import {LoginComponent} from './components/account/login/login.component';
 import {RegisterComponent} from './components/account/register/register.component';
@@ -36,15 +34,15 @@ import {
 import {
   FlashcardFinderComponent
 } from './components/flashcards/flashcard-manager/flashcard-finder/flashcard-finder.component';
-import {AuthService} from './services/auth/auth.service';
-import {AuthGuardService} from './services/auth/auth-guard.service';
 import {AngularFireModule} from '@angular/fire/compat';
 import {AngularFireDatabaseModule} from '@angular/fire/compat/database';
-import { VerifyComponent } from './components/account/verify/verify.component';
 import {HashLocationStrategy, LocationStrategy} from '@angular/common';
 import {REGION} from '@angular/fire/compat/functions';
 import {NgxCaptchaModule} from '@binssoft/ngx-captcha';
-import { CaptchaComponent } from './components/common/captcha/captcha.component';
+import {CaptchaComponent} from './components/common/captcha/captcha.component';
+import {
+  RegisterSuccessComponent
+} from './components/account/register/register-success/register-success.component';
 
 @NgModule({
   declarations: [
@@ -60,8 +58,8 @@ import { CaptchaComponent } from './components/common/captcha/captcha.component'
     FlashcardEditorComponent,
     FlashcardRemoverComponent,
     FlashcardFinderComponent,
-    VerifyComponent,
-    CaptchaComponent
+    CaptchaComponent,
+    RegisterSuccessComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),

@@ -8,6 +8,7 @@ import {Router} from '@angular/router';
 export class AuthService {
 
   isLoggedIn = false;
+  isSignUp = false;
 
   constructor(private auth: AngularFireAuth,
               private router: Router) {
@@ -16,7 +17,6 @@ export class AuthService {
   async signIn(email: string, password: string) {
     await this.auth.signInWithEmailAndPassword(email, password)
       .then(r => {
-        console.log(r)
         this.isLoggedIn = r.user?.emailVerified!;
         if (this.isLoggedIn) this.router.navigateByUrl('/dashboard');
       })
@@ -26,7 +26,9 @@ export class AuthService {
   async signUp(email: string, password: string) {
     await this.auth.createUserWithEmailAndPassword(email, password)
       .then(r => {
-        r.user?.sendEmailVerification()
+        r.user?.sendEmailVerification();
+        this.isSignUp = true;
+        this.router.navigateByUrl('/register/success')
       })
       .catch(reason => console.log(reason))
   }

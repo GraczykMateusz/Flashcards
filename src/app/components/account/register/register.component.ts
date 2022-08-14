@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../../services/auth/auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -21,7 +22,7 @@ export class RegisterComponent {
     captcha: new FormControl(false, Validators.requiredTrue)
   });
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService,private router: Router) {
   }
 
   async register(): Promise<void> {
@@ -31,6 +32,10 @@ export class RegisterComponent {
     this.isCaptchaInvalid = this.userForm.controls.captcha.invalid;
 
     if (this.isEmailInvalid || this.isPasswordInvalid || this.isReplayPasswordInvalid || this.isCaptchaInvalid) {
+      console.log('this.isEmailInvalid=' + this.isEmailInvalid)
+      console.log('this.isPasswordInvalid=' + this.isPasswordInvalid)
+      console.log('this.isReplayPasswordInvalid=' + this.isReplayPasswordInvalid)
+      console.log('this.isCaptchaInvalid=' + this.isCaptchaInvalid)
       return;
     }
 

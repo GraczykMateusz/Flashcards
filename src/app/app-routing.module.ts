@@ -8,13 +8,13 @@ import {FlashcardRemoverComponent} from "./components/flashcards/flashcard-manag
 import {LoginComponent} from './components/account/login/login.component';
 import {RegisterComponent} from './components/account/register/register.component';
 import {AuthGuardService} from './services/auth/auth-guard.service';
-import {VerifyComponent} from './components/account/verify/verify.component';
+import {RegisterSuccessComponent} from './components/account/register/register-success/register-success.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
+  {path: 'register/success', component: RegisterSuccessComponent, canActivate: [AuthGuardService]},
   {path: 'register', component: RegisterComponent},
-  {path: 'account/verify', component: VerifyComponent},
   {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService]},
   {path: 'flashcards/creator', component: FlashcardCreatorComponent, canActivate: [AuthGuardService]},
   {path: 'flashcards/editor', component: FlashcardEditorComponent, canActivate: [AuthGuardService]},

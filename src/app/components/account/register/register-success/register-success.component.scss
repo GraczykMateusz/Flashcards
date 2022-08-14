@@ -1,0 +1,49 @@
+@use "src/styles/utils/variables";
+
+.register-success-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: calc(#{variables.$body-min-height} - #{variables.$footer-height});
+}
+
+.mat-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  max-width: 550px;
+  background-color: rgba(3, 3, 3, 0.17);
+  color: rgba(255, 250, 250, 0.85);
+  border: rgba(3, 197, 48, 0.95) 2px solid;
+  font-family: "Segoe UI Semibold", sans-serif;
+}
+
+.mat-card-title {
+  text-align: center;
+  font-size: 38px;
+  font-weight: 600;
+}
+
+.mat-card-content {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.mat-button {
+  font-family: variables.$body-font-family;
+  width: 80%;
+  max-width: 330px;
+  min-width: 257px;
+  margin-top: 10px;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+  font-size: 17px;
+  background-color: rgba(3, 3, 3, 0.17);
+  color: rgba(255, 250, 250, 0.85);
+  border: rgba(3, 94, 197, 0.95) 2px solid;
+}
