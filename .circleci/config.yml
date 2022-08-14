@@ -22,8 +22,9 @@ jobs:
             - astral-
 
       - run: echo $FIREBASE_API_KEY
-      - run: sed -i "s/$FIREBASE_API_KEY_FROM_CIRCLECI/$FIREBASE_API_KEY/g" src/environments/environment.ts
-      - run: sed -i "s/$FIREBASE_API_KEY_FROM_CIRCLECI/$FIREBASE_API_KEY/g" src/environments/environment.prod.ts
+      - run: cat src/environments/environment.ts
+      - run: sed -i "s/FIREBASE_API_KEY_FROM_CIRCLECI/$FIREBASE_API_KEY/g" src/environments/environment.ts
+      - run: sed -i "s/FIREBASE_API_KEY_FROM_CIRCLECI/$FIREBASE_API_KEY/g" src/environments/environment.prod.ts
       - run: cat src/environments/environment.ts
 
       - run:
