@@ -16,8 +16,8 @@ export class RegisterComponent {
 
   userForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.pattern(/[\S]/), Validators.email]),
-    password: new FormControl('', [Validators.required, Validators.pattern(/[\S]/), Validators.min(6)]),
-    replayPassword: new FormControl('', [Validators.required, Validators.pattern(/[\S]/), Validators.min(6)]),
+    password: new FormControl('', [Validators.required, Validators.pattern(/[\S]/), Validators.minLength(6)]),
+    replayPassword: new FormControl('', [Validators.required, Validators.pattern(/[\S]/), Validators.minLength(6)]),
     captcha: new FormControl(false, Validators.requiredTrue)
   });
 
