@@ -89,7 +89,7 @@ mat-card {
 .flip-card-back mat-card-title {
   display: flex;
   justify-content: center;
-  align-items: start;
+  align-items: flex-start;
   width: 100%;
   font-size: max(3.6vmin, 22px);
   font-weight: 600;
