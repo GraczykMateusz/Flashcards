@@ -17,6 +17,7 @@ export class AppComponent {
 
   ngOnInit() {
     this.isSignedIn = localStorage.getItem('user') !== null;
+    console.log('najnowsza')
   }
 
   async onSignUp(email: string, password: string) {
