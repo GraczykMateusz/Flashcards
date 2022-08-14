@@ -14,7 +14,13 @@ jobs:
   build-and-deploy-frontend:
     docker:
       - image: cimg/node:14.18.0
+    environment:
+      apiKey: $FIREBASE_API_KEY
     steps:
+      - run:
+          name: "echo an env var"
+          command: |
+            echo $FIREBASE_API_KEY
       - checkout
       - restore_cache:
           keys:
