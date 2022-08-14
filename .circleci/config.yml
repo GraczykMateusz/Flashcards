@@ -14,18 +14,17 @@ jobs:
   build-and-deploy-frontend:
     docker:
       - image: cimg/node:14.18.0
-    environment:
-      firebase.apiKey: $FIREBASE_API_KEY
     steps:
-      - run:
-          name: "echo an env var"
-          command: |
-            echo $FIREBASE_API_KEY
       - checkout
       - restore_cache:
           keys:
             - astral-{{ checksum "package.json" }}
             - astral-
+      - run:
+          echo $FIREBASE_API_KEY
+          sed -i "s/$FIREBASE_API_KEY_FROM_CIRCLECI/$FIREBASE_API_KEY/g" src/environments/environment.ts
+          sed -i "s/$FIREBASE_API_KEY_FROM_CIRCLECI/$FIREBASE_API_KEY/g" src/environments/environment.prod.ts
+          cat src/environments/environment.ts
       - run:
           name: install dependencies
           command: npm install
