@@ -41,7 +41,6 @@ export class RegisterComponent {
   }
 
   setCaptchaStatus(status: boolean) {
-    this.isCaptchaInvalid = !status;
     this.userForm.controls.captcha.setValue(status);
   }
 

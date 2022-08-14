@@ -32,7 +32,7 @@
                id='password'
                class="form-field"
                placeholder="HASŁO"
-               (click)="isPasswordInvalid=false"/>
+               (click)="isReplayPasswordInvalid=false; isPasswordInvalid=false"/>
         <label for="password"
                class="form-label">
           HASŁO
@@ -51,7 +51,7 @@
                id='replyPassword'
                class="form-field"
                placeholder="POWTÓRZ HASŁO"
-               (click)="isReplayPasswordInvalid=false"/>
+               (click)="isReplayPasswordInvalid=false; isPasswordInvalid=false"/>
         <label for="replyPassword"
                class="form-label">
           POWTÓRZ HASŁO
