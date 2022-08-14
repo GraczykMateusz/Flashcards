@@ -16,6 +16,7 @@ export class AuthService {
   async signIn(email: string, password: string) {
     await this.auth.signInWithEmailAndPassword(email, password)
       .then(r => {
+        console.log(r)
         this.isLoggedIn = r.user?.emailVerified!;
         if (this.isLoggedIn) this.router.navigateByUrl('/dashboard');
       })

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Subscription} from 'rxjs';
+import {AuthService} from '../../../services/auth/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -23,6 +24,9 @@ export class RegisterComponent {
     captcha: new FormControl(false)
   });
 
+  constructor(private authService: AuthService) {
+  }
+
   isInvalidFormField(formControl: FormControl<string | null>) {
     return formControl.invalid && (formControl.dirty || formControl.touched);
   }
@@ -42,7 +46,9 @@ export class RegisterComponent {
 
     const email = this.userForm.controls.email.value!;
     const password = this.userForm.controls.password.value!;
-    // await this.authService.signUp(email, password)
+
+    console.log('weszlo')
+    await this.authService.signUp(email, password)
   }
 
   private reset() {
