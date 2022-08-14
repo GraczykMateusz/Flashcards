@@ -38,7 +38,6 @@ export class CaptchaComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.captchaStatusSub = this.captchaService.captchStatus
       .subscribe(status => {
-        console.log(status);
         if (status == null) return;
         if (status == false) this.animationTrigger = !this.animationTrigger;
         this.captchaStatus = status;

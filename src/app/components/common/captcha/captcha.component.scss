@@ -84,19 +84,16 @@ canvas {
   justify-content: center;
   align-items: center;
   color: #dcdcdc;
+  margin-top: 5px;
   font-family: "Segoe UI Semibold", sans-serif;
   background: linear-gradient(rgba(90, 255, 21, 0.7), rgba(0, 183, 18, 0.7));
   width: min(370px, 70vw) !important;
   min-width: 196px;
 }
-//
-//.shake {
-//  animation: tilt-shaking 0.22s;
-//}
-//
-//@keyframes tilt-shaking {
-//  0% { transform: translateX(3px); }
-//  33% { transform: translateX(-3px); }
-//  66% { transform: translateX(3px); }
-//  100% { transform: translateX(-3px); }
-//}
+
+.info {
+  font-family: "Segoe UI Semibold", sans-serif;
+  font-size: 11px;
+  margin-top: 5px;
+  color: #dcdcdc;
+}

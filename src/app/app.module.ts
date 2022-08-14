@@ -25,7 +25,7 @@ import {getFirestore, provideFirestore} from '@angular/fire/firestore';
 import {ReactiveFormsModule} from '@angular/forms';
 import {LoginComponent} from './components/account/login/login.component';
 import {RegisterComponent} from './components/account/register/register.component';
-import {faArrowLeft, faBan} from "@fortawesome/free-solid-svg-icons";
+import {faArrowLeft, faBan, faTrash} from "@fortawesome/free-solid-svg-icons";
 import {FlashcardsTimerComponent} from './components/flashcards/flashcards-timer/flashcards-timer.component';
 import {
   FlashcardEditorComponent
@@ -95,7 +95,8 @@ export class AppModule {
       faHourglassHalf,
       faPenToSquare,
       faBan,
-      faArrowLeft
+      faArrowLeft,
+      faTrash
     );
   }
 }

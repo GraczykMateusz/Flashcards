@@ -1,4 +1,5 @@
 <div [@shake]="animationTrigger">
   <ngx-captcha *ngIf="!captchaStatus" [config]="captchaConfig"></ngx-captcha>
 </div>
+<div class="info" *ngIf="!captchaStatus">* Wymagane jest zweryfikowanie reCAPTCHA.</div>
 <div class="captcha-passed" *ngIf="captchaStatus">&#10004;&#65039; ZWERYFIKOWANO &#10004;&#65039;</div>
