@@ -15,7 +15,7 @@ jobs:
     docker:
       - image: cimg/node:14.18.0
     environment:
-      apiKey: $FIREBASE_API_KEY
+      firebase.apiKey: $FIREBASE_API_KEY
     steps:
       - run:
           name: "echo an env var"
