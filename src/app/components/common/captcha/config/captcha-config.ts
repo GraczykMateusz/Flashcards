@@ -1,5 +1,5 @@
 export const CAPTCHA_CONFIG: any = {
-  length: 6,
+  length: 7,
   back: {
     stroke: "#000000",
     solid: "#dcdcdc"

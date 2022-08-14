@@ -21,7 +21,7 @@ export class RegisterComponent {
     email: new FormControl('', [Validators.required, Validators.pattern(/[\S]/), Validators.email]),
     password: new FormControl('', [Validators.required, Validators.pattern(/[\S]/), Validators.min(6)]),
     replayPassword: new FormControl('', [Validators.required, Validators.pattern(/[\S]/), Validators.min(6)]),
-    captcha: new FormControl(false)
+    captcha: new FormControl(false, Validators.requiredTrue)
   });
 
   constructor(private authService: AuthService) {
@@ -32,23 +32,25 @@ export class RegisterComponent {
   }
 
   async register() {
-    this.isEmailInvalid = this.userForm.controls.email.value?.length === 0;
-    this.isPasswordInvalid = this.userForm.controls.password.value?.length === 0;
-    this.isReplayPasswordInvalid = this.userForm.controls.replayPassword.value?.length === 0;
+    this.isEmailInvalid = this.userForm.controls.email.invalid;
+    this.isPasswordInvalid = this.userForm.controls.password.invalid;
+    this.isReplayPasswordInvalid = this.userForm.controls.replayPassword.invalid;
+    this.isCaptchaInvalid = this.userForm.controls.captcha.invalid;
 
-    // if (this.isEmailInvalid || this.isPasswordInvalid || this.isReplayPasswordInvalid) {
-    //   console.log('this.isEmailInvalid=' + this.isEmailInvalid)
-    //   console.log('this.isPasswordInvalid=' + this.isPasswordInvalid)
-    //   console.log('this.isReplayPasswordInvalid=' + this.isReplayPasswordInvalid)
-    //   return;
-    // }
+    if (this.isEmailInvalid || this.isPasswordInvalid || this.isReplayPasswordInvalid || this.isCaptchaInvalid) {
+      console.log('this.isEmailInvalid=' + this.isEmailInvalid)
+      console.log('this.isPasswordInvalid=' + this.isPasswordInvalid)
+      console.log('this.isReplayPasswordInvalid=' + this.isReplayPasswordInvalid)
+      console.log('this.isCaptchaInvalid=' + this.isCaptchaInvalid)
+      return;
+    }
 
 
     const email = this.userForm.controls.email.value!;
     const password = this.userForm.controls.password.value!;
 
-    console.log('weszlo')
-    await this.authService.signUp(email, password)
+    console.log('preszlo')
+    // await this.authService.signUp(email, password)
   }
 
   private reset() {
@@ -60,7 +62,7 @@ export class RegisterComponent {
   }
 
   setCaptchaStatus(status: boolean) {
-    console.log(status)
+    this.isCaptchaInvalid = !status;
     this.userForm.controls.captcha.setValue(status);
   }
 }

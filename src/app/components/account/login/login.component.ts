@@ -24,7 +24,7 @@ export class LoginComponent {
     return formControl.invalid && (formControl.dirty || formControl.touched);
   }
 
-  login() {
+  async login() {
     if (this.userGroup.controls.email.value?.length === 0 && this.userGroup.controls.password.value?.length === 0) {
       this.isEmailError = true;
       this.isPasswordError = true;
@@ -43,10 +43,7 @@ export class LoginComponent {
 
     const email = this.userGroup.controls.email.value!;
     const password = this.userGroup.controls.password.value!;
-    this.login2(email, password);
-  }
 
-  async login2(email: string, password: string) {
-    await this.authService.signIn(email, password)
+    await this.authService.signIn(email, password);
   }
 }
