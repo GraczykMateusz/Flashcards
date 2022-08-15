@@ -43,6 +43,7 @@ import {CaptchaComponent} from './components/common/captcha/captcha.component';
 import {
   RegisterSuccessComponent
 } from './components/account/register/register-success/register-success.component';
+import { ResetPasswordComponent } from './components/account/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import {
     FlashcardRemoverComponent,
     FlashcardFinderComponent,
     CaptchaComponent,
-    RegisterSuccessComponent
+    RegisterSuccessComponent,
+    ResetPasswordComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),

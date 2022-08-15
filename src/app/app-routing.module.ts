@@ -9,10 +9,12 @@ import {LoginComponent} from './components/account/login/login.component';
 import {RegisterComponent} from './components/account/register/register.component';
 import {AuthGuardService} from './services/auth/auth-guard.service';
 import {RegisterSuccessComponent} from './components/account/register/register-success/register-success.component';
+import {ResetPasswordComponent} from './components/account/reset-password/reset-password.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
+  {path: 'reset/password', component: ResetPasswordComponent},
   {path: 'register/success', component: RegisterSuccessComponent, canActivate: [AuthGuardService]},
   {path: 'register', component: RegisterComponent},
   {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService]},
