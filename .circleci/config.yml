@@ -44,4 +44,8 @@ jobs:
 
       - run:
           name: Deploy to hosting
-          command: ./node_modules/.bin/firebase deploy --token "$FIREBASE_TOKEN"
+          command: |
+            echo ${GOOGLE_APPLICATION_CREDENTIALS} > /tmp/key.json
+            ./node_modules/.bin/firebase deploy -P prod --only hosting:astral --project astral-92b54
+          environment:
+            GOOGLE_APPLICATION_CREDENTIALS: /tmp/key.json
