@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "target": "astral",
     "public": "dist/astral",
     "ignore": [
       "firebase.json",
