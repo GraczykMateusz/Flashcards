@@ -45,9 +45,11 @@ jobs:
           key: astral-{{ checksum "package.json" }}
 
       - run:
+          name: Create google service account key JSON
+          command: echo $GOOGLE_APPLICATION_CREDENTIALS > /tmp/key.json
+
+      - run:
           name: Deploy to hosting
           command: |
-            echo ${GOOGLE_APPLICATION_CREDENTIALS} > /tmp/key.json
+            GOOGLE_APPLICATION_CREDENTIALS=/tmp/key.json
             ./node_modules/.bin/firebase deploy --only hosting --project astral-92b54
-          environment:
-            GOOGLE_APPLICATION_CREDENTIALS: /tmp/key.json
