@@ -23,11 +23,11 @@ jobs:
 
       - run:
           name: setup .env firebase api prod secret
-          command: sed -i "s/JSON.parse(process.env["FIREBASE_API_DEV"] as string)/$FIREBASE_API/g" src/environments/environment.prod.ts
+          command: sed -i "s/YOUR_FIREBASE_API_PROD/$FIREBASE_API/g" .env
 
       - run:
           name: setup .env firebase api dev secrets
-          command: sed -i "s/JSON.parse(process.env["FIREBASE_API_DEV"] as string)/$FIREBASE_API/g" src/environments/environment.ts
+          command: sed -i "s/YOUR_FIREBASE_API_DEV/$FIREBASE_API/g" .env
 
       - run:
           name: install dependencies
