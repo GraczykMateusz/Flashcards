@@ -22,10 +22,12 @@ jobs:
             - astral-
 
       - run:
-          name: setup .env firebase api secrets
-          command:
-            - sed -i "s/YOUR_FIREBASE_API_PROD/$FIREBASE_API/g" .env
-            - sed -i "s/YOUR_FIREBASE_API_PROD/$FIREBASE_API/g" .env
+          name: setup .env firebase api prod secret
+          command: sed -i "s/YOUR_FIREBASE_API_PROD/$FIREBASE_API/g" .env
+
+      - run:
+          name: setup .env firebase api dev secrets
+          command: sed -i "s/YOUR_FIREBASE_API_DEV/$FIREBASE_API/g" .env
 
       - run:
           name: install dependencies
