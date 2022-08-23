@@ -17,7 +17,7 @@ export class AppComponent {
 
   ngOnInit() {
     this.isSignedIn = localStorage.getItem('user') !== null;
-    console.log('najnowsza')
+    console.log(JSON.parse(process.env["FIREBASE_API_DEV"] as string))
   }
 
   onSignUp(email: string, password: string) {
