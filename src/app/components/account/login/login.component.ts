@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../../services/auth/auth.service';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -9,41 +10,30 @@ import {AuthService} from '../../../services/auth/auth.service';
 })
 export class LoginComponent {
 
-  isEmailError = false;
-  isPasswordError = false;
+  alert = {
+    userNotFound : false,
+    wrongPassword: false,
+    unknownError : false,
+  };
+
+  isEmailInvalid = false;
+  isPasswordInvalid = false;
 
   constructor(private authService: AuthService) {
   }
 
-  userGroup = new FormGroup({
-    email: new FormControl('', [Validators.required]),
+  userForm = new FormGroup({
+    email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required])
   });
 
-  isInvalidFormField(formControl: FormControl<string | null>) {
-    return formControl.invalid && (formControl.dirty || formControl.touched);
-  }
+  login() {
+    this.isEmailInvalid = this.userForm.controls.email.invalid;
+    this.isPasswordInvalid = this.userForm.controls.email.invalid;
+    if (this.isEmailInvalid || this.isPasswordInvalid) return;
 
-  async login() {
-    if (this.userGroup.controls.email.value?.length === 0 && this.userGroup.controls.password.value?.length === 0) {
-      this.isEmailError = true;
-      this.isPasswordError = true;
-      return;
-    }
-    if (this.userGroup.controls.email.value?.length === 0) {
-      this.isEmailError = true;
-      return;
-    }
-    if (this.userGroup.controls.password.value?.length === 0) {
-      this.isPasswordError = true;
-      return;
-    }
-    this.isEmailError = false;
-    this.isPasswordError = false;
-
-    const email = this.userGroup.controls.email.value!;
-    const password = this.userGroup.controls.password.value!;
-
-    await this.authService.signIn(email, password);
+    const email = this.userForm.controls.email.value!;
+    const password = this.userForm.controls.password.value!;
+    this.authService.signIn(email, password);
   }
 }

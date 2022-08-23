@@ -20,8 +20,8 @@ export class AppComponent {
     console.log('najnowsza')
   }
 
-  async onSignUp(email: string, password: string) {
-    await this.authService.signUp(email, password)
+  onSignUp(email: string, password: string) {
+    // this.authService.signUp(email, password)
     if (this.authService.isLoggedIn)
       this.isSignedIn = true
   }

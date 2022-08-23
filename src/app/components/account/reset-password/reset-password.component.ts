@@ -24,7 +24,7 @@ export class ResetPasswordComponent {
     return formControl.invalid && (formControl.dirty || formControl.touched);
   }
 
-  async login() {
+  login() {
     if (this.userGroup.controls.email.value?.length === 0 && this.userGroup.controls.password.value?.length === 0) {
       this.isEmailError = true;
       this.isPasswordError = true;
@@ -44,7 +44,7 @@ export class ResetPasswordComponent {
     const email = this.userGroup.controls.email.value!;
     const password = this.userGroup.controls.password.value!;
 
-    await this.authService.signIn(email, password);
+    this.authService.signIn(email, password);
   }
 
   reset() {

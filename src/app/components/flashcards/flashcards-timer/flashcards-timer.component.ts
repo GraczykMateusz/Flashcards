@@ -22,15 +22,15 @@ export class FlashcardsTimerComponent implements OnInit, OnDestroy {
   }
 
   startTimer(): void {
-    this.intervalId = setInterval(() => {
-      if (this.isPaused || !this.isActivated) return;
-      if (this.counter.sec - 1 == -1) {
-        this.counter.min -= 1;
-        this.counter.sec = 59;
-      } else this.counter.sec -= 1;
-      if (this.counter.min === 0 && this.counter.sec == 0) {
-        clearInterval(this.intervalId);
-      }
-    }, 1000);
+    // this.intervalId = setInterval(() => {
+    //   if (this.isPaused || !this.isActivated) return;
+    //   if (this.counter.sec - 1 == -1) {
+    //     this.counter.min -= 1;
+    //     this.counter.sec = 59;
+    //   } else this.counter.sec -= 1;
+    //   if (this.counter.min === 0 && this.counter.sec == 0) {
+    //     clearInterval(this.intervalId);
+    //   }
+    // }, 1000);
   }
 }
