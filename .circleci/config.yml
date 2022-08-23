@@ -44,8 +44,6 @@ jobs:
             - ~/node_modules
           key: astral-{{ checksum "package.json" }}
 
-      - run: cat ${GOOGLE_APPLICATION_CREDENTIALS}
-
       - run:
           name: Deploy to hosting
           command: |
