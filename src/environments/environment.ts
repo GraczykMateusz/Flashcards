@@ -4,15 +4,7 @@
 
 export const environment = {
   production: false,
-  firebase: {
-    projectId: 'astral-92b54',
-    appId: '1:533455434240:web:f9e290c5257880dee3dee5',
-    storageBucket: 'astral-92b54.appspot.com',
-    locationId: 'europe-west',
-    apiKey: 'FIREBASE_API_KEY_FROM_CIRCLECI',
-    authDomain: 'astral-92b54.firebaseapp.com',
-    messagingSenderId: '533455434240',
-  }
+  firebase: JSON.parse(process.env["FIREBASE_API_DEV"] as string)
 };
 
 /*

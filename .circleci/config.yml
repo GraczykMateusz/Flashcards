@@ -21,11 +21,11 @@ jobs:
             - astral-{{ checksum "package.json" }}
             - astral-
 
-      - run: echo $FIREBASE_API_KEY
-      - run: cat src/environments/environment.ts
-      - run: sed -i "s/FIREBASE_API_KEY_FROM_CIRCLECI/$FIREBASE_API_KEY/g" src/environments/environment.ts
-      - run: sed -i "s/FIREBASE_API_KEY_FROM_CIRCLECI/$FIREBASE_API_KEY/g" src/environments/environment.prod.ts
-      - run: cat src/environments/environment.ts
+      - run:
+          name: setup .env firebase api secrets
+          command:
+            - sed -i "s/YOUR_FIREBASE_API_PROD/$FIREBASE_API/g" .env
+            - sed -i "s/YOUR_FIREBASE_API_PROD/$FIREBASE_API/g" .env
 
       - run:
           name: install dependencies
