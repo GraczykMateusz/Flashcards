@@ -29,9 +29,6 @@ jobs:
           name: setup .env firebase api dev secrets
           command: sed -i "s/YOUR_FIREBASE_API_DEV/$FIREBASE_API/g" .env
 
-      - run: cat .env
-      - run: cat src/environments/environment.ts
-
       - run:
           name: install dependencies
           command: npm install
@@ -46,6 +43,8 @@ jobs:
           paths:
             - ~/node_modules
           key: astral-{{ checksum "package.json" }}
+
+      - run: cat ${GOOGLE_APPLICATION_CREDENTIALS}
 
       - run:
           name: Deploy to hosting
