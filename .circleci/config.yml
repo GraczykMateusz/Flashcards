@@ -29,6 +29,8 @@ jobs:
           name: setup .env firebase api dev secrets
           command: sed -i "s/YOUR_FIREBASE_API_DEV/$FIREBASE_API/g" .env
 
+      - run: cat > .env
+
       - run:
           name: install dependencies
           command: npm install
