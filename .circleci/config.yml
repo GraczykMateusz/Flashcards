@@ -28,8 +28,9 @@ jobs:
       - run:
           name: set up ci build number
           command: |
-            sed -i "s/'1.0'/$CIRCLE_BUILD_NUM/g" src/environments/environment.prod.ts
-            sed -i "s/'1.0'/$CIRCLE_BUILD_NUM/g" src/environments/environment.ts
+            echo $CIRCLE_BUILD_NUM
+            sed -i "s/1.0/$CIRCLE_BUILD_NUM/g" src/environments/environment.prod.ts
+            sed -i "s/1.0/$CIRCLE_BUILD_NUM/g" src/environments/environment.ts
 
       - run:
           name: install dependencies
