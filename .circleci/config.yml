@@ -23,7 +23,7 @@ jobs:
 
       - run:
           name: set secret keys
-          command: sed -i "s/'{}'/$FIREBASE_API_KEY/g" src/config/keys.ts
+          command: sed -i "s/{}/$FIREBASE_API_KEY/g" src/config/keys.ts
 
       - run:
           name: install dependencies
