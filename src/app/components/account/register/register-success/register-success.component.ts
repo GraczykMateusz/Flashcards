@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../../../../services/auth/auth.service';
 
 @Component({
@@ -8,8 +8,7 @@ import {AuthService} from '../../../../services/auth/auth.service';
 })
 export class RegisterSuccessComponent implements OnInit {
 
-  constructor(private authService: AuthService) {
-  }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
     this.authService.isSignUp = false;

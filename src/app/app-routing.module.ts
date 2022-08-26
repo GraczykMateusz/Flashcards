@@ -10,12 +10,10 @@ import {RegisterComponent} from './components/account/register/register.componen
 import {AuthGuardService} from './services/auth/auth-guard.service';
 import {RegisterSuccessComponent} from './components/account/register/register-success/register-success.component';
 import {ResetPasswordComponent} from './components/account/reset-password/reset-password.component';
-import {LoginFailedComponent} from './components/account/login/login-failed/login-failed.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
-  {path: 'login/failed', component: LoginFailedComponent},
   {path: 'reset/password', component: ResetPasswordComponent},
   {path: 'register/success', component: RegisterSuccessComponent, canActivate: [AuthGuardService]},
   {path: 'register', component: RegisterComponent},

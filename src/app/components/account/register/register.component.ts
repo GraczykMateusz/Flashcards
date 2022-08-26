@@ -25,7 +25,7 @@ export class RegisterComponent {
   constructor(private authService: AuthService,private router: Router) {
   }
 
-  register() {
+  async register(): Promise<void> {
     this.isEmailInvalid = this.userForm.controls.email.invalid;
     this.isPasswordInvalid = this.passwordValidator();
     this.isReplayPasswordInvalid = this.passwordValidator();
@@ -42,7 +42,7 @@ export class RegisterComponent {
     const email = this.userForm.controls.email.value!;
     const password = this.userForm.controls.password.value!;
 
-    // await this.authService.signUp(email, password)
+    await this.authService.signUp(email, password)
   }
 
   setCaptchaStatus(status: boolean): void {
