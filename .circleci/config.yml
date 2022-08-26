@@ -29,6 +29,9 @@ jobs:
           command: sed -i "s/YOUR_FIREBASE_API_DEV/$FIREBASE_API/g" .env
 
       - run:
+          command: cat .env
+
+      - run:
           name: install dependencies
           command: npm install
       - run:
