@@ -44,6 +44,8 @@ import {
   RegisterSuccessComponent
 } from './components/account/register/register-success/register-success.component';
 import { ResetPasswordComponent } from './components/account/reset-password/reset-password.component';
+import {getFirestore, provideFirestore} from "@angular/fire/firestore";
+import {getAuth, provideAuth} from "@angular/fire/auth";
 
 @NgModule({
   declarations: [
@@ -64,10 +66,10 @@ import { ResetPasswordComponent } from './components/account/reset-password/rese
     ResetPasswordComponent
   ],
   imports: [
-    AngularFireModule.initializeApp(environment.firebase),
+    provideFirestore(() => getFirestore()),
+    provideAuth(() => getAuth()),
+    AngularFireModule.initializeApp(JSON.parse(environment.firebase)),
     AngularFireDatabaseModule,
-    // provideFirebaseApp(() => initializeApp(environment.firebase)),
-    // provideFirestore(() => getFirestore()),
     BrowserModule,
     BrowserAnimationsModule,
     FlexModule,
