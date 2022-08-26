@@ -28,7 +28,6 @@ jobs:
       - run:
           name: set up ci build number
           command: |
-            echo $CIRCLE_BUILD_NUM
             sed -i "s/1.0/$CIRCLE_BUILD_NUM/g" src/environments/environment.prod.ts
             sed -i "s/1.0/$CIRCLE_BUILD_NUM/g" src/environments/environment.ts
 
@@ -54,4 +53,4 @@ jobs:
           name: Deploy to hosting
           command: |
             GOOGLE_APPLICATION_CREDENTIALS=/tmp/key.json
-            ./node_modules/.bin/firebase deploy --only hosting --project astral-92b54
+            ./node_modules/.bin/firebase deploy --only hosting --project $PROJECT_ID
