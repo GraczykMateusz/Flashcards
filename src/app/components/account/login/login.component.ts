@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../../services/auth/auth.service';
-import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -10,30 +9,41 @@ import {HttpClient} from '@angular/common/http';
 })
 export class LoginComponent {
 
-  alert = {
-    userNotFound : false,
-    wrongPassword: false,
-    unknownError : false,
-  };
-
-  isEmailInvalid = false;
-  isPasswordInvalid = false;
+  isEmailError = false;
+  isPasswordError = false;
 
   constructor(private authService: AuthService) {
   }
 
-  userForm = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
+  userGroup = new FormGroup({
+    email: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required])
   });
 
-  login() {
-    this.isEmailInvalid = this.userForm.controls.email.invalid;
-    this.isPasswordInvalid = this.userForm.controls.email.invalid;
-    if (this.isEmailInvalid || this.isPasswordInvalid) return;
+  isInvalidFormField(formControl: FormControl<string | null>) {
+    return formControl.invalid && (formControl.dirty || formControl.touched);
+  }
 
-    const email = this.userForm.controls.email.value!;
-    const password = this.userForm.controls.password.value!;
-    this.authService.signIn(email, password);
+  async login() {
+    if (this.userGroup.controls.email.value?.length === 0 && this.userGroup.controls.password.value?.length === 0) {
+      this.isEmailError = true;
+      this.isPasswordError = true;
+      return;
+    }
+    if (this.userGroup.controls.email.value?.length === 0) {
+      this.isEmailError = true;
+      return;
+    }
+    if (this.userGroup.controls.password.value?.length === 0) {
+      this.isPasswordError = true;
+      return;
+    }
+    this.isEmailError = false;
+    this.isPasswordError = false;
+
+    const email = this.userGroup.controls.email.value!;
+    const password = this.userGroup.controls.password.value!;
+
+    await this.authService.signIn(email, password);
   }
 }

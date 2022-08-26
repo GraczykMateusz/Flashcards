@@ -20,8 +20,8 @@ export class AppComponent {
     console.log(JSON.parse(process.env["FIREBASE_API_DEV"] as string))
   }
 
-  onSignUp(email: string, password: string) {
-    // this.authService.signUp(email, password)
+  async onSignUp(email: string, password: string) {
+    await this.authService.signUp(email, password)
     if (this.authService.isLoggedIn)
       this.isSignedIn = true
   }

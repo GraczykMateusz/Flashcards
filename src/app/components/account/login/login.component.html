@@ -1,7 +1,7 @@
 <div class="login-container">
   <mat-card>
     <mat-card-title>Logowanie</mat-card-title>
-    <form class="form-group" [formGroup]="userForm">
+    <form class="form-group" [formGroup]="userGroup">
       <div class="form-group">
         <input [formControlName]="'email'"
                type="text"
@@ -15,8 +15,8 @@
           EMAIL
         </label>
         <div style="min-height: 16px; font-size: 12px; color: red">
-          <span *ngIf="isEmailInvalid">
-            Niepoprawne dane
+          <span *ngIf="isEmailError">
+            Pole jest wymagane
           </span>
         </div>
       </div>
@@ -35,8 +35,8 @@
           HASŁO
         </label>
         <div style="min-height: 16px; font-size: 12px; color: red">
-          <span *ngIf="isPasswordInvalid">
-            Niepoprawne dane
+          <span *ngIf="isPasswordError">
+            Pole jest wymagane
           </span>
         </div>
       </div>
