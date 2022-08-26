@@ -21,15 +21,11 @@ jobs:
             - astral-{{ checksum "package.json" }}
             - astral-
 
-      - run:
-          name: setup .env firebase api prod secret
-          command: sed -i "s/YOUR_FIREBASE_API_PROD/$FIREBASE_API/g" .env
-      - run:
-          name: setup .env firebase api dev secrets
-          command: sed -i "s/YOUR_FIREBASE_API_DEV/$FIREBASE_API/g" .env
-
-      - run:
-          command: cat .env
+      - run: echo $FIREBASE_API_KEY
+      - run: cat src/environments/environment.ts
+      - run: sed -i "s/FIREBASE_API_KEY_FROM_CIRCLECI/$FIREBASE_API_KEY/g" src/environments/environment.ts
+      - run: sed -i "s/FIREBASE_API_KEY_FROM_CIRCLECI/$FIREBASE_API_KEY/g" src/environments/environment.prod.ts
+      - run: cat src/environments/environment.ts
 
       - run:
           name: install dependencies
@@ -47,11 +43,9 @@ jobs:
           key: astral-{{ checksum "package.json" }}
 
       - run:
-          name: Create google service account key JSON
-          command: echo $GOOGLE_APPLICATION_CREDENTIALS > /tmp/key.json
-
-      - run:
           name: Deploy to hosting
           command: |
-            GOOGLE_APPLICATION_CREDENTIALS=/tmp/key.json
+            echo ${GOOGLE_APPLICATION_CREDENTIALS} > /tmp/key.json
             ./node_modules/.bin/firebase deploy --only hosting --project astral-92b54
+          environment:
+            GOOGLE_APPLICATION_CREDENTIALS: /tmp/key.json
