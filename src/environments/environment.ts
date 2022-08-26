@@ -2,11 +2,11 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-import {FIREBASE_API_DEV} from "../config/keys";
+import {YOUR_FIREBASE_API_DEV} from "../config/keys";
 
 export const environment = {
   production: false,
-  firebase: FIREBASE_API_DEV
+  firebase: YOUR_FIREBASE_API_DEV
 };
 
 /*

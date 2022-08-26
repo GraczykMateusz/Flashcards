@@ -1,2 +1,2 @@
-export const FIREBASE_API_PROD = 'YOUR_FIREBASE_API_PROD'
-export const FIREBASE_API_DEV = 'YOUR_FIREBASE_API_DEV'
+export const YOUR_FIREBASE_API_PROD = {}
+export const YOUR_FIREBASE_API_DEV = {}

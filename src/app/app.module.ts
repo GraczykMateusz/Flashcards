@@ -68,7 +68,7 @@ import {getAuth, provideAuth} from "@angular/fire/auth";
   imports: [
     provideFirestore(() => getFirestore()),
     provideAuth(() => getAuth()),
-    AngularFireModule.initializeApp(JSON.parse(environment.firebase)),
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     BrowserModule,
     BrowserAnimationsModule,
