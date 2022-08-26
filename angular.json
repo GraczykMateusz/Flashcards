@@ -69,6 +69,14 @@
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
+            },
+            "local": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.local.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -81,6 +89,9 @@
             },
             "development": {
               "browserTarget": "astral:build:development"
+            },
+            "local": {
+              "browserTarget": "astral:build:local"
             }
           },
           "defaultConfiguration": "development"

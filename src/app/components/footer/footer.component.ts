@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-footer',
@@ -7,6 +8,6 @@ import {Component} from '@angular/core';
 })
 export class FooterComponent {
 
-  year = '2022';
-  build = '0.0';
+  year = new Date().getFullYear();
+  build = environment.buildNumber;
 }

@@ -22,8 +22,14 @@ jobs:
             - astral-
 
       - run:
-          name: set secret keys
+          name: set up secret key
           command: sed -i "s/{}/$FIREBASE_API/g" src/config/keys.ts
+
+      - run:
+          name: set up ci build number
+          command: |
+            sed -i "s/'1.0'/$CIRCLE_BUILD_NUM/g" src/environments/environment.prod.ts
+            sed -i "s/'1.0'/$CIRCLE_BUILD_NUM/g" src/environments/environment.ts
 
       - run:
           name: install dependencies
