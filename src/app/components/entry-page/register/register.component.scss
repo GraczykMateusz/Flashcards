@@ -16,11 +16,21 @@ $gray: #dcd9d9;
   cursor: pointer;
 }
 
-.error {
-  min-height: 16px;
+
+.fail-info-container {
+  min-height: 20px;
+  line-height: 20px;
   font-size: 12px;
-  color: rgb(255, 0, 0);
 }
+
+.incorrect-data {
+  color: #d9be00
+}
+
+.login-failed {
+  color: #d90000
+}
+
 
 .action-buttons {
   display: flex;
@@ -63,38 +73,39 @@ $gray: #dcd9d9;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: calc(#{variables.$body-min-height} - #{variables.$footer-height});
+  padding-top: 20px;
+  min-height: calc(#{variables.$body-min-height} - #{variables.$footer-height} - 20px);
+}
 
-  mat-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+mat-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 
-    $bg-from-color: rgba(1, 1, 49, 0.5);
-    $bg-to-color: rgba(4, 6, 68, 0.5);
-    background: -webkit-linear-gradient(to right, $bg-from-color, $bg-to-color);
-    background: -moz-linear-gradient(to right, $bg-from-color, $bg-to-color);
-    background: -o-linear-gradient(to right, $bg-from-color, $bg-to-color);
-    background: linear-gradient(to right, $bg-from-color, $bg-to-color);
+  $bg-from-color: rgba(1, 1, 49, 0.5);
+  $bg-to-color: rgba(4, 6, 68, 0.5);
+  background: -webkit-linear-gradient(to right, $bg-from-color, $bg-to-color);
+  background: -moz-linear-gradient(to right, $bg-from-color, $bg-to-color);
+  background: -o-linear-gradient(to right, $bg-from-color, $bg-to-color);
+  background: linear-gradient(to right, $bg-from-color, $bg-to-color);
 
-    border: rgba(0, 0, 0, 0.5) 2px solid;
-    color: $gray;
+  border: rgba(0, 0, 0, 0.5) 2px solid;
+  color: $gray;
 
-    width: 70%;
-    max-width: 370px;
-    height: fit-content;
+  width: 70%;
+  max-width: 370px;
+  height: fit-content;
+}
 
-    mat-card-title {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-direction: row;
-      width: 100%;
-      font-family: variables.$body-font-family;
-      margin-bottom: 0px;
-    }
-  }
+mat-card-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  font-family: variables.$body-font-family;
+  margin-bottom: 0px;
 }
 
 .forget-password-container {

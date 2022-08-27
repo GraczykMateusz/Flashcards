@@ -13,13 +13,12 @@ export class LoginComponent {
   }
 
   userForm = new FormGroup({
-    email: new FormControl(null, {validators: [Validators.required, Validators.email, Validators.minLength(1)]}),
-    password: new FormControl(null, {validators: [Validators.required, Validators.minLength(1)]})
+    email: new FormControl(null, {validators: [Validators.required, Validators.email, Validators.pattern(/\S/), Validators.minLength(1)]}),
+    password: new FormControl(null, {validators: [Validators.required, Validators.pattern(/\S/), Validators.minLength(1)]})
   });
 
   login() {
     if (this.userForm.invalid) {
-      this.userForm.reset();
       this.userForm.setErrors({error: true})
       return;
     }

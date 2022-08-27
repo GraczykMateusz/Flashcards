@@ -29,7 +29,6 @@ export class AuthService {
         this.isSignUp = true;
         this.router.navigateByUrl('/register/success')
       })
-      .catch(reason => console.log(reason))
   }
 
   sendResetPasswordEmail(email: string): void {
@@ -40,6 +39,6 @@ export class AuthService {
   }
 
   logout() {
-    this.auth.signOut();
+    this.auth.signOut().then();
   }
 }
