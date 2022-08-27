@@ -39,7 +39,11 @@ export class CaptchaComponent implements OnInit, OnDestroy {
     this.captchaStatusSub = this.captchaService.captchStatus
       .subscribe(status => {
         if (status == null) return;
-        if (status == false) this.animationTrigger = !this.animationTrigger;
+        if (status == false) {
+          this.child.captch_input = null;
+          this.animationTrigger = !this.animationTrigger;
+          this.child.createCaptcha();
+        }
         this.captchaStatus = status;
         this.captchaStatusEmitter.next(status);
       });
