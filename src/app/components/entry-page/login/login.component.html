@@ -1,8 +1,21 @@
 <div class="login-container">
   <mat-card>
     <mat-card-title>Logowanie</mat-card-title>
-    <form class="form-group" [formGroup]="userGroup">
-      <div class="form-group">
+    <div class="fail-info-container">
+      <div class="incorrect-data">
+      <span *ngIf="userForm.hasError('error')">
+        <fa-icon class="warning-icon-mr" [icon]="['fas', 'exclamation-triangle']"></fa-icon>
+      Wprowadź poprawne dane.</span>
+      </div>
+      <div class="login-failed">
+      <span *ngIf="userForm.hasError('failed')">
+        <fa-icon class="warning-icon-mr" [icon]="['fas', 'exclamation-triangle']"></fa-icon>
+      Logowanie niepowiodło się.</span>
+      </div>
+    </div>
+
+    <form style="width: 100%;" [formGroup]="userForm">
+      <div class="form-group" (click)="resetWarning()">
         <input [formControlName]="'email'"
                type="text"
                id='email'
@@ -14,17 +27,11 @@
           class="form-label">
           EMAIL
         </label>
-        <div style="min-height: 16px; font-size: 12px; color: red">
-          <span *ngIf="isEmailError">
-            Pole jest wymagane
-          </span>
-        </div>
       </div>
 
-
-      <div class="form-group">
+      <div class="form-group" (click)="resetWarning()">
         <input [formControlName]="'password'"
-               type="text"
+               type="password"
                id='password'
                autocomplete="off"
                class="form-field"
@@ -34,11 +41,6 @@
           class="form-label">
           HASŁO
         </label>
-        <div style="min-height: 16px; font-size: 12px; color: red">
-          <span *ngIf="isPasswordError">
-            Pole jest wymagane
-          </span>
-        </div>
       </div>
     </form>
 
@@ -46,9 +48,7 @@
       <span class="forget-password" routerLink="/reset/password">Nie pamiętam hasła</span>
     </div>
 
-    <button mat-button class="login-button" (click)="login()">
-      Zaloguj
-    </button>
+    <button mat-button class="login-button" (click)="login()">Zaloguj</button>
 
     <div class="register-container">
       Nie masz konta? <span class="register" routerLink="/register">Zarejestruj się</span>

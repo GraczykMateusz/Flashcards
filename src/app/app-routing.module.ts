@@ -5,11 +5,11 @@ import {DashboardComponent} from "./components/dashboard/dashboard.component";
 import {FlashcardCreatorComponent} from "./components/flashcards/flashcard-manager/flashcard-creator/flashcard-creator.component";
 import {FlashcardEditorComponent} from "./components/flashcards/flashcard-manager/flashcard-editor/flashcard-editor.component";
 import {FlashcardRemoverComponent} from "./components/flashcards/flashcard-manager/flashcard-remover/flashcard-remover.component";
-import {LoginComponent} from './components/account/login/login.component';
-import {RegisterComponent} from './components/account/register/register.component';
+import {LoginComponent} from './components/entry-page/login/login.component';
+import {RegisterComponent} from './components/entry-page/register/register.component';
 import {AuthGuardService} from './services/auth/auth-guard.service';
-import {RegisterSuccessComponent} from './components/account/register/register-success/register-success.component';
-import {ResetPasswordComponent} from './components/account/reset-password/reset-password.component';
+import {RegisterSuccessComponent} from './components/entry-page/register/register-success/register-success.component';
+import {ResetPasswordComponent} from './components/entry-page/reset-password/reset-password.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},

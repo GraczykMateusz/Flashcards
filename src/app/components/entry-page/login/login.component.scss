@@ -6,33 +6,51 @@ $gray: #dcd9d9;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: calc(#{variables.$body-min-height} - #{variables.$footer-height});
+  padding-top: 20px;
+  min-height: calc(#{variables.$body-min-height} - #{variables.$footer-height} - 20px);
+}
 
-  mat-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+.fail-info-container {
+  min-height: 20px;
+  line-height: 20px;
+  font-size: 12px;
+}
 
-    $bg-from-color: rgba(1, 1, 49, 0.5);
-    $bg-to-color: rgba(4, 6, 68, 0.5);
-    background: -webkit-linear-gradient(to right, $bg-from-color, $bg-to-color);
-    background: -moz-linear-gradient(to right, $bg-from-color, $bg-to-color);
-    background: -o-linear-gradient(to right, $bg-from-color, $bg-to-color);
-    background: linear-gradient(to right, $bg-from-color, $bg-to-color);
+.incorrect-data {
+  color: #d9be00
+}
 
-    border: rgba(0, 0, 0, 0.5) 2px solid;
-    color: $gray;
+.login-failed {
+  color: #d90000
+}
 
-    width: 70%;
-    max-width: 370px;
-    height: 305px;
+.warning-icon-mr {
+  margin-right: 3px;
+}
 
-    mat-card-title {
-      font-family: variables.$body-font-family;
-      margin-bottom: 0px;
-    }
-  }
+mat-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  $bg-from-color: rgba(1, 1, 49, 0.5);
+  $bg-to-color: rgba(4, 6, 68, 0.5);
+  background: -webkit-linear-gradient(to right, $bg-from-color, $bg-to-color);
+  background: -moz-linear-gradient(to right, $bg-from-color, $bg-to-color);
+  background: -o-linear-gradient(to right, $bg-from-color, $bg-to-color);
+  background: linear-gradient(to right, $bg-from-color, $bg-to-color);
+
+  border: rgba(0, 0, 0, 0.5) 2px solid;
+  color: $gray;
+
+  width: 70%;
+  max-width: 370px;
+}
+
+mat-card-title {
+  font-family: variables.$body-font-family;
+  margin-bottom: 0px;
 }
 
 .forget-password-container {
@@ -44,12 +62,14 @@ $gray: #dcd9d9;
   font-size: 14px;
   width: 100%;
   margin-top: 2px;
+}
 
-  .forget-password {
-    font-family: "Segoe UI Semibold", sans-serif;
-    color: #9dbcea;
-    cursor: pointer;
-  }
+.forget-password {
+  min-height: 30px;
+  line-height: 30px;
+  font-family: "Segoe UI Semibold", sans-serif;
+  color: #9dbcea;
+  cursor: pointer;
 }
 
 .register-container {
@@ -60,13 +80,13 @@ $gray: #dcd9d9;
   font-size: 15px;
   min-width: 221px;
   color: $gray;
+}
 
-  .register {
-    font-family: "Segoe UI Semibold", sans-serif;
-    margin-left: 5px;
-    color: #337ac0;
-    cursor: pointer;
-  }
+.register {
+  font-family: "Segoe UI Semibold", sans-serif;
+  margin-left: 5px;
+  color: #337ac0;
+  cursor: pointer;
 }
 
 .login-button {

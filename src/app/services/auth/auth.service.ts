@@ -20,7 +20,6 @@ export class AuthService {
         this.isLoggedIn = r.user?.emailVerified!;
         if (this.isLoggedIn) this.router.navigateByUrl('/dashboard');
       })
-      .catch(reason => console.log(reason))
   }
 
   async signUp(email: string, password: string) {

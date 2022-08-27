@@ -21,9 +21,9 @@ import {MatIconModule} from '@angular/material/icon';
 import {faHourglassHalf, faPenToSquare} from '@fortawesome/free-regular-svg-icons';
 import {environment} from '../environments/environment';
 import {ReactiveFormsModule} from '@angular/forms';
-import {LoginComponent} from './components/account/login/login.component';
-import {RegisterComponent} from './components/account/register/register.component';
-import {faArrowLeft, faBan, faTrash} from "@fortawesome/free-solid-svg-icons";
+import {LoginComponent} from './components/entry-page/login/login.component';
+import {RegisterComponent} from './components/entry-page/register/register.component';
+import {faArrowLeft, faBan, faExclamationTriangle, faTrash} from "@fortawesome/free-solid-svg-icons";
 import {FlashcardsTimerComponent} from './components/flashcards/flashcards-timer/flashcards-timer.component';
 import {
   FlashcardEditorComponent
@@ -42,8 +42,8 @@ import {NgxCaptchaModule} from '@binssoft/ngx-captcha';
 import {CaptchaComponent} from './components/common/captcha/captcha.component';
 import {
   RegisterSuccessComponent
-} from './components/account/register/register-success/register-success.component';
-import { ResetPasswordComponent } from './components/account/reset-password/reset-password.component';
+} from './components/entry-page/register/register-success/register-success.component';
+import { ResetPasswordComponent } from './components/entry-page/reset-password/reset-password.component';
 import {getFirestore, provideFirestore} from "@angular/fire/firestore";
 import {getAuth, provideAuth} from "@angular/fire/auth";
 
@@ -98,7 +98,8 @@ export class AppModule {
       faPenToSquare,
       faBan,
       faArrowLeft,
-      faTrash
+      faTrash,
+      faExclamationTriangle
     );
   }
 }
