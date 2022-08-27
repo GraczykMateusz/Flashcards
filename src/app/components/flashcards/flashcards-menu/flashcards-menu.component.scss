@@ -193,6 +193,7 @@ $bg-color: #100f0f;
 
 .hamburger {
   cursor: pointer;
+  color: snow;
   margin: 0 auto;
   width: 30px;
   height: 30px;
@@ -203,7 +204,7 @@ $bg-color: #100f0f;
   padding: 0;
   width: 30px;
   height: 3px;
-  background-color: #ffffff;
+  background-color: snow;
   display: block;
   border-radius: 4px;
   transition: all 0.3s ease-in-out;
