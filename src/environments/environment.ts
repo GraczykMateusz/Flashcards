@@ -6,7 +6,7 @@ import {YOUR_FIREBASE_API_DEV} from "../config/keys";
 
 export const environment = {
   production: false,
-  firebase: YOUR_FIREBASE_API_DEV,
+  firebaseConfig: YOUR_FIREBASE_API_DEV,
   buildNumber: '1.0'
 };
 /*

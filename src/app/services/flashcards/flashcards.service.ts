@@ -1,33 +1,25 @@
 import {Injectable} from '@angular/core';
-import {Flashcard, IFlashcard} from './model/flashcard';
-import {AngularFirestore} from "@angular/fire/compat/firestore";
+import {Flashcard} from './model/flashcard';
+import {addDoc, collection, Firestore, getDoc, getDocs} from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FlashcardsService {
 
-  private readonly COLLECTION_PATH = 'flashcards';
-  private flashcardsCollection = this.store.collection<any>(this.COLLECTION_PATH);
-
-  constructor(private store: AngularFirestore) {
+  constructor(private firestore: Firestore) {
   }
 
-  createFlashcard(flashcard: Flashcard): Promise<string> {
-    return new Promise<string>((resolve, reject) =>
-      this.flashcardsCollection.add(flashcard.asObject())
-        .then(ref => resolve(ref.id))
-        .catch(e => reject(e)));
+  createFlashcard(flashcard: Flashcard) {
+    const dbCollection = collection(this.firestore, 'flashcards');
+    addDoc(dbCollection, flashcard.asObject()).then();
   }
 
-  deleteFieldDataById(flashcardId: string): Promise<void> {
-    return this.flashcardsCollection.doc(flashcardId).delete();
+  getData() {
+    const dbCollection = collection(this.firestore, 'flashcards');
+    return getDocs(dbCollection).then(value => value.docs.map(value1 => {
+      return {...value1.data(), id: value1.id};
+    }))
   }
-
-  // getFiledData(): Observable<Flashcard[]> {
-  // const collectionRef = this.firebaseReferenceProvider.getCollectionReference(collectionId);
-  // return this.store.collection<Flashcard>(this.COLLECTION_PATH,
-  //   ref => ref.where('collectionRef', '==', collectionRef)).valueChanges({idField: 'id'});
-  // }
 
 }
