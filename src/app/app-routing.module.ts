@@ -12,16 +12,16 @@ import {RegisterSuccessComponent} from './components/entry-page/register/registe
 import {ResetPasswordComponent} from './components/entry-page/reset-password/reset-password.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'login', pathMatch: 'full'},
+  {path: '', redirectTo: 'flashcards', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'reset/password', component: ResetPasswordComponent},
-  {path: 'register/success', component: RegisterSuccessComponent, canActivate: [AuthGuardService]},
+  {path: 'register/success', component: RegisterSuccessComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService]},
-  {path: 'flashcards/creator', component: FlashcardCreatorComponent, canActivate: [AuthGuardService]},
-  {path: 'flashcards/editor', component: FlashcardEditorComponent, canActivate: [AuthGuardService]},
-  {path: 'flashcards/remover', component: FlashcardRemoverComponent, canActivate: [AuthGuardService]},
-  {path: 'flashcards', component: FlashcardsComponent, canActivate: [AuthGuardService]}
+  {path: 'dashboard', component: DashboardComponent},
+  {path: 'flashcards/creator', component: FlashcardCreatorComponent},
+  {path: 'flashcards/editor', component: FlashcardEditorComponent},
+  {path: 'flashcards/remover', component: FlashcardRemoverComponent},
+  {path: 'flashcards', component: FlashcardsComponent}
 ];
 
 @NgModule({

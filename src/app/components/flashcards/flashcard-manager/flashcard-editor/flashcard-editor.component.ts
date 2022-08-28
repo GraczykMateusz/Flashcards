@@ -92,7 +92,7 @@ export class FlashcardEditorComponent {
     const image = this.flashcardFormGroup.controls.image.value!;
 
     const flashcard = new Flashcard(content, translation, example, image);
-    this.flashcardsService.add(flashcard)
+    this.flashcardsService.createFlashcard(flashcard)
   }
 
   isInvalidFormField(formControl: FormControl<string | null>) {

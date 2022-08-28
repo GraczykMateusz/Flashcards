@@ -7,7 +7,14 @@ export class Flashcard {
   ) {
   }
 
-  asJson(): JSON {
-    return JSON.parse(JSON.stringify(this));
+  asObject() {
+    return Object.assign({}, this);
   }
+}
+
+export interface IFlashcard {
+  content: string,
+  translation: string,
+  example: string,
+  image: string
 }

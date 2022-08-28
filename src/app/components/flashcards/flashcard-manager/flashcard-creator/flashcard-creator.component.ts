@@ -14,10 +14,10 @@ import {
 export class FlashcardCreatorComponent {
 
   flashcardFormGroup = new FormGroup({
-    content: new FormControl('', [Validators.required, Validators.maxLength(10)]),
-    translation: new FormControl('', [Validators.required, Validators.maxLength(15)]),
-    example: new FormControl('', [Validators.required, Validators.maxLength(15)]),
-    image: new FormControl()
+    content: new FormControl('', [Validators.required]),
+    translation: new FormControl('', [Validators.required]),
+    example: new FormControl(''),
+    image: new FormControl('')
   });
 
   isError = false;
@@ -92,7 +92,7 @@ export class FlashcardCreatorComponent {
     const image = this.flashcardFormGroup.controls.image.value!;
 
     const flashcard = new Flashcard(content, translation, example, image);
-    this.flashcardsService.add(flashcard)
+    this.flashcardsService.createFlashcard(flashcard)
   }
 
   isInvalidFormField(formControl: FormControl<string | null>) {
