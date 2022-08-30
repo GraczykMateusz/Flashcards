@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs';
+import {Observable, take} from 'rxjs';
 import {AngularFirestore} from '@angular/fire/compat/firestore';
 import {AuthService} from '../auth/auth.service';
 import {Flashcard} from './model/flashcard';
@@ -12,8 +12,8 @@ export class FlashcardsService {
 
   private flashcardsCollection = this.firestore.collection<NewFlashcard | Flashcard>('flashcards');
 
-  constructor(private firestore: AngularFirestore, private authService: AuthService) {
-    this.authService.foo().subscribe(value => console.log(value))
+  constructor(private firestore: AngularFirestore,
+              private authService: AuthService) {
   }
 
   createFlashcard(flashcard: NewFlashcard) {

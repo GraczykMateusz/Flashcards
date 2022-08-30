@@ -7,8 +7,7 @@ import {NewFlashcard} from '../../../../services/flashcards/model/new-flashcard'
 @Component({
   selector: 'app-flashcard-creator',
   templateUrl: './flashcard-creator.component.html',
-  styleUrls: ['./flashcard-creator.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./flashcard-creator.component.scss']
 })
 export class FlashcardCreatorComponent {
 

@@ -22,9 +22,9 @@
       <div class="form-group">
         <input [formControlName]="'email'"
                (click)="resetWarning()"
-               type="text"
-               id='email'
+               type="search"
                autocomplete="off"
+               id='email'
                class="form-field"
                placeholder="EMAIL"/>
         <label for="email"
@@ -36,8 +36,9 @@
       <div class="form-group">
         <input [formControlName]="'password'"
                (click)="resetWarning()"
-               type="password"
+               type="search"
                autocomplete="off"
+               style="-webkit-text-security: disc;"
                id='password'
                class="form-field"
                placeholder="HASŁO"/>
@@ -50,8 +51,9 @@
       <div class="form-group">
         <input [formControlName]="'replayPassword'"
                (click)="resetWarning()"
-               type="password"
+               type="search"
                autocomplete="off"
+               style="-webkit-text-security: disc;"
                id='replyPassword'
                class="form-field"
                placeholder="POWTÓRZ HASŁO"/>

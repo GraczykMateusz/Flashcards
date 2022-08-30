@@ -17,9 +17,9 @@
     <form style="width: 100%;" [formGroup]="userForm">
       <div class="form-group" (click)="resetWarning()">
         <input [formControlName]="'email'"
-               type="text"
-               id='email'
+               type="search"
                autocomplete="off"
+               id='email'
                class="form-field"
                placeholder="EMAIL"/>
         <label
@@ -31,9 +31,10 @@
 
       <div class="form-group" (click)="resetWarning()">
         <input [formControlName]="'password'"
-               type="password"
-               id='password'
+               type="search"
                autocomplete="off"
+               style="-webkit-text-security: disc;"
+               id='password'
                class="form-field"
                placeholder="HASŁO"/>
         <label
