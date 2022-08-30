@@ -52,7 +52,7 @@
           </ng-container>
         </div>
       </div>
-      <mat-icon>
+      <mat-icon style="cursor: pointer" (click)="logout()" routerLink="/login">
         power_settings_new
       </mat-icon>
     </div>
@@ -71,7 +71,7 @@
     <button class="dropdown-links-mobile" (click)="pauseTimer(); closeDropDown()" *ngIf="canPauseTimer()">Zatrzymaj</button>
     <button class="dropdown-links-mobile" (click)="closeTimer(); closeDropDown()">Zakończ</button>
 
-    <button class="dropdown-links-mobile logout-button" (click)="closeDropDown()">
+    <button class="dropdown-links-mobile logout-button" (click)="logout(); closeDropDown()" routerLink="/login">
       Wyloguj się
       <mat-icon>
         power_settings_new

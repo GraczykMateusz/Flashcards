@@ -1,5 +1,6 @@
 import {Component, HostListener, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
+import {AuthService} from '../../../services/auth/auth.service';
 
 @Component({
   selector: 'app-flashcards-menu',
@@ -16,7 +17,7 @@ export class FlashcardsMenuComponent implements OnInit {
   username = 'Mateusz';
   activeTab: string | undefined;
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private authService: AuthService) {
   }
 
   ngOnInit() {
@@ -67,5 +68,9 @@ export class FlashcardsMenuComponent implements OnInit {
 
   canPauseTimer(): boolean {
     return !this.isPausedTimer && this.isActivatedTimer;
+  }
+
+  logout() {
+    this.authService.logout();
   }
 }

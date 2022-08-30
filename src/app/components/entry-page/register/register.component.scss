@@ -11,19 +11,30 @@ $gray: #dcd9d9;
   transform: translateX(-21px);
 }
 
-.mat-icon {
-  transform: scale(1.2);
+.warning {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  .mat-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0.7);
+  }
 }
 
 .back-icon {
   margin-right: 25px;
   cursor: pointer;
+  transform: scale(1.2);
 }
 
 
 .fail-info-container {
-  min-height: 20px;
-  line-height: 20px;
+  min-height: 24px;
+  line-height: 24px;
   font-size: 12px;
 }
 
@@ -56,6 +67,10 @@ $gray: #dcd9d9;
     margin-bottom: 12px;
     letter-spacing: 1px;
     font-size: 17px;
+
+    .mat-icon {
+      transform: scale(1.2);
+    }
   }
 
   .login-button {

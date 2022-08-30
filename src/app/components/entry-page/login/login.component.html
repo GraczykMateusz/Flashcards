@@ -3,14 +3,14 @@
     <mat-card-title>Logowanie</mat-card-title>
     <div class="fail-info-container">
       <div class="incorrect-data">
-      <span *ngIf="userForm.hasError('error')">
+      <div class="warning" *ngIf="userForm.hasError('error')">
         <mat-icon class="warning-icon-mr">warning</mat-icon>
-        Wprowadź poprawne dane.</span>
+        Wprowadź poprawne dane.</div>
       </div>
       <div class="login-failed">
-      <span *ngIf="userForm.hasError('failed')">
+      <div class="warning" *ngIf="userForm.hasError('failed')">
         <mat-icon class="warning-icon-mr">warning</mat-icon>
-        Logowanie niepowiodło się.</span>
+        Logowanie niepowiodło się.</div>
       </div>
     </div>
 

@@ -8,20 +8,21 @@ import {LoginComponent} from './components/entry-page/login/login.component';
 import {RegisterComponent} from './components/entry-page/register/register.component';
 import {RegisterSuccessComponent} from './components/entry-page/register/register-success/register-success.component';
 import {ResetPasswordComponent} from './components/entry-page/reset-password/reset-password.component';
-import {FlashcardsMenuComponent} from './components/flashcards/flashcards-menu/flashcards-menu.component';
 import {FlashcardsComponent} from './components/flashcards/flashcards.component';
+import {canActivate, redirectUnauthorizedTo} from '@angular/fire/auth-guard';
+
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 
 const routes: Routes = [
   {path: '', redirectTo: 'flashcards', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
-  {path: 'reset/password', component: ResetPasswordComponent},
-  {path: 'register/success', component: RegisterSuccessComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'dashboard', component: DashboardComponent},
-  {path: 'flashcards/creator', component: FlashcardCreatorComponent},
-  {path: 'flashcards/editor', component: FlashcardEditorComponent},
-  {path: 'flashcards/remover', component: FlashcardRemoverComponent},
-  {path: 'flashcards', component: FlashcardsComponent}
+  {path: 'reset-password', component: ResetPasswordComponent, ...canActivate(redirectUnauthorizedToLogin)},
+  {path: 'dashboard', component: DashboardComponent, ...canActivate(redirectUnauthorizedToLogin)},
+  {path: 'flashcards/creator', component: FlashcardCreatorComponent, ...canActivate(redirectUnauthorizedToLogin)},
+  {path: 'flashcards/editor', component: FlashcardEditorComponent, ...canActivate(redirectUnauthorizedToLogin)},
+  {path: 'flashcards/remover', component: FlashcardRemoverComponent, ...canActivate(redirectUnauthorizedToLogin)},
+  {path: 'flashcards', component: FlashcardsComponent, ...canActivate(redirectUnauthorizedToLogin)}
 ];
 
 @NgModule({
