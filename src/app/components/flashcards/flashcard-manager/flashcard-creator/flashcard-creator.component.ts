@@ -1,12 +1,14 @@
-import {Component, HostListener} from '@angular/core';
-import {FlashcardsService, NewFlashcard} from '../../../../services/flashcards/flashcards.service';
+import {Component, HostListener, ViewEncapsulation} from '@angular/core';
+import {FlashcardsService} from '../../../../services/flashcards/flashcards.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {FlashcardImageUploaderService} from "../../../../services/flashcards/flashcard-creator/flashcard-image-uploader.service";
+import {NewFlashcard} from '../../../../services/flashcards/model/new-flashcard';
 
 @Component({
   selector: 'app-flashcard-creator',
   templateUrl: './flashcard-creator.component.html',
-  styleUrls: ['./flashcard-creator.component.scss']
+  styleUrls: ['./flashcard-creator.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class FlashcardCreatorComponent {
 

@@ -2,48 +2,28 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {AngularFirestore} from '@angular/fire/compat/firestore';
 import {AuthService} from '../auth/auth.service';
+import {Flashcard} from './model/flashcard';
+import {NewFlashcard} from './model/new-flashcard';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FlashcardsService {
 
-  private flashcardsCollection;
+  private flashcardsCollection = this.firestore.collection<NewFlashcard | Flashcard>('flashcards');
 
   constructor(private firestore: AngularFirestore, private authService: AuthService) {
-    this.flashcardsCollection = this.firestore.collection<NewFlashcard | Flashcard>('flashcards');
+    this.authService.foo().subscribe(value => console.log(value))
   }
 
   createFlashcard(flashcard: NewFlashcard) {
-    return new Promise<string>((resolve, reject) =>
-      this.flashcardsCollection.add(flashcard.asObject())
-        .then(ref => resolve(ref.id))
+    return new Promise<void>((resolve, reject) =>
+      this.flashcardsCollection.doc('xxx').set(flashcard.asObject())
+        .then(ref => resolve(ref))
         .catch(e => reject(e)))
   }
 
   getAllFlashcards(): Observable<Flashcard[]> {
     return this.flashcardsCollection.valueChanges({idField: 'id'});
   }
-}
-
-export class NewFlashcard {
-  constructor(
-    public content: string,
-    public translation: string,
-    public example: string,
-    public image: string
-  ) {
-  }
-
-  asObject() {
-    return Object.assign({}, this);
-  }
-}
-
-export class Flashcard {
-  public id!: string;
-  public content?: string;
-  public translation?: string;
-  public example?: string;
-  public image?: string;
 }

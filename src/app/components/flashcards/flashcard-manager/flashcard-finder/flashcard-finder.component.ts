@@ -1,7 +1,8 @@
 import {Component, HostListener} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {FlashcardsService, NewFlashcard} from '../../../../services/flashcards/flashcards.service';
+import {FlashcardsService} from '../../../../services/flashcards/flashcards.service';
 import {FlashcardImageUploaderService} from '../../../../services/flashcards/flashcard-creator/flashcard-image-uploader.service';
+import {NewFlashcard} from '../../../../services/flashcards/model/new-flashcard';
 
 @Component({
   selector: 'app-flashcard-finder',

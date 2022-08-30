@@ -11,7 +11,6 @@ export class RegisterSuccessComponent implements OnInit {
   constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
-    this.authService.isSignUp = false;
   }
 
 }

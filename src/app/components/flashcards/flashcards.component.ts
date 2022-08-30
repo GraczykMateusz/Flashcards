@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {Flashcard, FlashcardsService} from '../../services/flashcards/flashcards.service';
+import {FlashcardsService} from '../../services/flashcards/flashcards.service';
 import {take} from 'rxjs';
+import {Flashcard} from '../../services/flashcards/model/flashcard';
 
 @Component({
   selector: 'app-flashcards',
@@ -21,8 +22,8 @@ export class FlashcardsComponent implements OnInit {
     this.flashcardsService.getAllFlashcards()
       .pipe(take(1))
       .subscribe(flashcards => {
-      this.flashcards = flashcards;
-    });
+        this.flashcards = flashcards;
+      });
   }
 
   flipCard() {

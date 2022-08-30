@@ -10,22 +10,13 @@ import {AuthService} from './services/auth/auth.service';
 })
 export class AppComponent {
 
-  isSignedIn = false
-
   constructor(public authService: AuthService) {
   }
 
   ngOnInit() {
-    this.isSignedIn = localStorage.getItem('user') !== null;
   }
 
   async onSignUp(email: string, password: string) {
     await this.authService.signUp(email, password)
-    if (this.authService.isLoggedIn)
-      this.isSignedIn = true
-  }
-
-  handleLogout() {
-    this.isSignedIn = false
   }
 }

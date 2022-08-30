@@ -4,7 +4,8 @@
   <form class="form-group" [formGroup]="flashcardFormGroup">
     <div class="form-group">
       <input [formControlName]="'content'"
-             type="text"
+             type="search"
+             autocomplete="off"
              id='content'
              class="form-field"
              [ngClass]="isInvalidFormField(flashcardFormGroup.controls.content) ? 'invalid-form-field-border' : ''"
@@ -19,7 +20,8 @@
 
     <div class="form-group">
       <input [formControlName]="'translation'"
-             type="text"
+             type="search"
+             autocomplete="off"
              id='translation'
              class="form-field"
              [ngClass]="isInvalidFormField(flashcardFormGroup.controls.translation) ? 'invalid-form-field-border' : ''"
@@ -34,7 +36,8 @@
 
     <div class="form-group">
       <input [formControlName]="'example'"
-             type="text"
+             type="search"
+             autocomplete="off"
              id='example'
              class="form-field"
              [ngClass]="isInvalidFormField(flashcardFormGroup.controls.example) ? 'invalid-form-field-border' : ''"

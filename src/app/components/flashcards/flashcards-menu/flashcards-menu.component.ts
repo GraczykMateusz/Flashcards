@@ -55,7 +55,7 @@ export class FlashcardsMenuComponent implements OnInit {
   startTimer(): void {
     this.isActivatedTimer = true;
     this.isPausedTimer = false;
-    this.counter = {min: 10, sec: 10};
+    this.counter = {min: 20, sec: 0};
   }
 
   canStartTimer(): boolean {
