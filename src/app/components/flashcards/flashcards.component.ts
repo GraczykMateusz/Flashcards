@@ -1,36 +1,41 @@
-import { Component, OnInit } from '@angular/core';
-import {FlashcardsService} from '../../services/flashcards/flashcards.service';
-import {IFlashcard} from '../../services/flashcards/model/flashcard';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Flashcard, FlashcardsService} from '../../services/flashcards/flashcards.service';
+import {take} from 'rxjs';
 
 @Component({
   selector: 'app-flashcards',
   templateUrl: './flashcards.component.html',
-  styleUrls: ['./flashcards.component.scss']
+  styleUrls: ['./flashcards.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class FlashcardsComponent implements OnInit {
 
-  flash: IFlashcard[] = [];
-  i=0;
+  flashcards: Flashcard[] = [];
+  index = 0;
+  isRotated = false;
 
-  isRotated = true;
-
-  constructor(private f: FlashcardsService) {
+  constructor(private flashcardsService: FlashcardsService) {
   }
 
   ngOnInit(): void {
-    this.f.getData().subscribe(v => this.flash = v)
+    this.flashcardsService.getAllFlashcards()
+      .pipe(take(1))
+      .subscribe(flashcards => {
+      this.flashcards = flashcards;
+    });
   }
 
   flipCard() {
     this.isRotated = !this.isRotated;
   }
 
-  loadNextFlashcard() {
-    const min = Math.ceil(0);
-    const max = Math.floor(1);
-
-    this.i = Math.floor(Math.random() * (max - min + 1)) + min;
-    console.log(this.i)
+  async nextFlashcard() {
+    this.isRotated = false;
+    await new Promise(f => setTimeout(f, 100));
+    if (this.flashcards.length - 1 === this.index) {
+      this.index = 0;
+    } else {
+      this.index++;
+    }
   }
-
 }

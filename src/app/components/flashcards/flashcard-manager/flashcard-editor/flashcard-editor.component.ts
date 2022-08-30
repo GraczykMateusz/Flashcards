@@ -1,10 +1,7 @@
-import {Component, HostListener, OnInit} from '@angular/core';
+import {Component, HostListener} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {FlashcardsService} from "../../../../services/flashcards/flashcards.service";
-import {
-  FlashcardImageUploaderService
-} from "../../../../services/flashcards/flashcard-creator/flashcard-image-uploader.service";
-import {Flashcard} from "../../../../services/flashcards/model/flashcard";
+import {FlashcardsService, NewFlashcard} from "../../../../services/flashcards/flashcards.service";
+import {FlashcardImageUploaderService} from "../../../../services/flashcards/flashcard-creator/flashcard-image-uploader.service";
 
 @Component({
   selector: 'app-flashcard-editor',
@@ -91,7 +88,7 @@ export class FlashcardEditorComponent {
     const example = this.flashcardFormGroup.controls.example.value!;
     const image = this.flashcardFormGroup.controls.image.value!;
 
-    const flashcard = new Flashcard(content, translation, example, image);
+    const flashcard = new NewFlashcard(content, translation, example, image);
     this.flashcardsService.createFlashcard(flashcard)
   }
 

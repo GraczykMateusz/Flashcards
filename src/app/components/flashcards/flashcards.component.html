@@ -1,20 +1,20 @@
 <app-flashcards-menu></app-flashcards-menu>
 <div class="flashcards-container">
   <div class="flip-card" (click)="flipCard()">
-    <div class="flip-card-inner" [ngClass]="isRotated ? 'flip-back' : 'flip'">
+    <div class="flip-card-inner" [ngClass]="!isRotated ? 'flip-back' : 'flip'">
       <div class="flip-card-front">
         <mat-card>
-          <mat-card-title>{{flash[i]?.content}}</mat-card-title>
-          <div class="image" [innerHTML]="flash[i]?.image"></div>
+          <mat-card-title>{{flashcards[index]?.content}}</mat-card-title>
+          <div class="image" [innerHTML]="flashcards[index]?.image"></div>
         </mat-card>
       </div>
       <div class="flip-card-back">
         <mat-card>
-          <mat-card-title>{{flash[i]?.translation}}</mat-card-title>
-          <mat-card-content>{{flash[i]?.example}}</mat-card-content>
+          <mat-card-title>{{flashcards[index]?.translation}}</mat-card-title>
+          <mat-card-content>{{flashcards[index]?.example}}</mat-card-content>
         </mat-card>
       </div>
     </div>
   </div>
-  <button mat-button color="primary" (click)="loadNextFlashcard()">Następny</button>
+  <button mat-button color="primary" (click)="nextFlashcard()">Następny</button>
 </div>

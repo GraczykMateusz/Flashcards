@@ -11,11 +11,11 @@ export const blurAnimation = trigger('blurAnimation', [
     group([
       query(':enter', [
         style({ opacity: 0, filter: 'blur(1em)' }),
-        animate('1.2s ease-in', style({ opacity: 1, filter: 'blur(0)' }))
+        animate('0.8s ease-in', style({ opacity: 1, filter: 'blur(0)' }))
       ], { optional: true }),
       query(':leave', [
         style({ opacity: 1, filter: 'blur(0)' }),
-        animate('1.2s ease-out', style({ opacity: 0, filter: 'blur(1em)' }))
+        animate('0.8s ease-out', style({ opacity: 0, filter: 'blur(1em)' }))
       ], { optional: true })
     ])
   ])
