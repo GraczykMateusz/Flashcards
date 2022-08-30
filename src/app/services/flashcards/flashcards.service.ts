@@ -1,15 +1,21 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {AngularFirestore} from '@angular/fire/compat/firestore';
+import {AuthService} from '../auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FlashcardsService {
 
-  private flashcardsCollection = this.firestore.collection<NewFlashcard | Flashcard>('flashcards');
+  private flashcardsCollection;
 
-  constructor(private firestore: AngularFirestore) {
+  constructor(private firestore: AngularFirestore, private authService: AuthService) {
+    const id = this.authService.userUid!;
+    this.flashcardsCollection = this.firestore
+      .collection('users')
+      .doc(id)
+      .collection<NewFlashcard | Flashcard>('flashcards');
   }
 
   createFlashcard(flashcard: NewFlashcard) {
