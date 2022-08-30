@@ -11,11 +11,7 @@ export class FlashcardsService {
   private flashcardsCollection;
 
   constructor(private firestore: AngularFirestore, private authService: AuthService) {
-    const id = this.authService.userUid!;
-    this.flashcardsCollection = this.firestore
-      .collection('users')
-      .doc(id)
-      .collection<NewFlashcard | Flashcard>('flashcards');
+    this.flashcardsCollection = this.firestore.collection<NewFlashcard | Flashcard>('flashcards');
   }
 
   createFlashcard(flashcard: NewFlashcard) {
