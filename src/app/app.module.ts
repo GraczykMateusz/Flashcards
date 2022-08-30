@@ -5,22 +5,18 @@ import {FlexLayoutModule, FlexModule} from "@angular/flex-layout";
 import {DashboardComponent} from './components/dashboard/dashboard.component';
 import {FooterComponent} from './components/footer/footer.component';
 import {AppRoutingModule} from './app-routing.module';
-import {FlashcardsComponent} from './components/flashcards/flashcards.component';
 import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {FlashcardCreatorComponent} from './components/flashcards/flashcard-manager/flashcard-creator/flashcard-creator.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
-import {FaIconLibrary, FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {FlashcardsMenuComponent} from './components/flashcards/flashcards-menu/flashcards-menu.component';
 import {MatIconModule} from '@angular/material/icon';
-import {faHourglassHalf, faPenToSquare} from '@fortawesome/free-regular-svg-icons';
 import {environment} from '../environments/environment';
 import {ReactiveFormsModule} from '@angular/forms';
 import {LoginComponent} from './components/entry-page/login/login.component';
 import {RegisterComponent} from './components/entry-page/register/register.component';
-import {faArrowLeft, faBan, faExclamationTriangle, faTrash} from "@fortawesome/free-solid-svg-icons";
 import {FlashcardsTimerComponent} from './components/flashcards/flashcards-timer/flashcards-timer.component';
 import {FlashcardEditorComponent} from './components/flashcards/flashcard-manager/flashcard-editor/flashcard-editor.component';
 import {FlashcardRemoverComponent} from './components/flashcards/flashcard-manager/flashcard-remover/flashcard-remover.component';
@@ -36,13 +32,13 @@ import {getFirestore, provideFirestore} from "@angular/fire/firestore";
 import {getAuth, provideAuth} from "@angular/fire/auth";
 import {initializeApp, provideFirebaseApp} from '@angular/fire/app';
 import {FIREBASE_OPTIONS} from '@angular/fire/compat';
+import {FlashcardsComponent} from './components/flashcards/flashcards.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     FooterComponent,
-    FlashcardsComponent,
     FlashcardCreatorComponent,
     FlashcardsMenuComponent,
     LoginComponent,
@@ -53,7 +49,8 @@ import {FIREBASE_OPTIONS} from '@angular/fire/compat';
     FlashcardFinderComponent,
     CaptchaComponent,
     RegisterSuccessComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    FlashcardsComponent
   ],
   imports: [
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
@@ -69,7 +66,6 @@ import {FIREBASE_OPTIONS} from '@angular/fire/compat';
     MatFormFieldModule,
     MatInputModule,
     FlexLayoutModule,
-    FontAwesomeModule,
     MatIconModule,
     ReactiveFormsModule,
     NgxCaptchaModule
@@ -83,14 +79,5 @@ import {FIREBASE_OPTIONS} from '@angular/fire/compat';
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(library: FaIconLibrary) {
-    library.addIcons(
-      faHourglassHalf,
-      faPenToSquare,
-      faBan,
-      faArrowLeft,
-      faTrash,
-      faExclamationTriangle
-    );
-  }
+
 }

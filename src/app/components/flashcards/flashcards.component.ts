@@ -1,15 +1,15 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {FlashcardsService} from '../../services/flashcards/flashcards.service';
+import {IFlashcard} from '../../services/flashcards/model/flashcard';
 
 @Component({
   selector: 'app-flashcards',
   templateUrl: './flashcards.component.html',
-  styleUrls: ['./flashcards.component.scss'],
-  encapsulation: ViewEncapsulation.ShadowDom
+  styleUrls: ['./flashcards.component.scss']
 })
 export class FlashcardsComponent implements OnInit {
 
-  flash:any;
+  flash: IFlashcard[] = [];
   i=0;
 
   isRotated = true;
@@ -18,10 +18,7 @@ export class FlashcardsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.f.getData()
-      .then(value => {
-        this.flash = value
-      });
+    this.f.getData().subscribe(v => this.flash = v)
   }
 
   flipCard() {
@@ -33,6 +30,7 @@ export class FlashcardsComponent implements OnInit {
     const max = Math.floor(1);
 
     this.i = Math.floor(Math.random() * (max - min + 1)) + min;
-  console.log(this.i)
+    console.log(this.i)
   }
+
 }

@@ -1,25 +1,27 @@
 import {Injectable} from '@angular/core';
-import {Flashcard} from './model/flashcard';
+import {Flashcard, IFlashcard} from './model/flashcard';
 import {addDoc, collection, Firestore, getDoc, getDocs} from '@angular/fire/firestore';
+import {Observable} from 'rxjs';
+import {AngularFirestore} from '@angular/fire/compat/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FlashcardsService {
 
-  constructor(private firestore: Firestore) {
+  private flashcardsCollection = this.firestore.collection<Flashcard | IFlashcard>('flashcards');
+
+  constructor(private firestore: AngularFirestore) {
   }
 
   createFlashcard(flashcard: Flashcard) {
-    const dbCollection = collection(this.firestore, 'flashcards');
-    addDoc(dbCollection, flashcard.asObject()).then();
+    return new Promise<string>((resolve, reject) =>
+      this.flashcardsCollection.add(flashcard.asObject())
+        .then(ref => resolve(ref.id))
+        .catch(e => reject(e)))
   }
 
-  getData() {
-    const dbCollection = collection(this.firestore, 'flashcards');
-    return getDocs(dbCollection).then(value => value.docs.map(value1 => {
-      return {...value1.data(), id: value1.id};
-    }))
+  getData(): Observable<IFlashcard[]> {
+    return this.flashcardsCollection.valueChanges({idField: 'id'});
   }
-
 }

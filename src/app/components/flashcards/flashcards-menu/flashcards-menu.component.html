@@ -11,13 +11,13 @@
 
     <div ngClass.lt-md="hide-element" ngClass.md="hide-element" class="desktop-action-buttons">
       <div class="flashcard-action">
-        <fa-icon [icon]="['far', 'pen-to-square']" size="2x"></fa-icon>
+        <mat-icon>create</mat-icon>
         <button mat-button color="primary" [ngStyle]="activeTab === 'creator' ? {'background-color' : 'rgba(101,46,203,0.3)'} : {}" routerLink="/flashcards/creator">Dodaj</button>
         <button mat-button color="primary" [ngStyle]="activeTab === 'editor' ? {'background-color' : 'rgba(101,46,203,0.3)'} : {}" routerLink="/flashcards/editor">Edytuj</button>
         <button mat-button color="primary" [ngStyle]="activeTab === 'remover' ? {'background-color' : 'rgba(101,46,203,0.3)'} : {}" routerLink="/flashcards/remover">Usuń</button>
       </div>
       <div class="stopwatch-action">
-        <fa-icon [icon]="['far', 'hourglass-half']" size="2x"></fa-icon>
+        <mat-icon>hourglass_empty</mat-icon>
         <button mat-button color="primary" (click)="startTimer()" *ngIf="canStartTimer()">Aktywuj</button>
         <button mat-button color="primary" (click)="resumeTimer()" *ngIf="canResumeTimer()">Wznów</button>
         <button mat-button color="primary" (click)="pauseTimer()" *ngIf="canPauseTimer()">Zatrzymaj</button>

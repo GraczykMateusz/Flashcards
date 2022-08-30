@@ -10,6 +10,10 @@ $gray: #dcd9d9;
   min-height: calc(#{variables.$body-min-height} - #{variables.$footer-height} - 20px);
 }
 
+.mat-icon {
+  transform: scale(0.5);
+}
+
 .fail-info-container {
   min-height: 20px;
   line-height: 20px;

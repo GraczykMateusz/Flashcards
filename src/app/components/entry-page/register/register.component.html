@@ -1,20 +1,20 @@
 <div class="login-container">
   <mat-card>
     <mat-card-title>
-      <fa-icon [icon]="['fas', 'arrow-left']" class="back-icon" routerLink="/login"></fa-icon>
+      <mat-icon class="back-icon" routerLink="/login">arrow_back</mat-icon>
       <span class="register-title">Rejestracja</span>
     </mat-card-title>
 
     <div class="fail-info-container">
       <div class="incorrect-data">
         <span *ngIf="userForm.hasError('error')">
-        <fa-icon class="warning-icon-mr" [icon]="['fas', 'exclamation-triangle']"></fa-icon>
-      Wprowadź poprawne dane.</span>
+          <mat-icon>warning</mat-icon>
+          Wprowadź poprawne dane.</span>
       </div>
       <div class="login-failed">
       <span *ngIf="userForm.hasError('failed')">
-        <fa-icon class="warning-icon-mr" [icon]="['fas', 'exclamation-triangle']"></fa-icon>
-      Rejestracja niepowiodła się.</span>
+        <mat-icon>warning</mat-icon>
+        Rejestracja niepowiodła się.</span>
       </div>
     </div>
 
@@ -66,7 +66,7 @@
 
     <div class="action-buttons">
       <button mat-button class="trash" (click)="this.userForm.reset()">
-        <fa-icon [icon]="['fas', 'trash']"></fa-icon>
+        <mat-icon>clear</mat-icon>
       </button>
       <button mat-button class="login-button" (click)="register()">
         Zarejestruj

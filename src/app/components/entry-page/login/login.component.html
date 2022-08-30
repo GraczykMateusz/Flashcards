@@ -4,13 +4,13 @@
     <div class="fail-info-container">
       <div class="incorrect-data">
       <span *ngIf="userForm.hasError('error')">
-        <fa-icon class="warning-icon-mr" [icon]="['fas', 'exclamation-triangle']"></fa-icon>
-      Wprowadź poprawne dane.</span>
+        <mat-icon class="warning-icon-mr">warning</mat-icon>
+        Wprowadź poprawne dane.</span>
       </div>
       <div class="login-failed">
       <span *ngIf="userForm.hasError('failed')">
-        <fa-icon class="warning-icon-mr" [icon]="['fas', 'exclamation-triangle']"></fa-icon>
-      Logowanie niepowiodło się.</span>
+        <mat-icon class="warning-icon-mr">warning</mat-icon>
+        Logowanie niepowiodło się.</span>
       </div>
     </div>
 
