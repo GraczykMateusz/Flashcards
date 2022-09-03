@@ -1,19 +1,26 @@
 import {Injectable} from '@angular/core';
 import {AngularFireAuth} from '@angular/fire/compat/auth';
 import {Router} from '@angular/router';
-import {Observable} from 'rxjs';
+import {Observable, Subject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
+  private registerSuccess$ = new Subject<boolean>();
+  private resetPasswordSuccess$ = new Subject<boolean>();
+
   constructor(private angularFireAuth: AngularFireAuth,
               private router: Router) {
   }
 
-  foo(): Observable<firebase.default.User | null> {
-    return this.angularFireAuth.user;
+  getRegisterSuccess(): Observable<boolean> {
+    return this.registerSuccess$.asObservable();
+  }
+
+  getResetPasswordSuccess(): Observable<boolean> {
+    return this.resetPasswordSuccess$.asObservable();
   }
 
   async signIn(email: string, password: string) {
@@ -23,13 +30,15 @@ export class AuthService {
 
   async signUp(email: string, password: string) {
     await this.angularFireAuth.createUserWithEmailAndPassword(email, password)
-      .then(r => r.user?.sendEmailVerification())
-      .then(() => this.router.navigateByUrl('/register/success'));
+      .then(r => {
+        r.user?.sendEmailVerification()
+        this.registerSuccess$.next(true);
+      });
   }
 
-  sendResetPasswordEmail(email: string): void {
-    this.angularFireAuth.sendPasswordResetEmail(email)
-      .then()
+  async sendResetPasswordEmail(email: string) {
+    await this.angularFireAuth.sendPasswordResetEmail(email)
+      .then(() => this.resetPasswordSuccess$.next(true));
   }
 
   logout() {

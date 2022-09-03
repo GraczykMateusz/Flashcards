@@ -35,3 +35,8 @@
   @include start-center;
   flex-direction: column;
 }
+
+@mixin column-center-center {
+  @include center-center;
+  flex-direction: column;
+}

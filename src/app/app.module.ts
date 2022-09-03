@@ -33,6 +33,9 @@ import {getAuth, provideAuth} from "@angular/fire/auth";
 import {initializeApp, provideFirebaseApp} from '@angular/fire/app';
 import {FIREBASE_OPTIONS} from '@angular/fire/compat';
 import {FlashcardsComponent} from './components/flashcards/flashcards.component';
+import {RegisterFormulaComponent} from './components/entry-page/register/register-formula/register-formula.component';
+import { ResetPasswordFormulaComponent } from './components/entry-page/reset-password/reset-password-formula/reset-password-formula.component';
+import { ResetPasswordSuccessComponent } from './components/entry-page/reset-password/reset-password-success/reset-password-success.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +53,10 @@ import {FlashcardsComponent} from './components/flashcards/flashcards.component'
     CaptchaComponent,
     RegisterSuccessComponent,
     ResetPasswordComponent,
-    FlashcardsComponent
+    FlashcardsComponent,
+    RegisterFormulaComponent,
+    ResetPasswordFormulaComponent,
+    ResetPasswordSuccessComponent
   ],
   imports: [
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),

@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
+import {Subject, takeUntil} from 'rxjs';
 import {AuthService} from '../../../services/auth/auth.service';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-reset-password',
@@ -9,49 +9,21 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 })
 export class ResetPasswordComponent {
 
-  isEmailError = false;
-  isPasswordError = false;
+  private destroyed$ = new Subject<boolean>();
 
-  constructor(private authService: AuthService) {
+  isSuccess = false;
+
+  constructor(private authService: AuthService) { }
+
+  ngOnInit(): void {
+    this.authService.getResetPasswordSuccess()
+      .pipe(takeUntil(this.destroyed$))
+      .subscribe(v => this.isSuccess = v)
   }
 
-  userGroup = new FormGroup({
-    email: new FormControl('', [Validators.required]),
-    password: new FormControl('', [Validators.required])
-  });
-
-  isInvalidFormField(formControl: FormControl<string | null>) {
-    return formControl.invalid && (formControl.dirty || formControl.touched);
+  ngOnDestroy() {
+    this.destroyed$.next(true);
+    this.destroyed$.complete();
   }
 
-  async login() {
-    if (this.userGroup.controls.email.value?.length === 0 && this.userGroup.controls.password.value?.length === 0) {
-      this.isEmailError = true;
-      this.isPasswordError = true;
-      return;
-    }
-    if (this.userGroup.controls.email.value?.length === 0) {
-      this.isEmailError = true;
-      return;
-    }
-    if (this.userGroup.controls.password.value?.length === 0) {
-      this.isPasswordError = true;
-      return;
-    }
-    this.isEmailError = false;
-    this.isPasswordError = false;
-
-    const email = this.userGroup.controls.email.value!;
-    const password = this.userGroup.controls.password.value!;
-
-    await this.authService.signIn(email, password);
-  }
-
-  reset() {
-
-  }
-
-  register() {
-
-  }
 }

@@ -2,7 +2,7 @@
 @use "utils/flex";
 
 .entry-page-container {
-  @include flex.center-center;
+  @include flex.column-center-center;
   $padding-top: 20px;
   padding-top: $padding-top;
   min-height: calc(#{variables.$body-min-height} - #{variables.$footer-height} - #{$padding-top});
@@ -64,4 +64,43 @@
 
 .info-icon-margin-right {
   margin-right: 3px;
+}
+
+.cancel-button {
+  border: #dcdcdc 2px solid;
+  margin-right: 10px;
+  border-radius: 4px;
+  margin-top: 20px;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+  font-size: 17px;
+}
+
+.back-icon {
+  position: absolute;
+  left:0;
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+.register-title {
+  margin-left: 30px;
+}
+
+mat-card-title {
+  text-align: center;
+  position: relative;
+  width: 100%;
+  font-family: variables.$body-font-family;
+  margin-bottom: 0;
+}
+
+.action-buttons {
+  @include flex.row-center-center;
+  width: 100%;
+
+  .mat-button {
+    min-width: 48px !important;
+    padding: 0 8px !important;
+  }
 }
