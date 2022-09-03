@@ -1,24 +1,22 @@
-<div class="login-container">
+<div class="entry-page-container">
   <mat-card>
     <mat-card-title>
       <mat-icon class="back-icon" routerLink="/login">arrow_back</mat-icon>
       <span class="register-title">Rejestracja</span>
     </mat-card-title>
 
-    <div class="fail-info-container">
-      <div class="incorrect-data">
-        <div class="warning" *ngIf="userForm.hasError('error')">
-          <mat-icon>warning</mat-icon>
-          Wprowadź poprawne dane.</div>
+    <div class="info-container">
+      <div class="warning warning-yellow-color" *ngIf="userForm.hasError('error')">
+        <mat-icon class="info-icon-margin-right smaller-icon">warning</mat-icon>
+        Wprowadź poprawne dane.
       </div>
-      <div class="login-failed">
-        <div class="warning" *ngIf="userForm.hasError('failed')">
-          <mat-icon>warning</mat-icon>
-          Rejestracja niepowiodła się.</div>
+      <div class="fail fail-red-color" *ngIf="userForm.hasError('failed')">
+        <mat-icon class="info-icon-margin-right smaller-icon">warning</mat-icon>
+        Rejestracja niepowiodła się.
       </div>
     </div>
 
-    <form style="width: 100%" [formGroup]="userForm">
+    <form class="form-group-container" [formGroup]="userForm">
       <div class="form-group">
         <input [formControlName]="'email'"
                (click)="resetWarning()"
@@ -70,7 +68,7 @@
       <button mat-button class="trash" (click)="this.userForm.reset()">
         <mat-icon>clear</mat-icon>
       </button>
-      <button mat-button class="login-button" (click)="register()">
+      <button mat-button class="submit-button" (click)="register()">
         Zarejestruj
       </button>
     </div>
