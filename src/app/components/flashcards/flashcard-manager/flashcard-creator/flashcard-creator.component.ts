@@ -1,8 +1,11 @@
-import {Component, HostListener, ViewEncapsulation} from '@angular/core';
+import {Component, HostListener} from '@angular/core';
 import {FlashcardsService} from '../../../../services/flashcards/flashcards.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {FlashcardImageUploaderService} from "../../../../services/flashcards/flashcard-creator/flashcard-image-uploader.service";
 import {NewFlashcard} from '../../../../services/flashcards/model/new-flashcard';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {SnackBarComponent} from '../../../common/snack-bar/snack-bar.component';
+import {AuthService} from '../../../../services/auth/auth.service';
 
 @Component({
   selector: 'app-flashcard-creator',
@@ -12,24 +15,24 @@ import {NewFlashcard} from '../../../../services/flashcards/model/new-flashcard'
 export class FlashcardCreatorComponent {
 
   flashcardFormGroup = new FormGroup({
-    content: new FormControl('', [Validators.required]),
-    translation: new FormControl('', [Validators.required]),
-    example: new FormControl(''),
-    image: new FormControl('')
+    content: new FormControl<string | null>(null, [Validators.required]),
+    translation: new FormControl<string | null>(null, [Validators.required]),
+    example: new FormControl<string | null>(null),
+    image: new FormControl<string | null>(null)
   });
 
   isError = false;
   dragAreaClass = 'drag-area';
   loadedFile: File | null = null;
-  z: any;
 
   constructor(private flashcardsService: FlashcardsService,
-              private fiu: FlashcardImageUploaderService) {
+              private flashcardImageUploaderService: FlashcardImageUploaderService,
+              private snackBar: MatSnackBar) {
   }
 
   onFileChange(event: any) {
     let files: FileList = event.target.files;
-    this.saveFiles(files);
+    this.saveFiles(files).then();
   }
 
   @HostListener("dragover", ["$event"])
@@ -68,13 +71,9 @@ export class FlashcardCreatorComponent {
   }
 
   async saveFiles(files: FileList) {
-    if (files.length > 1) {
-      this.isError = true;
-    } else {
-      this.loadedFile = files.item(0) as File;
-      const zz = await this.fiu.foo(this.loadedFile);
-      this.flashcardFormGroup.controls.image.setValue('<img src="' + zz + '"/>');
-    }
+    this.loadedFile = files.item(0) as File;
+    const imgSrc = await this.flashcardImageUploaderService.convertToImgSrc(this.loadedFile);
+    this.flashcardFormGroup.controls.image.setValue('<img src="' + imgSrc + '" alt="flashcard-image"/>');
   }
 
   reset() {
@@ -89,8 +88,11 @@ export class FlashcardCreatorComponent {
     const example = this.flashcardFormGroup.controls.example.value!;
     const image = this.flashcardFormGroup.controls.image.value!;
 
-    const flashcard = new NewFlashcard(content, translation, example, image);
-    this.flashcardsService.createFlashcard(flashcard)
+    this.flashcardsService.createFlashcard(content, translation, example, image)
+      .then(() => {
+        this.openSnackBar(true);
+        this.reset();
+      }).catch(() => this.openSnackBar(false));
   }
 
   isInvalidFormField(formControl: FormControl<string | null>) {
@@ -107,5 +109,12 @@ export class FlashcardCreatorComponent {
     const isisInvalidExample = this.isInvalidFormField(this.flashcardFormGroup.controls.example);
 
     return isisInvalidContent || isisInvalidTranslation || isisInvalidExample;
+  }
+
+  openSnackBar(success: boolean) {
+    this.snackBar.openFromComponent(SnackBarComponent, {
+      duration: 3 * 1000,
+      data: success
+    });
   }
 }

@@ -7,7 +7,7 @@ export class FlashcardImageUploaderService {
 
   reader = new FileReader();
 
-  foo(file: File): Promise<string | ArrayBuffer | null> {
+  convertToImgSrc(file: File): Promise<string | ArrayBuffer | null> {
     return new Promise((resolve, reject) => {
       this.reader.readAsDataURL(file);
       this.reader.onload = () => resolve(this.reader.result);

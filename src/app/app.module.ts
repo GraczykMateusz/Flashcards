@@ -14,7 +14,7 @@ import {MatInputModule} from "@angular/material/input";
 import {FlashcardsMenuComponent} from './components/flashcards/flashcards-menu/flashcards-menu.component';
 import {MatIconModule} from '@angular/material/icon';
 import {environment} from '../environments/environment';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {LoginComponent} from './components/entry-page/login/login.component';
 import {RegisterComponent} from './components/entry-page/register/register.component';
 import {FlashcardsTimerComponent} from './components/flashcards/flashcards-timer/flashcards-timer.component';
@@ -34,8 +34,11 @@ import {initializeApp, provideFirebaseApp} from '@angular/fire/app';
 import {FIREBASE_OPTIONS} from '@angular/fire/compat';
 import {FlashcardsComponent} from './components/flashcards/flashcards.component';
 import {RegisterFormulaComponent} from './components/entry-page/register/register-formula/register-formula.component';
-import { ResetPasswordFormulaComponent } from './components/entry-page/reset-password/reset-password-formula/reset-password-formula.component';
-import { ResetPasswordSuccessComponent } from './components/entry-page/reset-password/reset-password-success/reset-password-success.component';
+import {ResetPasswordFormulaComponent} from './components/entry-page/reset-password/reset-password-formula/reset-password-formula.component';
+import {ResetPasswordSuccessComponent} from './components/entry-page/reset-password/reset-password-success/reset-password-success.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {SnackBarComponent} from './components/common/snack-bar/snack-bar.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -56,7 +59,8 @@ import { ResetPasswordSuccessComponent } from './components/entry-page/reset-pas
     FlashcardsComponent,
     RegisterFormulaComponent,
     ResetPasswordFormulaComponent,
-    ResetPasswordSuccessComponent
+    ResetPasswordSuccessComponent,
+    SnackBarComponent
   ],
   imports: [
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
@@ -74,7 +78,10 @@ import { ResetPasswordSuccessComponent } from './components/entry-page/reset-pas
     FlexLayoutModule,
     MatIconModule,
     ReactiveFormsModule,
-    NgxCaptchaModule
+    NgxCaptchaModule,
+    MatCheckboxModule,
+    FormsModule,
+    MatSnackBarModule
   ],
   providers: [
     {provide: LocationStrategy, useClass: HashLocationStrategy},

@@ -1,9 +1,10 @@
 import {Injectable} from '@angular/core';
-import {Observable, take} from 'rxjs';
+import {Observable} from 'rxjs';
 import {AngularFirestore} from '@angular/fire/compat/firestore';
 import {AuthService} from '../auth/auth.service';
 import {Flashcard} from './model/flashcard';
 import {NewFlashcard} from './model/new-flashcard';
+import {FirebaseReferenceProvider} from '../firebase-utils/firebase-reference-provider.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,12 +14,15 @@ export class FlashcardsService {
   private flashcardsCollection = this.firestore.collection<NewFlashcard | Flashcard>('flashcards');
 
   constructor(private firestore: AngularFirestore,
+              private referenceProvider: FirebaseReferenceProvider,
               private authService: AuthService) {
   }
 
-  createFlashcard(flashcard: NewFlashcard) {
+  createFlashcard(content: string, translation: string, example: string, image: string) {
+    const ref = this.referenceProvider.getUsersReference(this.authService.email);
+    const flashcard = new NewFlashcard(content, translation, example, image, ref);
     return new Promise<void>((resolve, reject) =>
-      this.flashcardsCollection.doc('xxx').set(flashcard.asObject())
+      this.flashcardsCollection.doc().set(flashcard.asObject())
         .then(ref => resolve(ref))
         .catch(e => reject(e)))
   }

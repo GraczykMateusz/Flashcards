@@ -8,20 +8,6 @@ mat-card-title {
   margin-bottom: 0;
 }
 
-.forget-password-container {
-  @include flex.row-start-center;
-  font-size: 14px;
-  width: 100%;
-  margin-top: 2px;
-}
-
-.forget-password {
-  min-height: 30px;
-  line-height: 30px;
-  color: #9dbcea;
-  cursor: pointer;
-}
-
 .register-container {
   @include flex.row-center-center;
   font-size: 15px;
@@ -33,4 +19,52 @@ mat-card-title {
   margin-left: 5px;
   color: #337ac0;
   cursor: pointer;
+}
+
+.forget-password-and-remember-me-container {
+  @include flex.between-center;
+  width: 100%;
+}
+
+.forget-password-container {
+  @include flex.end-center;
+  font-size: 14px;
+  width: 100%;
+  margin-top: 2px;
+}
+
+.remember-me-container {
+  font-size: 14px;
+  width: 100%;
+  margin-top: 2px;
+}
+
+.forget-password,
+.forget-password-xs,
+.remember-me,
+.remember-me-xs {
+  min-height: 30px;
+  line-height: 30px;
+  color: #9dbcea;
+  cursor: pointer;
+}
+
+.forget-password::before {
+  content: 'Nie pamiętam hasła';
+}
+
+.forget-password-xs::before {
+  content: 'Hasło?';
+}
+
+.remember-me::before {
+  content: 'Zapamiętaj mnie';
+}
+
+.remember-me-xs::before {
+  content: 'Zapamiętaj';
+}
+
+.mat-checkbox {
+  margin-right: 10px;
 }

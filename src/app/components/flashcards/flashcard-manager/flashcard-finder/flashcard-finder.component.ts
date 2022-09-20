@@ -73,7 +73,7 @@ export class FlashcardFinderComponent {
       this.isError = true;
     } else {
       this.loadedFile = files.item(0) as File;
-      const zz = await this.fiu.foo(this.loadedFile);
+      const zz = await this.fiu.convertToImgSrc(this.loadedFile);
       this.flashcardFormGroup.controls.image.setValue('<img src="' + zz + '"/>');
     }
   }
@@ -90,8 +90,8 @@ export class FlashcardFinderComponent {
     const example = this.flashcardFormGroup.controls.example.value!;
     const image = this.flashcardFormGroup.controls.image.value!;
 
-    const flashcard = new NewFlashcard(content, translation, example, image);
-    this.flashcardsService.createFlashcard(flashcard).then();
+    // const flashcard = new NewFlashcard(content, translation, example, image);
+    // this.flashcardsService.createFlashcard(flashcard).then();
   }
 
   isInvalidFormField(formControl: FormControl<string | null>) {

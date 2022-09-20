@@ -11,7 +11,7 @@ export class FlashcardsTimerComponent implements OnInit, OnDestroy {
   @Input() isPaused = false;
   @Input() isActivated = false;
 
-  private intervalId!: number;
+  private intervalId!: any;
 
   ngOnInit(): void {
     this.startTimer();

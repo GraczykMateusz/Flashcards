@@ -1,0 +1,11 @@
+@use "utils/flex";
+
+.success-info {
+  @include flex.row-center-center;
+  color: #00be03;
+}
+
+.fail-info {
+  @include flex.row-center-center;
+  color: #d90000
+}

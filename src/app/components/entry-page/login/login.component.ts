@@ -9,13 +9,15 @@ import {AuthService} from '../../../services/auth/auth.service';
 })
 export class LoginComponent {
 
-  constructor(private authService: AuthService) {
-  }
+  rememberMe = false;
 
   userForm = new FormGroup({
     email: new FormControl(null, {validators: [Validators.required, Validators.email, Validators.pattern(/\S/), Validators.minLength(1)]}),
     password: new FormControl(null, {validators: [Validators.required, Validators.pattern(/\S/), Validators.minLength(1)]})
   });
+
+  constructor(private authService: AuthService) {
+  }
 
   login() {
     if (this.userForm.invalid) {
@@ -25,7 +27,8 @@ export class LoginComponent {
 
     const email = this.userForm.controls.email.value!;
     const password = this.userForm.controls.password.value!;
-    this.authService.signIn(email, password)
+
+    this.authService.signIn(email, password, this.rememberMe)
       .catch(() => {
         this.userForm.reset();
         this.userForm.setErrors({failed: true});

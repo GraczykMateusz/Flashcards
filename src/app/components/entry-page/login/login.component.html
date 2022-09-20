@@ -44,8 +44,16 @@
       </div>
     </form>
 
-    <div class="forget-password-container">
-      <span class="forget-password" routerLink="/reset-password">Nie pamiętam hasła</span>
+    <div class="forget-password-and-remember-me-container">
+      <div class="remember-me-container">
+        <mat-checkbox [(ngModel)]="rememberMe"></mat-checkbox>
+        <span ngClass.gt-xs="remember-me" (click)="rememberMe = !rememberMe"><!--content in scss--></span>
+        <span ngClass.xs="remember-me-xs" (click)="rememberMe = !rememberMe"><!--content in scss--></span>
+      </div>
+      <div class="forget-password-container">
+        <span ngClass.gt-xs="forget-password" routerLink="/reset-password"><!--content in scss--></span>
+        <span ngClass.xs="forget-password-xs" routerLink="/reset-password"><!--content in scss--></span>
+      </div>
     </div>
 
     <button mat-button class="submit-button" (click)="login()">Zaloguj</button>
