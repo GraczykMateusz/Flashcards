@@ -39,6 +39,7 @@ import {ResetPasswordSuccessComponent} from './components/entry-page/reset-passw
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {SnackBarComponent} from './components/common/snack-bar/snack-bar.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -62,27 +63,28 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     ResetPasswordSuccessComponent,
     SnackBarComponent
   ],
-  imports: [
-    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
-    provideFirestore(() => getFirestore()),
-    provideAuth(() => getAuth()),
-    AngularFireDatabaseModule,
-    BrowserModule,
-    BrowserAnimationsModule,
-    FlexModule,
-    AppRoutingModule,
-    MatCardModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    FlexLayoutModule,
-    MatIconModule,
-    ReactiveFormsModule,
-    NgxCaptchaModule,
-    MatCheckboxModule,
-    FormsModule,
-    MatSnackBarModule
-  ],
+    imports: [
+        provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+        provideFirestore(() => getFirestore()),
+        provideAuth(() => getAuth()),
+        AngularFireDatabaseModule,
+        BrowserModule,
+        BrowserAnimationsModule,
+        FlexModule,
+        AppRoutingModule,
+        MatCardModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatInputModule,
+        FlexLayoutModule,
+        MatIconModule,
+        ReactiveFormsModule,
+        NgxCaptchaModule,
+        MatCheckboxModule,
+        FormsModule,
+        MatSnackBarModule,
+        MatTooltipModule
+    ],
   providers: [
     {provide: LocationStrategy, useClass: HashLocationStrategy},
     {provide: REGION, useValue: 'europe-west3'},

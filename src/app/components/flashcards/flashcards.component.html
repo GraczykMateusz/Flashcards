@@ -1,4 +1,6 @@
 <app-flashcards-menu></app-flashcards-menu>
+<div class="info">1/520</div>
+<mat-icon class="info" [matTooltip]="flashcards[index]!.id">info</mat-icon>
 <div class="flashcards-container">
   <div class="flip-card" (click)="flipCard()">
     <div class="flip-card-inner" [ngClass]="!isRotated ? 'flip-back' : 'flip'">
