@@ -13,14 +13,10 @@ export class UsersService {
   }
 
   addUserIfNeeded(email: any) {
-    this.usersCollection.get(email)
+    this.usersCollection.doc(email).get()
       .pipe(take(1))
       .subscribe(r => {
-        console.log(r)
-        //todo nie dziala
-        r.forEach(result => {
-          if (!result.exists || result.id !== email) this.usersCollection.doc(email).set({}).then();
-        });
+        if (!r.exists) this.usersCollection.doc(email).set({}).then();
       });
   }
 }

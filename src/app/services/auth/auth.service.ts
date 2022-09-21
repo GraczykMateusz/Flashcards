@@ -13,17 +13,11 @@ export class AuthService {
   private registerSuccess$ = new Subject<boolean>();
   private resetPasswordSuccess$ = new Subject<boolean>();
 
-  email: any;
+  email!: string;
 
   constructor(private angularFireAuth: AngularFireAuth,
               private usersService: UsersService,
               private router: Router) {
-    this.angularFireAuth.user
-      .pipe(takeWhile(value => value?.email !== undefined), map(user => user?.email))
-      .subscribe(email => {
-        this.email = email;
-        this.usersService.addUserIfNeeded(this.email);
-      });
   }
 
   getRegisterSuccess(): Observable<boolean> {
@@ -42,6 +36,8 @@ export class AuthService {
     await this.angularFireAuth.signInWithEmailAndPassword(email, password)
       .then(r => {
         if (!r.user?.emailVerified) throw new Error('email not verified');
+        this.email = r.user.email!;
+        this.usersService.addUserIfNeeded(this.email);
         this.router.navigateByUrl('/dashboard')
       });
   }
