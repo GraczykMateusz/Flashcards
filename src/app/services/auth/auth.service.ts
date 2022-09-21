@@ -28,6 +28,10 @@ export class AuthService {
     return this.resetPasswordSuccess$.asObservable();
   }
 
+  getUser(): Observable<firebase.User | null> {
+    return this.angularFireAuth.user;
+  }
+
   async signIn(email: string, password: string, rememberMe: boolean) {
     const persistence = firebase.auth.Auth.Persistence;
     const currentPersistence = (rememberMe) ? persistence.LOCAL : persistence.SESSION;

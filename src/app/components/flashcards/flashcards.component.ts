@@ -1,7 +1,8 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {FlashcardsService} from '../../services/flashcards/flashcards.service';
-import {take} from 'rxjs';
+import {map, take} from 'rxjs';
 import {Flashcard} from '../../services/flashcards/model/flashcard';
+import {AuthService} from '../../services/auth/auth.service';
 
 @Component({
   selector: 'app-flashcards',
@@ -15,15 +16,23 @@ export class FlashcardsComponent implements OnInit {
   index = 0;
   isRotated = false;
 
-  constructor(private flashcardsService: FlashcardsService) {
+  constructor(private flashcardsService: FlashcardsService,
+              private auth: AuthService) {
   }
 
   ngOnInit(): void {
-    this.flashcardsService.getAllFlashcards()
-      .pipe(take(1))
-      .subscribe(flashcards => {
-        this.flashcards = flashcards;
-      });
+    this.auth.getUser()
+      .pipe(take(1), map(user => user!.email))
+      .subscribe(email => {
+        if (email) {
+          this.auth.email = email;
+          this.flashcardsService.getFlashcards()
+            .pipe(take(1))
+            .subscribe(flashcards => {
+              this.flashcards = flashcards;
+            });
+        }
+      })
   }
 
   flipCard() {

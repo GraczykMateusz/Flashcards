@@ -27,7 +27,9 @@ export class FlashcardsService {
         .catch(e => reject(e)))
   }
 
-  getAllFlashcards(): Observable<Flashcard[]> {
-    return this.flashcardsCollection.valueChanges({idField: 'id'});
+  getFlashcards(): Observable<Flashcard[]> {
+    const ref = this.referenceProvider.getUsersReference(this.authService.email);
+    return this.firestore.collection<Flashcard[]>('flashcards',
+      r => r.where('userRef', '==', ref)).valueChanges({idField: 'id'});
   }
 }
