@@ -47,23 +47,24 @@ export class FlashcardEditorComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    // this.auth.getUser()
-    //   .pipe(take(1), map(user => user!.email))
-    //   .subscribe(email => {
-    //     if (email) {
-    //       this.auth.email = email;
-    //       this.flashcardsService.getFlashcards()
-    //         .pipe(take(1))
-    //         .subscribe(flashcards => {
-    //           this.loading = false;
-    //         });
-    //     }
-    //   })
+    this.auth.getUser()
+      .pipe(take(1), map(user => user!.email))
+      .subscribe(email => {
+        if (email) {
+          this.auth.email = email;
+          this.flashcardsService.getFlashcards()
+            .pipe(take(1))
+            .subscribe(flashcards => {
+              this.dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+              this.dataSource.paginator = this.paginator;
+              this.loading = false;
+            });
+        }
+      })
   }
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
   }
 
   applyFilter(event: Event) {

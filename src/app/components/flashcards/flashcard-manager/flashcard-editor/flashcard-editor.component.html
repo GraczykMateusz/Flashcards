@@ -1,44 +1,65 @@
 <app-flashcards-menu></app-flashcards-menu>
 
-<!--<mat-form-field appearance="standard">-->
-<!--  <mat-label>Filter</mat-label>-->
-<!--  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>-->
-<!--</mat-form-field>-->
+<div [hidden]="loading" class="container">
 
-<div class="container">
-    <table mat-table [dataSource]="dataSource" matSort>
+  <div class="search-container">
+    <div class="form-group">
+      <input (keyup)="applyFilter($event)"
+             type="search"
+             autocomplete="off"
+             id='content'
+             class="form-field"
+             placeholder="Słówko"/>
+      <label for="content" class="form-label">
+        Wyszukiwarka
+      </label>
+    </div>
+    <div class="buttons-container">
+      <button mat-button class="import-button">Importuj</button>
+      <button mat-button class="export-button">Eksportuj</button>
+    </div>
+  </div>
 
-      <ng-container matColumnDef="content">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Słówko</th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-      </ng-container>
+  <table mat-table [dataSource]="dataSource">
 
-      <ng-container matColumnDef="translation">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Tłumaczenie</th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-      </ng-container>
+    <ng-container matColumnDef="content">
+      <th mat-header-cell *matHeaderCellDef>Słówko</th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
 
-      <ng-container matColumnDef="example">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Przykład</th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-      </ng-container>
+    <ng-container matColumnDef="translation">
+      <th mat-header-cell *matHeaderCellDef>Tłumaczenie</th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
 
-      <ng-container matColumnDef="image">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Obrazek</th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-      </ng-container>
+    <ng-container matColumnDef="example">
+      <th mat-header-cell *matHeaderCellDef>Przykład</th>
+      <td mat-cell *matCellDef="let element">NIE</td>
+    </ng-container>
 
-      <ng-container matColumnDef="action">
-        <th mat-header-cell *matHeaderCellDef> Akcje</th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-      </ng-container>
+    <ng-container matColumnDef="image">
+      <th mat-header-cell *matHeaderCellDef>Obrazek</th>
+      <td mat-cell *matCellDef="let element">TAK</td>
+    </ng-container>
 
-      <tr class="mat-row" *matNoDataRow>
-        <td class="mat-cell" colspan="5">Brak danych do wyświetlenia.</td>
-      </tr>
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> Akcje </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-button class="cancel-button">
+          <mat-icon>build</mat-icon>
+        </button>
+        <button mat-button class="cancel-button">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
 
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-    <mat-paginator [pageSizeOptions]=[9]></mat-paginator>
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell no-data" colspan="5">Brak danych do wyświetlenia.</td>
+    </tr>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]=[8]></mat-paginator>
 </div>

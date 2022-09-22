@@ -88,8 +88,7 @@ import {MatSortModule} from '@angular/material/sort';
         MatSnackBarModule,
         MatTooltipModule,
         MatTableModule,
-        MatPaginatorModule,
-        MatSortModule
+        MatPaginatorModule
     ],
   providers: [
     {provide: LocationStrategy, useClass: HashLocationStrategy},
