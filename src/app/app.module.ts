@@ -40,6 +40,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {SnackBarComponent} from './components/common/snack-bar/snack-bar.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -83,7 +86,10 @@ import {MatTooltipModule} from '@angular/material/tooltip';
         MatCheckboxModule,
         FormsModule,
         MatSnackBarModule,
-        MatTooltipModule
+        MatTooltipModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatSortModule
     ],
   providers: [
     {provide: LocationStrategy, useClass: HashLocationStrategy},

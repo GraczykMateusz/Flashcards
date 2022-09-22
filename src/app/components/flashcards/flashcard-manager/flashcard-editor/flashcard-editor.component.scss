@@ -1,163 +1,73 @@
-@use "src/styles/utils/variables";
-
-$flashcards-container-padding-top: 100px;
-$primary: #11998e;
-$secondary: #38ef7d;
-$white: #fff;
-$gray: #9b9b9b;
-
-.flashcards-creator-container {
+.container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  margin-top: -20px;
-  padding: $flashcards-container-padding-top 50px 0 50px;
-  min-height: calc(#{variables.$body-min-height} - #{variables.$footer-height} - #{$flashcards-container-padding-top});
+  margin-top: 100px;
+  width: 100vw;
 }
 
-/* input */
-
-.form-group {
-  width: 100%;
-  position: relative;
-  padding: 15px 0 0;
-  margin-bottom: 10px;
-  max-width: 550px;
+table {
+  width: 80%;
+  background-color: rgba(0, 0, 0, 0.35) !important;
+  border: rgba(101, 46, 203, .8) 2px solid;
 }
 
-.form-field {
-  font-family: inherit;
-  width: 100%;
-  border: 0;
-  border-bottom: 2px solid $gray;
-  outline: 0;
-  font-size: 1.3rem;
-  color: $white;
-  padding: 7px 0;
-  background: transparent;
-  transition: border-color 0.2s;
-
-  &::placeholder {
-    color: transparent;
-  }
-
-  &:placeholder-shown ~ .form-label {
-    font-size: 1.3rem;
-    cursor: text;
-    top: 20px;
-  }
+mat-paginator {
+  width: 80%;
 }
 
-.form-label {
-  position: absolute;
-  top: 0;
-  display: block;
-  transition: 0.2s;
-  font-size: 1rem;
-  color: $gray;
+.mat-paginator-page-size-label,
+.mat-paginator-page-size-value {
+  display: none;
 }
 
-.form-field:focus {
-  ~ .form-label {
-    position: absolute;
-    top: 0;
-    display: block;
-    transition: 0.2s;
-    font-size: 1rem;
-    color: $primary;
-    font-weight: 700;
-  }
-
-  padding-bottom: 6px;
-  font-weight: 700;
-  border-width: 3px;
-  border-image: linear-gradient(to right, $primary, $secondary);
-  border-image-slice: 1;
+.mat-row:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.60);
 }
 
-/* reset input */
-.form-field {
-  &:required, &:invalid {
-    box-shadow: none;
-  }
+.mat-row:hover {
+  background-color: rgba(101, 46, 203, .2);
 }
 
-.invalid-form-field-border {
-  border-bottom: 2px solid #b60606;
+td.mat-cell,
+th.mat-header-cell {
+  color: snow;
+  padding: 0 24px 0 24px !important;
 }
 
-.invalid-label-color {
-  color: #b60606;
+.mat-header-cell {
+  color: snow;
+  font-weight: 600;
+  font-size: 15px;
+  background-color: rgba(0, 0, 0, 0.60);
 }
 
-/* cancel / reset / save buttons */
-
-.action-buttons {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  gap: 20px;
-
-  .mat-button {
-    font-family: inherit;
-    letter-spacing: 1px;
-    font-size: 15px;
-    width: 30%;
-    max-width: 170px;
-    background-color: rgba(3, 3, 3, 0.17);
-    color: rgba(255, 250, 250, 0.85);
-  }
-
-  .green-border {
-    border: #04b704 2px solid;
-  }
-
-  .red-border {
-    border: #8f0101 2px solid;
-  }
-
-  .cyan-border {
-    border: #03c0c5 2px solid;
-  }
+.mat-paginator-container {
+  background-color: #030112;
+  color: snow;
+  border: rgba(101, 46, 203, .8) 2px solid;
+  border-top: none;
+  justify-content: space-between;
+  min-height: 40px;
 }
 
-
-.error {
-  color: #f00;
-  height: 10px;
-  margin-top: 5px;
+.mat-column-content {
+  width: 40%;
 }
 
-.selected-quiz {
-  margin-top: 30px;
-  font-size: 1.5rem;
+.mat-column-translation {
+  width: 40%;
 }
 
-.margin-top {
-  margin-top: 5px;
+.mat-column-example {
+  width: 5%;
 }
 
-.drag-area {
-  font-size: 1.5rem;
-  border: 3px solid #bbb;
-  padding: 10px;
-  background-color: transparent;
-  color: #bbb;
+.mat-column-image {
+  width: 5%;
 }
 
-.drop-area {
-  font-size: 1.5rem;
-  border: 3px dashed #bbb;
-  padding: 10px;
-  background-color: #eff;
-  color: #aaa;
-}
-
-.xs-save-button {
-  width: 100% !important;
-  min-width: 80px;
-  max-width: 360px !important;
-  padding-left: 0;
-  padding-right: 0;
+.mat-column-action {
+  width: 5%;
 }

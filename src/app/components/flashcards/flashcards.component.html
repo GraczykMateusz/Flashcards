@@ -1,22 +1,41 @@
 <app-flashcards-menu></app-flashcards-menu>
-<div class="info">1/520</div>
-<mat-icon class="info" [matTooltip]="flashcards[index]!.id">info</mat-icon>
-<div class="flashcards-container">
-  <div class="flip-card" (click)="flipCard()">
-    <div class="flip-card-inner" [ngClass]="!isRotated ? 'flip-back' : 'flip'">
-      <div class="flip-card-front">
-        <mat-card>
-          <mat-card-title>{{flashcards[index]?.content}}</mat-card-title>
-          <div class="image" [innerHTML]="flashcards[index]?.image"></div>
-        </mat-card>
-      </div>
-      <div class="flip-card-back">
-        <mat-card>
-          <mat-card-title>{{flashcards[index]?.translation}}</mat-card-title>
-          <mat-card-content>{{flashcards[index]?.example}}</mat-card-content>
-        </mat-card>
+
+<div *ngIf="flashcards.length !== 0">
+  <div class="info">1/520</div>
+  <mat-icon class="info" [matTooltip]="flashcards[index]!.id">info</mat-icon>
+  <mat-icon class="info">shuffle</mat-icon>
+  <div class="flashcards-container">
+    <div class="flip-card" (click)="flipCard()">
+      <div class="flip-card-inner" [ngClass]="!isRotated ? 'flip-back' : 'flip'">
+        <div class="flip-card-front">
+          <mat-card>
+            <mat-card-title>{{flashcards[index]?.content}}</mat-card-title>
+            <div class="image" [innerHTML]="flashcards[index]?.image"></div>
+          </mat-card>
+        </div>
+        <div class="flip-card-back">
+          <mat-card>
+            <mat-card-title>{{flashcards[index]?.translation}}</mat-card-title>
+            <mat-card-content>{{flashcards[index]?.example}}</mat-card-content>
+          </mat-card>
+        </div>
       </div>
     </div>
+    <button mat-button color="primary" (click)="nextFlashcard()">Następny</button>
   </div>
-  <button mat-button color="primary" (click)="nextFlashcard()">Następny</button>
+</div>
+<div *ngIf="flashcards.length === 0">
+  <div class="flashcards-container">
+    <div class="flip-card">
+      <div class="flip-card-inner flip">
+        <div class="flip-card-front">
+          <mat-card>
+            <mat-card-title>Brak fiszek</mat-card-title>
+            <div class="image"></div>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+    <button mat-button color="primary" disabled>Następny</button>
+  </div>
 </div>
