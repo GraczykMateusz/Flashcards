@@ -19,10 +19,12 @@ mat-tooltip-component {
   background-color: rgba(3, 3, 3, 0.17);
   color: rgba(255, 250, 250, 0.85);
   border: 2px rgba(21, 247, 255, 0.7) solid !important;
+  margin-left: 12px !important;
 }
 
 .buttons-container {
   min-width: fit-content;
+  margin-left: 20px !important;
 }
 
 .cancel-button {
