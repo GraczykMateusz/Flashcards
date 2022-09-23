@@ -26,12 +26,14 @@
 </div>
 <div *ngIf="flashcards.length === 0">
   <div class="flashcards-container">
-    <div class="flip-card">
-      <div class="flip-card-inner flip">
+    <div class="flip-card" style="cursor: default !important;">
+      <div class="flip-card-inner">
         <div class="flip-card-front">
           <mat-card>
-            <mat-card-title>Brak fiszek</mat-card-title>
-            <div class="image"></div>
+            <mat-card-title>Nie masz fiszek</mat-card-title>
+            <div class="image">
+              <img src="assets/sad_dog.jpg">
+            </div>
           </mat-card>
         </div>
       </div>
