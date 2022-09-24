@@ -1,6 +1,5 @@
 import {AfterViewInit, Component, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
-import {MatSort} from '@angular/material/sort';
 import {MatPaginator} from '@angular/material/paginator';
 import {map, take} from 'rxjs';
 import {FlashcardsService} from '../../../../services/flashcards/flashcards.service';
@@ -35,12 +34,11 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class FlashcardEditorComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
 
   loading = true;
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
-  displayedColumns: string[] = ['content', 'translation', 'image-and-example' ,'action'];
+  displayedColumns: string[] = ['content', 'translation', 'image-and-example', 'action'];
 
   constructor(private flashcardsService: FlashcardsService,
               private auth: AuthService) {
