@@ -1,7 +1,6 @@
 <app-flashcards-menu></app-flashcards-menu>
 
-<div [hidden]="loading" class="container">
-
+<div class="container">
   <div class="search-container">
     <div class="form-group">
       <input (keyup)="applyFilter($event)"
@@ -21,6 +20,9 @@
   </div>
 
   <div class="table-container">
+
+    <mat-progress-bar *ngIf="!loading" mode="indeterminate"></mat-progress-bar>
+
     <table mat-table [dataSource]="dataSource">
 
       <ng-container matColumnDef="content">
@@ -51,9 +53,9 @@
       </ng-container>
 
       <tr class="mat-row" *matNoDataRow>
-        <td class="mat-cell no-data" colspan="5">Brak danych do wyświetlenia.</td>
+        <td class="mat-cell no-data" *ngIf="!loading" [attr.colspan]="displayedColumns.length">Brak danych do wyświetlenia.</td>
+        <td class="mat-cell no-data" *ngIf="loading" [attr.colspan]="displayedColumns.length">Twoje fiszki się wczytują...</td>
       </tr>
-
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>

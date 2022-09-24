@@ -42,7 +42,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatSortModule} from '@angular/material/sort';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -66,30 +66,31 @@ import {MatSortModule} from '@angular/material/sort';
     ResetPasswordSuccessComponent,
     SnackBarComponent
   ],
-    imports: [
-        provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
-        provideFirestore(() => getFirestore()),
-        provideAuth(() => getAuth()),
-        AngularFireDatabaseModule,
-        BrowserModule,
-        BrowserAnimationsModule,
-        FlexModule,
-        AppRoutingModule,
-        MatCardModule,
-        MatButtonModule,
-        MatFormFieldModule,
-        MatInputModule,
-        FlexLayoutModule,
-        MatIconModule,
-        ReactiveFormsModule,
-        NgxCaptchaModule,
-        MatCheckboxModule,
-        FormsModule,
-        MatSnackBarModule,
-        MatTooltipModule,
-        MatTableModule,
-        MatPaginatorModule
-    ],
+  imports: [
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+    provideFirestore(() => getFirestore()),
+    provideAuth(() => getAuth()),
+    AngularFireDatabaseModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    FlexModule,
+    AppRoutingModule,
+    MatCardModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FlexLayoutModule,
+    MatIconModule,
+    ReactiveFormsModule,
+    NgxCaptchaModule,
+    MatCheckboxModule,
+    FormsModule,
+    MatSnackBarModule,
+    MatTooltipModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatProgressBarModule
+  ],
   providers: [
     {provide: LocationStrategy, useClass: HashLocationStrategy},
     {provide: REGION, useValue: 'europe-west3'},
