@@ -9,10 +9,6 @@
   width: 100vw;
 }
 
-mat-tooltip-component {
-  display: none !important;
-}
-
 .export-button {
   letter-spacing: 1px;
   font-size: 15px;
@@ -52,10 +48,15 @@ mat-tooltip-component {
   text-align: center;
 }
 
-table {
-  width: 80%;
-  background-color: rgba(0, 0, 0, 0.35) !important;
+.table-container {
+  width: calc(80vw - 4px);
+  overflow-x: auto;
   border: rgba(101, 46, 203, .8) 2px solid;
+
+  table {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.35) !important;
+  }
 }
 
 mat-paginator {
@@ -78,7 +79,7 @@ mat-paginator {
 td.mat-cell,
 th.mat-header-cell {
   color: snow;
-  padding: 0 24px 0 24px !important;
+  padding: 0 8px 0 8px !important;
 }
 
 .mat-header-cell {
@@ -89,8 +90,7 @@ th.mat-header-cell {
 }
 
 .mat-column-action,
-.mat-column-image,
-.mat-column-example {
+.mat-column-image-and-example {
   text-align: center !important;
 }
 
@@ -128,4 +128,9 @@ th.mat-header-cell {
     line-height: 0 !important;
     padding: 4px !important;
   }
+}
+
+.display-none,
+mat-tooltip-component {
+  display: none !important;
 }

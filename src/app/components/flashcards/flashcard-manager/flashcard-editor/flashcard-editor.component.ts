@@ -40,7 +40,7 @@ export class FlashcardEditorComponent implements OnInit, AfterViewInit {
   loading = true;
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
-  displayedColumns: string[] = ['content', 'translation', 'example', 'image', 'action'];
+  displayedColumns: string[] = ['content', 'translation', 'image-and-example' ,'action'];
 
   constructor(private flashcardsService: FlashcardsService,
               private auth: AuthService) {
@@ -48,7 +48,7 @@ export class FlashcardEditorComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.auth.getUser()
-      .pipe(take(1), map(user => user!.email))
+      .pipe(take(1), map(user => user?.email))
       .subscribe(email => {
         if (email) {
           this.auth.email = email;

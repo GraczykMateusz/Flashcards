@@ -15,3 +15,33 @@ body {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+// SCROLLBAR
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  $bg-from-color: rgba(101, 46, 203, .8);
+  $bg-to-color: rgba(90, 46, 203, 0.8);
+  background: -webkit-linear-gradient(to right, $bg-from-color, $bg-to-color);
+  background: -moz-linear-gradient(to right, $bg-from-color, $bg-to-color);
+  background: -o-linear-gradient(to right, $bg-from-color, $bg-to-color);
+  background: linear-gradient(to right, $bg-from-color, $bg-to-color);
+
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(90, 46, 203);
+}
