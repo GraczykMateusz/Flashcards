@@ -8,8 +8,11 @@
   <div ngClass.lt-sm="category-lt-sm"
        ngClass.sm="category-sm"
        ngClass.gt-sm="category-sm">
-    <mat-card>
-      <mat-card-title>Czasy</mat-card-title>
+    <mat-card class="disabled">
+      <mat-card-title>
+        <mat-icon class="lock">lock</mat-icon>
+        Czasy
+      </mat-card-title>
     </mat-card>
     <mat-card routerLink="/flashcards">
       <mat-card-title>Fiszki</mat-card-title>

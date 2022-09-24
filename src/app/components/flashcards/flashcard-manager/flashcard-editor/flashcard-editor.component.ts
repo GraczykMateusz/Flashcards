@@ -73,4 +73,8 @@ export class FlashcardEditorComponent implements OnInit, AfterViewInit {
       this.dataSource.paginator.firstPage();
     }
   }
+
+  deleteFlashcard() {
+
+  }
 }
