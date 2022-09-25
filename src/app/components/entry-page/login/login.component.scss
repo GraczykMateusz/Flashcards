@@ -65,6 +65,8 @@ mat-card-title {
   content: 'Zapamiętaj';
 }
 
-.mat-checkbox {
-  margin-right: 10px;
+input[type="checkbox" i] {
+  position: relative;
+  top: 2px;
+  cursor: pointer;
 }

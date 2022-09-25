@@ -13,7 +13,7 @@ export class AuthService {
   private registerSuccess$ = new Subject<boolean>();
   private resetPasswordSuccess$ = new Subject<boolean>();
 
-  email!: string;
+  email?: string;
 
   constructor(private angularFireAuth: AngularFireAuth,
               private usersService: UsersService,

@@ -5,6 +5,7 @@ import {map, take} from 'rxjs';
 import {FlashcardsService} from '../../../../services/flashcards/flashcards.service';
 import {AuthService} from '../../../../services/auth/auth.service';
 import {Flashcard} from '../../../../services/flashcards/model/flashcard';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-flashcard-editor',
@@ -22,7 +23,8 @@ export class FlashcardEditorComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['content', 'translation', 'image-and-example', 'action'];
 
   constructor(private flashcardsService: FlashcardsService,
-              private auth: AuthService) {
+              private auth: AuthService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -38,6 +40,8 @@ export class FlashcardEditorComponent implements OnInit, AfterViewInit {
               this.dataSource.paginator = this.paginator;
               this.loading = false;
             });
+        } else {
+          this.router.navigateByUrl('/login').then();
         }
       })
   }

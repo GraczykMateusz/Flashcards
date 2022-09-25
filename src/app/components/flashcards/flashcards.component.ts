@@ -3,6 +3,7 @@ import {FlashcardsService} from '../../services/flashcards/flashcards.service';
 import {map, take} from 'rxjs';
 import {Flashcard} from '../../services/flashcards/model/flashcard';
 import {AuthService} from '../../services/auth/auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-flashcards',
@@ -17,7 +18,8 @@ export class FlashcardsComponent implements OnInit {
   isRotated = false;
 
   constructor(private flashcardsService: FlashcardsService,
-              private auth: AuthService) {
+              private auth: AuthService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -31,6 +33,8 @@ export class FlashcardsComponent implements OnInit {
             .subscribe(flashcards => {
               this.flashcards = flashcards;
             });
+        } else {
+          this.router.navigateByUrl('/login').then();
         }
       })
   }

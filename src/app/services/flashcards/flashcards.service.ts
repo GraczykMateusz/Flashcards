@@ -19,7 +19,7 @@ export class FlashcardsService {
   }
 
   createFlashcard(content: string, translation: string, example: string, image: string) {
-    const ref = this.referenceProvider.getUsersReference(this.authService.email);
+    const ref = this.referenceProvider.getUsersReference(this.authService.email!);
     const flashcard = new NewFlashcard(content, translation, example, image, ref);
     return new Promise<void>((resolve, reject) =>
       this.flashcardsCollection.doc().set(flashcard.asObject())
@@ -28,7 +28,7 @@ export class FlashcardsService {
   }
 
   getFlashcards(): Observable<Flashcard[]> {
-    const ref = this.referenceProvider.getUsersReference(this.authService.email);
+    const ref = this.referenceProvider.getUsersReference(this.authService.email!);
     return this.firestore.collection<Flashcard[]>('flashcards',
       r => r.where('userRef', '==', ref)).valueChanges({idField: 'id'});
   }

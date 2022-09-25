@@ -46,7 +46,7 @@
 
     <div class="forget-password-and-remember-me-container">
       <div class="remember-me-container">
-        <mat-checkbox [(ngModel)]="rememberMe"></mat-checkbox>
+        <input type="checkbox" name="checkbox" [(ngModel)]="rememberMe"/>
         <span ngClass.gt-xs="remember-me" (click)="rememberMe = !rememberMe"><!--content in scss--></span>
         <span ngClass.xs="remember-me-xs" (click)="rememberMe = !rememberMe"><!--content in scss--></span>
       </div>
