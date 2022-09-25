@@ -16,6 +16,7 @@ export class FlashcardsComponent implements OnInit {
   flashcards: Flashcard[] = [];
   index = 0;
   isRotated = false;
+  loading = true;
 
   constructor(private flashcardsService: FlashcardsService,
               private auth: AuthService,
@@ -30,8 +31,9 @@ export class FlashcardsComponent implements OnInit {
           this.auth.email = email;
           this.flashcardsService.getFlashcards()
             .pipe(take(1))
-            .subscribe(flashcards => {
+            .subscribe(async flashcards => {
               this.flashcards = flashcards;
+              this.loading = false;
             });
         } else {
           this.router.navigateByUrl('/login').then();

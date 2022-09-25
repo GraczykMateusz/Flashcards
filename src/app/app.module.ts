@@ -43,6 +43,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -89,7 +90,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatPaginatorModule,
     MatProgressBarModule,
     MatExpansionModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     {provide: LocationStrategy, useClass: HashLocationStrategy},
