@@ -19,8 +19,6 @@ import {LoginComponent} from './components/entry-page/login/login.component';
 import {RegisterComponent} from './components/entry-page/register/register.component';
 import {FlashcardsTimerComponent} from './components/flashcards/flashcards-timer/flashcards-timer.component';
 import {FlashcardEditorComponent} from './components/flashcards/flashcard-manager/flashcard-editor/flashcard-editor.component';
-import {FlashcardRemoverComponent} from './components/flashcards/flashcard-manager/flashcard-remover/flashcard-remover.component';
-import {FlashcardFinderComponent} from './components/flashcards/flashcard-manager/flashcard-finder/flashcard-finder.component';
 import {AngularFireDatabaseModule} from '@angular/fire/compat/database';
 import {HashLocationStrategy, LocationStrategy} from '@angular/common';
 import {REGION} from '@angular/fire/compat/functions';
@@ -57,8 +55,6 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     RegisterComponent,
     FlashcardsTimerComponent,
     FlashcardEditorComponent,
-    FlashcardRemoverComponent,
-    FlashcardFinderComponent,
     CaptchaComponent,
     RegisterSuccessComponent,
     ResetPasswordComponent,
