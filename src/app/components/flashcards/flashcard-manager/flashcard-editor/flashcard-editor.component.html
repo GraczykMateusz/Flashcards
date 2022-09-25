@@ -18,28 +18,34 @@
   <div class="all">
     <div class="table-container">
 
-      <mat-progress-bar *ngIf="!loading" mode="indeterminate"></mat-progress-bar>
+      <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
 
       <table mat-table [dataSource]="dataSource">
 
         <ng-container matColumnDef="content">
           <th mat-header-cell *matHeaderCellDef>Słówko</th>
-          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+          <td mat-cell *matCellDef="let flashcard"> {{flashcard.content}} </td>
         </ng-container>
 
         <ng-container matColumnDef="translation">
           <th mat-header-cell *matHeaderCellDef>Tłumaczenie</th>
-          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+          <td mat-cell *matCellDef="let flashcard"> {{flashcard.translation}} </td>
         </ng-container>
 
         <ng-container matColumnDef="image-and-example">
           <th mat-header-cell *matHeaderCellDef>Przykład<br/>Obrazek</th>
-          <td mat-cell *matCellDef="let element">NIE<br/>TAK</td>
+          <td mat-cell *matCellDef="let flashcard">
+            <span *ngIf="!flashcard.example">NIE</span>
+            <span *ngIf="flashcard.example">TAK</span>
+            <br/>
+            <span *ngIf="!flashcard.image">NIE</span>
+            <span *ngIf="flashcard.image">TAK</span>
+          </td>
         </ng-container>
 
         <ng-container matColumnDef="action">
           <th mat-header-cell *matHeaderCellDef> Akcje</th>
-          <td mat-cell *matCellDef="let element">
+          <td mat-cell *matCellDef="let flashcard">
             <button mat-button class="cancel-button">
               <mat-icon>build</mat-icon>
             </button>

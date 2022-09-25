@@ -22,7 +22,7 @@ export class FlashcardsComponent implements OnInit {
 
   ngOnInit(): void {
     this.auth.getUser()
-      .pipe(take(1), map(user => user!.email))
+      .pipe(take(1), map(user => user?.email))
       .subscribe(email => {
         if (email) {
           this.auth.email = email;
