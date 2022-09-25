@@ -10,10 +10,15 @@ $flashcards-container-padding-top: 100px;
   color: #9b9b9b;
 }
 
+.random-index-on {
+  color: #00e00f !important;
+}
+
 .flashcards-info {
   position: relative;
   display: inline;
-  left: 71px;
+  text-align: end;
+  width: 250px;
   color: #9b9b9b;
   font-size: 15px;
 

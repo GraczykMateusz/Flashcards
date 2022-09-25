@@ -16,6 +16,7 @@ export class FlashcardsComponent implements OnInit {
   flashcards: Flashcard[] = [];
   index = 0;
   isRotated = false;
+  isRandomIndex = false;
   loading = true;
 
   constructor(private flashcardsService: FlashcardsService,
@@ -53,5 +54,9 @@ export class FlashcardsComponent implements OnInit {
     } else {
       this.index++;
     }
+  }
+
+  toggleRandomIndex() {
+    this.isRandomIndex = !this.isRandomIndex;
   }
 }

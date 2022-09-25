@@ -3,9 +3,9 @@
 <div *ngIf="flashcards.length !== 0 && !loading">
   <div class="flashcards-container">
     <div class="flashcards-info">
-      <mat-icon>shuffle</mat-icon>
+      <mat-icon [class.random-index-on]="isRandomIndex" style="cursor: pointer !important;" (click)="toggleRandomIndex()">shuffle</mat-icon>
       <mat-icon [matTooltipPosition]="'above'" [matTooltip]="flashcards[index]!.id">info</mat-icon>
-      1/520
+      {{index + 1}}/{{flashcards.length}}
     </div>
     <div class="flip-card" (click)="flipCard()">
       <div class="flip-card-inner" [ngClass]="!isRotated ? 'flip-back' : 'flip'">
