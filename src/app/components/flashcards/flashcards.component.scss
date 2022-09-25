@@ -10,6 +10,23 @@ $flashcards-container-padding-top: 100px;
   color: #9b9b9b;
 }
 
+.flashcards-info {
+  position: relative;
+  display: inline;
+  left: 71px;
+  color: #9b9b9b;
+  font-size: 15px;
+
+  .mat-icon {
+    position: relative;
+    top: 3px;
+    margin-right: 7px !important;
+    font-size: 15px !important;
+    height: 15px !important;
+    width: 15px !important;
+  }
+}
+
 .flashcards-container {
   display: flex;
   justify-content: center;
