@@ -45,3 +45,7 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(90, 46, 203);
 }
+
+.cdk-overlay-dark-backdrop {
+  background: rgba(0, 0, 0, .7) !important;
+}

@@ -92,7 +92,10 @@ export class FlashcardCreatorComponent {
       .then(() => {
         this.openSnackBar(true);
         this.reset();
-      }).catch(() => this.openSnackBar(false));
+      }).catch((reason) =>  {
+        console.log(reason)
+        this.openSnackBar(false)
+    });
   }
 
   isInvalidFormField(formControl: FormControl<string | null>) {

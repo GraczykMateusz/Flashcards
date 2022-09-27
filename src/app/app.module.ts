@@ -44,6 +44,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { RemoveFlashcardDialogComponent } from './components/flashcards/flashcard-manager/flashcard-editor/remove-flashcard-dialog/remove-flashcard-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -63,36 +65,38 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     RegisterFormulaComponent,
     ResetPasswordFormulaComponent,
     ResetPasswordSuccessComponent,
-    SnackBarComponent
+    SnackBarComponent,
+    RemoveFlashcardDialogComponent
   ],
-  imports: [
-    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
-    provideFirestore(() => getFirestore()),
-    provideAuth(() => getAuth()),
-    AngularFireDatabaseModule,
-    BrowserModule,
-    BrowserAnimationsModule,
-    FlexModule,
-    AppRoutingModule,
-    MatCardModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    FlexLayoutModule,
-    MatIconModule,
-    ReactiveFormsModule,
-    NgxCaptchaModule,
-    MatCheckboxModule,
-    FormsModule,
-    MatSnackBarModule,
-    MatTooltipModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatProgressBarModule,
-    MatExpansionModule,
-    MatToolbarModule,
-    MatProgressSpinnerModule
-  ],
+    imports: [
+        provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+        provideFirestore(() => getFirestore()),
+        provideAuth(() => getAuth()),
+        AngularFireDatabaseModule,
+        BrowserModule,
+        BrowserAnimationsModule,
+        FlexModule,
+        AppRoutingModule,
+        MatCardModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatInputModule,
+        FlexLayoutModule,
+        MatIconModule,
+        ReactiveFormsModule,
+        NgxCaptchaModule,
+        MatCheckboxModule,
+        FormsModule,
+        MatSnackBarModule,
+        MatTooltipModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatProgressBarModule,
+        MatExpansionModule,
+        MatToolbarModule,
+        MatProgressSpinnerModule,
+        MatDialogModule
+    ],
   providers: [
     {provide: LocationStrategy, useClass: HashLocationStrategy},
     {provide: REGION, useValue: 'europe-west3'},

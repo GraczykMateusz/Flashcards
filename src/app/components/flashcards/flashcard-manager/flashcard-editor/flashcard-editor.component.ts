@@ -6,6 +6,10 @@ import {FlashcardsService} from '../../../../services/flashcards/flashcards.serv
 import {AuthService} from '../../../../services/auth/auth.service';
 import {Flashcard} from '../../../../services/flashcards/model/flashcard';
 import {Router} from '@angular/router';
+import {MatDialog} from '@angular/material/dialog';
+import {RemoveFlashcardDialogComponent} from './remove-flashcard-dialog/remove-flashcard-dialog.component';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {SnackBarComponent} from '../../../common/snack-bar/snack-bar.component';
 
 @Component({
   selector: 'app-flashcard-editor',
@@ -18,12 +22,14 @@ export class FlashcardEditorComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   loading = true;
+  flashcards: Flashcard[] = [];
   dataSource = new MatTableDataSource<Flashcard>();
-
   displayedColumns: string[] = ['content', 'translation', 'image-and-example', 'action'];
 
   constructor(private flashcardsService: FlashcardsService,
               private auth: AuthService,
+              private dialog: MatDialog,
+              private snackBar: MatSnackBar,
               private router: Router) {
   }
 
@@ -36,7 +42,8 @@ export class FlashcardEditorComponent implements OnInit, AfterViewInit {
           this.flashcardsService.getFlashcards()
             .pipe(take(1))
             .subscribe(flashcards => {
-              this.dataSource = new MatTableDataSource<Flashcard>(flashcards);
+              this.flashcards = flashcards;
+              this.dataSource = new MatTableDataSource<Flashcard>(this.flashcards);
               this.dataSource.paginator = this.paginator;
               this.loading = false;
             });
@@ -59,7 +66,27 @@ export class FlashcardEditorComponent implements OnInit, AfterViewInit {
     }
   }
 
-  deleteFlashcard() {
-
+  deleteFlashcard(flashcardForRemoval: Flashcard) {
+    this.dialog.open(RemoveFlashcardDialogComponent, {
+      data: flashcardForRemoval
+    }).afterClosed().subscribe(result => {
+      if (result) {
+        this.flashcardsService.deleteFlashcard(flashcardForRemoval.id)
+          .then(() => {
+            this.flashcards = this.flashcards.filter(flashcard => flashcard.id !== flashcardForRemoval.id);
+            this.dataSource = new MatTableDataSource<Flashcard>(this.flashcards);
+            this.dataSource.paginator = this.paginator;
+          })
+          .catch(() => this.snackBar.openFromComponent(SnackBarComponent, {
+            duration: 3 * 1000,
+            data: false
+          }));
+      } else {
+        this.snackBar.openFromComponent(SnackBarComponent, {
+          duration: 3 * 1000,
+          data: false
+        });
+      }
+    })
   }
 }

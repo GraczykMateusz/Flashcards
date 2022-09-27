@@ -18,18 +18,20 @@ export class FlashcardsService {
               private authService: AuthService) {
   }
 
-  createFlashcard(content: string, translation: string, example: string, image: string) {
+  createFlashcard(content: string, translation: string, example: string, image: string): Promise<void> {
     const ref = this.referenceProvider.getUsersReference(this.authService.email!);
     const flashcard = new NewFlashcard(content, translation, example, image, ref);
-    return new Promise<void>((resolve, reject) =>
-      this.flashcardsCollection.doc().set(flashcard.asObject())
-        .then(ref => resolve(ref))
-        .catch(e => reject(e)))
+    return this.flashcardsCollection.doc().set(flashcard.asObject())
   }
 
   getFlashcards(): Observable<Flashcard[]> {
     const ref = this.referenceProvider.getUsersReference(this.authService.email!);
     return this.firestore.collection<Flashcard[]>('flashcards',
       r => r.where('userRef', '==', ref)).valueChanges({idField: 'id'});
+  }
+
+  deleteFlashcard(id: string): Promise<void> {
+    console.log(id)
+    return this.firestore.collection('flashcards').doc(id).delete()
   }
 }
