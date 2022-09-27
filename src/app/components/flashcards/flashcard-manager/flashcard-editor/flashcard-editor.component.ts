@@ -81,11 +81,6 @@ export class FlashcardEditorComponent implements OnInit, AfterViewInit {
             duration: 3 * 1000,
             data: false
           }));
-      } else {
-        this.snackBar.openFromComponent(SnackBarComponent, {
-          duration: 3 * 1000,
-          data: false
-        });
       }
     })
   }
