@@ -43,7 +43,7 @@ $flashcards-container-padding-top: 100px;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 80%;
+  width: 85%;
   max-width: 1030px;
   height: 61px;
 }
@@ -53,7 +53,7 @@ $flashcards-container-padding-top: 100px;
   flex-direction: column-reverse;
   justify-content: space-between;
   align-items: center;
-  width: 80%;
+  width: 85%;
   max-width: 1030px;
   height: 100px;
 }
@@ -155,7 +155,7 @@ mat-tooltip-component {
 }
 
 .all {
-  width: 80vw;
+  width: 85vw;
   max-width: 1030px;
   border: rgba(101, 46, 203, .8) 2px solid;
 }
