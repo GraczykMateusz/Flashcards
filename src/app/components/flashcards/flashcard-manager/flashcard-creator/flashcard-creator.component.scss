@@ -183,3 +183,25 @@ input:-webkit-autofill:active {
   padding-left: 0;
   padding-right: 0;
 }
+
+.loaded-file-name {
+  display: inline-block !important;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 86%;
+  max-width: 550px;
+  font-size: 17px;
+  white-space: nowrap;
+}
+
+.clear-loaded-file {
+  display: inline-block !important;
+  text-align: end;
+  width: 14%;
+
+  .mat-button {
+    min-width: 24px !important;
+    padding: unset !important;
+    bottom: 5px;
+  }
+}

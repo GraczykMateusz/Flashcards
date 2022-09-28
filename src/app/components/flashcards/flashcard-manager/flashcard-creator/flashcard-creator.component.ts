@@ -2,10 +2,8 @@ import {Component, HostListener} from '@angular/core';
 import {FlashcardsService} from '../../../../services/flashcards/flashcards.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {FlashcardImageUploaderService} from "../../../../services/flashcards/flashcard-creator/flashcard-image-uploader.service";
-import {NewFlashcard} from '../../../../services/flashcards/model/new-flashcard';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {SnackBarComponent} from '../../../common/snack-bar/snack-bar.component';
-import {AuthService} from '../../../../services/auth/auth.service';
 
 @Component({
   selector: 'app-flashcard-creator',
@@ -77,7 +75,7 @@ export class FlashcardCreatorComponent {
   }
 
   reset() {
-    this.loadedFile = null;
+    this.resetFile();
     this.flashcardFormGroup.reset();
   }
 
@@ -92,9 +90,9 @@ export class FlashcardCreatorComponent {
       .then(() => {
         this.openSnackBar(true);
         this.reset();
-      }).catch((reason) =>  {
-        console.log(reason)
-        this.openSnackBar(false)
+      }).catch((reason) => {
+      console.log(reason)
+      this.openSnackBar(false)
     });
   }
 
@@ -119,5 +117,9 @@ export class FlashcardCreatorComponent {
       duration: 3 * 1000,
       data: success
     });
+  }
+
+  resetFile() {
+    this.loadedFile = null;
   }
 }
