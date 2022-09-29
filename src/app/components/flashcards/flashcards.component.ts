@@ -4,6 +4,8 @@ import {map, take} from 'rxjs';
 import {Flashcard} from '../../services/flashcards/model/flashcard';
 import {AuthService} from '../../services/auth/auth.service';
 import {Router} from '@angular/router';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {SnackBarComponent} from '../common/snack-bar/snack-bar.component';
 
 @Component({
   selector: 'app-flashcards',
@@ -21,6 +23,7 @@ export class FlashcardsComponent implements OnInit {
 
   constructor(private flashcardsService: FlashcardsService,
               private auth: AuthService,
+              private snackBar: MatSnackBar,
               private router: Router) {
   }
 
@@ -59,4 +62,14 @@ export class FlashcardsComponent implements OnInit {
   toggleRandomIndex() {
     this.isRandomIndex = !this.isRandomIndex;
   }
+
+  debug(yes: any) {
+    yes.openMenu();
+  }
+
+  copyToClipboard() {
+    this.snackBar.openFromComponent(SnackBarComponent, {
+      duration: 1000,
+      data: true
+    });  }
 }

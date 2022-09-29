@@ -46,6 +46,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {RemoveFlashcardDialogComponent} from './components/flashcards/flashcard-manager/flashcard-editor/remove-flashcard-dialog/remove-flashcard-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatMenuModule} from '@angular/material/menu';
+import {ClipboardModule} from 'ngx-clipboard';
 
 @NgModule({
   declarations: [
@@ -95,7 +97,9 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatExpansionModule,
     MatToolbarModule,
     MatProgressSpinnerModule,
-    MatDialogModule
+    MatDialogModule,
+    MatMenuModule,
+    ClipboardModule
   ],
   providers: [
     {provide: LocationStrategy, useClass: HashLocationStrategy},

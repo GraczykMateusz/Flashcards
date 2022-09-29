@@ -3,8 +3,13 @@
 <div *ngIf="flashcards.length !== 0 && !loading">
   <div class="flashcards-container">
     <div class="flashcards-info">
-      <mat-icon [class.random-index-on]="isRandomIndex" style="cursor: pointer !important;" (click)="toggleRandomIndex()">shuffle</mat-icon>
-      <mat-icon [matTooltipPosition]="'above'" [matTooltip]="flashcards[index]!.id">info</mat-icon>
+      <mat-icon [class.random-index-on]="isRandomIndex" class="cursor-p" (click)="toggleRandomIndex()">shuffle
+      </mat-icon>
+      <mat-icon [class.random-index-on]="menuTrigger.menuOpen" class="cursor-p" [matMenuTriggerFor]="menu" #menuTrigger="matMenuTrigger">info
+      </mat-icon>
+      <mat-menu #menu="matMenu" yPosition="above">
+        <span mat-menu-item (click)="copyToClipboard()" ngxClipboard [cbContent]="flashcards[index]?.id">{{flashcards[index]?.id}}</span>
+      </mat-menu>
       {{index + 1}}/{{flashcards.length}}
     </div>
     <div class="flip-card" (click)="flipCard()">
@@ -29,13 +34,12 @@
 
 <div *ngIf="flashcards.length === 0 || loading">
   <div class="flashcards-container">
-    <div class="flip-card" style="cursor: default !important;">
+    <div class="flip-card cursor-p">
       <div class="flip-card-inner">
         <div class="flip-card-front">
           <mat-card [class.loading]="loading">
             <mat-spinner *ngIf="loading" mode="indeterminate"></mat-spinner>
             <mat-card-content *ngIf="loading">Twoje fiszki się wczytują...</mat-card-content>
-
             <mat-card-title *ngIf="!loading">Nie masz fiszek</mat-card-title>
             <div *ngIf="!loading" class="image">
               <img src="assets/sad_dog.jpg">

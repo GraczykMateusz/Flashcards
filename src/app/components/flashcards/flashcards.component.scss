@@ -154,3 +154,28 @@ mat-card {
 .flip-back {
   transform: rotateY(0deg);
 }
+
+.cursor-p {
+  cursor: pointer !important;
+}
+
+.mat-menu-item {
+  cursor: unset !important;
+  height: unset !important;
+  padding: unset !important;
+  line-height: unset !important;
+}
+
+.mat-menu-content:not(:empty) {
+  padding: 3px !important;
+}
+
+.mat-menu-panel {
+  min-height: unset !important;
+  bottom: 5px;
+  background: grey;
+}
+
+.cdk-overlay-transparent-backdrop.cdk-overlay-backdrop-showing {
+  visibility: hidden !important;
+}
