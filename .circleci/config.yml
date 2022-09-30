@@ -13,13 +13,13 @@ workflows:
 jobs:
   build-and-deploy-frontend:
     docker:
-      - image: cimg/node:14.18.0
+      - image: cimg/node:16.17.0
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - astral-{{ checksum "package.json" }}
-            - astral-
+#      - restore_cache:
+#          keys:
+#            - astral-{{ checksum "package.json" }}
+#            - astral-
 
       - run:
           name: set up secret key
@@ -36,7 +36,7 @@ jobs:
           command: npm install
       - run:
           name: install firebase CLI
-          command: npm install --save-dev firebase-tools
+          command: npm install --save-dev firebase-tools@11.12.0
       - run:
           name: build module
           command: npm run-script build
