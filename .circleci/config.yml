@@ -33,7 +33,7 @@ jobs:
 
       - run:
           name: install dependencies
-          command: npm install
+          command: npm install --legacy-peer-deps
       - run:
           name: install firebase CLI
           command: npm install --save-dev firebase-tools@11.12.0
