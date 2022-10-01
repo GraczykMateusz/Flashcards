@@ -36,7 +36,7 @@ jobs:
           command: npm install --legacy-peer-deps
       - run:
           name: install firebase CLI
-          command: npm install --save-dev --legacy-peer-deps firebase-tools@11.12.0
+          command: npm install --save-dev --legacy-peer-deps firebase-tools
       - run:
           name: build module
           command: npm run-script build
