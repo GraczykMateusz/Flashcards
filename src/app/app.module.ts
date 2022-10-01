@@ -48,6 +48,7 @@ import {RemoveFlashcardDialogComponent} from './components/flashcards/flashcard-
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatMenuModule} from '@angular/material/menu';
 import {ClipboardModule} from 'ngx-clipboard';
+import { ModifyFlashcardDialogComponent } from './components/flashcards/flashcard-manager/flashcard-editor/modify-flashcard-dialog/modify-flashcard-dialog.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import {ClipboardModule} from 'ngx-clipboard';
     ResetPasswordFormulaComponent,
     ResetPasswordSuccessComponent,
     SnackBarComponent,
-    RemoveFlashcardDialogComponent
+    RemoveFlashcardDialogComponent,
+    ModifyFlashcardDialogComponent
   ],
   imports: [
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),

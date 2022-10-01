@@ -10,6 +10,7 @@ import {MatDialog} from '@angular/material/dialog';
 import {RemoveFlashcardDialogComponent} from './remove-flashcard-dialog/remove-flashcard-dialog.component';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {SnackBarComponent} from '../../../common/snack-bar/snack-bar.component';
+import {ModifyFlashcardDialogComponent} from './modify-flashcard-dialog/modify-flashcard-dialog.component';
 
 @Component({
   selector: 'app-flashcard-editor',
@@ -74,6 +75,26 @@ export class FlashcardEditorComponent implements OnInit, AfterViewInit {
         this.flashcardsService.deleteFlashcard(flashcardForRemoval.id)
           .then(() => {
             this.flashcards = this.flashcards.filter(flashcard => flashcard.id !== flashcardForRemoval.id);
+            this.dataSource = new MatTableDataSource<Flashcard>(this.flashcards);
+            this.dataSource.paginator = this.paginator;
+          })
+          .catch(() => this.snackBar.openFromComponent(SnackBarComponent, {
+            duration: 3 * 1000,
+            data: false
+          }));
+      }
+    })
+  }
+
+  editFlashcard(flashcardToEdit: Flashcard) {
+    this.dialog.open(ModifyFlashcardDialogComponent, {
+      data: flashcardToEdit
+    }).afterClosed().subscribe(result => {
+      if (result) {
+        this.flashcardsService.editFlashcard(flashcardToEdit)
+          .then(() => {
+            this.flashcards = this.flashcards.filter(flashcard => flashcard.id !== flashcardToEdit.id);
+            this.flashcards.push(flashcardToEdit);
             this.dataSource = new MatTableDataSource<Flashcard>(this.flashcards);
             this.dataSource.paginator = this.paginator;
           })

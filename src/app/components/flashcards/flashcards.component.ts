@@ -6,6 +6,7 @@ import {AuthService} from '../../services/auth/auth.service';
 import {Router} from '@angular/router';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {SnackBarComponent} from '../common/snack-bar/snack-bar.component';
+import arrayShuffle from 'array-shuffle';
 
 @Component({
   selector: 'app-flashcards',
@@ -17,6 +18,8 @@ export class FlashcardsComponent implements OnInit {
 
   flashcards: Flashcard[] = [];
   index = 0;
+  nextFlashcardIndex = 0;
+  randomIndexes: number[] = [];
   isRotated = false;
   isRandomIndex = false;
   loading = true;
@@ -35,8 +38,9 @@ export class FlashcardsComponent implements OnInit {
           this.auth.email = email;
           this.flashcardsService.getFlashcards()
             .pipe(take(1))
-            .subscribe(async flashcards => {
+            .subscribe(flashcards => {
               this.flashcards = flashcards;
+              this.randomIndexes = Array.from(Array(this.flashcards.length).keys())
               this.loading = false;
             });
         } else {
@@ -52,24 +56,29 @@ export class FlashcardsComponent implements OnInit {
   async nextFlashcard() {
     this.isRotated = false;
     await new Promise(f => setTimeout(f, 100));
-    if (this.flashcards.length - 1 === this.index) {
-      this.index = 0;
+
+    if (this.flashcards.length - 1 === this.nextFlashcardIndex) {
+      this.nextFlashcardIndex = 0;
     } else {
-      this.index++;
+      this.nextFlashcardIndex++;
+    }
+
+    if (this.isRandomIndex) {
+      this.index = this.randomIndexes[this.nextFlashcardIndex];
+    } else {
+      this.index = this.nextFlashcardIndex;
     }
   }
 
   toggleRandomIndex() {
+    this.randomIndexes = arrayShuffle(this.randomIndexes)
     this.isRandomIndex = !this.isRandomIndex;
-  }
-
-  debug(yes: any) {
-    yes.openMenu();
   }
 
   copyToClipboard() {
     this.snackBar.openFromComponent(SnackBarComponent, {
       duration: 1000,
       data: true
-    });  }
+    });
+  }
 }

@@ -31,7 +31,10 @@ export class FlashcardsService {
   }
 
   deleteFlashcard(id: string): Promise<void> {
-    console.log(id)
     return this.firestore.collection('flashcards').doc(id).delete()
+  }
+
+  editFlashcard(flashcardToEdit: Flashcard) {
+    return this.firestore.collection('flashcards').doc(flashcardToEdit.id).update(flashcardToEdit);
   }
 }
