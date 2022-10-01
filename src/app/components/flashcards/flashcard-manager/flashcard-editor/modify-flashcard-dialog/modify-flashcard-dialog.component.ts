@@ -1,4 +1,4 @@
-import {Component, HostListener, Inject, OnInit} from '@angular/core';
+import {Component, HostListener, Inject, OnInit, ViewEncapsulation} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {Flashcard} from '../../../../../services/flashcards/model/flashcard';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
@@ -10,7 +10,8 @@ import {SnackBarComponent} from '../../../../common/snack-bar/snack-bar.componen
 @Component({
   selector: 'app-modify-flashcard-dialog',
   templateUrl: './modify-flashcard-dialog.component.html',
-  styleUrls: ['./modify-flashcard-dialog.component.scss']
+  styleUrls: ['./modify-flashcard-dialog.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ModifyFlashcardDialogComponent implements OnInit {
 
