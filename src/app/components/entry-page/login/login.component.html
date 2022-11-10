@@ -1,6 +1,6 @@
-<div class="entry-page-container">
-  <mat-card class="mat-card-background">
-    <mat-card-title>Logowanie</mat-card-title>
+<div class="centered-container">
+  <mat-card class="mat-card-background" ngClass.xs="width-xs" ngClass.gt-xs="width-gt-xs">
+    <mat-card-title class="center-center login-title">Logowanie</mat-card-title>
 
     <div class="info-container">
       <div class="warning warning-yellow-color" *ngIf="userForm.hasError('error')">
@@ -15,52 +15,41 @@
 
     <form class="form-group-container" [formGroup]="userForm">
       <div class="form-group" (click)="resetWarning()">
-        <input [formControlName]="'email'"
+        <input id='email'
                type="search"
                spellcheck="false"
                autocomplete="off"
-               id='email'
                class="form-field"
-               placeholder="EMAIL"/>
-        <label
-          for="email"
-          class="form-label">
-          EMAIL
-        </label>
+               placeholder="EMAIL"
+               [formControlName]="'email'"/>
+        <label for="email" class="form-label">EMAIL</label>
       </div>
 
       <div class="form-group" (click)="resetWarning()">
-        <input [formControlName]="'password'"
+        <input id='password'
                type="search"
                spellcheck="false"
                autocomplete="off"
-               style="-webkit-text-security: disc;"
-               id='password'
                class="form-field"
-               placeholder="HASŁO"/>
-        <label
-          for="password"
-          class="form-label">
-          HASŁO
-        </label>
+               placeholder="HASŁO"
+               [formControlName]="'password'"/>
+        <label for="password" class="form-label">HASŁO</label>
       </div>
     </form>
 
-    <div class="forget-password-and-remember-me-container">
+    <div class="forget-password-and-remember-me-container margin-top">
       <div class="remember-me-container">
         <input type="checkbox" name="checkbox" [(ngModel)]="rememberMe"/>
-        <span ngClass.gt-xs="remember-me" (click)="rememberMe = !rememberMe"><!--content in scss--></span>
-        <span ngClass.xs="remember-me-xs" (click)="rememberMe = !rememberMe"><!--content in scss--></span>
+        <span ngClass.gt-xs="remember-me" ngClass.xs="remember-me-xs" (click)="rememberMe = !rememberMe"><!--content in scss--></span>
       </div>
       <div class="forget-password-container">
-        <span ngClass.gt-xs="forget-password" routerLink="/reset-password"><!--content in scss--></span>
-        <span ngClass.xs="forget-password-xs" routerLink="/reset-password"><!--content in scss--></span>
+        <span ngClass.gt-xs="forget-password" ngClass.xs="forget-password-xs" routerLink="/reset-password"><!--content in scss--></span>
       </div>
     </div>
 
-    <button mat-button class="submit-button" (click)="login()">Zaloguj</button>
+    <button mat-button class="green-button center-center margin-top" (click)="login()">Zaloguj</button>
 
-    <div class="register-container">
+    <div class="register-container margin-top">
       Nie masz konta? <span class="register" routerLink="/register">Zarejestruj się</span>
     </div>
   </mat-card>

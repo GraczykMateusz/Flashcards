@@ -1,17 +1,10 @@
 @use "utils/variables";
 @use "abstract/flex";
 
-.flashcards-container {
+.centered-container {
   @include flex.column-center-center;
   $flashcards-container-padding-top: 100px;
   margin-top: -20px;
   padding: $flashcards-container-padding-top 50px 0 50px;
   min-height: calc(#{variables.$body-min-height} - #{variables.$footer-height} - #{$flashcards-container-padding-top});
-}
-
-.entry-page-container {
-  @include flex.column-center-center;
-  $padding-top: 20px;
-  padding-top: $padding-top;
-  min-height: calc(#{variables.$body-min-height} - #{variables.$footer-height} - #{$padding-top});
 }

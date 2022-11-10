@@ -1,28 +1,33 @@
 @use "utils/variables";
-//@use "utils/classes";
 @use "abstract/flex";
 @use "layout/forms";
 @use "layout/layout";
 @use "components/cursor";
 @use "components/mat-card";
+@use "components/buttons";
 
-mat-card-title {
+.center-center {
+  @include flex.center-center
+}
+
+.login-title {
   font-family: variables.$body-font-family;
-  margin-bottom: 0;
+  color: variables.$body-font-color;
+  font-size: 26px;
+  letter-spacing: 1px;
 }
 
 .register-container {
   @include flex.row-center-center;
   font-size: 15px;
   min-width: 221px;
-  color: #dcd9d9;
+  color: variables.$body-font-color;
 }
 
 .register {
   @include cursor.pointer;
   margin-left: 5px;
-  color: #337ac0;
-  cursor: pointer;
+  color: #2c78c2;
 }
 
 .forget-password-and-remember-me-container {
@@ -50,7 +55,7 @@ mat-card-title {
   @include cursor.pointer;
   min-height: 30px;
   line-height: 30px;
-  color: #9dbcea;
+  color: variables.$body-font-color;
 }
 
 .forget-password::before {
@@ -73,4 +78,17 @@ input[type="checkbox" i] {
   @include cursor.pointer;
   position: relative;
   top: 2px;
+  accent-color: #2c78c2;
+}
+
+.margin-top {
+  margin-top: 15px;
+}
+
+.width-xs {
+  width: 230px;
+}
+
+.width-gt-xs {
+  width: 320px;
 }
