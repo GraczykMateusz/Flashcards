@@ -1,20 +1,10 @@
 @use "utils/variables";
+@use "layout/layout";
 
-$flashcards-container-padding-top: 100px;
 $primary: #11998e;
 $secondary: #38ef7d;
 $white: #fff;
 $gray: #9b9b9b;
-
-.flashcards-creator-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin-top: -20px;
-  padding: $flashcards-container-padding-top 50px 0 50px;
-  min-height: calc(#{variables.$body-min-height} - #{variables.$footer-height} - #{$flashcards-container-padding-top});
-}
 
 /* input */
 

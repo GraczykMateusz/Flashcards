@@ -1,7 +1,10 @@
 @use "utils/variables";
-@use "utils/classes";
-@use "utils/input";
-@use "utils/flex";
+//@use "utils/classes";
+@use "abstract/flex";
+@use "layout/forms";
+@use "layout/layout";
+@use "components/cursor";
+@use "components/mat-card";
 
 mat-card-title {
   font-family: variables.$body-font-family;
@@ -16,6 +19,7 @@ mat-card-title {
 }
 
 .register {
+  @include cursor.pointer;
   margin-left: 5px;
   color: #337ac0;
   cursor: pointer;
@@ -43,10 +47,10 @@ mat-card-title {
 .forget-password-xs,
 .remember-me,
 .remember-me-xs {
+  @include cursor.pointer;
   min-height: 30px;
   line-height: 30px;
   color: #9dbcea;
-  cursor: pointer;
 }
 
 .forget-password::before {
@@ -66,7 +70,7 @@ mat-card-title {
 }
 
 input[type="checkbox" i] {
+  @include cursor.pointer;
   position: relative;
   top: 2px;
-  cursor: pointer;
 }

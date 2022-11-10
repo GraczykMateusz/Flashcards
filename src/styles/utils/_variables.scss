@@ -2,13 +2,30 @@ $body-margin: 0;
 $body-min-height: 100vh;
 $body-min-width: 280px;
 $body-font-family:'Orbitron', sans-serif;
-$body-font-color: snow;
-$body-background-color: black;
 
 $footer-height: 64px;
 $dashboard-title-height: 145px;
 
+// Colors
+$body-font-color: #FFFAFAFF;
+$body-background-color: #000000;
+
 $dashboard-background-from-color: #030303;
 $dashboard-background-to-color: #000357;
 
-$purple-color: rgba(101, 46, 203, 0.8);
+$purple-color: #652ECBCC;
+$input-color: #DCD9D9FF;
+
+$green-button: #04B704;
+$red-button: #8F0101;
+$cyan-button: #03C0C5;
+
+$warning-color: #D9BE00;
+$alert-color: #D90000;
+
+$background-hover-color: #5A2ECBFF;
+$background-from-color: #652ECBCC;
+$background-to-color: #5A2ECBCC;
+
+$background-card-from-color: #010131FF;
+$background-card-to-color: #040644;

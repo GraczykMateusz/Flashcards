@@ -1,6 +1,9 @@
 @use "utils/variables";
-
-$flashcards-container-padding-top: 100px;
+@use "layout/layout";
+@use "components/buttons";
+@use "abstract/flex";
+@use "components/cursor";
+@use "components/mat-card";
 
 .info {
   position: relative;
@@ -21,64 +24,24 @@ $flashcards-container-padding-top: 100px;
   width: 250px;
   color: #9b9b9b;
   font-size: 15px;
-
-  .mat-icon {
-    position: relative;
-    top: 3px;
-    margin-right: 7px !important;
-    font-size: 15px !important;
-    height: 15px !important;
-    width: 15px !important;
-  }
 }
 
-.flashcards-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding-top: $flashcards-container-padding-top;
-  min-height: calc(#{variables.$body-min-height} - #{variables.$footer-height} - #{$flashcards-container-padding-top});
+.mat-icon {
+  position: relative;
+  top: 3px;
+  margin-right: 7px !important;
+  font-size: 15px !important;
+  height: 15px !important;
+  width: 15px !important;
+}
 
-  .flip-card {
-    min-height: 250px;
-    min-width: 250px;
-    height: 40vmin;
-    width: 40vmin;
-
-    cursor: pointer;
-    background-color: transparent;
-
-    .flip-card-inner {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      text-align: center;
-      transition: transform 0.3s;
-      transform-style: preserve-3d;
-
-      .flip-card-front, .flip-card-back {
-        position: absolute;
-        border-radius: 1em;
-        width: 100%;
-        height: 100%;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-      }
-    }
-  }
-
-  .mat-button {
-    margin-top: 25px;
-    letter-spacing: 1px;
-    height: 60px;
-    min-width: 250px;
-    width: 40vmin;
-    font-size: 25px;
-    background-color: rgba(3, 3, 3, 0.17);
-    border: variables.$purple-color 2px solid;
-    color: #f5f1f1;
-  }
+.flip-card {
+  min-height: 250px;
+  min-width: 250px;
+  height: 40vmin;
+  width: 40vmin;
+  cursor: pointer;
+  background-color: transparent;
 }
 
 mat-card {
@@ -88,15 +51,17 @@ mat-card {
 
 .flip-card-front mat-card,
 .flip-card-back mat-card {
-  $bg-from-color: rgb(1, 1, 49);
-  $bg-to-color: #040644;
-  background: -webkit-linear-gradient(to right, $bg-from-color, $bg-to-color);
-  background: -moz-linear-gradient(to right, $bg-from-color, $bg-to-color);
-  background: -o-linear-gradient(to right, $bg-from-color, $bg-to-color);
-  background: linear-gradient(to right, $bg-from-color, $bg-to-color);
-
   border: variables.$purple-color 2px solid;
   color: variables.$body-font-color;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.3s;
+  transform-style: preserve-3d;
 }
 
 .flip-card-front img {
@@ -113,10 +78,9 @@ mat-card {
   gap: 40px;
 }
 
+
 .flip-card-front mat-card-title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flex.center-center;
   height: 40%;
   width: 100%;
   font-size: max(4vmin, 22px);
@@ -124,23 +88,32 @@ mat-card {
   word-break: break-all;
 }
 
-.flip-card-back mat-card-title {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
+%flip-card-text-basic {
   width: 100%;
-  font-size: max(3.6vmin, 22px);
-  font-weight: 600;
   word-break: break-word;
 }
 
+.flip-card-back mat-card-title {
+  @extend %flip-card-text-basic;
+  @include flex.center-start;
+  font-weight: 600;
+  font-size: max(3.6vmin, 22px);
+}
+
 .flip-card-back mat-card-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
+  @extend %flip-card-text-basic;
+  @include flex.center-center;
   font-size: max(2.3vmin, 16px);
-  word-break: break-word;
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  border-radius: 1em;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .flip-card-back {
@@ -153,10 +126,6 @@ mat-card {
 
 .flip-back {
   transform: rotateY(0deg);
-}
-
-.cursor-p {
-  cursor: pointer !important;
 }
 
 .mat-menu-item {

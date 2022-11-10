@@ -1,6 +1,6 @@
 @use "utils/variables";
 @use "utils/classes";
-@use "utils/flex";
+@use "src/styles/abstract/flex";
 
 .mat-card {
   @include flex.column-center-center;

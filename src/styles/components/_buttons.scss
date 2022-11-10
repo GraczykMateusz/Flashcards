@@ -1,0 +1,54 @@
+@use "src/styles/abstract/flex";
+@use "utils/variables";
+
+%button-basic {
+  @include flex.start-center;
+  width: 100%;
+  gap: 20px;
+
+  .mat-button {
+    font-family: inherit !important;
+    letter-spacing: 1px !important;
+    font-size: 15px !important;
+    width: 30% !important;
+    max-width: 170px !important;
+    background-color: #0303032B !important;
+    color: variables.$body-font-color !important;
+  }
+}
+
+.green-button {
+  @extend %button-basic;
+  border: variables.$green-button 2px solid !important;
+}
+
+.red-button {
+  @extend %button-basic;
+  border: variables.$red-button 2px solid !important;
+}
+
+.cyan-button {
+  @extend %button-basic;
+  border: variables.$cyan-button 2px solid !important;
+}
+
+.export-button,
+.import-button {
+  background-color: rgba(3, 3, 3, 0.17);
+  color: variables.$body-font-color;
+  cursor: pointer;
+  min-width: 34px !important;
+  padding: 0 8px !important;
+}
+
+.next-flashcard-button {
+  margin-top: 25px;
+  letter-spacing: 1px;
+  height: 60px;
+  min-width: 250px;
+  width: 40vmin;
+  font-size: 25px;
+  background-color: rgba(3, 3, 3, 0.17);
+  border: variables.$purple-color 2px solid;
+  color: variables.$body-font-color;
+}

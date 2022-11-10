@@ -1,4 +1,4 @@
-$input-color: #dcd9d9;
+@use "utils/variables";
 
 .form-group-container {
   width: 100%;
@@ -15,10 +15,10 @@ $input-color: #dcd9d9;
 .form-field {
   width: 100%;
   border: 0;
-  border-bottom: 2px solid #dcd9d9;
+  border-bottom: 2px solid variables.$body-font-color;;
   outline: 0;
   font-size: 1.3rem;
-  color: $input-color;
+  color: variables.$body-font-color;
   padding: 7px 0;
   background: transparent;
   transition: border-color 0.2s;
@@ -40,7 +40,7 @@ $input-color: #dcd9d9;
   display: block;
   transition: 0.2s;
   font-size: 1rem;
-  color: $input-color;
+  color: variables.$body-font-color;;
 }
 
 .form-field:focus {
@@ -50,7 +50,7 @@ $input-color: #dcd9d9;
     display: block;
     transition: 0.2s;
     font-size: 0.9rem;
-    color: $input-color;
+    color: variables.$body-font-color;;
     font-weight: 700;
   }
 

@@ -15,20 +15,20 @@
     <div class="flip-card" (click)="flipCard()">
       <div class="flip-card-inner" [ngClass]="!isRotated ? 'flip-back' : 'flip'">
         <div class="flip-card-front">
-          <mat-card>
+          <mat-card class="mat-card-background">
             <mat-card-title>{{flashcards[index]?.content}}</mat-card-title>
             <div class="image" [innerHTML]="flashcards[index]?.image"></div>
           </mat-card>
         </div>
         <div class="flip-card-back">
-          <mat-card>
+          <mat-card class="mat-card-background">
             <mat-card-title>{{flashcards[index]?.translation}}</mat-card-title>
             <mat-card-content>{{flashcards[index]?.example}}</mat-card-content>
           </mat-card>
         </div>
       </div>
     </div>
-    <button mat-button color="primary" (click)="nextFlashcard()">Następny</button>
+    <button mat-button class="next-flashcard-button" color="primary" (click)="nextFlashcard()">Następny</button>
   </div>
 </div>
 
@@ -37,7 +37,7 @@
     <div class="flip-card cursor-p">
       <div class="flip-card-inner">
         <div class="flip-card-front">
-          <mat-card [class.loading]="loading">
+          <mat-card class="mat-card-background" [class.loading]="loading">
             <mat-spinner *ngIf="loading" mode="indeterminate"></mat-spinner>
             <mat-card-content *ngIf="loading">Twoje fiszki się wczytują...</mat-card-content>
             <mat-card-title *ngIf="!loading">Nie masz fiszek</mat-card-title>

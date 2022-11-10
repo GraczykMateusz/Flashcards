@@ -1,5 +1,5 @@
 <div class="entry-page-container">
-  <mat-card>
+  <mat-card class="mat-card-background">
     <mat-card-title>
       <mat-icon class="back-icon" routerLink="/login">arrow_back</mat-icon>
       <span class="register-title">Rejestracja</span>
@@ -18,48 +18,43 @@
 
     <form class="form-group-container" [formGroup]="userForm">
       <div class="form-group">
-        <input [formControlName]="'email'"
-               (click)="resetWarning()"
+        <input id='email'
                type="search"
+               class="form-field"
                spellcheck="false"
                autocomplete="off"
-               id='email'
-               class="form-field"
-               placeholder="EMAIL"/>
-        <label for="email"
-               class="form-label">
+               placeholder="EMAIL"
+               [formControlName]="'email'"
+               (click)="resetWarning()"/>
+        <label for="email" class="form-label">
           EMAIL
         </label>
       </div>
 
       <div class="form-group">
-        <input [formControlName]="'password'"
-               (click)="resetWarning()"
+        <input id='password'
                type="search"
                spellcheck="false"
                autocomplete="off"
-               style="-webkit-text-security: disc;"
-               id='password'
                class="form-field"
-               placeholder="HASŁO"/>
-        <label for="password"
-               class="form-label">
+               placeholder="HASŁO"
+               [formControlName]="'password'"
+               (click)="resetWarning()"/>
+        <label for="password" class="form-label">
           HASŁO
         </label>
       </div>
 
       <div class="form-group">
-        <input [formControlName]="'replayPassword'"
-               (click)="resetWarning()"
+        <input id='replyPassword'
                type="search"
+               class="form-field"
                spellcheck="false"
                autocomplete="off"
-               style="-webkit-text-security: disc;"
-               id='replyPassword'
-               class="form-field"
-               placeholder="POWTÓRZ HASŁO"/>
-        <label for="replyPassword"
-               class="form-label">
+               placeholder="POWTÓRZ HASŁO"
+               [formControlName]="'replayPassword'"
+               (click)="resetWarning()"/>
+        <label for="replyPassword" class="form-label">
           POWTÓRZ HASŁO
         </label>
       </div>
@@ -77,3 +72,4 @@
     </div>
   </mat-card>
 </div>
+<!--style="-webkit-text-security: disc;"-->

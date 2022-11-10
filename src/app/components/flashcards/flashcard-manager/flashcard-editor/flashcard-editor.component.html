@@ -1,6 +1,6 @@
 <app-flashcards-menu></app-flashcards-menu>
 
-<div class="container">
+<div class="flashcards-container">
   <div class="search-container" ngClass.xs="search-container-xs">
     <div class="form-group">
       <input (keyup)="applyFilter($event)"
@@ -14,11 +14,11 @@
         Wyszukiwarka
       </label>
     </div>
+    <button mat-button class="green-button" ngClass.xs="xs-save-button">Dodaj</button>
   </div>
 
   <div class="all">
     <div class="table-container">
-
       <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
 
       <table mat-table [dataSource]="dataSource">
@@ -57,11 +57,11 @@
         </ng-container>
 
         <tr class="mat-row" *matNoDataRow>
-          <td class="mat-cell no-data" *ngIf="!loading" [attr.colspan]="displayedColumns.length">Brak danych do
-            wyświetlenia.
+          <td class="mat-cell no-data" *ngIf="!loading" [attr.colspan]="displayedColumns.length">
+            Brak danych do wyświetlenia.
           </td>
-          <td class="mat-cell no-data" *ngIf="loading" [attr.colspan]="displayedColumns.length">Twoje fiszki się
-            wczytują...
+          <td class="mat-cell no-data" *ngIf="loading" [attr.colspan]="displayedColumns.length">
+            Twoje fiszki się wczytują...
           </td>
         </tr>
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

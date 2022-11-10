@@ -5,8 +5,7 @@ import {Flashcard} from '../../../../../services/flashcards/model/flashcard';
 @Component({
   selector: 'app-remove-flashcard-dialog',
   templateUrl: './remove-flashcard-dialog.component.html',
-  styleUrls: ['./remove-flashcard-dialog.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./remove-flashcard-dialog.component.scss']
 })
 export class RemoveFlashcardDialogComponent {
 

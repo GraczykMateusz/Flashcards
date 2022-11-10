@@ -1,0 +1,8 @@
+@use "utils/variables";
+
+.mat-card-background {
+  background: -webkit-linear-gradient(to right, variables.$background-card-from-color, variables.$background-card-to-color);
+  background: -moz-linear-gradient(to right, variables.$background-card-from-color, variables.$background-card-to-color);
+  background: -o-linear-gradient(to right, variables.$background-card-from-color, variables.$background-card-to-color);
+  background: linear-gradient(to right, variables.$background-card-from-color, variables.$background-card-to-color);
+}

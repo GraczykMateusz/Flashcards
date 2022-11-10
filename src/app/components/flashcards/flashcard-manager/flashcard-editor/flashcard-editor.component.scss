@@ -1,16 +1,7 @@
-@use "utils/input";
-@use "utils/variables";
-
-$flashcards-container-padding-top: 100px;
-
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100vw;
-  padding-top: $flashcards-container-padding-top;
-  min-height: calc(#{variables.$body-min-height} - #{variables.$footer-height} - #{$flashcards-container-padding-top});
-}
+@use "src/styles/abstract/flex";
+@use "layout/forms";
+@use "layout/layout";
+@use "components/buttons";
 
 .buttons-container {
   min-width: 230px;
@@ -29,30 +20,15 @@ $flashcards-container-padding-top: 100px;
   font-size: 17px;
 }
 
-.export-button,
-.import-button {
-  background-color: rgba(3, 3, 3, 0.17);
-  color: rgba(255, 250, 250, 0.85);
-  cursor: pointer;
-  min-width: 34px !important;
-  padding: 0 8px !important;
-}
-
 .search-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  @include flex.row-between-center;
   width: 85%;
   max-width: 1030px;
   height: 61px;
 }
 
 .search-container-xs {
-  display: flex;
-  flex-direction: column-reverse;
-  justify-content: space-between;
-  align-items: center;
+  @include flex.column-reverse-between-center;
   width: 85%;
   max-width: 1030px;
   height: 100px;

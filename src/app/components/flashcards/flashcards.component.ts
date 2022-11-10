@@ -12,7 +12,6 @@ import arrayShuffle from 'array-shuffle';
   selector: 'app-flashcards',
   templateUrl: './flashcards.component.html',
   styleUrls: ['./flashcards.component.scss'],
-  encapsulation: ViewEncapsulation.None
 })
 export class FlashcardsComponent implements OnInit {
 

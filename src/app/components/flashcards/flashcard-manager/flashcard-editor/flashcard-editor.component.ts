@@ -16,7 +16,6 @@ import {ModifyFlashcardDialogComponent} from './modify-flashcard-dialog/modify-f
   selector: 'app-flashcard-editor',
   templateUrl: './flashcard-editor.component.html',
   styleUrls: ['./flashcard-editor.component.scss'],
-  encapsulation: ViewEncapsulation.None
 })
 export class FlashcardEditorComponent implements OnInit, AfterViewInit {
 
