@@ -8,7 +8,6 @@ import {AppRoutingModule} from './app-routing.module';
 import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {FlashcardCreatorComponent} from './components/flashcards/flashcard-manager/flashcard-creator/flashcard-creator.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {FlashcardsMenuComponent} from './components/flashcards/flashcards-menu/flashcards-menu.component';
@@ -56,7 +55,6 @@ import {AddFlashcardDialogComponent} from './components/flashcards/flashcards-ed
     AppComponent,
     DashboardComponent,
     FooterComponent,
-    FlashcardCreatorComponent,
     FlashcardsMenuComponent,
     LoginComponent,
     RegisterComponent,

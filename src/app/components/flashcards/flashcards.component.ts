@@ -43,7 +43,7 @@ export class FlashcardsComponent implements OnInit {
               this.loading = false;
             });
         } else {
-          this.router.navigateByUrl('/login').then();
+          // this.router.navigateByUrl('/login').then();
         }
       })
   }
