@@ -1,18 +1,19 @@
+@use "utils/variables";
 @use "abstract/flex";
 @use "layout/forms";
 @use "layout/layout";
 @use "components/buttons";
 @use "components/cursor";
 
-.add-flashcard-max-width {
+.flashcards-editor-add-flashcard-max-width {
   max-width: 200px;
 }
 
-.add-flashcard-margin-left {
+.flashcards-editor-add-flashcard-margin-left {
   margin-left: 15px !important;
 }
 
-.flashcard-buttons-container {
+.flashcards-editor-buttons-container {
   min-width: 230px;
   margin-left: 20px !important;
 }
@@ -24,7 +25,7 @@
   height: 61px;
 }
 
-.display-none {
+.flashcards-editor-display-none {
   display: none !important;
 }
 
@@ -48,38 +49,9 @@ mat-paginator {
   display: none;
 }
 
-.mat-row:nth-child(even) {
-  background-color: rgba(0, 0, 0, 0.60);
-}
 
-.mat-row:hover {
-  background-color: rgba(101, 46, 203, .2);
-}
 
-td.mat-cell,
-th.mat-header-cell {
-  color: snow;
-  padding: 0 8px 0 8px !important;
-}
 
-.mat-header-cell {
-  color: snow;
-  font-weight: 600;
-  font-size: 15px;
-  background-color: rgba(0, 0, 0, 0.60);
-}
-
-.mat-column-action,
-.mat-column-image-and-example {
-  text-align: center !important;
-}
-
-.mat-paginator-container {
-  background-color: #030112;
-  color: snow;
-  justify-content: space-between;
-  min-height: 40px;
-}
 
 
 .flashcards-editor-table-and-paginator-container {
@@ -99,6 +71,32 @@ th.mat-header-cell {
     table {
       width: 100%;
       background-color: rgba(0, 0, 0, 0.35) !important;
+
+      td.mat-cell,
+      th.mat-header-cell {
+        color: variables.$body-font-color;
+        padding: 0 8px 0 8px !important;
+      }
+
+      .mat-header-cell {
+        color: variables.$body-font-color;
+        font-weight: 600;
+        font-size: 15px;
+        background-color: rgba(0, 0, 0, 0.60);
+      }
+
+      .mat-column-action,
+      .mat-column-image-and-example {
+        text-align: center !important;
+      }
+
+      .mat-row:nth-child(even) {
+        background-color: rgba(0, 0, 0, 0.60);
+      }
+
+      .mat-row:hover {
+        background-color: rgba(101, 46, 203, .2);
+      }
 
       .mat-column-content {
         width: 40%;
@@ -135,6 +133,13 @@ th.mat-header-cell {
     .flashcard-toolbar-row {
       padding: 0 0 !important;
       height: 40px !important;
+
+      .mat-paginator-container {
+        background-color: #030112;
+        color: snow;
+        justify-content: space-between;
+        min-height: 40px;
+      }
     }
 
     &.mat-toolbar-multiple-rows {
