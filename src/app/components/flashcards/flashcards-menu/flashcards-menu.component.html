@@ -11,9 +11,9 @@
 
     <div ngClass.lt-md="hide-element" ngClass.md="hide-element" class="desktop-action-buttons">
       <div class="flashcard-action">
-        <mat-icon>create</mat-icon>
-        <button mat-button color="primary" [ngStyle]="activeTab === 'creator' ? {'background-color' : 'rgba(101,46,203,0.3)'} : {}" routerLink="/flashcards/creator">Dodaj</button>
-        <button mat-button color="primary" [ngStyle]="activeTab === 'editor' ? {'background-color' : 'rgba(101,46,203,0.3)'} : {}" routerLink="/flashcards/editor">Modyfikuj</button>
+        <mat-icon>credit_card</mat-icon>
+        <button mat-button color="primary" [ngClass]="activeTab === undefined ? 'selected-tab' : ''" routerLink="/flashcards">Nauka</button>
+        <button mat-button color="primary" [ngClass]="activeTab === 'editor' ? 'selected-tab' : ''" routerLink="/flashcards/editor">Modyfikuj</button>
       </div>
       <div class="stopwatch-action">
         <mat-icon>hourglass_empty</mat-icon>
@@ -51,7 +51,7 @@
           </ng-container>
         </div>
       </div>
-      <mat-icon style="cursor: pointer" (click)="logout()" routerLink="/login">
+      <mat-icon class="cursor-p" (click)="logout()" routerLink="/login">
         power_settings_new
       </mat-icon>
     </div>
@@ -60,7 +60,7 @@
   <div [ngClass]="isMenuOpen ? 'dropdown-content-fade-in' : 'dropdown-content-fade-out'">
     <div class="user-style-mobile">Zalogowany: Mateusz</div>
     <div class="category-mobile">FISZKI</div>
-    <button class="dropdown-links-mobile" (click)="closeDropDown()" routerLink="/flashcards/creator">Dodaj</button>
+    <button class="dropdown-links-mobile" (click)="closeDropDown()" routerLink="/flashcards">Nauka</button>
     <button class="dropdown-links-mobile" (click)="closeDropDown()" routerLink="/flashcards/editor">Modyfikuj</button>
 
     <div class="category-mobile">Zegar</div>

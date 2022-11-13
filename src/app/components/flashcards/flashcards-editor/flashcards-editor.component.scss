@@ -1,0 +1,151 @@
+@use "abstract/flex";
+@use "layout/forms";
+@use "layout/layout";
+@use "components/buttons";
+
+.buttons-container {
+  min-width: 230px;
+  margin-left: 20px !important;
+}
+
+.bigger-icon {
+  height: 30px !important;
+  width: 30px !important;
+  font-size: 30px !important;
+
+  cursor: pointer;
+}
+
+.cancel-button {
+  font-size: 17px;
+}
+
+.search-container {
+  @include flex.row-between-center;
+  width: 85%;
+  max-width: 1030px;
+  height: 61px;
+}
+
+.search-container-xs {
+  @include flex.column-reverse-between-center;
+  width: 85%;
+  max-width: 1030px;
+  height: 100px;
+}
+
+.no-data {
+  width: 100%;
+  text-align: center;
+}
+
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+
+  table {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.35) !important;
+  }
+}
+
+mat-paginator {
+  max-width: 1030px;
+  width: 100%;
+}
+
+.mat-paginator-range-label,
+.mat-paginator-container {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.mat-paginator-page-size-label,
+.mat-paginator-page-size-value {
+  display: none;
+}
+
+.mat-row:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.60);
+}
+
+.mat-row:hover {
+  background-color: rgba(101, 46, 203, .2);
+}
+
+td.mat-cell,
+th.mat-header-cell {
+  color: snow;
+  padding: 0 8px 0 8px !important;
+}
+
+.mat-header-cell {
+  color: snow;
+  font-weight: 600;
+  font-size: 15px;
+  background-color: rgba(0, 0, 0, 0.60);
+}
+
+.mat-column-action,
+.mat-column-image-and-example {
+  text-align: center !important;
+}
+
+.mat-paginator-container {
+  background-color: #030112;
+  color: snow;
+  justify-content: space-between;
+  min-height: 40px;
+}
+
+.mat-column-content {
+  width: 40%;
+}
+
+.mat-column-translation {
+  width: 40%;
+}
+
+.mat-column-example {
+  width: 5%;
+}
+
+.mat-column-image {
+  width: 5%;
+}
+
+.mat-column-action {
+  width: 10%;
+  min-width: 64px;
+
+  .mat-button {
+    min-width: 0 !important;
+    line-height: 0 !important;
+    padding: 4px !important;
+  }
+}
+
+.display-none,
+mat-tooltip-component {
+  display: none !important;
+}
+
+.all {
+  width: 85vw;
+  max-width: 1030px;
+  border: rgba(101, 46, 203, .8) 2px solid;
+}
+
+.mat-toolbar-multiple-rows {
+  width: 100% !important;
+  border-top: rgba(101, 46, 203, .8) 2px solid !important;
+  min-height: 40px !important;
+  background-color: #030112;
+  color: snow;
+  border-top: none;
+}
+
+.mat-toolbar-row {
+  padding: 0 0 !important;
+  height: 40px !important;
+}
