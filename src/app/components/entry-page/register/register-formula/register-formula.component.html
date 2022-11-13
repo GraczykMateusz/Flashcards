@@ -1,6 +1,6 @@
 <div class="centered-container">
-  <mat-card class="mat-card-background">
-    <mat-card-title class="center-center login-title">
+  <mat-card class="mat-card-background max-width">
+    <mat-card-title class="center-center entry-page-title">
       <mat-icon class="back-icon" routerLink="/login">arrow_back</mat-icon>
       <span class="register-title">Rejestracja</span>
     </mat-card-title>
@@ -62,8 +62,8 @@
       <app-captcha (captchaStatusEmitter)="setCaptchaStatus($event)"></app-captcha>
     </form>
 
-    <div class="action-buttons">
-      <button mat-button class="cancel-button margin-right" (click)="userForm.reset()">
+    <div class="entry-page-action-buttons">
+      <button mat-button class="cancel-button entry-page-margin-right" (click)="userForm.reset()">
         <mat-icon>clear</mat-icon>
       </button>
       <button mat-button class="green-button center-center" (click)="register()">

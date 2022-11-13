@@ -9,27 +9,6 @@
   @include flex.center-center
 }
 
-.login-title {
-  font-family: variables.$body-font-family;
-  color: variables.$body-font-color;
-  font-size: 26px;
-  letter-spacing: 1px;
-  padding-left: 30px;
-  padding-right: 30px;
-}
-
-.action-buttons {
-  @include flex.row-center-center;
-  width: 100%;
-  margin-top: 20px;
-  margin-bottom: 12px;
-
-  .mat-button {
-    min-width: 48px !important;
-    padding: 0 0 !important;
-  }
-}
-
-.margin-right {
-  margin-right: 10px;
+.max-width {
+  max-width: 400px;
 }

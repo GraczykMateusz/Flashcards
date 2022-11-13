@@ -10,11 +10,8 @@
   @include flex.center-center
 }
 
-.login-title {
-  font-family: variables.$body-font-family;
-  color: variables.$body-font-color;
-  font-size: 26px;
-  letter-spacing: 1px;
+.max-width {
+  max-width: 352px;
 }
 
 .register-container {

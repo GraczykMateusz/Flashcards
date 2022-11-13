@@ -8,3 +8,28 @@
   padding: $flashcards-container-padding-top 50px 0 50px;
   min-height: calc(#{variables.$body-min-height} - #{variables.$footer-height} - #{$flashcards-container-padding-top});
 }
+
+.entry-page-title {
+  font-family: variables.$body-font-family;
+  color: variables.$body-font-color;
+  font-size: 26px;
+  letter-spacing: 1px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.entry-page-action-buttons {
+  @include flex.row-center-center;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 12px;
+
+  .mat-button {
+    min-width: 48px !important;
+    padding: 0 0 !important;
+  }
+}
+
+.entry-page-margin-right {
+  margin-right: 10px;
+}
