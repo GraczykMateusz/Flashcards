@@ -13,7 +13,7 @@ const redirectUnverifiedTo = (redirect: any[]) => pipe(emailVerified, map(emailV
 const redirectUnauthorizedToLogin = () => redirectUnverifiedTo(['/login']);
 
 const routes: Routes = [
-  {path: '', redirectTo: 'login', pathMatch: 'full'},
+  {path: '', redirectTo: '/flashcards/editor', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'reset-password', component: ResetPasswordComponent},

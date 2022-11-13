@@ -40,6 +40,11 @@
   border: variables.$alert-color 2px solid !important;
 }
 
+.modify-button {
+  @extend %button-basic;
+  max-width: 48px;
+  border: variables.$register-color 2px solid !important;
+}
 
 .export-button,
 .import-button {

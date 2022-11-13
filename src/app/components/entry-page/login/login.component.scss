@@ -24,7 +24,7 @@
 .register {
   @include cursor.pointer;
   margin-left: 5px;
-  color: #2c78c2;
+  color: variables.$register-color;
 }
 
 .forget-password-and-remember-me-container {
@@ -73,7 +73,7 @@ input[type="checkbox" i] {
   @include cursor.pointer;
   position: relative;
   top: 2px;
-  accent-color: #2c78c2;
+  accent-color: variables.$register-color;
 }
 
 .margin-top {

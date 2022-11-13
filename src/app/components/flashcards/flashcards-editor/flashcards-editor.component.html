@@ -10,10 +10,14 @@
              class="form-field"
              placeholder="Słówko"
              (keyup)="applyFilter($event)"/>
-      <label for="content" class="form-label">Wyszukiwarka</label>
+      <label for="content" class="form-label">
+        <mat-icon ngClass.gt-xs="display-none">search</mat-icon>
+        <span ngClass.xs="display-none">Wyszukiwarka</span>
+      </label>
     </div>
     <button mat-button class="green-button add-flashcard-max-width add-flashcard-margin-left"
-            ngClass.xs="xs-save-button">Dodaj</button>
+            ngClass.xs="display-none">Dodaj</button>
+    <mat-icon ngClass.gt-xs="display-none">add_box</mat-icon>
   </div>
 
   <div class="all">
@@ -46,7 +50,7 @@
         <ng-container matColumnDef="action">
           <th mat-header-cell *matHeaderCellDef>Akcje</th>
           <td mat-cell *matCellDef="let flashcard">
-            <button mat-button class="cancel-button" (click)="editFlashcard(flashcard)">
+            <button mat-button class="modify-button" (click)="editFlashcard(flashcard)">
               <mat-icon>build</mat-icon>
             </button>
             <button mat-button class="cancel-button" (click)="deleteFlashcard(flashcard)">
@@ -68,8 +72,8 @@
       </table>
     </div>
 
-    <mat-toolbar>
-      <mat-toolbar-row>
+    <mat-toolbar class="custom-flashcards-toolbar">
+      <mat-toolbar-row class="flashcard-toolbar-row">
         <button mat-button class="export-button">
           <mat-icon>get_app</mat-icon>
         </button>

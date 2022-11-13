@@ -49,6 +49,7 @@ import {ClipboardModule} from 'ngx-clipboard';
 import {ModifyFlashcardDialogComponent} from './components/flashcards/flashcards-editor/modify-flashcard-dialog/modify-flashcard-dialog.component';
 import {FlashcardsEditorComponent} from './components/flashcards/flashcards-editor/flashcards-editor.component';
 import {AddFlashcardDialogComponent} from './components/flashcards/flashcards-editor/add-flashcard-dialog/add-flashcard-dialog.component';
+import { FlashcardsEditorTableComponent } from './components/flashcards/flashcards-editor/flashcards-editor-table/flashcards-editor-table.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import {AddFlashcardDialogComponent} from './components/flashcards/flashcards-ed
     RemoveFlashcardDialogComponent,
     ModifyFlashcardDialogComponent,
     FlashcardsEditorComponent,
-    AddFlashcardDialogComponent
+    AddFlashcardDialogComponent,
+    FlashcardsEditorTableComponent
   ],
   imports: [
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),

@@ -12,7 +12,7 @@
   margin-left: 10px;
 }
 
-.buttons-container {
+.flashcard-buttons-container {
   min-width: 230px;
   margin-left: 20px !important;
 }
@@ -66,6 +66,7 @@ mat-paginator {
 .mat-paginator-container {
   padding: 0 !important;
   margin: 0 !important;
+  min-height: 0 !important;
 }
 
 .mat-paginator-page-size-label,
@@ -123,20 +124,21 @@ th.mat-header-cell {
 }
 
 .mat-column-action {
-  width: 10%;
-  min-width: 64px;
+  min-width: 140px;
 
   .mat-button {
-    min-width: 0 !important;
-    line-height: 0 !important;
-    padding: 4px !important;
+    display: inline-flex;
+    margin: 3px;
+    min-width: 0;
+    line-height: 0;
+    padding: 4px;
   }
 }
 
-.display-none,
-mat-tooltip-component {
-  display: none !important;
+.display-none {
+  display: none;
 }
+
 
 .all {
   width: 85vw;
@@ -144,16 +146,23 @@ mat-tooltip-component {
   border: rgba(101, 46, 203, .8) 2px solid;
 }
 
-.mat-toolbar-multiple-rows {
-  width: 100% !important;
-  border-top: rgba(101, 46, 203, .8) 2px solid !important;
-  min-height: 40px !important;
-  background-color: #030112;
-  color: snow;
-  border-top: none;
-}
+.custom-flashcards-toolbar {
 
-.mat-toolbar-row {
-  padding: 0 0 !important;
-  height: 40px !important;
+  .flashcard-toolbar-row {
+    padding: 0 0 !important;
+    height: 40px !important;
+  }
+
+  &.mat-toolbar-multiple-rows {
+    width: 100% !important;
+    border-top: rgba(101, 46, 203, .8) 2px solid !important;
+    min-height: 40px !important;
+    background-color: #030112;
+    color: snow;
+    border-top: none;
+  }
+
+  mat-tooltip-component {
+    display: none !important;
+  }
 }
