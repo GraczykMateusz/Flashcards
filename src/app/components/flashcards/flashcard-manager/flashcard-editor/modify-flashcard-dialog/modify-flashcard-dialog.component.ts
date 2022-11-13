@@ -14,11 +14,15 @@ import {SnackBarComponent} from '../../../../common/snack-bar/snack-bar.componen
 })
 export class ModifyFlashcardDialogComponent implements OnInit {
 
+  isError = false;
+  dragAreaClass = 'drag-area';
+  loadedFile: File | null = null;
+
   flashcardFormGroup = new FormGroup({
-    content: new FormControl<string | undefined | null>(undefined, [Validators.required]),
-    translation: new FormControl<string | undefined | null>(undefined, [Validators.required]),
-    example: new FormControl<string | undefined | null>(undefined),
-    image: new FormControl<string | undefined | null>(undefined)
+    content: new FormControl<string | null>(null, [Validators.required]),
+    translation: new FormControl<string | null>(null, [Validators.required]),
+    example: new FormControl<string | null>(null),
+    image: new FormControl<string | null>(null)
   });
 
   constructor(
@@ -31,15 +35,13 @@ export class ModifyFlashcardDialogComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.flashcardFormGroup.controls.content.setValue(this.data.content);
-    this.flashcardFormGroup.controls.translation.setValue(this.data.translation);
-    this.flashcardFormGroup.controls.example.setValue(this.data.example);
-    this.flashcardFormGroup.controls.image.setValue(this.data.image);
+    this.flashcardFormGroup.patchValue({
+      content: this.data.content,
+      translation: this.data.translation,
+      example: this.data.example,
+      image: this.data.image
+    })
   }
-
-  isError = false;
-  dragAreaClass = 'drag-area';
-  loadedFile: File | null = null;
 
   onFileChange(event: any) {
     let files: FileList = event.target.files;
