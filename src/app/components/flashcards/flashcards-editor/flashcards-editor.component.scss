@@ -32,7 +32,7 @@
 .flashcards-editor-table-and-paginator-container {
   width: 85vw;
   max-width: 1030px;
-  border: rgba(101, 46, 203, .8) 2px solid;
+  border: variables.$purple-color 2px solid;
 
   .table-container {
     width: 100%;
@@ -45,7 +45,7 @@
 
     table {
       width: 100%;
-      background-color: rgba(0, 0, 0, 0.35) !important;
+      background-color: variables.$dark-table-cell !important;
 
       td.mat-cell,
       th.mat-header-cell {
@@ -57,7 +57,7 @@
         color: variables.$body-font-color;
         font-weight: 600;
         font-size: 15px;
-        background-color: rgba(0, 0, 0, 0.60);
+        background-color: variables.$darker-table-cell;
       }
 
       .mat-column-action,
@@ -70,7 +70,7 @@
       }
 
       .mat-row:hover {
-        background-color: rgba(101, 46, 203, .2);
+        background-color: variables.$mat-row-hover-color;
       }
 
       .mat-column-content {
@@ -110,8 +110,8 @@
       height: 40px !important;
 
       .mat-paginator-container {
-        background-color: #030112;
-        color: snow;
+        background-color: variables.$paginator-color;
+        color: variables.$body-font-color;
         justify-content: space-between;
         min-height: 40px;
       }
@@ -136,10 +136,10 @@
 
     &.mat-toolbar-multiple-rows {
       width: 100% !important;
-      border-top: rgba(101, 46, 203, .8) 2px solid !important;
+      border-top: variables.$purple-color 2px solid !important;
       min-height: 40px !important;
-      background-color: #030112;
-      color: snow;
+      background-color: variables.$paginator-color;
+      color: variables.$body-font-color;
       border-top: none;
     }
 

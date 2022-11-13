@@ -11,6 +11,7 @@ import {map, take} from 'rxjs';
 import {RemoveFlashcardDialogComponent} from './remove-flashcard-dialog/remove-flashcard-dialog.component';
 import {SnackBarComponent} from '../../common/snack-bar/snack-bar.component';
 import {ModifyFlashcardDialogComponent} from './modify-flashcard-dialog/modify-flashcard-dialog.component';
+import {AddFlashcardDialogComponent} from './add-flashcard-dialog/add-flashcard-dialog.component';
 
 @Component({
   selector: 'app-flashcards-editor',
@@ -65,6 +66,10 @@ export class FlashcardsEditorComponent implements OnInit, AfterViewInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  addFlashcard(flashcardToAdd: Flashcard) {
+
   }
 
   deleteFlashcard(flashcardForRemoval: Flashcard) {
