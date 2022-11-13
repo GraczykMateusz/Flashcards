@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {Flashcard} from '../../../services/flashcards/model/flashcard';
 import {MatTableDataSource} from '@angular/material/table';
@@ -8,14 +8,15 @@ import {MatDialog} from '@angular/material/dialog';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {Router} from '@angular/router';
 import {map, take} from 'rxjs';
-import {RemoveFlashcardDialogComponent} from '../flashcard-manager/flashcard-editor/remove-flashcard-dialog/remove-flashcard-dialog.component';
+import {RemoveFlashcardDialogComponent} from './remove-flashcard-dialog/remove-flashcard-dialog.component';
 import {SnackBarComponent} from '../../common/snack-bar/snack-bar.component';
-import {ModifyFlashcardDialogComponent} from '../flashcard-manager/flashcard-editor/modify-flashcard-dialog/modify-flashcard-dialog.component';
+import {ModifyFlashcardDialogComponent} from './modify-flashcard-dialog/modify-flashcard-dialog.component';
 
 @Component({
   selector: 'app-flashcards-editor',
   templateUrl: './flashcards-editor.component.html',
-  styleUrls: ['./flashcards-editor.component.scss']
+  styleUrls: ['./flashcards-editor.component.scss'],
+  // encapsulation: ViewEncapsulation.None
 })
 export class FlashcardsEditorComponent implements OnInit, AfterViewInit {
 

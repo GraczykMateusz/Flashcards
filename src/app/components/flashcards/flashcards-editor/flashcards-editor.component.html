@@ -3,18 +3,17 @@
 <div class="centered-container">
   <div class="search-container" ngClass.xs="search-container-xs">
     <div class="form-group">
-      <input (keyup)="applyFilter($event)"
+      <input id='content'
              type="search"
              spellcheck="false"
              autocomplete="off"
-             id='content'
              class="form-field"
-             placeholder="Słówko"/>
-      <label for="content" class="form-label">
-        Wyszukiwarka
-      </label>
+             placeholder="Słówko"
+             (keyup)="applyFilter($event)"/>
+      <label for="content" class="form-label">Wyszukiwarka</label>
     </div>
-    <button mat-button class="green-button" ngClass.xs="xs-save-button">Dodaj</button>
+    <button mat-button class="green-button add-flashcard-max-width add-flashcard-margin-left"
+            ngClass.xs="xs-save-button">Dodaj</button>
   </div>
 
   <div class="all">

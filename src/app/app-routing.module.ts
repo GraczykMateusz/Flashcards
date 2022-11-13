@@ -1,7 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {DashboardComponent} from "./components/dashboard/dashboard.component";
-import {FlashcardCreatorComponent} from "./components/flashcards/flashcard-manager/flashcard-creator/flashcard-creator.component";
 import {LoginComponent} from './components/entry-page/login/login.component';
 import {RegisterComponent} from './components/entry-page/register/register.component';
 import {ResetPasswordComponent} from './components/entry-page/reset-password/reset-password.component';

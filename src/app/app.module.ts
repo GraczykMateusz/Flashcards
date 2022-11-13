@@ -18,7 +18,6 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {LoginComponent} from './components/entry-page/login/login.component';
 import {RegisterComponent} from './components/entry-page/register/register.component';
 import {FlashcardsTimerComponent} from './components/flashcards/flashcards-timer/flashcards-timer.component';
-import {FlashcardEditorComponent} from './components/flashcards/flashcard-manager/flashcard-editor/flashcard-editor.component';
 import {AngularFireDatabaseModule} from '@angular/fire/compat/database';
 import {HashLocationStrategy, LocationStrategy} from '@angular/common';
 import {REGION} from '@angular/fire/compat/functions';
@@ -44,12 +43,13 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import {RemoveFlashcardDialogComponent} from './components/flashcards/flashcard-manager/flashcard-editor/remove-flashcard-dialog/remove-flashcard-dialog.component';
+import {RemoveFlashcardDialogComponent} from './components/flashcards/flashcards-editor/remove-flashcard-dialog/remove-flashcard-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatMenuModule} from '@angular/material/menu';
 import {ClipboardModule} from 'ngx-clipboard';
-import { ModifyFlashcardDialogComponent } from './components/flashcards/flashcard-manager/flashcard-editor/modify-flashcard-dialog/modify-flashcard-dialog.component';
-import { FlashcardsEditorComponent } from './components/flashcards/flashcards-editor/flashcards-editor.component';
+import {ModifyFlashcardDialogComponent} from './components/flashcards/flashcards-editor/modify-flashcard-dialog/modify-flashcard-dialog.component';
+import {FlashcardsEditorComponent} from './components/flashcards/flashcards-editor/flashcards-editor.component';
+import {AddFlashcardDialogComponent} from './components/flashcards/flashcards-editor/add-flashcard-dialog/add-flashcard-dialog.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +61,6 @@ import { FlashcardsEditorComponent } from './components/flashcards/flashcards-ed
     LoginComponent,
     RegisterComponent,
     FlashcardsTimerComponent,
-    FlashcardEditorComponent,
     CaptchaComponent,
     RegisterSuccessComponent,
     ResetPasswordComponent,
@@ -72,7 +71,8 @@ import { FlashcardsEditorComponent } from './components/flashcards/flashcards-ed
     SnackBarComponent,
     RemoveFlashcardDialogComponent,
     ModifyFlashcardDialogComponent,
-    FlashcardsEditorComponent
+    FlashcardsEditorComponent,
+    AddFlashcardDialogComponent
   ],
   imports: [
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),

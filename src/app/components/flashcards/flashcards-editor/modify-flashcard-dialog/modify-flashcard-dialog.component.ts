@@ -1,11 +1,11 @@
 import {Component, HostListener, Inject, OnInit, ViewEncapsulation} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-import {Flashcard} from '../../../../../services/flashcards/model/flashcard';
+import {Flashcard} from '../../../../services/flashcards/model/flashcard';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {FlashcardsService} from '../../../../../services/flashcards/flashcards.service';
-import {FlashcardImageUploaderService} from '../../../../../services/flashcards/flashcard-creator/flashcard-image-uploader.service';
+import {FlashcardsService} from '../../../../services/flashcards/flashcards.service';
+import {FlashcardImageUploaderService} from '../../../../services/flashcards/flashcard-creator/flashcard-image-uploader.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import {SnackBarComponent} from '../../../../common/snack-bar/snack-bar.component';
+import {SnackBarComponent} from '../../../common/snack-bar/snack-bar.component';
 
 @Component({
   selector: 'app-modify-flashcard-dialog',

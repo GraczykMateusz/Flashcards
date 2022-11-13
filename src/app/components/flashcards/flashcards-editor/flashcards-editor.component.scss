@@ -2,6 +2,15 @@
 @use "layout/forms";
 @use "layout/layout";
 @use "components/buttons";
+@use "components/cursor";
+
+.add-flashcard-max-width {
+  max-width: 200px;
+}
+
+.add-flashcard-margin-left {
+  margin-left: 10px;
+}
 
 .buttons-container {
   min-width: 230px;
@@ -9,11 +18,10 @@
 }
 
 .bigger-icon {
+  @include cursor.pointer;
   height: 30px !important;
   width: 30px !important;
   font-size: 30px !important;
-
-  cursor: pointer;
 }
 
 .cancel-button {
@@ -22,7 +30,7 @@
 
 .search-container {
   @include flex.row-between-center;
-  width: 85%;
+  width: 85vw;
   max-width: 1030px;
   height: 61px;
 }
