@@ -29,31 +29,6 @@
   display: none !important;
 }
 
-
-
-
-mat-paginator {
-  max-width: 1030px;
-  width: 100%;
-}
-
-.mat-paginator-range-label,
-.mat-paginator-container {
-  padding: 0 !important;
-  margin: 0 !important;
-  min-height: 0 !important;
-}
-
-.mat-paginator-page-size-label,
-.mat-paginator-page-size-value {
-  display: none;
-}
-
-
-
-
-
-
 .flashcards-editor-table-and-paginator-container {
   width: 85vw;
   max-width: 1030px;
@@ -139,6 +114,23 @@ mat-paginator {
         color: snow;
         justify-content: space-between;
         min-height: 40px;
+      }
+
+      mat-paginator {
+        max-width: 1030px;
+        width: 100%;
+      }
+
+      .mat-paginator-range-label,
+      .mat-paginator-container {
+        padding: 0 !important;
+        margin: 0 !important;
+        min-height: 0 !important;
+      }
+
+      .mat-paginator-page-size-label,
+      .mat-paginator-page-size-value {
+        display: none;
       }
     }
 
