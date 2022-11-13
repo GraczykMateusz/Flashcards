@@ -1,6 +1,6 @@
 <div class="centered-container">
   <mat-card class="mat-card-background">
-    <mat-card-title>
+    <mat-card-title class="center-center login-title">
       <mat-icon class="back-icon" routerLink="/login">arrow_back</mat-icon>
       <span class="register-title">Rejestracja</span>
     </mat-card-title>
@@ -63,10 +63,10 @@
     </form>
 
     <div class="action-buttons">
-      <button mat-button class="cancel-button" (click)="userForm.reset()">
+      <button mat-button class="cancel-button margin-right" (click)="userForm.reset()">
         <mat-icon>clear</mat-icon>
       </button>
-      <button mat-button class="submit-button" (click)="register()">
+      <button mat-button class="green-button center-center" (click)="register()">
         Zarejestruj
       </button>
     </div>

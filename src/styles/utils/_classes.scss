@@ -59,22 +59,15 @@
   margin-right: 3px;
 }
 
-.cancel-button {
-  border: variables.$body-font-family 2px solid;
-  margin-right: 10px;
-  border-radius: 4px;
-  margin-top: 20px;
-  margin-bottom: 12px;
-  letter-spacing: 1px;
-  font-size: 17px;
-}
-
-.back-icon {
-  position: absolute;
-  left:0;
-  cursor: pointer;
-  transform: scale(1.2);
-}
+//.cancel-button {
+//  border: variables.$body-font-family 2px solid;
+//  margin-right: 10px;
+//  border-radius: 4px;
+//  margin-top: 20px;
+//  margin-bottom: 12px;
+//  letter-spacing: 1px;
+//  font-size: 17px;
+//}
 
 mat-card-title {
   text-align: center;
@@ -82,14 +75,4 @@ mat-card-title {
   width: 100%;
   font-family: variables.$body-font-family;
   margin-bottom: 0;
-}
-
-.action-buttons {
-  @include flex.row-center-center;
-  width: 100%;
-
-  .mat-button {
-    min-width: 48px !important;
-    padding: 0 8px !important;
-  }
 }
