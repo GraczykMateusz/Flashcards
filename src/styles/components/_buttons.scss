@@ -26,12 +26,12 @@
   border: variables.$cyan-button 2px solid !important;
 }
 
-//.back-icon {
-//  position: absolute;
-//  left:0;
-//  cursor: pointer;
-//  transform: scale(1.2);
-//}
+.back-icon {
+  position: absolute;
+  left: 20px;
+  cursor: pointer;
+  transform: scale(1.2);
+}
 
 .cancel-button {
   @extend %button-basic;
