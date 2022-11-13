@@ -61,3 +61,17 @@
   border: variables.$purple-color 2px solid;
   color: variables.$body-font-color;
 }
+
+.back-to-login-button {
+  font-family: variables.$body-font-family;
+  width: 80%;
+  max-width: 330px;
+  min-width: 257px;
+  margin-top: 10px;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+  font-size: 17px;
+  background-color: rgba(3, 3, 3, 0.17);
+  color: rgba(255, 250, 250, 1);
+  border: rgba(3, 94, 197, 0.95) 2px solid;
+}
