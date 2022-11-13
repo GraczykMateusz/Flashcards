@@ -11,13 +11,18 @@
              placeholder="Słówko"
              (keyup)="applyFilter($event)"/>
       <label for="content" class="form-label">
-        <mat-icon ngClass.gt-xs="display-none">search</mat-icon>
-        <span ngClass.xs="display-none">Wyszukiwarka</span>
+        <mat-icon ngClass.gt-xs="flashcards-editor-display-none">search</mat-icon>
+        <span ngClass.xs="flashcards-editor-display-none">Wyszukiwarka</span>
       </label>
     </div>
-    <button mat-button class="green-button flashcards-editor-add-flashcard-max-width flashcards-editor-add-flashcard-margin-left"
-            ngClass.xs="display-none">Dodaj</button>
-    <mat-icon ngClass.gt-xs="display-none">add_box</mat-icon>
+    <button mat-button
+            class="green-button flashcards-editor-add-flashcard-max-width flashcards-editor-add-flashcard-margin-left"
+            ngClass.xs="flashcards-editor-display-none">Dodaj</button>
+    <button mat-button
+            class="add-button flashcards-editor-add-flashcard-margin-left"
+            ngClass.gt-xs="flashcards-editor-display-none">
+      <mat-icon>add</mat-icon>
+    </button>
   </div>
 
   <div class="flashcards-editor-table-and-paginator-container">

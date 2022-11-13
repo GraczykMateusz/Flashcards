@@ -46,6 +46,12 @@
   border: variables.$register-color 2px solid !important;
 }
 
+.add-button {
+  @extend %button-basic;
+  max-width: 48px;
+  border: variables.$green-button 2px solid !important;
+}
+
 .export-button,
 .import-button {
   background-color: rgba(3, 3, 3, 0.17);
