@@ -1,7 +1,7 @@
 <app-flashcards-menu></app-flashcards-menu>
 
 <div class="centered-container">
-  <div class="search-container" ngClass.xs="search-container-xs">
+  <div class="flashcards-editor-search-container">
     <div class="form-group">
       <input id='content'
              type="search"
@@ -20,7 +20,7 @@
     <mat-icon ngClass.gt-xs="display-none">add_box</mat-icon>
   </div>
 
-  <div class="all">
+  <div class="flashcards-editor-table-and-paginator-container">
     <div class="table-container">
       <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
 
