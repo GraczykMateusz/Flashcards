@@ -53,8 +53,8 @@
         <div *ngIf="!loadedFile" ngClass="{{dragAreaClass}}">
           <div class="row">
             <div style="font-size: 15px; text-align: center">
-              <div style="display: inline-block; padding-right: 5px">Przeciągnij obrazek lub</div>
-              <div style="display: inline-block">
+              <div class="font" style="display: inline-block; padding-right: 5px">Przeciągnij obrazek lub</div>
+              <div class="font" style="display: inline-block">
                 <a href="javascript:void(0)"
                    (click)="file.click()">
                   kliknij, aby wybrać
@@ -70,14 +70,10 @@
           </div>
         </div>
 
-        <div *ngIf="loadedFile" class="selected-quiz margin-top">
-          <div class="loaded-file-name">
-            {{loadedFile.name}}
-          </div>
-          <div class="clear-loaded-file">
-            <button mat-button (click)="resetFile()">
-              <mat-icon>clear</mat-icon>
-            </button>
+        <div class="image" *ngIf="flashcardFormGroup.value.image">
+          <div (dblclick)="resetImage()" [innerHTML]="flashcardFormGroup.value.image"></div>
+          <div class="delete-image-info">
+            Podwójne kliknięcie na obrazek je usuwa.
           </div>
         </div>
       </div>

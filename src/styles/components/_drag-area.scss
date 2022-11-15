@@ -1,0 +1,17 @@
+@use "utils/variables";
+
+%drag-area-basic {
+  font-size: 1.5rem;
+  padding: 10px;
+  background-color: transparent;
+}
+
+@mixin drag-area {
+  @extend %drag-area-basic;
+  border: 3px solid variables.$body-font-color;
+}
+
+@mixin drop-area {
+  @extend %drag-area-basic;
+  border: 3px dashed variables.$body-font-color;
+}

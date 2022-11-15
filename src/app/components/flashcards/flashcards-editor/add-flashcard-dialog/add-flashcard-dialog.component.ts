@@ -82,7 +82,7 @@ export class AddFlashcardDialogComponent {
   }
 
   reset() {
-    this.resetFile();
+    this.resetImage();
     this.flashcardFormGroup.reset();
   }
 
@@ -103,7 +103,7 @@ export class AddFlashcardDialogComponent {
     });
   }
 
-  isInvalidFormField(formControl: FormControl<string | null>) {
+  isInvalidFormField(formControl: FormControl<string | undefined | null>) {
     return formControl.invalid && (formControl.dirty || formControl.touched);
   }
 
@@ -126,7 +126,8 @@ export class AddFlashcardDialogComponent {
     });
   }
 
-  resetFile() {
+  resetImage(): void {
+    this.flashcardFormGroup.controls.image.setValue(null);
     this.loadedFile = null;
   }
 }

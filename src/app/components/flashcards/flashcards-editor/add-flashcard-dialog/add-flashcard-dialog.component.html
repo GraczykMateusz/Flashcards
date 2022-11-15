@@ -70,14 +70,10 @@
           </div>
         </div>
 
-        <div *ngIf="loadedFile" class="selected-quiz margin-top">
-          <div class="font loaded-file-name">
-            {{loadedFile.name}}
-          </div>
-          <div class="clear-loaded-file">
-            <button mat-button (click)="resetFile()">
-              <mat-icon>clear</mat-icon>
-            </button>
+        <div class="image" *ngIf="flashcardFormGroup.value.image">
+          <div (dblclick)="resetImage()" [innerHTML]="flashcardFormGroup.value.image"></div>
+          <div class="delete-image-info">
+            Podwójne kliknięcie na obrazek je usuwa.
           </div>
         </div>
       </div>

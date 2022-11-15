@@ -91,7 +91,7 @@ export class ModifyFlashcardDialogComponent implements OnInit {
   }
 
   reset() {
-    this.resetFile();
+    this.resetImage();
     this.flashcardFormGroup.reset();
   }
 
@@ -135,8 +135,8 @@ export class ModifyFlashcardDialogComponent implements OnInit {
     });
   }
 
-  resetFile() {
+  resetImage(): void {
+    this.flashcardFormGroup.controls.image.setValue(null);
     this.loadedFile = null;
   }
-
 }

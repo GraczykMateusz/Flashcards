@@ -2,6 +2,8 @@
 @use "abstract/flex";
 @use "components/buttons";
 @use "components/mat-card";
+@use "components/drag-area";
+@use "components/cursor";
 
 .custom-modify-flashcard-dialog-container {
   mat-dialog-container {
@@ -13,16 +15,16 @@
 
   .size {
     min-height: 235px;
-    max-width: 282px;
+    max-width: 250px;
   }
 
   .action-buttons {
     @include flex.row-between-center;
+    flex-wrap: nowrap;
     width: 100%;
 
-    .green-button,
-    .red-button {
-      max-width: 125px;
+    .mat-button {
+      min-width: 0 !important;
     }
   }
 
@@ -31,260 +33,39 @@
     color: variables.$body-font-color;
     text-align: center;
   }
+
+  .display-none {
+    display: none !important;
+  }
+
+  %drag-area-basic {
+    font-size: 1.5rem;
+    padding: 10px;
+    background-color: transparent;
+  }
+
+  .drag-area {
+    @include drag-area.drag-area;
+  }
+
+  .drop-area {
+    @include drag-area.drop-area;
+  }
+
+  .image {
+    @include cursor.pointer;
+    width: 100%;
+    text-align: center;
+
+    .delete-image-info {
+      font-family: variables.$font-family-segoe;
+      color: variables.$warning-color;
+      font-size: 12px;
+    }
+
+    img {
+      max-width: 170px;
+      height: auto;
+    }
+  }
 }
-
-
-//$flashcards-container-padding-top: 100px;
-//$primary: #11998e;
-//$secondary: #38ef7d;
-//$white: #fff;
-//$gray: #9b9b9b;
-//
-//.flashcards-creator-container {
-//  display: flex;
-//  justify-content: center;
-//  align-items: center;
-//  flex-direction: column;
-//}
-//
-///* input */
-//
-//.form-group {
-//  width: 100%;
-//  position: relative;
-//  padding: 15px 0 0;
-//  margin-bottom: 10px;
-//  max-width: 550px;
-//}
-//
-//input:-webkit-autofill,
-//input:-webkit-autofill:hover,
-//input:-webkit-autofill:focus,
-//input:-webkit-autofill:active {
-//  -webkit-animation: autofill 0s forwards;
-//  animation: autofill 0s forwards;
-//}
-//
-//@keyframes autofill {
-//  100% {
-//    background: transparent;
-//    color: inherit;
-//  }
-//}
-//
-//@-webkit-keyframes autofill {
-//  100% {
-//    background: transparent;
-//    color: inherit;
-//  }
-//}
-//
-//.form-field {
-//  font-family: inherit;
-//  width: 100%;
-//  border: 0;
-//  border-bottom: 2px solid $gray;
-//  outline: 0;
-//  font-size: 1.3rem;
-//  color: $white;
-//  padding: 7px 0;
-//  background: transparent !important;
-//  transition: border-color 0.2s;
-//
-//  &::placeholder {
-//    color: transparent !important;
-//  }
-//
-//  &:placeholder-shown ~ .form-label {
-//    font-size: 1.3rem;
-//    cursor: text;
-//    top: 20px;
-//  }
-//}
-//
-//.form-label {
-//  position: absolute;
-//  top: 0;
-//  display: block;
-//  transition: 0.2s;
-//  font-size: 1rem;
-//  color: $gray;
-//}
-//
-//.form-field:focus {
-//  ~ .form-label {
-//    position: absolute;
-//    top: 0;
-//    display: block;
-//    transition: 0.2s;
-//    font-size: 1rem;
-//    color: $primary;
-//    font-weight: 700;
-//  }
-//
-//  padding-bottom: 6px;
-//  font-weight: 700;
-//  border-width: 3px;
-//  border-image: linear-gradient(to right, $primary, $secondary);
-//  border-image-slice: 1;
-//}
-//
-///* reset input */
-//.form-field {
-//  &:required, &:invalid {
-//    box-shadow: none;
-//  }
-//}
-//
-//.invalid-form-field-border {
-//  border-bottom: 2px solid #b60606;
-//}
-//
-//.invalid-label-color {
-//  color: #b60606;
-//}
-//
-///* cancel / reset / save buttons */
-//
-//.action-buttons {
-//  display: flex;
-//  justify-content: center;
-//  width: 100%;
-//  gap: 20px;
-//
-//  .mat-button {
-//    font-family: inherit;
-//    letter-spacing: 1px;
-//    font-size: 15px;
-//    width: 30%;
-//    max-width: 170px;
-//    background-color: rgba(3, 3, 3, 0.17);
-//    color: rgba(255, 250, 250, 0.85);
-//  }
-//
-//  .green-border {
-//    border: #04b704 2px solid;
-//  }
-//
-//  .red-border {
-//    border: #8f0101 2px solid;
-//  }
-//
-//  .cyan-border {
-//    border: #03c0c5 2px solid;
-//  }
-//}
-//
-//
-//.error {
-//  color: #f00;
-//  height: 10px;
-//  margin-top: 5px;
-//}
-//
-//.selected-quiz {
-//  margin-top: 30px;
-//  font-size: 1.5rem;
-//}
-//
-//.margin-top {
-//  margin-top: 5px;
-//}
-//
-//.drag-area {
-//  font-size: 1.5rem;
-//  border: 3px solid #bbb;
-//  padding: 10px;
-//  background-color: transparent;
-//  color: #bbb;
-//}
-//
-//.drop-area {
-//  font-size: 1.5rem;
-//  border: 3px dashed #bbb;
-//  padding: 10px;
-//  background-color: #eff;
-//  color: #aaa;
-//}
-//
-//.xs-save-button {
-//  width: 100% !important;
-//  min-width: 80px;
-//  max-width: 360px !important;
-//  padding-left: 0;
-//  padding-right: 0;
-//}
-//
-//.loaded-file-name {
-//  display: inline-block !important;
-//  text-overflow: ellipsis;
-//  overflow: hidden;
-//  width: 86%;
-//  max-width: 550px;
-//  font-size: 17px;
-//  white-space: nowrap;
-//}
-//
-//.clear-loaded-file {
-//  display: inline-block !important;
-//  text-align: end;
-//  width: 14%;
-//
-//  .mat-button {
-//    min-width: 24px !important;
-//    padding: unset !important;
-//    bottom: 5px;
-//  }
-//}
-//
-//
-//
-//.dialog-container {
-//  max-width: 500px;
-//  max-height: 70vh;
-//}
-//
-//mat-dialog-container {
-//  background: black !important;
-//  color: #f5f1f1 !important;
-//  -webkit-box-shadow: 0 0 15px 3px variables.$purple-color !important;
-//  -moz-box-shadow: 0 0 15px 3px variables.$purple-color !important;
-//  box-shadow: 0 0 15px 3px variables.$purple-color !important;
-//}
-//
-//mat-card-title,
-//mat-card-content {
-//  text-align: center;
-//  overflow-wrap: break-word;
-//  width: 100%;
-//}
-//
-//mat-card {
-//  background: linear-gradient(to right, rgb(1, 1, 49), #040644) !important;
-//  border: variables.$purple-color 2px solid;
-//  color: #f5f1f1 !important;
-//}
-//
-//.mat-dialog-actions {
-//  justify-content: flex-end;
-//  flex-wrap: nowrap !important;
-//}
-//
-//.green-border {
-//  border: #04b704 2px solid;
-//}
-//
-//.red-border {
-//  border: #8f0101 2px solid;
-//}
-//
-//.image {
-//  display: flex;
-//  justify-content: center;
-//}
-//
-//img {
-//  width: 170px;
-//  height: auto;
-//}
-//
