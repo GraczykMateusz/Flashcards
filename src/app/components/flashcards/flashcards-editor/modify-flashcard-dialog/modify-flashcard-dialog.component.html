@@ -1,53 +1,48 @@
-<div class="dialog-container">
-  <h1 mat-dialog-title>Edycja fiszki: {{data.id}}</h1>
-  <mat-card>
+<div class="modify-flashcard-dialog-container">
+  <h1 mat-dialog-title class="font">Edycja fiszki:</h1>
+  <mat-card class="mat-card-background mat-card-border size">
     <div class="flashcards-creator-container">
       <form class="form-group" [formGroup]="flashcardFormGroup">
         <div class="form-group">
-          <input [formControlName]="'content'"
+          <input id='content'
                  type="search"
                  spellcheck="false"
                  autocomplete="off"
-                 id='content'
+                 placeholder="Słówko"
                  class="form-field"
                  [ngClass]="isInvalidFormField(flashcardFormGroup.controls.content) ? 'invalid-form-field-border' : ''"
-                 placeholder="Słówko"/>
-          <label
-            for="content"
-            class="form-label"
-            [ngClass]="isInvalidFormField(flashcardFormGroup.controls.content) ? 'invalid-label-color' : ''">
+                 [formControlName]="'content'"/>
+          <label for="content" class="form-label"
+                 [ngClass]="isInvalidFormField(flashcardFormGroup.controls.content) ? 'invalid-label-color' : ''">
             Słówko *
           </label>
         </div>
 
         <div class="form-group">
-          <input [formControlName]="'translation'"
+          <input id='translation'
                  type="search"
                  spellcheck="false"
                  autocomplete="off"
-                 id='translation'
+                 placeholder="Tłumaczenie"
                  class="form-field"
                  [ngClass]="isInvalidFormField(flashcardFormGroup.controls.translation) ? 'invalid-form-field-border' : ''"
-                 placeholder="Tłumaczenie"/>
-          <label
-            for="translation"
-            class="form-label"
-            [ngClass]="isInvalidFormField(flashcardFormGroup.controls.translation) ? 'invalid-label-color' : ''">
+                 [formControlName]="'translation'"/>
+          <label for="translation" class="form-label"
+                 [ngClass]="isInvalidFormField(flashcardFormGroup.controls.translation) ? 'invalid-label-color' : ''">
             Tłumaczenie *
           </label>
         </div>
 
         <div class="form-group">
-          <input [formControlName]="'example'"
+          <input id='example'
                  type="search"
                  spellcheck="false"
                  autocomplete="off"
-                 id='example'
+                 placeholder="Przykład"
                  class="form-field"
                  [ngClass]="isInvalidFormField(flashcardFormGroup.controls.example) ? 'invalid-form-field-border' : ''"
-                 placeholder="Przykład"/>
-          <label for="example"
-                 class="form-label"
+                 [formControlName]="'example'"/>
+          <label for="example" class="form-label"
                  [ngClass]="isInvalidFormField(flashcardFormGroup.controls.example) ? 'invalid-label-color' : ''">
             Przykład
           </label>
@@ -88,8 +83,8 @@
       </div>
     </div>
   </mat-card>
-  <div mat-dialog-actions>
-    <button mat-button class="red-border" (click)="dialogRef.close()">Anuluj</button>
-    <button mat-button class="green-border" [mat-dialog-close]="data" cdkFocusInitial>Zatwierdź</button>
+  <div mat-dialog-actions class="action-buttons">
+    <button mat-button class="red-button" (click)="dialogRef.close()">Anuluj</button>
+    <button mat-button class="green-button" [mat-dialog-close]="data" cdkFocusInitial>Zatwierdź</button>
   </div>
 </div>

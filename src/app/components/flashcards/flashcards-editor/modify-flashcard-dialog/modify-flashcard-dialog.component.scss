@@ -1,5 +1,39 @@
-//@use "src/styles/utils/variables";
-//
+@use "utils/variables";
+@use "abstract/flex";
+@use "components/buttons";
+@use "components/mat-card";
+
+.custom-modify-flashcard-dialog-container {
+  mat-dialog-container {
+    @include mat-card.mat-dialog-container;
+  }
+}
+
+.modify-flashcard-dialog-container {
+
+  .size {
+    min-height: 235px;
+    max-width: 282px;
+  }
+
+  .action-buttons {
+    @include flex.row-between-center;
+    width: 100%;
+
+    .green-button,
+    .red-button {
+      max-width: 125px;
+    }
+  }
+
+  .font {
+    font-family: variables.$font-family-segoe;
+    color: variables.$body-font-color;
+    text-align: center;
+  }
+}
+
+
 //$flashcards-container-padding-top: 100px;
 //$primary: #11998e;
 //$secondary: #38ef7d;

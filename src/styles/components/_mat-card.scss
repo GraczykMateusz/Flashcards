@@ -6,3 +6,15 @@
   background: -o-linear-gradient(to right, variables.$background-card-from-color, variables.$background-card-to-color);
   background: linear-gradient(to right, variables.$background-card-from-color, variables.$background-card-to-color);
 }
+
+.mat-card-border {
+  border: rgba(101,46,203,.8) 2px solid;
+}
+
+@mixin mat-dialog-container {
+  background: #050340FF !important;
+  color: variables.$body-font-color !important;
+  -webkit-box-shadow: 0 0 15px 3px variables.$purple-color !important;
+  -moz-box-shadow: 0 0 15px 3px variables.$purple-color !important;
+  box-shadow: 0 0 15px 3px variables.$purple-color !important;
+}

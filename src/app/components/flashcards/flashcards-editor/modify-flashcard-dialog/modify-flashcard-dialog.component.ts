@@ -10,7 +10,8 @@ import {SnackBarComponent} from '../../../common/snack-bar/snack-bar.component';
 @Component({
   selector: 'app-modify-flashcard-dialog',
   templateUrl: './modify-flashcard-dialog.component.html',
-  styleUrls: ['./modify-flashcard-dialog.component.scss']
+  styleUrls: ['./modify-flashcard-dialog.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ModifyFlashcardDialogComponent implements OnInit {
 

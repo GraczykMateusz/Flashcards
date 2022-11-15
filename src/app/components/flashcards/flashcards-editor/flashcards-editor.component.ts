@@ -68,13 +68,29 @@ export class FlashcardsEditorComponent implements OnInit, AfterViewInit {
     }
   }
 
-  addFlashcard(flashcardToAdd: Flashcard) {
-
+  addFlashcard() {
+    this.dialog.open(AddFlashcardDialogComponent, {
+      disableClose: true,
+      panelClass: 'custom-add-flashcard-dialog-container'
+    }).afterClosed().subscribe(result => {
+      if (result) {
+        // this.flashcardsService.createFlashcard()
+        //   .then(() => {
+        //
+        //   })
+        //   .catch(() => this.snackBar.openFromComponent(SnackBarComponent, {
+        //     duration: 3 * 1000,
+        //     data: false
+        //   }));
+      }
+    })
   }
 
   deleteFlashcard(flashcardForRemoval: Flashcard) {
     this.dialog.open(RemoveFlashcardDialogComponent, {
-      data: flashcardForRemoval
+      data: flashcardForRemoval,
+      disableClose: true,
+      panelClass: 'custom-remove-flashcard-dialog-container'
     }).afterClosed().subscribe(result => {
       if (result) {
         this.flashcardsService.deleteFlashcard(flashcardForRemoval.id)
@@ -93,7 +109,9 @@ export class FlashcardsEditorComponent implements OnInit, AfterViewInit {
 
   editFlashcard(flashcardToEdit: Flashcard) {
     this.dialog.open(ModifyFlashcardDialogComponent, {
-      data: flashcardToEdit
+      data: flashcardToEdit,
+      disableClose: true,
+      panelClass: 'custom-modify-flashcard-dialog-container'
     }).afterClosed().subscribe(result => {
       if (result) {
         this.flashcardsService.editFlashcard(flashcardToEdit)

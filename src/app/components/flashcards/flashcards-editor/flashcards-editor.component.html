@@ -15,10 +15,10 @@
         <span ngClass.xs="flashcards-editor-display-none">Wyszukiwarka</span>
       </label>
     </div>
-    <button mat-button
+    <button mat-button (click)="addFlashcard()"
             class="green-button flashcards-editor-add-flashcard-max-width flashcards-editor-add-flashcard-margin-left"
             ngClass.xs="flashcards-editor-display-none">Dodaj</button>
-    <button mat-button
+    <button mat-button (click)="addFlashcard()"
             class="add-button flashcards-editor-add-flashcard-margin-left"
             ngClass.gt-xs="flashcards-editor-display-none">
       <mat-icon>add</mat-icon>

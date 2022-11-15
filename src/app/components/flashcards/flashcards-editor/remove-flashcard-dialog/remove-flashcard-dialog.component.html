@@ -1,13 +1,13 @@
-<div class="dialog-container">
-  <h1 mat-dialog-title>Czy napewno chcesz usunąć tę fiszkę?</h1>
-  <mat-card>
-    <mat-card-title>{{data.content}}</mat-card-title>
-    <mat-card-title>{{data.translation}}</mat-card-title>
-    <mat-card-content>{{data.example}}</mat-card-content>
+<div class="remove-flashcard-dialog-container">
+  <h1 mat-dialog-title class="font">Czy napewno chcesz usunąć tę fiszkę?</h1>
+  <mat-card class="mat-card-background mat-card-border size">
+    <mat-card-title class="font">{{data.content}}</mat-card-title>
+    <mat-card-title class="font">{{data.translation}}</mat-card-title>
+    <mat-card-content class="font">{{data.example}}</mat-card-content>
     <div class="image" [innerHTML]="data.image"></div>
   </mat-card>
-  <div mat-dialog-actions>
-    <button mat-button class="red-border" (click)="dialogRef.close()">Anuluj</button>
-    <button mat-button class="green-border" [mat-dialog-close]="data.id" cdkFocusInitial>Zatwierdź</button>
+  <div mat-dialog-actions class="action-buttons">
+    <button mat-button class="red-button" (click)="dialogRef.close()">Anuluj</button>
+    <button mat-button class="green-button" [mat-dialog-close]="data.id" cdkFocusInitial>Zatwierdź</button>
   </div>
 </div>

@@ -1,50 +1,78 @@
-//@use "src/styles/utils/variables";
-//
-//.dialog-container {
-//  max-width: 500px;
-//  max-height: 70vh;
-//}
-//
-//mat-dialog-container {
-//  background: black !important;
-//  color: #f5f1f1 !important;
-//  -webkit-box-shadow: 0 0 15px 3px variables.$purple-color !important;
-//  -moz-box-shadow: 0 0 15px 3px variables.$purple-color !important;
-//  box-shadow: 0 0 15px 3px variables.$purple-color !important;
-//}
-//
-//mat-card-title,
-//mat-card-content {
-//  text-align: center;
-//  overflow-wrap: break-word;
-//  width: 100%;
-//}
-//
-//mat-card {
-//  background: linear-gradient(to right, rgb(1, 1, 49), #040644) !important;
-//  border: variables.$purple-color 2px solid;
-//  color: #f5f1f1 !important;
-//}
-//
-//.mat-dialog-actions {
-//  justify-content: flex-end;
-//  flex-wrap: nowrap !important;
-//}
-//
-//.green-border {
-//  border: #04b704 2px solid;
-//}
-//
-//.red-border {
-//  border: #8f0101 2px solid;
-//}
-//
-//.image {
-//  display: flex;
-//  justify-content: center;
-//}
-//
-//img {
-//  width: 170px;
-//  height: auto;
-//}
+@use "utils/variables";
+@use "abstract/flex";
+@use "components/buttons";
+@use "components/mat-card";
+
+.custom-remove-flashcard-dialog-container {
+  mat-dialog-container {
+    @include mat-card.mat-dialog-container;
+  }
+}
+
+.remove-flashcard-dialog-container {
+
+  .size {
+    min-height: 300px;
+  }
+
+  .action-buttons {
+    @include flex.row-between-center;
+    width: 100%;
+
+    .green-button,
+    .red-button {
+      max-width: 125px;
+    }
+  }
+
+  .font {
+    font-family: variables.$font-family-segoe;
+    color: variables.$body-font-color;
+    text-align: center;
+  }
+
+  //mat-dialog-container {
+  //  background: black !important;
+  //  color: #f5f1f1 !important;
+  //  -webkit-box-shadow: 0 0 15px 3px variables.$purple-color !important;
+  //  -moz-box-shadow: 0 0 15px 3px variables.$purple-color !important;
+  //  box-shadow: 0 0 15px 3px variables.$purple-color !important;
+  //}
+  //
+  //mat-card-title,
+  //mat-card-content {
+  //  text-align: center;
+  //  overflow-wrap: break-word;
+  //  width: 100%;
+  //}
+  //
+  //mat-card {
+  //  background: linear-gradient(to right, rgb(1, 1, 49), #040644) !important;
+  //  border: variables.$purple-color 2px solid;
+  //  color: #f5f1f1 !important;
+  //}
+  //
+  //.mat-dialog-actions {
+  //  justify-content: flex-end;
+  //  flex-wrap: nowrap !important;
+  //}
+  //
+  //.green-border {
+  //  border: #04b704 2px solid;
+  //}
+  //
+  //.red-border {
+  //  border: #8f0101 2px solid;
+  //}
+  //
+  //.image {
+  //  display: flex;
+  //  justify-content: center;
+  //}
+  //
+  //img {
+  //  width: 170px;
+  //  height: auto;
+  //}
+
+}

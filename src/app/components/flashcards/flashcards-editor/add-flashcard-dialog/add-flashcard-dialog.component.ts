@@ -1,14 +1,17 @@
-import {Component, HostListener} from '@angular/core';
+import {Component, HostListener, Inject, ViewEncapsulation} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {FlashcardsService} from '../../../../services/flashcards/flashcards.service';
 import {FlashcardImageUploaderService} from '../../../../services/flashcards/flashcard-creator/flashcard-image-uploader.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {SnackBarComponent} from '../../../common/snack-bar/snack-bar.component';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import {Flashcard} from '../../../../services/flashcards/model/flashcard';
 
 @Component({
   selector: 'app-add-flashcard-dialog',
   templateUrl: './add-flashcard-dialog.component.html',
-  styleUrls: ['./add-flashcard-dialog.component.scss']
+  styleUrls: ['./add-flashcard-dialog.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AddFlashcardDialogComponent {
 
@@ -23,9 +26,13 @@ export class AddFlashcardDialogComponent {
   dragAreaClass = 'drag-area';
   loadedFile: File | null = null;
 
-  constructor(private flashcardsService: FlashcardsService,
-              private flashcardImageUploaderService: FlashcardImageUploaderService,
-              private snackBar: MatSnackBar) {
+  constructor(
+    public dialogRef: MatDialogRef<AddFlashcardDialogComponent>,
+    private flashcardsService: FlashcardsService,
+    private flashcardImageUploaderService: FlashcardImageUploaderService,
+    private snackBar: MatSnackBar,
+    @Inject(MAT_DIALOG_DATA) public data: Flashcard,
+  ) {
   }
 
   onFileChange(event: any) {
