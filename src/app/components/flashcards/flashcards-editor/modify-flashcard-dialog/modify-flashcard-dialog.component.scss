@@ -28,6 +28,10 @@
     }
   }
 
+  .title {
+    font-size: 30px !important;
+  }
+
   .font {
     font-family: variables.$font-family-segoe;
     color: variables.$body-font-color;
@@ -53,7 +57,6 @@
   }
 
   .image {
-    @include cursor.pointer;
     width: 100%;
     text-align: center;
 
@@ -64,7 +67,8 @@
     }
 
     img {
-      max-width: 170px;
+      @include cursor.pointer;
+      width: 100%;
       height: auto;
     }
   }

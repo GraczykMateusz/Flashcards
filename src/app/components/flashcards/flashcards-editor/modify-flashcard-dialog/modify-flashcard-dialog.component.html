@@ -1,5 +1,5 @@
 <div class="modify-flashcard-dialog-container">
-  <h1 mat-dialog-title class="font">Edycja fiszki:</h1>
+  <h1 mat-dialog-title class="font title">Edycja fiszki:</h1>
   <mat-card class="mat-card-background mat-card-border size">
     <div class="flashcards-creator-container">
       <form class="form-group" [formGroup]="flashcardFormGroup">
@@ -80,7 +80,18 @@
     </div>
   </mat-card>
   <div mat-dialog-actions class="action-buttons">
-    <button mat-button class="red-button" (click)="dialogRef.close()">Anuluj</button>
-    <button mat-button class="green-button" [mat-dialog-close]="data" cdkFocusInitial>Zatwierdź</button>
+    <button mat-button class="red-button" (click)="dialogRef.close()">
+      <mat-icon ngClass.gt-xs="display-none">arrow_back</mat-icon>
+      <span ngClass.lt-sm="display-none">Anuluj</span>
+    </button>
+    <button mat-button class="cyan-button" (click)="reset()">
+      <mat-icon ngClass.gt-xs="display-none">close</mat-icon>
+      <span ngClass.lt-sm="display-none">Reset</span>
+    </button>
+    <button mat-button class="green-button"
+            [mat-dialog-close]="data" cdkFocusInitial>
+      <span ngClass.gt-xs="display-none">OK</span>
+      <span ngClass.lt-sm="display-none">Zapisz</span>
+    </button>
   </div>
 </div>
