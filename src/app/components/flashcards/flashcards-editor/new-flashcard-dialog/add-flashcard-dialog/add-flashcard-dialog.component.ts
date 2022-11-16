@@ -24,6 +24,19 @@ export class AddFlashcardDialogComponent extends NewFlashcardDialogComponent {
     super(addFlashcardsService, addFlashcardImageUploaderService, addSnackBar, addFlashcard);
   }
 
+  save() {
+    const content = this.flashcardFormGroup.controls.content.value!;
+    const translation = this.flashcardFormGroup.controls.translation.value!;
+    const example = this.flashcardFormGroup.controls.example.value!;
+    const image = this.flashcardFormGroup.controls.image.value!;
+
+    this.addFlashcardsService.createFlashcard(content, translation, example, image)
+      .then(() => {
+        this.openSnackBar(true);
+        this.close();
+      }).catch(() => this.openSnackBar(false));
+  }
+
   close() {
     this.addDialogRef.close();
   }

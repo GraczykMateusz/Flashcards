@@ -84,23 +84,6 @@ export abstract class NewFlashcardDialogComponent {
     this.flashcardFormGroup.reset();
   }
 
-
-  save() {
-    const content = this.flashcardFormGroup.controls.content.value!;
-    const translation = this.flashcardFormGroup.controls.translation.value!;
-    const example = this.flashcardFormGroup.controls.example.value!;
-    const image = this.flashcardFormGroup.controls.image.value!;
-
-    this.flashcardsService.createFlashcard(content, translation, example, image)
-      .then(() => {
-        this.openSnackBar(true);
-        this.reset();
-      }).catch((reason) => {
-      console.log(reason)
-      this.openSnackBar(false)
-    });
-  }
-
   isInvalidFormField(formControl: FormControl<string | undefined | null>) {
     return formControl.invalid && (formControl.dirty || formControl.touched);
   }

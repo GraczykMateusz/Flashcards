@@ -33,6 +33,22 @@ export class ModifyFlashcardDialogComponent extends NewFlashcardDialogComponent 
     })
   }
 
+  modify() {
+    this.modifyFlashcard.content = this.flashcardFormGroup.value.content!;
+    this.modifyFlashcard.translation = this.flashcardFormGroup.value.translation!;
+    this.modifyFlashcard.example = this.flashcardFormGroup.value.example!;
+    this.modifyFlashcard.image = this.flashcardFormGroup.value.image!;
+
+    this.modifyFlashcardsService.editFlashcard(this.modifyFlashcard)
+      .then(() => {
+        this.openSnackBar(true);
+        this.reset();
+      }).catch((reason) => {
+      console.log(reason)
+      this.openSnackBar(false)
+    });
+  }
+
   close() {
     this.modifyDialogRef.close();
   }
