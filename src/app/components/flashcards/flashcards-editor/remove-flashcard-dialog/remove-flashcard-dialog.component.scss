@@ -12,23 +12,48 @@
 .remove-flashcard-dialog-container {
 
   .size {
-    min-height: 300px;
+    min-height: 235px;
+    max-width: 265px;
   }
 
   .action-buttons {
     @include flex.row-between-center;
+    flex-wrap: nowrap;
     width: 100%;
 
-    .green-button,
-    .red-button {
-      max-width: 125px;
+    .mat-button {
+      min-width: 0 !important;
     }
+  }
+
+  .title {
+    font-size: 30px !important;
   }
 
   .font {
     font-family: variables.$font-family-segoe;
     color: variables.$body-font-color;
     text-align: center;
+  }
+
+  .display-none {
+    display: none !important;
+  }
+
+  .image {
+    width: 100%;
+    text-align: center;
+
+    .delete-image-info {
+      font-family: variables.$font-family-segoe;
+      color: variables.$warning-color;
+      font-size: 12px;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+    }
   }
 
   //mat-dialog-container {

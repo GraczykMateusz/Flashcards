@@ -7,7 +7,14 @@
     <div class="image" [innerHTML]="data.image"></div>
   </mat-card>
   <div mat-dialog-actions class="action-buttons">
-    <button mat-button class="red-button" (click)="dialogRef.close()">Anuluj</button>
-    <button mat-button class="green-button" [mat-dialog-close]="data.id" cdkFocusInitial>Zatwierdź</button>
+    <button mat-button class="red-button" (click)="dialogRef.close()">
+      <mat-icon ngClass.gt-xs="display-none">arrow_back</mat-icon>
+      <span ngClass.lt-sm="display-none">Anuluj</span>
+    </button>
+    <button mat-button class="green-button"
+            [mat-dialog-close]="data" cdkFocusInitial>
+      <span ngClass.gt-xs="display-none">OK</span>
+      <span ngClass.lt-sm="display-none">Zapisz</span>
+    </button>
   </div>
 </div>

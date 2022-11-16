@@ -12,6 +12,7 @@
 }
 
 @mixin mat-dialog-container {
+  max-width: 340px !important;
   background: #050340FF !important;
   color: variables.$body-font-color !important;
   -webkit-box-shadow: 0 0 15px 3px variables.$purple-color !important;
