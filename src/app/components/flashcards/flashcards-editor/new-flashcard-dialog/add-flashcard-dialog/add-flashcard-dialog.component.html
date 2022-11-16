@@ -80,7 +80,7 @@
     </div>
   </mat-card>
   <div mat-dialog-actions class="action-buttons">
-    <button mat-button class="red-button" (click)="dialogRef.close()">
+    <button mat-button class="red-button" (click)="close()">
       <mat-icon ngClass.gt-xs="display-none">arrow_back</mat-icon>
       <span ngClass.lt-sm="display-none">Anuluj</span>
     </button>
@@ -89,7 +89,7 @@
       <span ngClass.lt-sm="display-none">Reset</span>
     </button>
     <button mat-button class="green-button"
-            [mat-dialog-close]="data" cdkFocusInitial>
+            [mat-dialog-close]="addFlashcard" cdkFocusInitial>
       <span ngClass.gt-xs="display-none">OK</span>
       <span ngClass.lt-sm="display-none">Zapisz</span>
     </button>

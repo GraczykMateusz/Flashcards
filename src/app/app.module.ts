@@ -46,9 +46,9 @@ import {RemoveFlashcardDialogComponent} from './components/flashcards/flashcards
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatMenuModule} from '@angular/material/menu';
 import {ClipboardModule} from 'ngx-clipboard';
-import {ModifyFlashcardDialogComponent} from './components/flashcards/flashcards-editor/modify-flashcard-dialog/modify-flashcard-dialog.component';
+import {ModifyFlashcardDialogComponent} from './components/flashcards/flashcards-editor/new-flashcard-dialog/modify-flashcard-dialog/modify-flashcard-dialog.component';
 import {FlashcardsEditorComponent} from './components/flashcards/flashcards-editor/flashcards-editor.component';
-import {AddFlashcardDialogComponent} from './components/flashcards/flashcards-editor/add-flashcard-dialog/add-flashcard-dialog.component';
+import {AddFlashcardDialogComponent} from './components/flashcards/flashcards-editor/new-flashcard-dialog/add-flashcard-dialog/add-flashcard-dialog.component';
 
 @NgModule({
   declarations: [

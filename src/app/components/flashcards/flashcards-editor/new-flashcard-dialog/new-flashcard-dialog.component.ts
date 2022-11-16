@@ -1,19 +1,18 @@
-import {Component, HostListener, Inject, ViewEncapsulation} from '@angular/core';
+import {Component, HostListener, Inject} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {SnackBarComponent} from '../../../common/snack-bar/snack-bar.component';
+import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {FlashcardsService} from '../../../../services/flashcards/flashcards.service';
 import {FlashcardImageUploaderService} from '../../../../services/flashcards/flashcard-creator/flashcard-image-uploader.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import {SnackBarComponent} from '../../../common/snack-bar/snack-bar.component';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {Flashcard} from '../../../../services/flashcards/model/flashcard';
 
 @Component({
-  selector: 'app-add-flashcard-dialog',
-  templateUrl: './add-flashcard-dialog.component.html',
-  styleUrls: ['./add-flashcard-dialog.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  selector: 'app-new-flashcard-dialog',
+  templateUrl: './new-flashcard-dialog.component.html',
+  styleUrls: ['./new-flashcard-dialog.component.scss']
 })
-export class AddFlashcardDialogComponent {
+export abstract class NewFlashcardDialogComponent {
 
   flashcardFormGroup = new FormGroup({
     content: new FormControl<string | null>(null, [Validators.required]),
@@ -26,12 +25,11 @@ export class AddFlashcardDialogComponent {
   dragAreaClass = 'drag-area';
   loadedFile: File | null = null;
 
-  constructor(
-    public dialogRef: MatDialogRef<AddFlashcardDialogComponent>,
+  protected constructor(
     private flashcardsService: FlashcardsService,
     private flashcardImageUploaderService: FlashcardImageUploaderService,
     private snackBar: MatSnackBar,
-    @Inject(MAT_DIALOG_DATA) public data: Flashcard,
+    @Inject(MAT_DIALOG_DATA) private data: Flashcard,
   ) {
   }
 

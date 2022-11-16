@@ -1,17 +1,17 @@
-@use "utils/variables";
-@use "abstract/flex";
-@use "components/buttons";
-@use "components/mat-card";
-@use "components/drag-area";
-@use "components/cursor";
+@use "src/styles/utils/variables";
+@use "src/styles/abstract/flex";
+@use "src/styles/components/buttons";
+@use "src/styles/components/mat-card";
+@use "src/styles/components/drag-area";
+@use "src/styles/components/cursor";
 
-.custom-modify-flashcard-dialog-container {
+.custom-add-flashcard-dialog-container {
   mat-dialog-container {
     @include mat-card.mat-dialog-container;
   }
 }
 
-.modify-flashcard-dialog-container {
+.add-flashcard-dialog-container {
 
   .size {
     min-height: 235px;
