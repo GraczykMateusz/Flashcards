@@ -26,7 +26,6 @@ export abstract class NewFlashcardDialogComponent {
   loadedFile: File | null = null;
 
   protected constructor(
-    private flashcardsService: FlashcardsService,
     private flashcardImageUploaderService: FlashcardImageUploaderService,
     private snackBar: MatSnackBar,
     @Inject(MAT_DIALOG_DATA) private data: Flashcard,

@@ -18,10 +18,14 @@ export class FlashcardsService {
               private authService: AuthService) {
   }
 
-  createFlashcard(content: string, translation: string, example: string, image: string): Promise<void> {
+  createFlashcard(content: string, translation: string, example: string, image: string): Promise<NewFlashcard> {
     const ref = this.referenceProvider.getUsersReference(this.authService.email!);
     const flashcard = new NewFlashcard(content, translation, example, image, ref);
-    return this.flashcardsCollection.doc().set(flashcard.asObject())
+    return new Promise<NewFlashcard>((resolve, reject) => {
+      this.flashcardsCollection.add(flashcard.asObject())
+        .then(() => resolve(flashcard))
+        .catch(() => reject());
+    });
   }
 
   getFlashcards(): Observable<Flashcard[]> {
@@ -30,11 +34,23 @@ export class FlashcardsService {
       r => r.where('userRef', '==', ref)).valueChanges({idField: 'id'});
   }
 
-  deleteFlashcard(id: string): Promise<void> {
-    return this.firestore.collection('flashcards').doc(id).delete()
+  deleteFlashcard(id: string): Promise<string> {
+    return new Promise<string>((resolve, reject) => {
+      this.firestore.collection('flashcards').doc(id).delete()
+        .then(() => resolve(id))
+        .catch(() => reject());
+    });
   }
 
-  editFlashcard(flashcardToEdit: Flashcard) {
-    return this.firestore.collection('flashcards').doc(flashcardToEdit.id).update(flashcardToEdit);
+  editFlashcard(flashcardToEdit: Flashcard): Promise<string> {
+    return new Promise<string>((resolve, reject) => {
+      this.firestore.collection('flashcards').doc(flashcardToEdit.id).update({
+        content: flashcardToEdit.content,
+        example: flashcardToEdit.example,
+        translation: flashcardToEdit.translation,
+        image: flashcardToEdit.image
+      }).then(() => resolve(flashcardToEdit.id))
+        .catch(() => reject());
+    });
   }
 }

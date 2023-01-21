@@ -16,12 +16,12 @@ export class ModifyFlashcardDialogComponent extends NewFlashcardDialogComponent 
 
   constructor(
     private modifyDialogRef: MatDialogRef<ModifyFlashcardDialogComponent>,
-    private modifyFlashcardsService: FlashcardsService,
+    private flashcardsService: FlashcardsService,
     private modifyFlashcardImageUploaderService: FlashcardImageUploaderService,
     private modifySnackBar: MatSnackBar,
     @Inject(MAT_DIALOG_DATA) public modifyFlashcard: Flashcard
   ) {
-    super(modifyFlashcardsService, modifyFlashcardImageUploaderService, modifySnackBar, modifyFlashcard);
+    super(modifyFlashcardImageUploaderService, modifySnackBar, modifyFlashcard);
   }
 
   ngOnInit(): void {
@@ -39,14 +39,12 @@ export class ModifyFlashcardDialogComponent extends NewFlashcardDialogComponent 
     this.modifyFlashcard.example = this.flashcardFormGroup.value.example!;
     this.modifyFlashcard.image = this.flashcardFormGroup.value.image!;
 
-    this.modifyFlashcardsService.editFlashcard(this.modifyFlashcard)
-      .then(() => {
+    this.flashcardsService.editFlashcard(this.modifyFlashcard)
+      .then((result) => {
         this.openSnackBar(true);
         this.reset();
-      }).catch((reason) => {
-      console.log(reason)
-      this.openSnackBar(false)
-    });
+        this.modifyDialogRef.close({result: result});
+      }).catch(() => this.openSnackBar(false));
   }
 
   close() {

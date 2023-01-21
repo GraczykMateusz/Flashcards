@@ -16,12 +16,12 @@ export class AddFlashcardDialogComponent extends NewFlashcardDialogComponent {
 
   constructor(
     private addDialogRef: MatDialogRef<AddFlashcardDialogComponent>,
-    private addFlashcardsService: FlashcardsService,
+    private flashcardsService: FlashcardsService,
     private addFlashcardImageUploaderService: FlashcardImageUploaderService,
     private addSnackBar: MatSnackBar,
     @Inject(MAT_DIALOG_DATA) public addFlashcard: Flashcard
   ) {
-    super(addFlashcardsService, addFlashcardImageUploaderService, addSnackBar, addFlashcard);
+    super(addFlashcardImageUploaderService, addSnackBar, addFlashcard);
   }
 
   save() {
@@ -30,10 +30,10 @@ export class AddFlashcardDialogComponent extends NewFlashcardDialogComponent {
     const example = this.flashcardFormGroup.controls.example.value!;
     const image = this.flashcardFormGroup.controls.image.value!;
 
-    this.addFlashcardsService.createFlashcard(content, translation, example, image)
-      .then(() => {
+    this.flashcardsService.createFlashcard(content, translation, example, image)
+      .then((newFlashcards) => {
         this.openSnackBar(true);
-        this.close();
+        this.addDialogRef.close({result: newFlashcards});
       }).catch(() => this.openSnackBar(false));
   }
 

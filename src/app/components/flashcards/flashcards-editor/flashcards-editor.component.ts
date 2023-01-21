@@ -74,14 +74,9 @@ export class FlashcardsEditorComponent implements OnInit, AfterViewInit {
       panelClass: 'custom-add-flashcard-dialog-container'
     }).afterClosed().subscribe(result => {
       if (result) {
-        // this.flashcardsService.createFlashcard()
-        //   .then(() => {
-        //
-        //   })
-        //   .catch(() => this.snackBar.openFromComponent(SnackBarComponent, {
-        //     duration: 3 * 1000,
-        //     data: false
-        //   }));
+        this.flashcards.unshift(result.result as Flashcard);
+        this.dataSource = new MatTableDataSource<Flashcard>(this.flashcards);
+        this.dataSource.paginator = this.paginator;
       }
     })
   }
@@ -108,7 +103,7 @@ export class FlashcardsEditorComponent implements OnInit, AfterViewInit {
     }).afterClosed().subscribe(result => {
       if (result) {
         this.flashcards = this.flashcards.filter(flashcard => flashcard.id !== flashcardToEdit.id);
-        this.flashcards.push(flashcardToEdit);
+        this.flashcards.unshift(flashcardToEdit);
         this.dataSource = new MatTableDataSource<Flashcard>(this.flashcards);
         this.dataSource.paginator = this.paginator;
       }

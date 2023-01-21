@@ -3,14 +3,14 @@
 <div class="centered-container">
   <div class="flashcards-editor-search-container">
     <div class="form-group">
-      <input id='content'
+      <input id='search-engine'
              type="search"
              spellcheck="false"
              autocomplete="off"
              class="form-field"
              placeholder="Słówko"
              (keyup)="applyFilter($event)"/>
-      <label for="content" class="form-label">
+      <label for="search-engine" class="form-label">
         <mat-icon ngClass.gt-xs="flashcards-editor-display-none">search</mat-icon>
         <span ngClass.xs="flashcards-editor-display-none">Wyszukiwarka</span>
       </label>
@@ -79,12 +79,12 @@
 
     <mat-toolbar class="custom-flashcards-toolbar">
       <mat-toolbar-row class="flashcard-toolbar-row">
-        <button mat-button class="export-button">
-          <mat-icon>get_app</mat-icon>
-        </button>
-        <button mat-button class="import-button">
-          <mat-icon>input</mat-icon>
-        </button>
+<!--        <button mat-button class="export-button">-->
+<!--          <mat-icon>get_app</mat-icon>-->
+<!--        </button>-->
+<!--        <button mat-button class="import-button">-->
+<!--          <mat-icon>input</mat-icon>-->
+<!--        </button>-->
         <span class="example-spacer"></span>
         <mat-paginator [pageSizeOptions]=[8]></mat-paginator>
       </mat-toolbar-row>
