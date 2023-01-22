@@ -4,7 +4,7 @@
     <div class="flashcards-creator-container">
       <form class="form-group" [formGroup]="flashcardFormGroup">
         <div class="form-group">
-          <input id='content'
+          <input id='add-content'
                  type="search"
                  spellcheck="false"
                  autocomplete="off"
@@ -12,14 +12,14 @@
                  class="form-field"
                  [ngClass]="isInvalidFormField(flashcardFormGroup.controls.content) ? 'invalid-form-field-border' : ''"
                  [formControlName]="'content'"/>
-          <label for="content" class="form-label"
+          <label for="add-content" class="form-label"
                  [ngClass]="isInvalidFormField(flashcardFormGroup.controls.content) ? 'invalid-label-color' : ''">
             Słówko *
           </label>
         </div>
 
         <div class="form-group">
-          <input id='translation'
+          <input id='add-translation'
                  type="search"
                  spellcheck="false"
                  autocomplete="off"
@@ -27,14 +27,14 @@
                  class="form-field"
                  [ngClass]="isInvalidFormField(flashcardFormGroup.controls.translation) ? 'invalid-form-field-border' : ''"
                  [formControlName]="'translation'"/>
-          <label for="translation" class="form-label"
+          <label for="add-translation" class="form-label"
                  [ngClass]="isInvalidFormField(flashcardFormGroup.controls.translation) ? 'invalid-label-color' : ''">
             Tłumaczenie *
           </label>
         </div>
 
         <div class="form-group">
-          <input id='example'
+          <input id='add-example'
                  type="search"
                  spellcheck="false"
                  autocomplete="off"
@@ -42,7 +42,7 @@
                  class="form-field"
                  [ngClass]="isInvalidFormField(flashcardFormGroup.controls.example) ? 'invalid-form-field-border' : ''"
                  [formControlName]="'example'"/>
-          <label for="example" class="form-label"
+          <label for="add-example" class="form-label"
                  [ngClass]="isInvalidFormField(flashcardFormGroup.controls.example) ? 'invalid-label-color' : ''">
             Przykład
           </label>

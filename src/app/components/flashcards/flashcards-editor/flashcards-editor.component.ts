@@ -9,7 +9,6 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 import {Router} from '@angular/router';
 import {map, take} from 'rxjs';
 import {RemoveFlashcardDialogComponent} from './remove-flashcard-dialog/remove-flashcard-dialog.component';
-import {SnackBarComponent} from '../../common/snack-bar/snack-bar.component';
 import {ModifyFlashcardDialogComponent} from './new-flashcard-dialog/modify-flashcard-dialog/modify-flashcard-dialog.component';
 import {AddFlashcardDialogComponent} from './new-flashcard-dialog/add-flashcard-dialog/add-flashcard-dialog.component';
 

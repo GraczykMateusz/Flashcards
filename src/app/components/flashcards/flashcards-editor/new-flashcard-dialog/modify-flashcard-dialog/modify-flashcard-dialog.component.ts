@@ -39,8 +39,6 @@ export class ModifyFlashcardDialogComponent extends NewFlashcardDialogComponent 
     this.modifyFlashcard.example = this.flashcardFormGroup.value.example!;
     this.modifyFlashcard.image = this.flashcardFormGroup.value.image!;
 
-    console.log(this.modifyFlashcard)
-
     this.flashcardsService.editFlashcard(this.modifyFlashcard)
       .then((result) => {
         this.openSnackBar(true);
