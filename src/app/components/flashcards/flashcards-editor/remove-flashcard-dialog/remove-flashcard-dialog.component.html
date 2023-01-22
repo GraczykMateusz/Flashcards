@@ -11,9 +11,9 @@
       <mat-icon ngClass.gt-xs="display-none">arrow_back</mat-icon>
       <span ngClass.lt-sm="display-none">Anuluj</span>
     </button>
-    <button mat-button class="green-button">
-      <span ngClass.gt-xs="display-none" (click)="deleteFlashcard(data.id)">OK</span>
-      <span ngClass.lt-sm="display-none" (click)="deleteFlashcard(data.id)">Zapisz</span>
+    <button mat-button class="green-button" (click)="deleteFlashcard(data.id)">
+      <span ngClass.gt-xs="display-none">OK</span>
+      <span ngClass.lt-sm="display-none">Zapisz</span>
     </button>
   </div>
 </div>

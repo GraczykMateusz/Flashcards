@@ -18,12 +18,12 @@ export class FlashcardsService {
               private authService: AuthService) {
   }
 
-  createFlashcard(content: string, translation: string, example: string, image: string): Promise<NewFlashcard> {
+  createFlashcard(content: string, translation: string, example: string, image: string): Promise<Flashcard> {
     const ref = this.referenceProvider.getUsersReference(this.authService.email!);
     const flashcard = new NewFlashcard(content, translation, example, image, ref);
-    return new Promise<NewFlashcard>((resolve, reject) => {
+    return new Promise<Flashcard>((resolve, reject) => {
       this.flashcardsCollection.add(flashcard.asObject())
-        .then(() => resolve(flashcard))
+        .then((r) => resolve(Flashcard.newInstance(r.id, flashcard)))
         .catch(() => reject());
     });
   }

@@ -23,7 +23,6 @@ export class RemoveFlashcardDialogComponent {
   }
 
   deleteFlashcard(id: string) {
-    console.log(id);
     this.flashcardsService.deleteFlashcard(id)
       .then((result) => {
         this.openSnackBar(true)
