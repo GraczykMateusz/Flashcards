@@ -8,17 +8,17 @@
     <div class="info-container">
       <div class="warning warning-yellow-color" *ngIf="userForm.hasError('error')">
         <mat-icon class="info-icon-margin-right smaller-icon">warning</mat-icon>
-        Wprowadź poprawne dane.
+        <span class="content-margin-left">Wprowadź poprawne dane.</span>
       </div>
       <div class="fail fail-red-color" *ngIf="userForm.hasError('failed')">
         <mat-icon class="info-icon-margin-right smaller-icon">warning</mat-icon>
-        Rejestracja niepowiodła się.
+        <span class="content-margin-left">Rejestracja niepowiodła się.</span>
       </div>
     </div>
 
     <form class="form-group-container" [formGroup]="userForm">
       <div class="form-group">
-        <input id='email'
+        <input id='register-formula-email'
                type="search"
                class="form-field"
                spellcheck="false"
@@ -26,13 +26,13 @@
                placeholder="EMAIL"
                [formControlName]="'email'"
                (click)="resetWarning()"/>
-        <label for="email" class="form-label">
+        <label for="register-formula-email" class="form-label">
           EMAIL
         </label>
       </div>
 
       <div class="form-group">
-        <input id='password'
+        <input id='register-formula-password'
                type="search"
                spellcheck="false"
                autocomplete="off"
@@ -40,13 +40,13 @@
                placeholder="HASŁO"
                [formControlName]="'password'"
                (click)="resetWarning()"/>
-        <label for="password" class="form-label">
+        <label for="register-formula-password" class="form-label">
           HASŁO
         </label>
       </div>
 
       <div class="form-group">
-        <input id='replyPassword'
+        <input id='register-formula-reply-password'
                type="search"
                class="form-field"
                spellcheck="false"
@@ -54,7 +54,7 @@
                placeholder="POWTÓRZ HASŁO"
                [formControlName]="'replayPassword'"
                (click)="resetWarning()"/>
-        <label for="replyPassword" class="form-label">
+        <label for="register-formula-reply-password" class="form-label">
           POWTÓRZ HASŁO
         </label>
       </div>
@@ -72,4 +72,3 @@
     </div>
   </mat-card>
 </div>
-<!--style="-webkit-text-security: disc;"-->

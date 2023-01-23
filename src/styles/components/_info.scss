@@ -1,0 +1,36 @@
+@use "utils/variables";
+@use "abstract/flex";
+
+.info-container {
+  @include flex.center-center;
+  font-size: 12px;
+  min-height: 14px;
+}
+
+.warning-yellow-color {
+  color: variables.$warning-color;
+}
+
+.info-icon-margin-right {
+  margin-right: 2px;
+}
+
+.content-margin-left {
+  margin-left: 2px;
+}
+
+.fail,
+.warning {
+  @include flex.center-center;
+
+  .mat-icon {
+    @include flex.center-center;
+    height: 12px;
+    width: 12px;
+    font-size: 12px;
+  }
+}
+
+.fail-red-color {
+  color: variables.$alert-color;
+}

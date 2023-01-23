@@ -5,6 +5,7 @@
 @use "components/cursor";
 @use "components/mat-card";
 @use "components/buttons";
+@use "components/info";
 
 .center-center {
   @include flex.center-center

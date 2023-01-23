@@ -1,15 +1,15 @@
-<div class="centered-container">
+<div class="centered-container" xmlns="http://www.w3.org/1999/html">
   <mat-card class="mat-card-background max-width" ngClass.xs="width-xs" ngClass.gt-xs="width-gt-xs">
     <mat-card-title class="center-center entry-page-title">Logowanie</mat-card-title>
 
     <div class="info-container">
       <div class="warning warning-yellow-color" *ngIf="userForm.hasError('error')">
         <mat-icon class="info-icon-margin-right smaller-icon">warning</mat-icon>
-        Wprowadź poprawne dane.
+        <span class="content-margin-left">Wprowadź poprawne dane.</span>
       </div>
       <div class="fail fail-red-color" *ngIf="userForm.hasError('failed')">
         <mat-icon class="info-icon-margin-right smaller-icon">warning</mat-icon>
-        Logowanie niepowiodło się.
+       <span class="content-margin-left">Logowanie niepowiodło się.</span>
       </div>
     </div>
 
