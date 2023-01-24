@@ -6,7 +6,7 @@
     </mat-card-title>
 
     <div class="info-container">
-      <div class="warning warning-yellow-color" *ngIf="userForm.hasError('error')">
+      <div class="warning warning-yellow-color" *ngIf="userForm.hasError('error') || captchaForm.hasError('error')">
         <mat-icon class="info-icon-margin-right smaller-icon">warning</mat-icon>
         <span class="content-margin-left">Wprowadź poprawne dane.</span>
       </div>
@@ -63,7 +63,7 @@
     </form>
 
     <div class="entry-page-action-buttons">
-      <button mat-button class="cancel-button entry-page-margin-right" (click)="userForm.reset()">
+      <button mat-button class="cancel-button entry-page-margin-right" (click)="userForm.reset(); captchaForm.reset()">
         <mat-icon>clear</mat-icon>
       </button>
       <button mat-button class="green-button center-center" (click)="register()">

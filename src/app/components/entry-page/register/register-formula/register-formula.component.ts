@@ -14,14 +14,18 @@ export class RegisterFormulaComponent {
     password: new FormControl('', [Validators.required, Validators.pattern(/\S/), Validators.minLength(6)]),
     replayPassword: new FormControl('', [Validators.required, Validators.pattern(/\S/), Validators.minLength(6)]),
   });
-  resetForm = new FormControl(false, Validators.requiredTrue);
+  captchaForm = new FormControl(false, Validators.requiredTrue);
 
   constructor(private authService: AuthService) {
   }
 
   register() {
-    if (this.userForm.invalid || this.resetForm.invalid) {
+    if (this.userForm.invalid) {
       this.userForm.setErrors({error: true})
+      return;
+    }
+    if (this.captchaForm.invalid) {
+      this.captchaForm.setErrors({error: true})
       return;
     }
 
@@ -36,7 +40,10 @@ export class RegisterFormulaComponent {
   }
 
   setCaptchaStatus(status: boolean): void {
-    this.resetForm.setValue(status);
+    this.captchaForm.setValue(status);
+    if (status) {
+      this.captchaForm.setErrors(null);
+    }
   }
 
   resetWarning() {

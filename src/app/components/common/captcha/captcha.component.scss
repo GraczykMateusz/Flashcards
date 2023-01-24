@@ -1,7 +1,7 @@
 canvas {
   border-radius: 4px;
   width: min(370px, 70vw) !important;
-  min-width: 196px;
+  min-width: 236px !important;
   height: auto !important;
 }
 
@@ -16,7 +16,7 @@ canvas {
 
 .captcha-actions {
   width: min(370px, 70vw) !important;
-  min-width: 196px;
+  min-width: 236px !important;
 }
 
 .captcha-container {
@@ -29,7 +29,7 @@ canvas {
   padding: 5px;
   max-width: 315px;
   width: min(370px, 70vw - 55px) !important;
-  min-width: 142px;
+  min-width: 182px !important;
 
   border: 0 !important;
   border-radius: 2px !important;
@@ -69,7 +69,6 @@ canvas {
   justify-content: center;
   align-items: center;
   font-family: Orbitron,sans-serif;
-  width: 100%;
   margin-top: 20px;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -78,6 +77,8 @@ canvas {
   background-color: #0303032b;
   color: #fffafad9;
   border: rgba(21, 247, 255, 0.7) 2px solid;
+  width: min(370px, 70vw) !important;
+  min-width: 236px !important;
 }
 
 .captcha-info {
