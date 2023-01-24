@@ -42,7 +42,7 @@
             <mat-card-content *ngIf="loading">Twoje fiszki się wczytują...</mat-card-content>
             <mat-card-title *ngIf="!loading">Nie masz fiszek</mat-card-title>
             <div *ngIf="!loading" class="image">
-              <img src="assets/sad_dog.jpg">
+              <app-flashcards-image [image]="sadDog"></app-flashcards-image>
             </div>
           </mat-card>
         </div>
