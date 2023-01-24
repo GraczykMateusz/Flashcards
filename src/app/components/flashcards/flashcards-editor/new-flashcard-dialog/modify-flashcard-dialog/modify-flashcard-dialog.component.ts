@@ -25,6 +25,7 @@ export class ModifyFlashcardDialogComponent extends NewFlashcardDialogComponent 
   }
 
   ngOnInit(): void {
+    this.resetImage()
     this.flashcardFormGroup.patchValue({
       content: this.modifyFlashcard.content,
       translation: this.modifyFlashcard.translation,
@@ -44,8 +45,7 @@ export class ModifyFlashcardDialogComponent extends NewFlashcardDialogComponent 
         this.openSnackBar(true);
         this.reset();
         this.modifyDialogRef.close({result: result});
-      }).catch((r) => {
-      console.log(r);
+      }).catch(() => {
       this.openSnackBar(false)
     });
   }

@@ -50,7 +50,7 @@
       </form>
 
       <div class="form-group">
-        <div *ngIf="!loadedFile" ngClass="{{dragAreaClass}}">
+        <div *ngIf="!flashcardFormGroup.value.image" ngClass="{{dragAreaClass}}">
           <div class="row">
             <div style="font-size: 15px; text-align: center">
               <div class="font" style="display: inline-block; padding-right: 5px">Przeciągnij obrazek lub</div>
