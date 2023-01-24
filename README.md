@@ -5,7 +5,8 @@
 
 Hello everyone, today I want to show you my project Astral. 
 Its simple flashcards web application that helps me to learn English.
-You can add/modify/delete flashcards as you wish. 
+It's really responsive application. 
+You can add/modify/delete flashcards as you wish on your mobile or desktop.
 Also, I added function for adding images to get better score in remembering words.
 Project has improvements such as a timer that counts down from 20 minutes to 0.
 I had been working on him around a few months at my free time.
