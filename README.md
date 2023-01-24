@@ -23,9 +23,11 @@ You can see my work bellow:
 
 Link: https://astral-92b54.web.app
 
-![](doc/gif/entry-page.gif)
+<img src="doc/gif/entry-page.gif" width="685px" height="auto"/>
 
-![](doc/img/flashcards.png)
+<div style="overflow:hidden">
+  <img src="doc/img/small-flashcards.png" width="340px" height="auto"/>
+  <img src="doc/img/small-menu.png" width="345px" height="auto"/>
+</div>
 
-<img src="doc/img/small-flashcards.png" width="350px" height="auto">
-<img src="doc/img/small-menu.png" width="355px" height="auto">
+<img src="doc/img/flashcards.png" width="885px" height="auto"/>
