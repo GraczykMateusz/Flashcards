@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FlashcardsService} from '../../services/flashcards/flashcards.service';
 import {map, take} from 'rxjs';
 import {Flashcard} from '../../services/flashcards/model/flashcard';
@@ -11,7 +11,7 @@ import arrayShuffle from 'array-shuffle';
 @Component({
   selector: 'app-flashcards',
   templateUrl: './flashcards.component.html',
-  styleUrls: ['./flashcards.component.scss'],
+  styleUrls: ['./flashcards.component.scss']
 })
 export class FlashcardsComponent implements OnInit {
 

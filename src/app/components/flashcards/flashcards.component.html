@@ -17,7 +17,7 @@
         <div class="flip-card-front">
           <mat-card class="mat-card-background">
             <mat-card-title>{{flashcards[index]?.content}}</mat-card-title>
-            <div class="image" [innerHTML]="flashcards[index]?.image"></div>
+            <app-flashcards-image [image]="flashcards[index]?.image"></app-flashcards-image>
           </mat-card>
         </div>
         <div class="flip-card-back">

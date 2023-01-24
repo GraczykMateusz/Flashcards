@@ -15,25 +15,25 @@
 
     <form class="form-group-container" [formGroup]="userForm">
       <div class="form-group" (click)="resetWarning()">
-        <input id='email'
+        <input id='login-email'
                type="search"
                spellcheck="false"
                autocomplete="off"
                class="form-field"
                placeholder="EMAIL"
                [formControlName]="'email'"/>
-        <label for="email" class="form-label">EMAIL</label>
+        <label for="login-email" class="form-label">EMAIL</label>
       </div>
 
       <div class="form-group" (click)="resetWarning()">
-        <input id='password'
-               type="search"
+        <input id='login-password'
+               type="password"
                spellcheck="false"
                autocomplete="off"
                class="form-field"
                placeholder="HASŁO"
                [formControlName]="'password'"/>
-        <label for="password" class="form-label">HASŁO</label>
+        <label for="login-password" class="form-label">HASŁO</label>
       </div>
     </form>
 
