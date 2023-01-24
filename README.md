@@ -26,13 +26,29 @@ You can see my work bellow:
 
 Link: https://astral-92b54.web.app
 
+-------------
+
 <img src="doc/gif/entry-page.gif" width="685px" height="auto"/>
+
+-------------
+
+<img src="doc/gif/flashcards.gif" width="685px" height="auto"/>
+
+-------------
+
+<img src="doc/gif/flashcards-editor.gif" width="685px" height="auto"/>
+
+-------------
 
 <div style="overflow:hidden">
   <img src="doc/img/small-flashcards.png" width="340px" height="auto"/>
   <img src="doc/img/small-menu.png" width="345px" height="auto"/>
 </div>
 
+-------------
+
 <img src="doc/img/flashcards.png" width="885px" height="auto"/>
+
+-------------
 
 <img src="doc/img/flashcards-or-verbs.png" width="885px" height="auto"/>
