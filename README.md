@@ -19,7 +19,7 @@ do by first time. Also, I had made mistake when I chose that CAPTCHA library.
 I could not get styled it properly, but eventually it looks quite good.
 I would like to refactor that project and fix some bugs,
 but I don't have enough energy to do it (maybe in the future),
-so I have decided to quiet.
+so I have decided to quit.
 
 -------------
 
