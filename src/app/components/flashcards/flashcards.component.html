@@ -3,14 +3,7 @@
 <div *ngIf="flashcards.length !== 0 && !loading">
   <div class="centered-container">
     <div class="flashcards-info">
-      <mat-icon [class.random-index-on]="isRandomIndex" class="cursor-p" (click)="toggleRandomIndex()">shuffle
-      </mat-icon>
-      <mat-icon [class.random-index-on]="menuTrigger.menuOpen" class="cursor-p" [matMenuTriggerFor]="menu" #menuTrigger="matMenuTrigger">info
-      </mat-icon>
-      <mat-menu #menu="matMenu" yPosition="above">
-        <span mat-menu-item (click)="copyToClipboard()" ngxClipboard [cbContent]="flashcards[index]?.id">{{flashcards[index]?.id}}</span>
-      </mat-menu>
-      {{index + 1}}/{{flashcards.length}}
+      <app-flashcards-info [id]="flashcards[index]?.id" [index]="index" [length]="flashcards.length"></app-flashcards-info>
     </div>
     <div class="flip-card" (click)="flipCard()">
       <div class="flip-card-inner" [ngClass]="!isRotated ? 'flip-back' : 'flip'">

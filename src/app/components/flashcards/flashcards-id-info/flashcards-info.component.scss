@@ -1,0 +1,41 @@
+@use "components/cursor";
+@use "abstract/flex";
+
+.flashcards-id-info-container {
+  @include flex.between-center;
+
+  .display-flex {
+    display: flex;
+  }
+
+  .cursor-p {
+    @include cursor.pointer;
+  }
+
+  .mat-icon {
+    display: flex;
+    font-size: 15px !important;
+    height: 15px !important;
+    width: 15px !important;
+  }
+}
+
+.mat-menu-item {
+  height: unset !important;
+  padding: unset !important;
+  line-height: unset !important;
+}
+
+.random-index-on {
+  color: #00e00f !important;
+}
+
+.mat-menu-content:not(:empty) {
+  padding: 3px !important;
+}
+
+.mat-menu-panel {
+  min-height: unset !important;
+  bottom: 5px !important;
+  background: grey !important;
+}

@@ -13,14 +13,10 @@
   color: #9b9b9b;
 }
 
-.random-index-on {
-  color: #00e00f !important;
-}
-
 .flashcards-info {
-  position: relative;
-  display: inline;
-  text-align: end;
+  display: inline-flex;
+  justify-content: space-between;
+  flex-direction: column;
   width: 250px;
   color: #9b9b9b;
   font-size: 15px;
@@ -72,14 +68,13 @@ mat-card {
   gap: 40px;
 }
 
-
 .flip-card-front mat-card-title {
   @include flex.center-center;
   height: 40%;
   width: 100%;
-  font-size: max(4vmin, 22px);
+  font-size: larger;
   font-weight: 600;
-  word-break: break-all;
+  word-break: break-word;
 }
 
 %flip-card-text-basic {
@@ -122,23 +117,10 @@ mat-card {
   transform: rotateY(0deg);
 }
 
-.mat-menu-item {
-  cursor: unset !important;
-  height: unset !important;
-  padding: unset !important;
-  line-height: unset !important;
-}
-
-.mat-menu-content:not(:empty) {
-  padding: 3px !important;
-}
-
-.mat-menu-panel {
-  min-height: unset !important;
-  bottom: 5px;
-  background: grey;
-}
-
 .cdk-overlay-transparent-backdrop.cdk-overlay-backdrop-showing {
   visibility: hidden !important;
+}
+
+.cursor-p {
+  @include cursor.pointer;
 }

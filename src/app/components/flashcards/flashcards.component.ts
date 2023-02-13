@@ -5,8 +5,7 @@ import {Flashcard} from '../../services/flashcards/model/flashcard';
 import {AuthService} from '../../services/auth/auth.service';
 import {Router} from '@angular/router';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import {SnackBarComponent} from '../common/snack-bar/snack-bar.component';
-import arrayShuffle from 'array-shuffle';
+import {FlashcardsRandomizerService} from '../../services/flashcards/flashcards-randomizer/flashcards-randomizer.service';
 
 @Component({
   selector: 'app-flashcards',
@@ -19,12 +18,11 @@ export class FlashcardsComponent implements OnInit {
   flashcards: Flashcard[] = [];
   index = 0;
   nextFlashcardIndex = 0;
-  randomIndexes: number[] = [];
   isRotated = false;
-  isRandomIndex = false;
   loading = true;
 
   constructor(private flashcardsService: FlashcardsService,
+              private flashcardsRandomizer: FlashcardsRandomizerService,
               private auth: AuthService,
               private snackBar: MatSnackBar,
               private router: Router) {
@@ -40,7 +38,7 @@ export class FlashcardsComponent implements OnInit {
             .pipe(take(1))
             .subscribe(flashcards => {
               this.flashcards = flashcards;
-              this.randomIndexes = Array.from(Array(this.flashcards.length).keys())
+              this.flashcardsRandomizer.randomIndexes = Array.from(Array(this.flashcards.length).keys())
               this.loading = false;
             });
         } else {
@@ -63,22 +61,10 @@ export class FlashcardsComponent implements OnInit {
       this.nextFlashcardIndex++;
     }
 
-    if (this.isRandomIndex) {
-      this.index = this.randomIndexes[this.nextFlashcardIndex];
+    if (this.flashcardsRandomizer.isRandomIndex) {
+      this.index = this.flashcardsRandomizer.randomIndexes[this.nextFlashcardIndex];
     } else {
       this.index = this.nextFlashcardIndex;
     }
-  }
-
-  toggleRandomIndex() {
-    this.randomIndexes = arrayShuffle(this.randomIndexes)
-    this.isRandomIndex = !this.isRandomIndex;
-  }
-
-  copyToClipboard() {
-    this.snackBar.openFromComponent(SnackBarComponent, {
-      duration: 1000,
-      data: true
-    });
   }
 }
