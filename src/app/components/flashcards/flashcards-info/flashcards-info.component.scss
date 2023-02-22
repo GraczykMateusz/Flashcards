@@ -4,12 +4,26 @@
 .flashcards-id-info-container {
   @include flex.between-center;
 
+  .margin-left {
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+  }
+
   .display-flex {
     display: flex;
   }
 
   .cursor-p {
     @include cursor.pointer;
+  }
+
+  .clickable-green-color:active {
+    animation: clickable-green-color 1.2s 1;
+  }
+
+  .clickable-red-color:active {
+    animation: clickable-red-color 1.2s 1;
   }
 
   .mat-icon {
@@ -38,4 +52,28 @@
   min-height: unset !important;
   bottom: 5px !important;
   background: grey !important;
+}
+
+@keyframes clickable-green-color {
+  0% {
+    color: #9B9B9B;
+  }
+  50% {
+    color: #00e00f;
+  }
+  100% {
+    color: #9B9B9B;
+  }
+}
+
+@keyframes clickable-red-color {
+  0% {
+    color: #9B9B9B;
+  }
+  50% {
+    color: red;
+  }
+  100% {
+    color: #9B9B9B;
+  }
 }

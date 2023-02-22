@@ -18,9 +18,9 @@ export class FlashcardsService {
               private authService: AuthService) {
   }
 
-  createFlashcard(content: string, translation: string, example: string, image: string): Promise<Flashcard> {
+  createFlashcard(content: string, translation: string, example: string, image: string, level: number): Promise<Flashcard> {
     const ref = this.referenceProvider.getUsersReference(this.authService.email!);
-    const flashcard = new NewFlashcard(content, translation, example, image, ref);
+    const flashcard = new NewFlashcard(content?.trim(), translation?.trim(), example?.trim(), image, level, ref);
     return new Promise<Flashcard>((resolve, reject) => {
       this.flashcardsCollection.add(flashcard.asObject())
         .then((r) => resolve(Flashcard.newInstance(r.id, flashcard)))
@@ -30,7 +30,7 @@ export class FlashcardsService {
 
   getFlashcards(): Observable<Flashcard[]> {
     const ref = this.referenceProvider.getUsersReference(this.authService.email!);
-    return this.firestore.collection<Flashcard[]>('flashcards',
+    return this.firestore.collection<Flashcard>('flashcards',
       r => r.where('userRef', '==', ref)).valueChanges({idField: 'id'});
   }
 
@@ -45,11 +45,20 @@ export class FlashcardsService {
   editFlashcard(flashcardToEdit: Flashcard): Promise<string> {
     return new Promise<string>((resolve, reject) => {
       this.firestore.collection('flashcards').doc(flashcardToEdit.id).update({
-        content: flashcardToEdit.content,
-        example: flashcardToEdit.example,
-        translation: flashcardToEdit.translation,
-        image: flashcardToEdit.image
+        content: flashcardToEdit.content?.trim(),
+        example: flashcardToEdit.example?.trim(),
+        translation: flashcardToEdit.translation?.trim(),
+        image: flashcardToEdit.image,
       }).then(() => resolve(flashcardToEdit.id))
+        .catch(() => reject());
+    });
+  }
+
+  updateLevel(id: string, level: number) {
+    return new Promise<string>((resolve, reject) => {
+      this.firestore.collection('flashcards').doc(id).update({
+        level: level
+      }).then(() => resolve(id))
         .catch(() => reject());
     });
   }

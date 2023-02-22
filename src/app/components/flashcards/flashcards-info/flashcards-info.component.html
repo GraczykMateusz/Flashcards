@@ -1,0 +1,29 @@
+<div class="flashcards-id-info-container">
+  <div class="display-flex" *ngIf="canDisplay()">
+    <mat-icon [inline]="true"
+              [class.random-index-on]="menuTrigger.menuOpen"
+              class="cursor-p"
+              [matMenuTriggerFor]="menu"
+              #menuTrigger="matMenuTrigger">info
+    </mat-icon>
+    <mat-menu #menu="matMenu" yPosition="above">
+      <span mat-menu-item (click)="copyToClipboard()" ngxClipboard [cbContent]="flashcard!.id">{{flashcard!.id}}</span>
+    </mat-menu>
+    <mat-icon [inline]="true"
+              [class.random-index-on]="getRandomIndex()"
+              class="cursor-p"
+              (click)="toggleRandomIndex()">shuffle
+    </mat-icon>
+    <div class="margin-left">
+      <mat-icon class="cursor-p clickable-red-color" (click)="previousLevel()">indeterminate_check_box</mat-icon>
+      <mat-icon class="cursor-p clickable-green-color" (click)="nextLevel()">add_box</mat-icon>
+      <mat-icon *ngIf="flashcard!.level==1">looks_one</mat-icon>
+      <mat-icon *ngIf="flashcard!.level==2">looks_two</mat-icon>
+      <mat-icon *ngIf="flashcard!.level==3">looks_3</mat-icon>
+      <mat-icon *ngIf="flashcard!.level==4">looks_4</mat-icon>
+      <mat-icon *ngIf="flashcard!.level==5">looks_5</mat-icon>
+      <mat-icon *ngIf="flashcard!.level==6">looks_6</mat-icon>
+    </div>
+  </div>
+  <div *ngIf="canDisplay() && index != undefined">{{index + 1}}/{{length}}</div>
+</div>

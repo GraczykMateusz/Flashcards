@@ -5,6 +5,7 @@ export class Flashcard {
   public content?: string;
   public translation?: string;
   public example?: string;
+  public level!: number;
   public image?: string;
 
   static newInstance(id: string, newFlashcard: NewFlashcard): Flashcard {
@@ -13,6 +14,7 @@ export class Flashcard {
     flashcard.image = newFlashcard.image;
     flashcard.translation = newFlashcard.translation;
     flashcard.content = newFlashcard.content;
+    flashcard.level = newFlashcard.level;
     flashcard.example = newFlashcard.example;
     return flashcard;
   }

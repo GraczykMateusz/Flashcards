@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FlashcardsService} from '../../services/flashcards/flashcards.service';
-import {map, take} from 'rxjs';
+import {BehaviorSubject, map, take} from 'rxjs';
 import {Flashcard} from '../../services/flashcards/model/flashcard';
 import {AuthService} from '../../services/auth/auth.service';
 import {Router} from '@angular/router';
@@ -20,6 +20,7 @@ export class FlashcardsComponent implements OnInit {
   nextFlashcardIndex = 0;
   isRotated = false;
   loading = true;
+  notify = new BehaviorSubject<any>("");
 
   constructor(private flashcardsService: FlashcardsService,
               private flashcardsRandomizer: FlashcardsRandomizerService,
@@ -29,6 +30,7 @@ export class FlashcardsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.flashcardsRandomizer.isRandomIndex = false;
     this.auth.getUser()
       .pipe(take(1), map(user => user?.email))
       .subscribe(email => {
@@ -40,6 +42,7 @@ export class FlashcardsComponent implements OnInit {
               this.flashcards = flashcards;
               this.flashcardsRandomizer.randomIndexes = Array.from(Array(this.flashcards.length).keys())
               this.loading = false;
+              this.updateInfo();
             });
         } else {
           this.router.navigateByUrl('/login').then();
@@ -66,5 +69,14 @@ export class FlashcardsComponent implements OnInit {
     } else {
       this.index = this.nextFlashcardIndex;
     }
+    this.updateInfo();
+  }
+
+  updateInfo() {
+    this.notify.next({
+      flashcard: this.flashcards[this.index],
+      index: this.index,
+      length: this.flashcards.length
+    })
   }
 }

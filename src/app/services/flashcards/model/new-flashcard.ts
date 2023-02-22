@@ -6,6 +6,7 @@ export class NewFlashcard {
     public translation: string,
     public example: string,
     public image: string,
+    public level: number,
     public userRef: DocumentReference
   ) {
   }

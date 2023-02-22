@@ -3,7 +3,7 @@
 <div *ngIf="flashcards.length !== 0 && !loading">
   <div class="centered-container">
     <div class="flashcards-info">
-      <app-flashcards-info [id]="flashcards[index]?.id" [index]="index" [length]="flashcards.length"></app-flashcards-info>
+      <app-flashcards-info [notify]="notify"></app-flashcards-info>
     </div>
     <div class="flip-card" (click)="flipCard()">
       <div class="flip-card-inner" [ngClass]="!isRotated ? 'flip-back' : 'flip'">

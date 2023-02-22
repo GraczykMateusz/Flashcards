@@ -50,7 +50,7 @@ import {ModifyFlashcardDialogComponent} from './components/flashcards/flashcards
 import {FlashcardsEditorComponent} from './components/flashcards/flashcards-editor/flashcards-editor.component';
 import {AddFlashcardDialogComponent} from './components/flashcards/flashcards-editor/new-flashcard-dialog/add-flashcard-dialog/add-flashcard-dialog.component';
 import {FlashcardsImageComponent} from './components/flashcards/flashcards-image/flashcards-image.component';
-import {FlashcardsInfoComponent} from './components/flashcards/flashcards-id-info/flashcards-info.component';
+import {FlashcardsInfoComponent} from './components/flashcards/flashcards-info/flashcards-info.component';
 
 @NgModule({
   declarations: [
