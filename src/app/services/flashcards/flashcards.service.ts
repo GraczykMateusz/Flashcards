@@ -20,7 +20,7 @@ export class FlashcardsService {
 
   createFlashcard(content: string, translation: string, example: string, image: string, level: number): Promise<Flashcard> {
     const ref = this.referenceProvider.getUsersReference(this.authService.email!);
-    const flashcard = new NewFlashcard(content?.trim(), translation?.trim(), example?.trim(), image, level, ref);
+    const flashcard = new NewFlashcard(content, translation, example, image, level, ref);
     return new Promise<Flashcard>((resolve, reject) => {
       this.flashcardsCollection.add(flashcard.asObject())
         .then((r) => resolve(Flashcard.newInstance(r.id, flashcard)))
@@ -45,9 +45,9 @@ export class FlashcardsService {
   editFlashcard(flashcardToEdit: Flashcard): Promise<string> {
     return new Promise<string>((resolve, reject) => {
       this.firestore.collection('flashcards').doc(flashcardToEdit.id).update({
-        content: flashcardToEdit.content?.trim(),
-        example: flashcardToEdit.example?.trim(),
-        translation: flashcardToEdit.translation?.trim(),
+        content: flashcardToEdit.content,
+        example: flashcardToEdit.example,
+        translation: flashcardToEdit.translation,
         image: flashcardToEdit.image,
       }).then(() => resolve(flashcardToEdit.id))
         .catch(() => reject());

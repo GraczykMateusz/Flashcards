@@ -2,7 +2,6 @@ import {Component, HostListener, Inject} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {SnackBarComponent} from '../../../common/snack-bar/snack-bar.component';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
-import {FlashcardsService} from '../../../../services/flashcards/flashcards.service';
 import {FlashcardImageUploaderService} from '../../../../services/flashcards/flashcard-creator/flashcard-image-uploader.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {Flashcard} from '../../../../services/flashcards/model/flashcard';
@@ -87,18 +86,6 @@ export abstract class NewFlashcardDialogComponent {
     return formControl.invalid && (formControl.dirty || formControl.touched);
   }
 
-  isInvalid() {
-    const isisInvalidContent = this.isInvalidFormField(this.flashcardFormGroup.controls.content)
-      || this.flashcardFormGroup.controls.content.untouched;
-
-    const isisInvalidTranslation = this.isInvalidFormField(this.flashcardFormGroup.controls.translation)
-      || this.flashcardFormGroup.controls.translation.untouched;
-
-    const isisInvalidExample = this.isInvalidFormField(this.flashcardFormGroup.controls.example);
-
-    return isisInvalidContent || isisInvalidTranslation || isisInvalidExample;
-  }
-
   openSnackBar(success: boolean) {
     this.snackBar.openFromComponent(SnackBarComponent, {
       duration: 3 * 1000,
@@ -109,5 +96,18 @@ export abstract class NewFlashcardDialogComponent {
   resetImage(): void {
     this.flashcardFormGroup.controls.image.setValue(null);
     this.loadedFile = null;
+  }
+
+  canSave(): boolean {
+    const content = this.flashcardFormGroup.value.content;
+    const translation = this.flashcardFormGroup.value.translation;
+
+    if (content == null || translation == null) {
+      return false;
+    }
+    if (content.trim().length == 0 || translation.trim().length == 0) {
+      return false;
+    }
+    return true;
   }
 }

@@ -35,6 +35,11 @@ export class ModifyFlashcardDialogComponent extends NewFlashcardDialogComponent 
   }
 
   modify() {
+    if (!this.canSave()) {
+      this.openSnackBar(false)
+      return;
+    }
+
     this.modifyFlashcard.content = this.flashcardFormGroup.value.content!;
     this.modifyFlashcard.translation = this.flashcardFormGroup.value.translation!;
     this.modifyFlashcard.example = this.flashcardFormGroup.value.example!;

@@ -17,9 +17,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          keys:
-            - astral-{{ checksum "package.json" }}
-            - astral-
+          key: v1-deps-{{ checksum "package-lock.json" }}
 
       - run:
           name: set up secret key
@@ -42,9 +40,9 @@ jobs:
           command: npm run-script build
 
       - save_cache:
+          key: v1-deps-{{ checksum "package-lock.json" }}
           paths:
-            - ~/node_modules
-          key: astral-{{ checksum "package.json" }}
+            - node_modules
 
       - run:
           name: Create google service account key JSON
