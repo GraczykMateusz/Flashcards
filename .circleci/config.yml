@@ -17,7 +17,9 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: v1-deps-{{ checksum "package-lock.json" }}
+          keys:
+            - v1-deps-{{ checksum "package-lock.json" }}
+            - v1-deps-
 
       - run:
           name: set up secret key
@@ -40,7 +42,9 @@ jobs:
           command: npm run-script build
 
       - save_cache:
-          key: v1-deps-{{ checksum "package-lock.json" }}
+          keys:
+            - v1-deps-{{ checksum "package-lock.json" }}
+            - v1-deps-
           paths:
             - node_modules
 
