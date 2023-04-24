@@ -20,7 +20,7 @@ export class FlashcardsMenuComponent implements OnInit {
   constructor(private route: ActivatedRoute, private authService: AuthService) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.activeTab = this.route.snapshot.url[1]?.path;
   }
 
@@ -70,7 +70,7 @@ export class FlashcardsMenuComponent implements OnInit {
     return !this.isPausedTimer && this.isActivatedTimer;
   }
 
-  logout() {
+  logout(): void {
     this.authService.logout();
   }
 }

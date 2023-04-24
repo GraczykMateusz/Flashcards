@@ -20,7 +20,6 @@ export abstract class NewFlashcardDialogComponent {
     image: new FormControl<string | null>(null)
   });
 
-  isError = false;
   dragAreaClass = 'drag-area';
   loadedFile: File | null = null;
 
@@ -31,37 +30,37 @@ export abstract class NewFlashcardDialogComponent {
   ) {
   }
 
-  onFileChange(event: any) {
+  onFileChange(event: any): void {
     let files: FileList = event.target.files;
     this.saveFiles(files).then();
   }
 
   @HostListener("dragover", ["$event"])
-  onDragOver(event: any) {
+  onDragOver(event: any): void {
     this.dragAreaClass = "drop-area";
     event.preventDefault();
   }
 
   @HostListener("dragenter", ["$event"])
-  onDragEnter(event: any) {
+  onDragEnter(event: any): void {
     this.dragAreaClass = "drop-area";
     event.preventDefault();
   }
 
   @HostListener("dragend", ["$event"])
-  onDragEnd(event: any) {
+  onDragEnd(event: any): void {
     this.dragAreaClass = "drag-area";
     event.preventDefault();
   }
 
   @HostListener("dragleave", ["$event"])
-  onDragLeave(event: any) {
+  onDragLeave(event: any): void {
     this.dragAreaClass = "drag-area";
     event.preventDefault();
   }
 
   @HostListener("drop", ["$event"])
-  onDrop(event: any) {
+  onDrop(event: any): void {
     this.dragAreaClass = "drag-area";
     event.preventDefault();
     event.stopPropagation();
@@ -71,13 +70,13 @@ export abstract class NewFlashcardDialogComponent {
     }
   }
 
-  async saveFiles(files: FileList) {
+  async saveFiles(files: FileList): Promise<void> {
     this.loadedFile = files.item(0) as File;
     const imgSrc = await this.flashcardImageUploaderService.convertToImgSrc(this.loadedFile);
     this.flashcardFormGroup.controls.image.setValue('<img src="' + imgSrc + '" alt="flashcard-image"/>');
   }
 
-  reset() {
+  reset(): void {
     this.resetImage();
     this.flashcardFormGroup.reset();
   }
@@ -86,7 +85,7 @@ export abstract class NewFlashcardDialogComponent {
     return formControl.invalid && (formControl.dirty || formControl.touched);
   }
 
-  openSnackBar(success: boolean) {
+  openSnackBar(success: boolean): void {
     this.snackBar.openFromComponent(SnackBarComponent, {
       duration: 3 * 1000,
       data: success

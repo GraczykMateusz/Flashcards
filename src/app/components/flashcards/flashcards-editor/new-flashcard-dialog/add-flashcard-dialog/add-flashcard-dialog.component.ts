@@ -41,7 +41,7 @@ export class AddFlashcardDialogComponent extends NewFlashcardDialogComponent {
         this.openSnackBar(true);
         this.addDialogRef.close({result: newFlashcards});
       }).catch((r) => {
-        console.log(r);
+      console.log(r);
       this.openSnackBar(false)
     });
   }

@@ -11,7 +11,7 @@ export class FlashcardsRandomizerService {
 
   constructor() { }
 
-  toggleRandomIndex() {
+  toggleRandomIndex(): void {
     this.randomIndexes = arrayShuffle(this.randomIndexes)
     this.isRandomIndex = !this.isRandomIndex;
   }

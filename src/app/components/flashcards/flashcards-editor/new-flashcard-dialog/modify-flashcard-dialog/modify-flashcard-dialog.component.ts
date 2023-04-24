@@ -34,7 +34,7 @@ export class ModifyFlashcardDialogComponent extends NewFlashcardDialogComponent 
     })
   }
 
-  modify() {
+  modify(): void {
     if (!this.canSave()) {
       this.openSnackBar(false)
       return;
@@ -55,7 +55,7 @@ export class ModifyFlashcardDialogComponent extends NewFlashcardDialogComponent 
     });
   }
 
-  close() {
+  close(): void {
     this.modifyDialogRef.close();
   }
 }

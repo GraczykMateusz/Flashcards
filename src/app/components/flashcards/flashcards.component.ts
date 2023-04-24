@@ -50,11 +50,11 @@ export class FlashcardsComponent implements OnInit {
       })
   }
 
-  flipCard() {
+  flipCard(): void {
     this.isRotated = !this.isRotated;
   }
 
-  async nextFlashcard() {
+  async nextFlashcard(): Promise<void> {
     this.isRotated = false;
     await new Promise(f => setTimeout(f, 100));
 
@@ -72,7 +72,7 @@ export class FlashcardsComponent implements OnInit {
     this.updateInfo();
   }
 
-  updateInfo() {
+  updateInfo(): void {
     this.notify.next({
       flashcard: this.flashcards[this.index],
       index: this.index,

@@ -32,7 +32,7 @@ export class AuthService {
     return this.angularFireAuth.user;
   }
 
-  async signIn(email: string, password: string, rememberMe: boolean) {
+  async signIn(email: string, password: string, rememberMe: boolean): Promise<void> {
     const persistence = firebase.auth.Auth.Persistence;
     const currentPersistence = (rememberMe) ? persistence.LOCAL : persistence.SESSION;
 
@@ -46,7 +46,7 @@ export class AuthService {
       });
   }
 
-  async signUp(email: string, password: string) {
+  async signUp(email: string, password: string): Promise<void> {
     await this.angularFireAuth.createUserWithEmailAndPassword(email, password)
       .then(r => {
         r.user?.sendEmailVerification()
@@ -54,12 +54,12 @@ export class AuthService {
       });
   }
 
-  async sendResetPasswordEmail(email: string) {
+  async sendResetPasswordEmail(email: string): Promise<void> {
     await this.angularFireAuth.sendPasswordResetEmail(email)
       .then(() => this.resetPasswordSuccess$.next(true));
   }
 
-  logout() {
+  logout(): void {
     this.angularFireAuth.signOut().then();
   }
 }

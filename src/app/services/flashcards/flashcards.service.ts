@@ -54,7 +54,7 @@ export class FlashcardsService {
     });
   }
 
-  updateLevel(id: string, level: number) {
+  updateLevel(id: string, level: number): Promise<string> {
     return new Promise<string>((resolve, reject) => {
       this.firestore.collection('flashcards').doc(id).update({
         level: level

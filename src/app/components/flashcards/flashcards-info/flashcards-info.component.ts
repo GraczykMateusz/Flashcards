@@ -40,48 +40,48 @@ export class FlashcardsInfoComponent implements OnInit, OnDestroy {
     })
   }
 
-  copyToClipboard() {
+  copyToClipboard(): void {
     this.snackBar.openFromComponent(SnackBarComponent, {
       duration: 1000,
       data: true
     });
   }
 
-  toggleRandomIndex() {
+  toggleRandomIndex(): void {
     this.flashcardsRandomizer.toggleRandomIndex();
   }
 
-  getRandomIndex() {
+  getRandomIndex(): boolean {
     return this.flashcardsRandomizer.isRandomIndex;
   }
 
-  nextLevel() {
+  nextLevel(): void {
     if (this.flashcard && this.flashcard.level < this.maxLevel) {
       this.updateLevel(this.flashcard.id, ++this.flashcard.level);
     }
   }
 
-  previousLevel() {
+  previousLevel(): void {
     if (this.flashcard && this.flashcard.level > this.minLevel) {
       this.updateLevel(this.flashcard.id, --this.flashcard.level);
     }
   }
 
-  private updateLevel(id: string, level: number) {
+  canDisplay(): boolean | 0 | undefined {
+    return this.flashcard && this.length && this.index != undefined;
+  }
+
+  private updateLevel(id: string, level: number): void {
     this.flashcardsService.updateLevel(id, level)
       .catch(() => {
         this.openSnackBar(false)
       });
   }
 
-  private openSnackBar(success: boolean) {
+  private openSnackBar(success: boolean): void {
     this.snackBar.openFromComponent(SnackBarComponent, {
       duration: 3 * 1000,
       data: success
     });
-  }
-
-  canDisplay() {
-    return this.flashcard && this.length && this.index != undefined;
   }
 }

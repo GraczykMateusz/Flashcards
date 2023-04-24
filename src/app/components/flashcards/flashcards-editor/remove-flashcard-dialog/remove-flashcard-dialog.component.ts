@@ -22,7 +22,7 @@ export class RemoveFlashcardDialogComponent {
     dialogRef.disableClose = true;
   }
 
-  deleteFlashcard(id: string) {
+  deleteFlashcard(id: string): void {
     this.flashcardsService.deleteFlashcard(id)
       .then((result) => {
         this.openSnackBar(true)
@@ -31,7 +31,7 @@ export class RemoveFlashcardDialogComponent {
       .catch(() => this.openSnackBar(false));
   }
 
-  openSnackBar(success: boolean) {
+  openSnackBar(success: boolean): void {
     this.snackBar.openFromComponent(SnackBarComponent, {
       duration: 3 * 1000,
       data: success

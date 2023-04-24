@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {AngularFirestore} from '@angular/fire/compat/firestore';
-import {map, take} from 'rxjs';
+import {take} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,7 @@ export class UsersService {
   constructor(private firestore: AngularFirestore) {
   }
 
-  addUserIfNeeded(email: any) {
+  addUserIfNeeded(email: any): void {
     this.usersCollection.doc(email).get()
       .pipe(take(1))
       .subscribe(r => {

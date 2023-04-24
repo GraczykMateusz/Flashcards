@@ -54,11 +54,11 @@ export class FlashcardsEditorComponent implements OnInit, AfterViewInit {
       })
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
   }
 
-  applyFilter(event: Event) {
+  applyFilter(event: Event): void {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
@@ -67,7 +67,7 @@ export class FlashcardsEditorComponent implements OnInit, AfterViewInit {
     }
   }
 
-  addFlashcard() {
+  addFlashcard(): void {
     this.dialog.open(AddFlashcardDialogComponent, {
       disableClose: true,
       panelClass: 'custom-add-flashcard-dialog-container'
@@ -80,7 +80,7 @@ export class FlashcardsEditorComponent implements OnInit, AfterViewInit {
     })
   }
 
-  deleteFlashcard(flashcardForRemoval: Flashcard) {
+  deleteFlashcard(flashcardForRemoval: Flashcard): void {
     this.dialog.open(RemoveFlashcardDialogComponent, {
       data: flashcardForRemoval,
       disableClose: true,
@@ -94,7 +94,7 @@ export class FlashcardsEditorComponent implements OnInit, AfterViewInit {
     })
   }
 
-  editFlashcard(flashcardToEdit: Flashcard) {
+  editFlashcard(flashcardToEdit: Flashcard): void {
     this.dialog.open(ModifyFlashcardDialogComponent, {
       data: flashcardToEdit,
       disableClose: true,

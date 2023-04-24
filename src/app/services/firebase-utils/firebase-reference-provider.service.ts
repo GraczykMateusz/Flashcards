@@ -13,8 +13,4 @@ export class FirebaseReferenceProvider {
   getUsersReference(userId: string): DocumentReference {
     return this.store.collection<DocumentData>(USERS).doc(userId).ref;
   }
-
-  getFlashcardsReference(flashcardsId: string): DocumentReference {
-    return this.store.collection<DocumentData>(FLASHCARDS).doc(flashcardsId).ref;
-  }
 }
