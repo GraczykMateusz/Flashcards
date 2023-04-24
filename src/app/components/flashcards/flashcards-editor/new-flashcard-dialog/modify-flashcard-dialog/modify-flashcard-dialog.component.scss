@@ -62,16 +62,19 @@
     text-align: center;
     overflow-y: auto;
 
-    .delete-image-info {
-      font-family: variables.$font-family-segoe;
-      color: variables.$warning-color;
-      font-size: 12px;
-    }
-
     img {
       @include cursor.pointer;
       width: 100%;
       height: auto;
     }
+  }
+
+  .delete-image-info {
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    font-family: variables.$font-family-segoe;
+    color: variables.$warning-color;
+    margin-top: 0.3em;
   }
 }
