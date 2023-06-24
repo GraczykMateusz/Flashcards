@@ -59,3 +59,8 @@ select:-webkit-autofill:focus {
   transition: background-color 600000s 0s !important;
   -webkit-text-fill-color: snow !important;
 }
+
+input:-webkit-autofill::first-line {
+  font-size: 1.3rem !important;
+  font-weight: 700 !important;
+}
