@@ -1,26 +1,25 @@
-import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs';
-import {AngularFirestore} from '@angular/fire/compat/firestore';
-import {AuthService} from '../auth/auth.service';
-import {Flashcard} from './model/flashcard';
-import {NewFlashcard} from './model/new-flashcard';
-import {FirebaseReferenceProvider} from '../firebase-utils/firebase-reference-provider.service';
+import { Injectable } from '@angular/core';
+import { Observable, take } from 'rxjs';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AuthService } from '../auth/auth.service';
+import { Flashcard } from './model/flashcard';
+import { NewFlashcard } from './model/new-flashcard';
+import { BackupFlashcard } from '../backup/backup-flashcard';
+import { FLASHCARDS } from '../firebase-utils/collection-names';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FlashcardsService {
 
-  private flashcardsCollection = this.firestore.collection<NewFlashcard | Flashcard>('flashcards');
+  private flashcardsCollection = this.firestore.collection<NewFlashcard | Flashcard>(FLASHCARDS);
 
   constructor(private firestore: AngularFirestore,
-              private referenceProvider: FirebaseReferenceProvider,
               private authService: AuthService) {
   }
 
   createFlashcard(content: string, translation: string, example: string, image: string, level: number): Promise<Flashcard> {
-    const ref = this.referenceProvider.getUsersReference(this.authService.email!);
-    const flashcard = new NewFlashcard(content, translation, example, image, level, ref);
+    const flashcard = new NewFlashcard(null, content, translation, example, image, level, this.authService.email!);
     return new Promise<Flashcard>((resolve, reject) => {
       this.flashcardsCollection.add(flashcard.asObject())
         .then((r) => resolve(Flashcard.newInstance(r.id, flashcard)))
@@ -28,10 +27,23 @@ export class FlashcardsService {
     });
   }
 
+  addFlashcardsFromBackup(bf: BackupFlashcard[]): Promise<Flashcard[]> {
+    const flashcards = bf.map(f =>  NewFlashcard.newInstance(f));
+    return new Promise<Flashcard[]>((resolve, reject) => {
+      let flashcardsToReturn: Flashcard[] = [];
+      flashcards.forEach(flashcard => {
+        this.flashcardsCollection.add(flashcard.asObject())
+          .then((r) => flashcardsToReturn.push(Flashcard.newInstance(r.id, flashcard)))
+          .catch(() => reject());
+      });
+      resolve(flashcardsToReturn);
+    });
+  }
+
   getFlashcards(): Observable<Flashcard[]> {
-    const ref = this.referenceProvider.getUsersReference(this.authService.email!);
     return this.firestore.collection<Flashcard>('flashcards',
-      r => r.where('userRef', '==', ref)).valueChanges({idField: 'id'});
+      r => r.where('owner', '==', this.authService.email!))
+      .valueChanges({idField: 'id'});
   }
 
   deleteFlashcard(id: string): Promise<string> {
@@ -39,6 +51,21 @@ export class FlashcardsService {
       this.firestore.collection('flashcards').doc(id).delete()
         .then(() => resolve(id))
         .catch(() => reject());
+    });
+  }
+
+  deleteUserFlashcards(): Promise<void> {
+    return new Promise<void>((resolve, reject) => {
+      this.firestore.collection('flashcards',
+        r => r.where('owner', '==', this.authService.email!)).get()
+        .pipe(take(1))
+        .subscribe(querySnapshot => {
+          querySnapshot.forEach(documentSnapshot => {
+            documentSnapshot.ref.delete()
+              .catch(() => reject());
+          });
+          resolve();
+        })
     });
   }
 

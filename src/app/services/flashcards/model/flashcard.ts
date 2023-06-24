@@ -1,4 +1,4 @@
-import {NewFlashcard} from './new-flashcard';
+import { NewFlashcard } from './new-flashcard';
 
 export class Flashcard {
   public id!: string;

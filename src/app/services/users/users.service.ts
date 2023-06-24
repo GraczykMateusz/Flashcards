@@ -1,13 +1,14 @@
-import {Injectable} from '@angular/core';
-import {AngularFirestore} from '@angular/fire/compat/firestore';
-import {take} from 'rxjs';
+import { Injectable } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { take } from 'rxjs';
+import { USERS } from '../firebase-utils/collection-names';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
 
-  private usersCollection = this.firestore.collection<any>('users');
+  private usersCollection = this.firestore.collection<any>(USERS);
 
   constructor(private firestore: AngularFirestore) {
   }
