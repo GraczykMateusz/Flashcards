@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../../services/auth/auth.service';
 
@@ -7,7 +7,7 @@ import {AuthService} from '../../../services/auth/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
   rememberMe = false;
 
@@ -17,6 +17,10 @@ export class LoginComponent {
   });
 
   constructor(private authService: AuthService) {
+  }
+
+  ngOnInit(): void {
+    this.userForm.markAsTouched()
   }
 
   login() {

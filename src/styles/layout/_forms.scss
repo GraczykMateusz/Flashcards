@@ -27,7 +27,7 @@
     color: transparent;
   }
 
-  &:placeholder-shown ~ .form-label {
+  .form-label {
     font-size: 1.3rem;
     cursor: text;
     top: 20px;
@@ -36,25 +36,14 @@
 
 .form-label {
   position: absolute;
-  top: 0;
+  top: 5px;
   display: block;
-  transition: 0.2s;
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: variables.$body-font-color;;
 }
 
-.form-field:focus {
-  ~ .form-label {
-    position: absolute;
-    top: 5px;
-    display: block;
-    transition: 0.2s;
-    font-size: 0.9rem;
-    color: variables.$body-font-color;;
-    font-weight: 700;
-  }
-
-  padding-bottom: 6px;
+.form-field {
+   padding-bottom: 6px;
   font-weight: 700;
   border-width: 3px;
   border-image: linear-gradient(to right, #272c96, #6f76fa);
