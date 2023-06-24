@@ -30,11 +30,15 @@ export class AddFlashcardDialogComponent extends NewFlashcardDialogComponent {
       return;
     }
 
-    const content = this.flashcardFormGroup.controls.content.value!;
-    const translation = this.flashcardFormGroup.controls.translation.value!;
-    const example = this.flashcardFormGroup.controls.example.value!;
+    let content = this.flashcardFormGroup.controls.content.value!;
+    let translation = this.flashcardFormGroup.controls.translation.value!;
+    let example = this.flashcardFormGroup.controls.example.value!;
     const image = this.flashcardFormGroup.controls.image.value!;
     const level = 1;
+
+    if (content != null) content = content.trim();
+    if (translation != null) content = translation.trim();
+    if (example != null) content = example.trim();
 
     this.flashcardsService.createFlashcard(content, translation, example, image, level)
       .then((newFlashcards) => {
