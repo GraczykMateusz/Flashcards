@@ -72,7 +72,7 @@ export abstract class NewFlashcardDialogComponent {
 
   async saveFiles(files: FileList): Promise<void> {
     this.loadedFile = files.item(0) as File;
-    const imgSrc = await this.flashcardImageUploaderService.convertToImgSrc(this.loadedFile);
+    const imgSrc: string = await this.flashcardImageUploaderService.resizeAndConvertFileToBase64(this.loadedFile);
     this.flashcardFormGroup.controls.image.setValue('<img src="' + imgSrc + '" alt="flashcard-image"/>');
   }
 
