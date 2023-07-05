@@ -7,16 +7,16 @@
     </div>
     <div class="flip-card" (click)="flipCard()">
       <div class="flip-card-inner" [ngClass]="!isRotated ? 'flip-back' : 'flip'">
-        <div class="flip-card-front">
+        <span class="flip-card-front">
           <mat-card class="mat-card-background">
-            <mat-card-title>{{flashcards[index]?.content}}</mat-card-title>
+            <mat-card-title><span [innerHtml]="transform(flashcards[index]?.content)"></span></mat-card-title>
             <app-flashcards-image [image]="flashcards[index]?.image"></app-flashcards-image>
           </mat-card>
         </div>
         <div class="flip-card-back">
           <mat-card class="mat-card-background">
-            <mat-card-title>{{flashcards[index]?.translation}}</mat-card-title>
-            <mat-card-content><div [innerHtml]="transformExample(flashcards[index]?.example)"></div></mat-card-content>
+            <mat-card-title><span [innerHtml]="transform(flashcards[index]?.translation)"></span></mat-card-title>
+            <mat-card-content><span [innerHtml]="transform(flashcards[index]?.example)"></span></mat-card-content>
           </mat-card>
         </div>
       </div>

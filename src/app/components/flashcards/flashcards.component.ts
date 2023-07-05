@@ -82,7 +82,7 @@ export class FlashcardsComponent implements OnInit {
     })
   }
 
-  transformExample(value: string | undefined): SafeHtml | string {
+  transform(value: string | undefined): SafeHtml | string {
     if (value?.includes('<br/>')) {
       return this.sanitizer.bypassSecurityTrustHtml(value || '');
     } else {
