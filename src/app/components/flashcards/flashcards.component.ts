@@ -6,6 +6,7 @@ import {AuthService} from '../../services/auth/auth.service';
 import {Router} from '@angular/router';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {FlashcardsRandomizerService} from '../../services/flashcards/flashcards-randomizer/flashcards-randomizer.service';
+import {DomSanitizer, SafeHtml} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-flashcards',
@@ -26,7 +27,8 @@ export class FlashcardsComponent implements OnInit {
               private flashcardsRandomizer: FlashcardsRandomizerService,
               private auth: AuthService,
               private snackBar: MatSnackBar,
-              private router: Router) {
+              private router: Router,
+              private sanitizer: DomSanitizer) {
   }
 
   ngOnInit(): void {
@@ -78,5 +80,13 @@ export class FlashcardsComponent implements OnInit {
       index: this.index,
       length: this.flashcards.length
     })
+  }
+
+  transformExample(value: string | undefined): SafeHtml | string {
+    if (value?.includes('<br/>')) {
+      return this.sanitizer.bypassSecurityTrustHtml(value || '');
+    } else {
+      return value || '';
+    }
   }
 }

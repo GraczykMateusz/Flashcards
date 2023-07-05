@@ -8,5 +8,5 @@ import {Component, Input, ViewEncapsulation} from '@angular/core';
 })
 export class FlashcardsImageComponent {
 
-  @Input() image?: string;
+  @Input() image?: string | undefined;
 }
