@@ -7,7 +7,7 @@
     </div>
     <div class="flip-card" (click)="flipCard()">
       <div class="flip-card-inner" [ngClass]="!isRotated ? 'flip-back' : 'flip'">
-        <span class="flip-card-front">
+        <div class="flip-card-front">
           <mat-card class="mat-card-background">
             <mat-card-title><span [innerHtml]="transform(flashcards[index]?.content)"></span></mat-card-title>
             <app-flashcards-image [image]="flashcards[index]?.image"></app-flashcards-image>
