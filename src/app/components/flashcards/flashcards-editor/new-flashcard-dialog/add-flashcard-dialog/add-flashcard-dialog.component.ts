@@ -37,17 +37,14 @@ export class AddFlashcardDialogComponent extends NewFlashcardDialogComponent {
     const level = 1;
 
     if (content != null) content = content.trim();
-    if (translation != null) content = translation.trim();
-    if (example != null) content = example.trim();
+    if (translation != null) translation = translation.trim();
+    if (example != null) example = example.trim();
 
     this.flashcardsService.createFlashcard(content, translation, example, image, level)
       .then((newFlashcards) => {
         this.openSnackBar(true);
         this.addDialogRef.close({result: newFlashcards});
-      }).catch((r) => {
-      console.log(r);
-      this.openSnackBar(false)
-    });
+      }).catch(() => this.openSnackBar(false));
   }
 
   close(): void {
