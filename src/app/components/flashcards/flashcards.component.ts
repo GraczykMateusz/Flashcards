@@ -84,7 +84,7 @@ export class FlashcardsComponent implements OnInit {
 
   transform(value: string | undefined): SafeHtml | string {
     if (value?.includes('/')) {
-      value = value?.replace('/', '<br/>');
+      value = value?.replaceAll('/', '<br/>');
       return this.sanitizer.bypassSecurityTrustHtml(value || '');
     } else {
       return value || '';
