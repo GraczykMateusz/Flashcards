@@ -36,6 +36,7 @@ export class FlashcardsService {
           example: flashcard.example,
           translation: flashcard.translation,
           image: flashcard.image,
+          level: flashcard.level,
           owner: flashcard.owner
         }).catch(() => reject());
       });
