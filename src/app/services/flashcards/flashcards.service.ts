@@ -11,41 +11,44 @@ import { FLASHCARDS } from '../firebase-utils/collection-names';
   providedIn: 'root'
 })
 export class FlashcardsService {
-
+  
   private flashcardsCollection = this.firestore.collection<NewFlashcard | Flashcard>(FLASHCARDS);
-
+  
   constructor(private firestore: AngularFirestore,
               private authService: AuthService) {
   }
-
+  
   createFlashcard(content: string, translation: string, example: string, image: string, level: number): Promise<Flashcard> {
-    const flashcard = new NewFlashcard(null, content, translation, example, image, level, this.authService.email!);
+    const flashcard = new NewFlashcard(content, translation, example, image, level, this.authService.email!);
     return new Promise<Flashcard>((resolve, reject) => {
       this.flashcardsCollection.add(flashcard.asObject())
         .then((r) => resolve(Flashcard.newInstance(r.id, flashcard)))
         .catch(() => reject());
     });
   }
-
+  
   addFlashcardsFromBackup(bf: BackupFlashcard[]): Promise<Flashcard[]> {
-    const flashcards = bf.map(f =>  NewFlashcard.newInstance(f));
+    const flashcards = bf.map(f => Flashcard.newInstance(f.id, NewFlashcard.newInstance(f)));
     return new Promise<Flashcard[]>((resolve, reject) => {
-      let flashcardsToReturn: Flashcard[] = [];
       flashcards.forEach(flashcard => {
-        this.flashcardsCollection.add(flashcard.asObject())
-          .then((r) => flashcardsToReturn.push(Flashcard.newInstance(r.id, flashcard)))
-          .catch(() => reject());
+        this.firestore.collection('flashcards').doc(flashcard.id).set({
+          content: flashcard.content,
+          example: flashcard.example,
+          translation: flashcard.translation,
+          image: flashcard.image,
+          owner: flashcard.owner
+        }).catch(() => reject());
       });
-      resolve(flashcardsToReturn);
+      resolve(flashcards)
     });
   }
-
+  
   getFlashcards(): Observable<Flashcard[]> {
     return this.firestore.collection<Flashcard>('flashcards',
-      r => r.where('owner', '==', this.authService.email!))
+        r => r.where('owner', '==', this.authService.email!))
       .valueChanges({idField: 'id'});
   }
-
+  
   deleteFlashcard(id: string): Promise<string> {
     return new Promise<string>((resolve, reject) => {
       this.firestore.collection('flashcards').doc(id).delete()
@@ -53,7 +56,7 @@ export class FlashcardsService {
         .catch(() => reject());
     });
   }
-
+  
   deleteUserFlashcards(): Promise<void> {
     return new Promise<void>((resolve, reject) => {
       this.firestore.collection('flashcards',
@@ -65,22 +68,22 @@ export class FlashcardsService {
               .catch(() => reject());
           });
           resolve();
-        })
+        });
     });
   }
-
+  
   editFlashcard(flashcardToEdit: Flashcard): Promise<string> {
     return new Promise<string>((resolve, reject) => {
       this.firestore.collection('flashcards').doc(flashcardToEdit.id).update({
         content: flashcardToEdit.content,
         example: flashcardToEdit.example,
         translation: flashcardToEdit.translation,
-        image: flashcardToEdit.image,
+        image: flashcardToEdit.image
       }).then(() => resolve(flashcardToEdit.id))
         .catch(() => reject());
     });
   }
-
+  
   updateLevel(id: string, level: number): Promise<string> {
     return new Promise<string>((resolve, reject) => {
       this.firestore.collection('flashcards').doc(id).update({

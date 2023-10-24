@@ -2,7 +2,6 @@ import { BackupFlashcard } from '../../backup/backup-flashcard';
 
 export class NewFlashcard {
   constructor(
-    public id: string | null,
     public content: string,
     public translation: string,
     public example: string,
@@ -18,7 +17,6 @@ export class NewFlashcard {
 
   static newInstance(bf: BackupFlashcard): NewFlashcard {
     return new NewFlashcard(
-      bf.id,
       bf.content,
       bf.translation,
       bf.example,

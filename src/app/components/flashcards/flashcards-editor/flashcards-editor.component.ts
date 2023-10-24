@@ -5,7 +5,6 @@ import { MatTableDataSource } from '@angular/material/table';
 import { FlashcardsService } from '../../../services/flashcards/flashcards.service';
 import { AuthService } from '../../../services/auth/auth.service';
 import { MatDialog } from '@angular/material/dialog';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { map, Subject, take, takeUntil } from 'rxjs';
 import { RemoveFlashcardDialogComponent } from './remove-flashcard-dialog/remove-flashcard-dialog.component';
@@ -20,24 +19,23 @@ import { BackupService } from '../../../services/backup/backup.service';
   encapsulation: ViewEncapsulation.None
 })
 export class FlashcardsEditorComponent implements OnInit, AfterViewInit, OnDestroy {
-
+  
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-
+  
   loading = true;
   flashcards: Flashcard[] = [];
   dataSource = new MatTableDataSource<Flashcard>();
   displayedColumns: string[] = ['content', 'translation', 'image-and-example', 'action'];
-
+  
   private destroy$ = new Subject<boolean>();
-
+  
   constructor(private flashcardsService: FlashcardsService,
               private auth: AuthService,
               private dialog: MatDialog,
-              private snackBar: MatSnackBar,
               private router: Router,
               private backupService: BackupService) {
   }
-
+  
   ngOnInit(): void {
     this.loading = true;
     this.auth.getUser()
@@ -49,22 +47,24 @@ export class FlashcardsEditorComponent implements OnInit, AfterViewInit, OnDestr
         } else {
           this.router.navigateByUrl('/login').then();
         }
-      })
-
+      });
+    
+    this.setSearchFilter();
+    
     this.backupService.observeTrigger()
       .pipe(takeUntil(this.destroy$))
-      .subscribe(() => this.refreshData())
+      .subscribe(() => this.refreshData());
   }
-
+  
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
   }
-
+  
   ngOnDestroy(): void {
     this.destroy$.next(true);
     this.destroy$.complete();
   }
-
+  
   refreshData() {
     this.loading = true;
     this.flashcardsService.getFlashcards()
@@ -72,20 +72,21 @@ export class FlashcardsEditorComponent implements OnInit, AfterViewInit, OnDestr
       .subscribe(flashcards => {
         this.flashcards = flashcards;
         this.dataSource = new MatTableDataSource<Flashcard>(this.flashcards);
+        this.setSearchFilter();
         this.dataSource.paginator = this.paginator;
         this.loading = false;
       });
   }
-
+  
   applyFilter(event: Event): void {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
-
+    
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
   }
-
+  
   addFlashcard(): void {
     this.dialog.open(AddFlashcardDialogComponent, {
       disableClose: true,
@@ -96,9 +97,9 @@ export class FlashcardsEditorComponent implements OnInit, AfterViewInit, OnDestr
         this.dataSource = new MatTableDataSource<Flashcard>(this.flashcards);
         this.dataSource.paginator = this.paginator;
       }
-    })
+    });
   }
-
+  
   deleteFlashcard(flashcardForRemoval: Flashcard): void {
     this.dialog.open(RemoveFlashcardDialogComponent, {
       data: flashcardForRemoval,
@@ -108,11 +109,12 @@ export class FlashcardsEditorComponent implements OnInit, AfterViewInit, OnDestr
       if (result) {
         this.flashcards = this.flashcards.filter(flashcard => flashcard.id !== flashcardForRemoval.id);
         this.dataSource = new MatTableDataSource<Flashcard>(this.flashcards);
+        this.setSearchFilter();
         this.dataSource.paginator = this.paginator;
       }
-    })
+    });
   }
-
+  
   editFlashcard(flashcardToEdit: Flashcard): void {
     this.dialog.open(ModifyFlashcardDialogComponent, {
       data: flashcardToEdit,
@@ -123,16 +125,25 @@ export class FlashcardsEditorComponent implements OnInit, AfterViewInit, OnDestr
         this.flashcards = this.flashcards.filter(flashcard => flashcard.id !== flashcardToEdit.id);
         this.flashcards.unshift(flashcardToEdit);
         this.dataSource = new MatTableDataSource<Flashcard>(this.flashcards);
+        this.setSearchFilter();
         this.dataSource.paginator = this.paginator;
       }
-    })
+    });
   }
-
-  downloadBackup() {
+  
+  downloadBackup(): void  {
     this.backupService.download();
   }
-
-  importBackup() {
+  
+  importBackup(): void  {
     this.backupService.import();
+  }
+  
+  private setSearchFilter(): void {
+    this.dataSource.filterPredicate = (record, filter) => {
+      const contentMatch = record.content?.toLocaleLowerCase().includes(filter.toLocaleLowerCase()) || false;
+      const translationMatch = record.translation?.toLocaleLowerCase().includes(filter.toLocaleLowerCase()) || false;
+      return contentMatch || translationMatch;
+    };
   }
 }
