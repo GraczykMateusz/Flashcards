@@ -13,7 +13,7 @@ workflows:
 jobs:
   build-and-deploy-frontend:
     docker:
-      - image: cimg/node:16.17.0
+      - image: cimg/node:20.10.0
     steps:
       - checkout
       - restore_cache:
