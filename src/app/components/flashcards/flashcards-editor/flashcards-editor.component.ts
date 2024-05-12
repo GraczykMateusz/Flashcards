@@ -95,6 +95,7 @@ export class FlashcardsEditorComponent implements OnInit, AfterViewInit, OnDestr
       if (result) {
         this.flashcards.unshift(result.result as Flashcard);
         this.dataSource = new MatTableDataSource<Flashcard>(this.flashcards);
+        this.setSearchFilter();
         this.dataSource.paginator = this.paginator;
       }
     });
